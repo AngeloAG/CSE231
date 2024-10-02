@@ -1,0 +1,9 @@
+﻿  board.cpp
+  move.cpp
+  position.cpp
+  testBoard.cpp
+  testMove.cpp
+  testPosition.cpp
+  Generating Code...
+C:\Users\delta\Downloads\231.03.Lab\position.h(59): warning C4172: returning address of local variable or temporary
+  Lab03.vcxproj -> C:\Users\delta\Downloads\231.03.Lab\x64\Debug\Lab03.exe
