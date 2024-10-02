@@ -31,11 +31,15 @@ public:
 
    // constructor
    Move();
+   Move(const char * s);
+   bool operator == (const Move & rhs) const { return rhs.text == this->text;}
+   bool operator != (const Move & rhs) const { return rhs.text != this->text;}
+
 
 
 private:
-   char letterFromPieceType(PieceType pt)     const { return 'z';   }
-   PieceType pieceTypeFromLetter(char letter) const { return SPACE; }
+   char letterFromPieceType(PieceType pt)     const;
+   PieceType pieceTypeFromLetter(char letter) const;
 
 
 

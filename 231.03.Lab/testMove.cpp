@@ -20,7 +20,14 @@
   **************************************/
 void TestMove::constructor_default() 
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   // EXERCISE
+   Move mov;
+
+   // VERIFY
+   assertUnit(mov.source.isInvalid() == true);
+   assertUnit(mov.dest.isInvalid() == true);
+
 }
 
  /*************************************
@@ -32,7 +39,16 @@ void TestMove::constructor_default()
   **************************************/
 void TestMove::constructString_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+
+   // EXERCISE
+   Move mov("e5e6");
+
+   // VERIFY
+   assertUnit(mov.source == 0x44);
+   assertUnit(mov.dest == 0x45);
+   assertUnit(mov.moveType == Move::MOVE);
+
 }
 
  /*************************************
@@ -226,7 +242,14 @@ void TestMove::getText_castleQueen()
   **************************************/
 void TestMove::letterFromPieceType_space()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(SPACE);
+
+   // VERIFY
+   assertUnit(letter == ' ');
 }
 
  /*************************************
@@ -236,7 +259,14 @@ void TestMove::letterFromPieceType_space()
   **************************************/
 void TestMove::letterFromPieceType_pawn()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(PAWN);
+
+   // VERIFY
+   assertUnit(letter == 'p');
 }
 
  /*************************************
@@ -246,7 +276,14 @@ void TestMove::letterFromPieceType_pawn()
   **************************************/
 void TestMove::letterFromPieceType_bishop()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(BISHOP);
+
+   // VERIFY
+   assertUnit(letter == 'b');
 }
 
  /*************************************
@@ -256,7 +293,14 @@ void TestMove::letterFromPieceType_bishop()
   **************************************/
 void TestMove::letterFromPieceType_knight()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(KNIGHT);
+
+   // VERIFY
+   assertUnit(letter == 'n');
 }
 
  /*************************************
@@ -266,7 +310,14 @@ void TestMove::letterFromPieceType_knight()
   **************************************/
 void TestMove::letterFromPieceType_rook()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(ROOK);
+
+   // VERIFY
+   assertUnit(letter == 'r');
 }
 
  /*************************************
@@ -276,7 +327,14 @@ void TestMove::letterFromPieceType_rook()
   **************************************/
 void TestMove::letterFromPieceType_queen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(QUEEN);
+
+   // VERIFY
+   assertUnit(letter == 'q');
 }
 
  /*************************************
@@ -286,7 +344,14 @@ void TestMove::letterFromPieceType_queen()
   **************************************/
 void TestMove::letterFromPieceType_king()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   char letter = mov.letterFromPieceType(KING);
+
+   // VERIFY
+   assertUnit(letter == 'k');
 }
 
  /*************************************
@@ -296,7 +361,14 @@ void TestMove::letterFromPieceType_king()
   **************************************/
 void TestMove::pieceTypeFromLetter_pawn()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   PieceType pieceType = mov.pieceTypeFromLetter('p');
+
+   // VERIFY
+   assertUnit(pieceType == PAWN);
 }
 
  /*************************************
@@ -306,7 +378,14 @@ void TestMove::pieceTypeFromLetter_pawn()
   **************************************/
 void TestMove::pieceTypeFromLetter_bishop()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   PieceType pieceType = mov.pieceTypeFromLetter('b');
+
+   // VERIFY
+   assertUnit(pieceType == BISHOP);
 }
 
  /*************************************
@@ -316,7 +395,14 @@ void TestMove::pieceTypeFromLetter_bishop()
   **************************************/
 void TestMove::pieceTypeFromLetter_knight()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   PieceType pieceType = mov.pieceTypeFromLetter('n');
+
+   // VERIFY
+   assertUnit(pieceType == KNIGHT);
 }
 
  /*************************************
@@ -326,7 +412,14 @@ void TestMove::pieceTypeFromLetter_knight()
   **************************************/
 void TestMove::pieceTypeFromLetter_rook()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   PieceType pieceType = mov.pieceTypeFromLetter('r');
+
+   // VERIFY
+   assertUnit(pieceType == ROOK);
 }
 
  /*************************************
@@ -336,7 +429,14 @@ void TestMove::pieceTypeFromLetter_rook()
   **************************************/
 void TestMove::pieceTypeFromLetter_queen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   PieceType pieceType = mov.pieceTypeFromLetter('q');
+
+   // VERIFY
+   assertUnit(pieceType == QUEEN);
 }
 
  /*************************************
@@ -346,7 +446,14 @@ void TestMove::pieceTypeFromLetter_queen()
   **************************************/
 void TestMove::pieceTypeFromLetter_king() 
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+
+   // EXERCISE
+   PieceType pieceType = mov.pieceTypeFromLetter('k');
+
+   // VERIFY
+   assertUnit(pieceType == KING);
 }
 
 
@@ -357,7 +464,15 @@ void TestMove::pieceTypeFromLetter_king()
   **************************************/
 void TestMove::equal_not()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov1("b2b4");
+   Move mov2("b2b5");
+
+   // EXERCISE
+   bool equals = mov1 == mov2;
+
+   // VERIFY
+   assertUnit(equals);
 }
 
  /*************************************
@@ -367,7 +482,15 @@ void TestMove::equal_not()
   **************************************/
 void TestMove::equal_equals()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov1("b2b4");
+   Move mov2("b2b4");
+
+   // EXERCISE
+   bool equals = mov1 == mov2;
+
+   // VERIFY
+   assertUnit(equals);
 }
 
  /*************************************

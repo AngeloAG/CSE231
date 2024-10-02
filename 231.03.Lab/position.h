@@ -48,7 +48,7 @@ public:
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
    Position(const Position & rhs) {              }
-   Position() : colRow(0x99)      {              }
+   Position() : colRow(0xff)      {              }
    bool isInvalid() const         { return !isValid();                               }
    bool isValid()   const         { return getLocation() >= 0 && getLocation() < 64; }
    void setValid()                {              }
@@ -56,19 +56,19 @@ public:
    bool operator <  (const Position & rhs) const { return this->colRow < rhs.colRow;  }
    bool operator == (const Position & rhs) const { return rhs.colRow == this->colRow; }
    bool operator != (const Position & rhs) const { return rhs.colRow != this->colRow; }
-   const Position & operator =  (const Position & rhs) { return this->colRow = rhs.colRow; }
+   const Position & operator =  (const Position & rhs) { this->colRow = rhs.colRow; return *this;}
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
-   Position(int location) : colRow(0x99) { }
+   Position(int location) { setLocation(location); }
    int getLocation() const               { return getRow() * 8 + getCol(); }
-   void setLocation(int location)        {           }
+   void setLocation(int location)        { setRow(floor(location / 8)); setCol(location % 8);}
 
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
-   Position(int c, int r) : colRow(0x99)  { this->set(c, r);                  }
-   virtual int getCol() const;             
+   Position(int c, int r)  { this->set(c, r);                  }
+   virtual int getCol() const;
    virtual int getRow() const;             
    void setRow(int r)                     { this->colRow += r;                }
    void setCol(int c)                     { this->colRow += c * 16;           }
@@ -76,7 +76,7 @@ public:
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
-   Position(const char * s) : colRow(0x99) { *this = s; }
+   Position(const char * s) { *this = s; }
    const Position & operator =  (const char     * rhs) { return *this = string(rhs); }
    const Position & operator =  (const string   & rhs) 
    { 

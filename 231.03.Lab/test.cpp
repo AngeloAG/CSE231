@@ -24,6 +24,6 @@ void testRunner()
 {
    // unit tests
    PositionTest().run();
-   /*TestMove().run();
-   TestBoard().run();*/
+   TestMove().run();
+//   TestBoard().run();
 }
