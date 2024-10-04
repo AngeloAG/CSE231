@@ -60,9 +60,9 @@ public:
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
-   Position(int location)                { setLocation(location);                                            }
-   int getLocation() const               { return getRow() * 8 + getCol();                                   }
-   void setLocation(int location)        { setRow(location / 8); setCol(location - floor(location / 8) * 8); }
+   Position(int location)         { setLocation(location);                      }
+   int getLocation() const        { return getRow() * 8 + getCol();             }
+   void setLocation(int location) { setRow(location / 8); setCol(location % 8); }
 
    
    // Row/Col : The position class can work with row/column,
@@ -70,21 +70,16 @@ public:
    Position(int c, int r)                 { this->set(c, r);                  }
    virtual int getCol() const;             
    virtual int getRow() const;             
-   void setRow(int r)                     { this->colRow &= 0xf0; this->colRow |= r;                  }
-   void setCol(int c)                     { this->colRow &= 0x0f; this->colRow |= (c << 4);           }
-   void set(int c, int r)                 { this->setCol(c); this->setRow(r); }
+   void setRow(int r)                     { this->colRow &= 0xf0; this->colRow |= r;        }
+   void setCol(int c)                     { this->colRow &= 0x0f; this->colRow |= (c << 4); }
+   void set(int c, int r)                 { this->setCol(c); this->setRow(r);               }
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
-   Position(const char * s) : colRow(0x99) { *this = s; }
-   const Position & operator =  (const char     * rhs) { return *this = string(rhs); }
-   const Position & operator =  (const string   & rhs) 
-   { 
-      set(rhs[0] - 'a', rhs[1] - '1');
-      return *this; 
-   }
+   Position(const char * s) : colRow(0xff)        { *this = s; }
+   const Position & operator = (const char * rhs) { return *this = string(rhs); }
+   Position & operator = (const string & rhs);
 
-   
    // Pixels:    The Position class can work with screen coordinates,
    //            a.k.a. Pixels, these are X and Y coordinates. Note that
    //            we need to scale them according to the size of the board.
@@ -99,40 +94,11 @@ public:
    // Delta:    The Position class can work with deltas, which are
    //           offsets from a given location. This helps pieces move
    //           on the chess board.
-   Position(const Position & rhs, const Delta & delta) : colRow(-1) {  }
-   void adjustRow(int dRow)   
-   { 
-      if (getRow() + dRow > 7 || getRow() + dRow < 0)
-      {
-         colRow = 0xff;
-      }
-      else
-      {
-         colRow += dRow;
-      }
-   }
-
-   void adjustCol(int dCol)   
-   {
-      if (getCol() + dCol > 7 || getCol() + dCol < 0)
-      {
-         colRow = 0xff;
-      }
-      else
-      {
-         colRow += dCol * 16;
-      }
-   }
-   const Position & operator += (const Delta & rhs) 
-   { 
-      if (isValid())
-      {
-         adjustCol(rhs.dCol); 
-         adjustRow(rhs.dRow); 
-      }
-      return *this; 
-   }
-   Position operator + (const Delta & rhs) const { return *this; }
+   Position(const Position & rhs, const Delta & delta) : colRow(rhs.colRow) { *this += delta; }
+   void adjustRow(int dRow);
+   void adjustCol(int dCol);
+   Position & operator += (const Delta & rhs);
+   Position operator + (const Delta & rhs) const;
 
 private:
    void set(uint8_t colRowNew) { }

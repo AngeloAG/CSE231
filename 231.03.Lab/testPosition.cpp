@@ -12,6 +12,45 @@
 #include "position.h"     // for POSITION
 #include <cassert>        // for ASSERT
 
+void PositionTest::setLocation_middle()
+{
+   // SETUP
+   Position pos;
+   pos.colRow = 0x00;
+
+   // EXERCISE
+   pos.setLocation(33);
+
+   // VERIFY
+   assertUnit(pos.colRow == 0x14);
+}
+
+void PositionTest::setLocation_zero()
+{
+   // SETUP
+   Position pos;
+   pos.colRow = 0x14;
+
+   // EXERCISE
+   pos.setLocation(0);
+
+   // VERIFY
+   assertUnit(pos.colRow == 0x00);
+}
+
+
+void PositionTest::setLocation_end()
+{
+   // SETUP
+   Position pos;
+   pos.colRow = 0x00;
+
+   // EXERCISE
+   pos.setLocation(63);
+
+   // VERIFY
+   assertUnit(pos.colRow == 0x77);
+}
 
 /***********************************************
  * GET  Zero

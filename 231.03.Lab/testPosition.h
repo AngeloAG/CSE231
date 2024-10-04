@@ -70,6 +70,10 @@ public:
       adjust_offLeft();
       adjust_offBottom();
       adjust_invalid();
+
+      setLocation_middle();
+      setLocation_zero();
+      setLocation_end();
       
       report("Position");
    }
@@ -126,4 +130,8 @@ private:
    void lessthan_lessthan();
    void lessthan_equals();
    void lessthan_greaterthan();
+
+   void setLocation_middle();
+   void setLocation_zero();
+   void setLocation_end();
 };
