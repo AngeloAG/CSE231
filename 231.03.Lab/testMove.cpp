@@ -20,7 +20,13 @@
   **************************************/
 void TestMove::constructor_default() 
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   // EXERCISE
+   Move mov;
+
+   // VERIFY
+   assertUnit(mov.source.isInvalid() == true);
+   assertUnit(mov.dest.isInvalid() == true);
 }
 
  /*************************************
@@ -32,7 +38,21 @@ void TestMove::constructor_default()
   **************************************/
 void TestMove::constructString_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Position source(4, 4);
+   Position dest(4, 5);
+
+   // EXERCISE
+   Move mov("e5e6");
+
+   // VERIFY
+   assertUnit(mov.source == source);
+   assertUnit(mov.dest == dest);
+   assertUnit(mov.source.getCol() == 4);
+   assertUnit(mov.source.getRow() == 4);
+   assertUnit(mov.dest.getCol() == 4);
+   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.moveType == Move::MOVE);
 }
 
  /*************************************

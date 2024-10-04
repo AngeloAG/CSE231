@@ -31,6 +31,7 @@ public:
 
    // constructor
    Move();
+   Move(const char* s);
 
 
 private:
