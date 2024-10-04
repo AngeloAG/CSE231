@@ -47,16 +47,16 @@ public:
 
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
-   Position(const Position & rhs) {              }
-   Position() : colRow(0x99)      {              }
+   Position(const Position & rhs): colRow(rhs.colRow) {}
+   Position() : colRow(0xff)      {                                                  }
    bool isInvalid() const         { return !isValid();                               }
    bool isValid()   const         { return getLocation() >= 0 && getLocation() < 64; }
-   void setValid()                {              }
-   void setInvalid()              {              }
-   bool operator <  (const Position & rhs) const { return this->colRow < rhs.colRow;  }
-   bool operator == (const Position & rhs) const { return rhs.colRow == this->colRow; }
-   bool operator != (const Position & rhs) const { return rhs.colRow != this->colRow; }
-   const Position & operator =  (const Position & rhs) { this->colRow = rhs.colRow; return *this; }
+   void setValid()                {                                                  }
+   void setInvalid()              {                                                  }
+   bool operator <  (const Position & rhs) const { return this->colRow < rhs.colRow; }
+   bool operator == (const Position & rhs) const { return rhs.colRow == this->colRow;            }
+   bool operator != (const Position & rhs) const { return rhs.colRow != this->colRow;            }
+   const Position & operator = (const Position & rhs) { this->colRow = rhs.colRow; return *this; }
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
