@@ -56,13 +56,13 @@ public:
    bool operator <  (const Position & rhs) const { return this->colRow < rhs.colRow;  }
    bool operator == (const Position & rhs) const { return rhs.colRow == this->colRow; }
    bool operator != (const Position & rhs) const { return rhs.colRow != this->colRow; }
-   const Position & operator =  (const Position & rhs) { return this->colRow = rhs.colRow; }
+   const Position & operator =  (const Position & rhs) { this->colRow = rhs.colRow; return *this; }
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
-   Position(int location) : colRow(0x99) { }
-   int getLocation() const               { return getRow() * 8 + getCol(); }
-   void setLocation(int location)        {           }
+   Position(int location)                { setLocation(location);                                            }
+   int getLocation() const               { return getRow() * 8 + getCol();                                   }
+   void setLocation(int location)        { setRow(location / 8); setCol(location - floor(location / 8) * 8); }
 
    
    // Row/Col : The position class can work with row/column,
