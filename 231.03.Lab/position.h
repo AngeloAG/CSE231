@@ -67,11 +67,11 @@ public:
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
-   Position(int c, int r) : colRow(0x99)  { this->set(c, r);                  }
+   Position(int c, int r)                 { this->set(c, r);                  }
    virtual int getCol() const;             
    virtual int getRow() const;             
-   void setRow(int r)                     { this->colRow += r;                }
-   void setCol(int c)                     { this->colRow += c * 16;           }
+   void setRow(int r)                     { this->colRow &= 0xf0; this->colRow |= r;                  }
+   void setCol(int c)                     { this->colRow &= 0x0f; this->colRow |= (c << 4);           }
    void set(int c, int r)                 { this->setCol(c); this->setRow(r); }
 
    // Text:    The Position class can work with textual coordinates,
