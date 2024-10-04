@@ -60,7 +60,16 @@ void TestMove::constructString_simple()
   **************************************/
 void TestMove::read_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov;
+   
+   // EXERCISE
+   mov.read("e5e6");
+   
+   // VERIFY
+   assertUnit(mov.source == 0x44);
+   assertUnit(mov.dest == 0x45);
+   assertUnit(mov.moveType == Move::MOVE);
 }
 
  /*************************************
@@ -182,7 +191,18 @@ void TestMove::assign_castleQueen()
   **************************************/
 void TestMove::getText_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move mov("e5e6");
+   
+   // EXERCISE
+   string smith = mov.getText();
+
+   // VERIFY
+   assertUnit(mov.source == 0x44);
+   assertUnit(mov.dest == 0x45);
+   assertUnit(mov.moveType == Move::MOVE);
+   assertUnit(smith == "e5e6");
+
 }
 
  /*************************************

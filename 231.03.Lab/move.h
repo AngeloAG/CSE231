@@ -34,7 +34,9 @@ public:
    Move(const char * s);
    bool operator == (const Move & rhs) const { return rhs.text == this->text;}
    bool operator != (const Move & rhs) const { return rhs.text != this->text;}
-
+//   bool operator < (const Move & rhs) const { return rhs. < this->text;}
+   void read(const string smithMove);
+   string getText() const;
 
 
 private:
