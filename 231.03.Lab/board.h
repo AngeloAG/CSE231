@@ -2,7 +2,7 @@
  * Header File:
  *    BOARD 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano Gaona
  * Summary:
  *    A collection of pieces and the state of the board
  ************************************************************************/
@@ -40,10 +40,11 @@ class Board
    friend TestBoard;
 
 public:
+   Board();
 
    // getters
-   virtual int  getCurrentMove() const { return -99;      }
-   virtual bool whiteTurn()      const { return false;  }
+   virtual int  getCurrentMove() const { return numMoves;           }
+   virtual bool whiteTurn()      const { return numMoves % 2 == 0;  }
    virtual void display(const Position& posHover, const Position& posSelect) const {}
    virtual const Piece& operator [] (const Position& pos) const;
 

@@ -2,7 +2,7 @@
  * Header File:
  *    MOVE 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano Gaona
  * Summary:
  *    Everything we need to know about a single chess move
  ************************************************************************/
@@ -32,16 +32,17 @@ public:
    // constructor
    Move();
    Move(const char * s);
-   bool operator == (const Move & rhs) const { return rhs.text == this->text;}
-   bool operator != (const Move & rhs) const { return rhs.text != this->text;}
-//   bool operator < (const Move & rhs) const { return rhs. < this->text;}
-   void read(const string smithMove);
+   bool operator == (const Move & rhs) const  { return rhs.text == this->text;    }
+   bool operator != (const Move & rhs) const  { return rhs.text != this->text;    }
+   bool operator <  (const Move & rhs) const  { return dest.getLocation() < rhs.dest.getLocation(); }
+   const Move & operator = (const char * rhs) { read(string(rhs)); return *this; }
+   Move & operator = (const Move & rhs);
    string getText() const;
-
 
 private:
    char letterFromPieceType(PieceType pt)     const;
    PieceType pieceTypeFromLetter(char letter) const;
+   void read(const string smithMove);
 
 
 

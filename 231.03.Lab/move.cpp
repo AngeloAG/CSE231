@@ -2,7 +2,7 @@
  * Source File:
  *    MOVE 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano Gaona
  * Summary:
  *    Everything we need to know about a single chess move
  ************************************************************************/
@@ -18,21 +18,35 @@ using namespace std;
 /***************************************************
  * MOVE : DEFAULT CONSTRUCTOR
  ***************************************************/
-Move::Move()
+Move::Move(): source(), dest(), promote(INVALID), capture(INVALID), moveType(MOVE), text(""), isWhite(true) {}
+
+/***************************************************
+ * MOVE : CONSTRUCTOR FROM STRING
+ ***************************************************/
+Move::Move(const char * s): promote(INVALID), capture(INVALID), moveType(MOVE), text(s), isWhite(true)
 {
-   Position dest;
-   Position source;
-   text = "";
+   read(string(s));
 }
 
-Move::Move(const char * s)
+/*************************************
+ * ASSIGN OPERATOR FROM ANOTHER MOVE
+ **************************************/
+Move& Move::operator = (const Move & rhs)
 {
-   source.set(s[0] - 'a', s[1] - '0');
-   dest.set(s[2] - 'a', s[3] - '0');
-   moveType = MOVE;
-   text = s;
+   source = rhs.source;
+   dest = rhs.dest;
+   promote = rhs.promote;
+   capture = rhs.capture;
+   moveType = rhs.moveType;
+   text = rhs.text;
+   isWhite = rhs.isWhite;
+   return *this;
 }
 
+/*************************************
+ * LETTER FROM PIECE TYPE
+ * Returns the character representation of a piece
+ **************************************/
 char Move::letterFromPieceType(PieceType pt) const
 {
    switch (pt) {
@@ -58,10 +72,15 @@ char Move::letterFromPieceType(PieceType pt) const
          return 'n';
          
       default:
-         return ;
+         return 'i';
    }
 }
 
+/*************************************
+ * PIECE TYPE FROM LETTER
+ * Returns the PieceType that corresponds 
+ * to a given character
+ **************************************/
 PieceType Move::pieceTypeFromLetter(char letter) const
 {
    switch (letter) {
@@ -91,44 +110,79 @@ PieceType Move::pieceTypeFromLetter(char letter) const
    }
 }
 
+/*************************************
+ * READ
+ * Translates a smith notation move
+ * into aan actual move
+ **************************************/
 void Move::read(const string smithMove)
 {
-   source.set(smithMove[0], smithMove[1]);
-   dest.set(smithMove[2], smithMove[3]);
+   char sourceChars[2];
+   char destChars[2];
+
+   sourceChars[0] = smithMove[0];
+   sourceChars[1] = smithMove[1];
+   destChars[0] = smithMove[2];
+   destChars[1] = smithMove[3];
+
+   source = Position(sourceChars);
+   dest = Position(destChars);
+
+   // If there's a fifth character 
+   // that means we have to consider 
+   // a special move
    if (smithMove.size() > 4) 
    {
-      smithMove[4];
+      switch (smithMove[4])
+      {
+         case 'E':
+            moveType = ENPASSANT;
+            capture = PAWN;
+            break;
+         case 'C':
+            moveType = CASTLE_QUEEN;
+            break;
+         case 'c':
+            moveType = CASTLE_KING;
+            break;
+         default:
+            moveType = MOVE;
+            capture = pieceTypeFromLetter(smithMove[4]);
+            break;
+         }
    }
+
+   text = smithMove;
 }
 
-
+/*************************************
+ * GET TEXT
+ * Translates move into it's smith notation
+ * representation
+ **************************************/
 string Move::getText() const
 {
    string smithNotation;
-   int source1 = source.getCol();
-   
-   char firstChar = 'a';
-   firstChar += source1;
    smithNotation += source.getCol() + 'a';
-   smithNotation += source.getRow() + '0';
+   smithNotation += source.getRow() + '1';
    smithNotation += dest.getCol() + 'a';
-   smithNotation += dest.getRow() + '0';
+   smithNotation += dest.getRow() + '1';
 
    switch (moveType) {
       case ENPASSANT:
          return smithNotation += 'E';
       case CASTLE_QUEEN:
-         return smithNotation += 'c';
-      case CASTLE_KING:
          return smithNotation += 'C';
+      case CASTLE_KING:
+         return smithNotation += 'c';
       default:
          break;
    }
-   if (capture != INVALID || capture != SPACE)
+
+   if (capture != INVALID && capture != SPACE)
    {
       return smithNotation += letterFromPieceType(capture);
    };
-//   
-//   smithNotation += source.getCol() + 'a';
-//   return smithNotation += source.getCol() + 'a';
+
+   return smithNotation;
 }

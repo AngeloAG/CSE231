@@ -2,7 +2,7 @@
  * Header File:
  *    TEST BOARD
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for Board
  ************************************************************************/
