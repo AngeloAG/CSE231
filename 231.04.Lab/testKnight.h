@@ -24,8 +24,8 @@ public:
    {
       getMoves_blocked();
       getMoves_capture();
-      getMoves_free();
-      getMoves_end();
+      //getMoves_free();
+      //getMoves_end();
 
       getType();
       

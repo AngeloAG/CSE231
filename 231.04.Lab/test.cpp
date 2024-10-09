@@ -53,5 +53,5 @@ void testRunner()
 //   TestBoard().run();
    TestPiece().run();
    TestSpace().run();
-//   TestKnight().run();
+   TestKnight().run();
 }

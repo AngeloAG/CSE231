@@ -32,6 +32,7 @@ public:
    // constructor
    Move();
    Move(const char * s);
+   Move(Position source, Position dest, bool isWhite, PieceType capture = INVALID, MoveType type = MOVE, PieceType promote = INVALID);
    bool operator == (const Move & rhs) const  { return rhs.text == this->text;    }
    bool operator != (const Move & rhs) const  { return rhs.text != this->text;    }
    bool operator <  (const Move & rhs) const  { return dest.getLocation() < rhs.dest.getLocation(); }

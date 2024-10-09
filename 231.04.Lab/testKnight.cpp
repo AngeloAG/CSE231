@@ -75,24 +75,24 @@ void TestKnight::getMoves_blocked()
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
    knight.fWhite = true;
-   knight.position.set(4, 4);
-   board.board[2][4] = &knight;
+   knight.position.set(3, 4);
+   board.board[3][4] = &knight;
    White white1(PAWN);
-   board.board[2][6] = &white1;
+   board.board[4][6] = &white1;
    White white2(PAWN);
-   board.board[4][6] = &white2;
+   board.board[5][5] = &white2;
    White white3(PAWN);
-   board.board[1][5] = &white3;
+   board.board[5][3] = &white3;
    White white4(PAWN);
-   board.board[5][5] = &white4;
+   board.board[4][2] = &white4;
    White white5(PAWN);
-   board.board[1][3] = &white5;
+   board.board[2][2] = &white5;
    White white6(PAWN);
-   board.board[5][3] = &white6;
+   board.board[1][3] = &white6;
    White white7(PAWN);
-   board.board[2][2] = &white7;
+   board.board[1][5] = &white7;
    White white8(PAWN);
-   board.board[4][2] = &white8;
+   board.board[2][6] = &white8;
    set <Move> moves;
 
    // EXERCISE
@@ -102,15 +102,15 @@ void TestKnight::getMoves_blocked()
    assertUnit(moves.size() == 0);  // no possible moves
 
    // TEARDOWN
-   board.board[4][4] = nullptr;
-   board.board[2][6] = nullptr;
+   board.board[3][4] = nullptr;
    board.board[4][6] = nullptr;
-   board.board[1][5] = nullptr;
    board.board[5][5] = nullptr;
-   board.board[1][3] = nullptr;
-   board.board[5][3] = nullptr;
-   board.board[2][2] = nullptr;
+   board.board[6][3] = nullptr;
    board.board[4][2] = nullptr;
+   board.board[2][2] = nullptr;
+   board.board[1][3] = nullptr;
+   board.board[1][5] = nullptr;
+   board.board[2][6] = nullptr;
 }
 
 /*************************************
@@ -133,24 +133,24 @@ void TestKnight::getMoves_capture()
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
    knight.fWhite = true;
-   knight.position.set(4, 4);
-   board.board[2][4] = &knight;
+   knight.position.set(3, 4);
+   board.board[3][4] = &knight;
    Black black1(PAWN);
-   board.board[2][6] = &black1;
+   board.board[4][6] = &black1;
    Black black2(PAWN);
-   board.board[4][6] = &black2;
+   board.board[5][5] = &black2;
    Black black3(PAWN);
-   board.board[1][5] = &black3;
+   board.board[5][3] = &black3;
    Black black4(PAWN);
-   board.board[5][5] = &black4;
+   board.board[4][2] = &black4;
    Black black5(PAWN);
-   board.board[1][3] = &black5;
+   board.board[2][2] = &black5;
    Black black6(PAWN);
-   board.board[5][3] = &black6;
+   board.board[1][3] = &black6;
    Black black7(PAWN);
-   board.board[2][2] = &black7;
+   board.board[1][5] = &black7;
    Black black8(PAWN);
-   board.board[4][2] = &black8;
+   board.board[2][6] = &black8;
    set <Move> moves;
    
    // EXERCISE
@@ -168,15 +168,15 @@ void TestKnight::getMoves_capture()
    assertUnit(moves.find(Move("d5e3p")) != moves.end());
    
    // TEARDOWN
-   board.board[4][4] = nullptr;
-   board.board[2][6] = nullptr;
+   board.board[3][4] = nullptr;
    board.board[4][6] = nullptr;
-   board.board[1][5] = nullptr;
    board.board[5][5] = nullptr;
-   board.board[1][3] = nullptr;
    board.board[5][3] = nullptr;
-   board.board[2][2] = nullptr;
    board.board[4][2] = nullptr;
+   board.board[2][2] = nullptr;
+   board.board[1][3] = nullptr;
+   board.board[1][5] = nullptr;
+   board.board[2][6] = nullptr;
 }
 
 /*************************************
@@ -199,8 +199,8 @@ void TestKnight::getMoves_free()
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
    knight.fWhite = true;
-   knight.position.set(4, 4);
-   board.board[2][4] = &knight;
+   knight.position.set(3, 4);
+   board.board[3][4] = &knight;
    set <Move> moves;
    
    // EXERCISE
@@ -218,7 +218,7 @@ void TestKnight::getMoves_free()
    assertUnit(moves.find(Move("d5e3")) != moves.end());
    
    // TEARDOWN
-   board.board[4][4] = nullptr;
+   board.board[3][4] = nullptr;
 
 }
 
@@ -231,5 +231,17 @@ void TestKnight::getMoves_free()
  **************************************/
 void TestKnight::getType()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Knight knight(7, 7, false /*white*/);
+   knight.fWhite = true;
+   knight.position.colRow = 0x34;
+   PieceType type = KING;
+
+   // EXERCISE
+   type = knight.getType();
+
+   // VERIFY
+   assertUnit(type == KNIGHT);
+   assertUnit(knight.fWhite == true);
+   assertUnit(knight.position.colRow == 0x34);
 }  // TEARDOWN

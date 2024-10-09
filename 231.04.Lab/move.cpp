@@ -28,6 +28,15 @@ Move::Move(const char * s): promote(INVALID), capture(INVALID), moveType(MOVE), 
    read(string(s));
 }
 
+/***************************************************
+ * MOVE : CONSTRUCTOR FROM OBJECTS
+ ***************************************************/
+Move::Move(const Position source, Position dest, bool isWhite, PieceType capture, MoveType type, PieceType promote)
+   : source(source), dest(dest), promote(promote), capture(capture), moveType(type), isWhite(isWhite)
+{
+   this->text = this->getText();
+}
+
 /*************************************
  * ASSIGN OPERATOR FROM ANOTHER MOVE
  **************************************/

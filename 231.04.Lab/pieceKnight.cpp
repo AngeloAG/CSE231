@@ -26,13 +26,30 @@ void Knight::display(ogstream* pgout) const
  *********************************************/
 void Knight::getMoves(set <Move>& moves, const Board& board) const
 {
-   int r = position.getRow();
-   int c = position.getCol();
-   Position pos(c+1, r+2);
-   if (
-       board[pos].getType() == SPACE ||
-       board[pos].isWhite() != this->fWhite
-       ) {
-          moves.insert(Move("{}"));
+   int r = this->position.getRow();
+   int c = this->position.getCol();
+   
+   Position defaultMoves[8] = {
+                         Position(c - 1, r + 2), Position(c + 1, r + 2),
+   Position(c - 2, r + 1),                                             Position(c + 2, r + 1),
+   Position(c - 2, r - 1),                                             Position(c + 2, r - 1),
+                         Position(c - 1, r - 2), Position(c + 1, r - 2)
+   };
+
+   Position currentPositionCopy(position);
+   for (int i = 0; i < 8; i++)
+   {
+      Position possibleDestination = defaultMoves[i];
+      const Piece& pieceInDestination = board[possibleDestination];
+      if (pieceInDestination.getType() == SPACE)
+      {
+         Move move(currentPositionCopy, possibleDestination, this->isWhite());
+         moves.insert(move);
       }
+      else if (pieceInDestination.isWhite() != this->fWhite)
+      {
+         Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDestination.getType());
+         moves.insert(move);
+      }
+   }
 }

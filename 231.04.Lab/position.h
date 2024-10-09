@@ -44,6 +44,7 @@ class PositionTest;
 class Position
 {
    friend class PositionTest;
+   friend class TestKnight;
 public:
 
    // Position :    The Position class can work with other positions,
