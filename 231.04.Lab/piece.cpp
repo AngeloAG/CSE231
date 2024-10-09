@@ -2,7 +2,7 @@
  * Source File:
  *    PIECE 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano
  * Summary:
  *    The Piece base class and all the derived classes:
  *       SPACE, KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN
@@ -23,7 +23,10 @@ using namespace std;
  ***********************************************/
 const Piece & Piece::operator = (const Piece & rhs)
 {
-
+   this->position = rhs.position;
+   this->nMoves   = rhs.nMoves  ;
+   this->lastMove = rhs.lastMove;
+   this->fWhite   = rhs.fWhite  ;
    return *this;
 }
 
@@ -35,3 +38,7 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
 {
 }
 
+bool Piece::justMoved(int currentMove) const
+{
+   return lastMove + 1 == currentMove;
+}

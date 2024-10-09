@@ -2,7 +2,7 @@
  * Source File:
  *    KNIGHT
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano
  * Summary:
  *    The knight class
  ************************************************************************/
@@ -26,5 +26,13 @@ void Knight::display(ogstream* pgout) const
  *********************************************/
 void Knight::getMoves(set <Move>& moves, const Board& board) const
 {
-
+   int r = position.getRow();
+   int c = position.getCol();
+   Position pos(c+1, r+2);
+   if (
+       board[pos].getType() == SPACE ||
+       board[pos].isWhite() != this->fWhite
+       ) {
+          moves.insert(Move("{}"));
+      }
 }

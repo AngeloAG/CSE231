@@ -2,7 +2,7 @@
  * Source File:
  *    TEST PIECE
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano
  * Summary:
  *    The unit tests for a piece base class
  ************************************************************************/
