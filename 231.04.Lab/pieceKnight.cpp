@@ -17,7 +17,7 @@
  ***************************************************/
 void Knight::display(ogstream* pgout) const
 {
-
+   pgout -> drawKnight(position, fWhite);
 }
 
 
@@ -40,16 +40,18 @@ void Knight::getMoves(set <Move>& moves, const Board& board) const
    for (int i = 0; i < 8; i++)
    {
       Position possibleDestination = defaultMoves[i];
-      const Piece& pieceInDestination = board[possibleDestination];
-      if (pieceInDestination.getType() == SPACE)
-      {
-         Move move(currentPositionCopy, possibleDestination, this->isWhite());
-         moves.insert(move);
-      }
-      else if (pieceInDestination.isWhite() != this->fWhite)
-      {
-         Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDestination.getType());
-         moves.insert(move);
+      if (possibleDestination.isValid()){
+         const Piece& pieceInDestination = board[possibleDestination];
+         if (pieceInDestination.getType() == SPACE)
+         {
+            Move move(currentPositionCopy, possibleDestination, this->isWhite());
+            moves.insert(move);
+         }
+         else if (pieceInDestination.isWhite() != this->fWhite)
+         {
+            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDestination.getType());
+            moves.insert(move);
+         }
       }
    }
 }

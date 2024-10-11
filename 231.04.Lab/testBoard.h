@@ -42,9 +42,6 @@ public:
       set_a1();
       set_h8();
       set_a8();
-
-      report("Board");
-      
       
       // move
       move_knightMove();

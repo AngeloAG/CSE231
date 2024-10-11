@@ -64,6 +64,17 @@ protected:
    int numMoves;
 
    ogstream* pgout;
+   
+private:
+   void setUpKnights();
+   void setUpSpaces();
+   void setUpQueens();
+   void setUpKings();
+   void setUpRooks();
+   void setUpPawns();
+   void setUpBishops();
+   
+
 };
 
 

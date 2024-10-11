@@ -2,7 +2,8 @@
  * Header File:
  *    TEST KNIGHT
  * Author:
- *    <your name here>
+ *    Jacob Mower
+         
  * Summary:
  *    The unit tests for Knight
  ************************************************************************/
@@ -24,8 +25,8 @@ public:
    {
       getMoves_blocked();
       getMoves_capture();
-      //getMoves_free();
-      //getMoves_end();
+      getMoves_free();
+      getMoves_end();
 
       getType();
       

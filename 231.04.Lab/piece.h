@@ -62,6 +62,7 @@ public:
    // getters
    virtual bool operator == (PieceType pt) const { return this->getType() == pt;}
    virtual bool operator != (PieceType pt) const { return this->getType() != pt;}
+   virtual void operator =  (const Position pos) { this->position         = pos;}
    virtual bool isWhite()                  const { return fWhite;               }
    virtual bool isMoved()                  const { return nMoves > 0;           }
    virtual int  getNMoves()                const { return nMoves;               }

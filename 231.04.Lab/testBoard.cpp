@@ -37,8 +37,8 @@ void TestBoard::move_knightMove()
    Move move;
    move.source.set(4, 4);
    move.dest.set(2, 5);
-   move.capture = SPACE;
-   move.promote = SPACE;
+   move.capture = INVALID;
+   move.promote = INVALID;
    move.isWhite = true;
    move.moveType = Move::MOVE;
    Board board(nullptr, true /*noreset*/);
@@ -88,7 +88,7 @@ void TestBoard::move_knightAttack()
    move.source.set(4, 4);
    move.dest.set(2, 5);
    move.capture = ROOK;
-   move.promote = SPACE;
+   move.promote = INVALID;
    move.isWhite = true;
    move.moveType = Move::MOVE;
    Board board(nullptr, true /*noreset*/);
