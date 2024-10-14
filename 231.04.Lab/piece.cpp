@@ -38,6 +38,22 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
 {
 }
 
+/************************************************
+ * PIECE : GET MOVES NO SLIDE
+ * Iterate through the moves decorator to allow a piece to move no sliding
+ ***********************************************/
+void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board) const
+{
+}
+
+/************************************************
+ * PIECE : GET MOVES Sliding
+ * Iterate through the moves decorator to allow a piece to move slide
+ ***********************************************/
+void Piece::getMovesSlide(set <Move>& movesSet, const Board& board) const
+{
+}
+
 bool Piece::justMoved(int currentMove) const
 {
    return lastMove + 1 == currentMove;
