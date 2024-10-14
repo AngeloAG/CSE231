@@ -8,10 +8,10 @@
  ************************************************************************/
 
 #include "testQueen.h"
-#include "pieceQueen.h"     
+#include "pieceQueen.h"
 #include "board.h"
 #include "uiDraw.h"
-#include <cassert>      
+#include <cassert>
 
 
 
@@ -32,7 +32,46 @@
  **************************************/
 void TestQueen::getMoves_blocked()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   BoardEmpty board;
+   Queen queen(2, 1, false /*white*/);
+   queen.fWhite = true;
+   queen.position.set(2, 1);
+   board.board = &queen;
+   White white1(PAWN);
+   board.board[1][0] = &white1;
+   White white2(PAWN);
+   board.board[1][1] = &white2;
+   White white3(PAWN);
+   board.board[1][2] = &white3;
+   White white4(PAWN);
+   board.board[2][0] = &white4;
+   White white5(PAWN);
+   board.board[2][3] = &white1;
+   White white6(PAWN);
+   board.board[3][0] = &white2;
+   White white7(PAWN);
+   board.board[3][1] = &white3;
+   White white8(PAWN);
+   board.board[3][2] = &white4;
+   set <Move> moves;
+
+   // EXERCISE
+   queen.getMoves(moves, board);
+
+   // VERIFY
+   assertUnit(moves.size() == 0);  // No moves, it's blocked
+
+   // TEARDOWN
+   board.board[2][1] = nullptr; // white queen
+   board.board[1][0] = nullptr; // white1 pawn
+   board.board[1][1] = nullptr; // white2 pawn
+   board.board[1][2] = nullptr; // white3 pawn
+   board.board[2][0] = nullptr; // white4 pawn
+   board.board[2][3] = nullptr; // white5 pawn
+   board.board[3][0] = nullptr; // white6 pawn
+   board.board[3][1] = nullptr; // white7 pawn
+   board.board[3][2] = nullptr; // white8 pawn
 }
 
 /*************************************
@@ -51,7 +90,46 @@ void TestQueen::getMoves_blocked()
  **************************************/
 void TestQueen::getMoves_slideToEnd()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   BoardEmpty board;
+   Queen queen(2, 1, false /*white*/);
+   queen.fWhite = true;
+   queen.position.set(2, 1);
+   board.board = &queen;
+   set <Move> moves;
+
+   // EXERCISE
+   queen.getMoves(moves, board);
+
+   // VERIFY
+   assertUnit(moves.size() == 23);  // Many moves
+   assertUnit(moves.find(Move("c2b1")) != moves.end());
+   assertUnit(moves.find(Move("c2c1")) != moves.end());
+   assertUnit(moves.find(Move("c2d1")) != moves.end());
+   assertUnit(moves.find(Move("c2a2")) != moves.end());
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
+   assertUnit(moves.find(Move("c2d2")) != moves.end());
+   assertUnit(moves.find(Move("c2e2")) != moves.end());
+   assertUnit(moves.find(Move("c2f2")) != moves.end());
+   assertUnit(moves.find(Move("c2g2")) != moves.end());
+   assertUnit(moves.find(Move("c2h2")) != moves.end());
+   assertUnit(moves.find(Move("c2b3")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2d3")) != moves.end());
+   assertUnit(moves.find(Move("c2a4")) != moves.end());
+   assertUnit(moves.find(Move("c2c4")) != moves.end());
+   assertUnit(moves.find(Move("c2e4")) != moves.end());
+   assertUnit(moves.find(Move("c2c5")) != moves.end());
+   assertUnit(moves.find(Move("c2f5")) != moves.end());
+   assertUnit(moves.find(Move("c2c6")) != moves.end());
+   assertUnit(moves.find(Move("c2g6")) != moves.end());
+   assertUnit(moves.find(Move("c2c7")) != moves.end());
+   assertUnit(moves.find(Move("c2h7")) != moves.end());
+   assertUnit(moves.find(Move("c2c8")) != moves.end());
+
+
+   // TEARDOWN
+   board.board[2][1] = nullptr; // white queen
 }
 
 /*************************************
@@ -70,7 +148,61 @@ void TestQueen::getMoves_slideToEnd()
  **************************************/
 void TestQueen::getMoves_slideToBlock()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   BoardEmpty board;
+   Queen queen(2, 1, false /*white*/);
+   queen.fWhite = true;
+   queen.position.set(2, 1);
+   board.board = &queen;
+   White white1(PAWN);
+   board.board[1][0] = &white1;
+   White white2(PAWN);
+   board.board[0][1] = &white2;
+   White white3(PAWN);
+   board.board[0][3] = &white3;
+   White white4(PAWN);
+   board.board[2][0] = &white4;
+   White white5(PAWN);
+   board.board[2][7] = &white1;
+   White white6(PAWN);
+   board.board[3][0] = &white2;
+   White white7(PAWN);
+   board.board[7][1] = &white3;
+   White white8(PAWN);
+   board.board[7][6] = &white4;
+   set <Move> moves;
+
+   // EXERCISE
+   queen.getMoves(moves, board);
+
+   // VERIFY
+   assertUnit(moves.size() == 15);  // Many moves
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
+   assertUnit(moves.find(Move("c2d2")) != moves.end());
+   assertUnit(moves.find(Move("c2e2")) != moves.end());
+   assertUnit(moves.find(Move("c2f2")) != moves.end());
+   assertUnit(moves.find(Move("c2g2")) != moves.end());
+   assertUnit(moves.find(Move("c2b3")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2d3")) != moves.end());
+   assertUnit(moves.find(Move("c2c4")) != moves.end());
+   assertUnit(moves.find(Move("c2e4")) != moves.end());
+   assertUnit(moves.find(Move("c2c5")) != moves.end());
+   assertUnit(moves.find(Move("c2f5")) != moves.end());
+   assertUnit(moves.find(Move("c2c6")) != moves.end());
+   assertUnit(moves.find(Move("c2g6")) != moves.end());
+   assertUnit(moves.find(Move("c2c7")) != moves.end());
+
+   // TEARDOWN
+   board.board[2][1] = nullptr; // white queen
+   board.board[1][0] = nullptr; // white1 pawn
+   board.board[0][1] = nullptr; // white2 pawn
+   board.board[0][3] = nullptr; // white3 pawn
+   board.board[2][0] = nullptr; // white4 pawn
+   board.board[2][7] = nullptr; // white5 pawn
+   board.board[3][0] = nullptr; // white6 pawn
+   board.board[7][1] = nullptr; // white7 pawn
+   board.board[7][6] = nullptr; // white8 pawn
 }
 
 /*************************************
@@ -89,9 +221,73 @@ void TestQueen::getMoves_slideToBlock()
  **************************************/
 void TestQueen::getMoves_slideToCapture()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   BoardEmpty board;
+   Queen queen(2, 1, false /*white*/);
+   queen.fWhite = true;
+   queen.position.set(2, 1);
+   board.board = &queen;
+   White white1(PAWN);
+   board.board[1][0] = &white1;
+   White white2(PAWN);
+   board.board[0][1] = &white2;
+   White white3(PAWN);
+   board.board[0][3] = &white3;
+   White white4(PAWN);
+   board.board[2][0] = &white4;
+   White white5(PAWN);
+   board.board[2][7] = &white1;
+   White white6(PAWN);
+   board.board[3][0] = &white2;
+   White white7(PAWN);
+   board.board[7][1] = &white3;
+   White white8(PAWN);
+   board.board[7][6] = &white4;
+   set <Move> moves;
 
+
+   // EXERCISE
+   queen.getMoves(moves, board);
+
+   // VERIFY
+   assertUnit(moves.size() == 23);  // Many moves
+   assertUnit(moves.find(Move("c2a2c")) != moves.end());
+   assertUnit(moves.find(Move("c2a4c")) != moves.end());
+   assertUnit(moves.find(Move("c2b1c")) != moves.end());
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
+   assertUnit(moves.find(Move("c2b3")) != moves.end());
+   assertUnit(moves.find(Move("c2c1c")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2c4")) != moves.end());
+   assertUnit(moves.find(Move("c2c5")) != moves.end());
+   assertUnit(moves.find(Move("c2c6")) != moves.end());
+   assertUnit(moves.find(Move("c2c7")) != moves.end());
+   assertUnit(moves.find(Move("c2c8c")) != moves.end());
+   assertUnit(moves.find(Move("c2d1c")) != moves.end());
+   assertUnit(moves.find(Move("c2d2")) != moves.end());
+   assertUnit(moves.find(Move("c2d3")) != moves.end());
+   assertUnit(moves.find(Move("c2e2")) != moves.end());
+   assertUnit(moves.find(Move("c2e4")) != moves.end());
+   assertUnit(moves.find(Move("c2f2")) != moves.end());
+   assertUnit(moves.find(Move("c2f5")) != moves.end());
+   assertUnit(moves.find(Move("c2g2")) != moves.end());
+   assertUnit(moves.find(Move("c2g6")) != moves.end());
+   assertUnit(moves.find(Move("c2h2c")) != moves.end());
+   assertUnit(moves.find(Move("c2h7c")) != moves.end());
+
+
+   // TEARDOWN
+   board.board[2][1] = nullptr; // white queen
+   board.board[1][0] = nullptr; // white1 pawn
+   board.board[0][1] = nullptr; // white2 pawn
+   board.board[0][3] = nullptr; // white3 pawn
+   board.board[2][0] = nullptr; // white4 pawn
+   board.board[2][7] = nullptr; // white5 pawn
+   board.board[3][0] = nullptr; // white6 pawn
+   board.board[7][1] = nullptr; // white7 pawn
+   board.board[7][6] = nullptr; // white8 pawn
+   
+}
 
 /*************************************
  * GET TYPE : queen
@@ -100,5 +296,17 @@ void TestQueen::getMoves_slideToCapture()
  **************************************/
 void TestQueen::getType()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Queen queen(7, 7, false /*white*/);
+   queen.fWhite = true;
+   queen.position.colRow = 0x34;
+   PieceType type = KING;
+
+   // EXERCISE
+   type = queen.getType();
+
+   // VERIFY
+   assertUnit(type == QUEEN);
+   assertUnit(queen.fWhite == true);
+   assertUnit(queen.position.colRow == 0x34);
+}  // TEARDOWN
