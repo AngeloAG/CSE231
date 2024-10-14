@@ -103,7 +103,7 @@ int Position::getRow() const
 void Position::adjustRow(int dRow)
 {
    int newRow = getRow() + dRow;
-   if (newRow > 0 && newRow < 8)
+   if (newRow >= 0 && newRow < 8)
       colRow += dRow;
    else
       colRow = 0xff;
@@ -119,7 +119,7 @@ void Position::adjustRow(int dRow)
 void Position::adjustCol(int dCol)
 {
    int newCol = getCol() + dCol;
-   if (newCol > 0 && newCol < 8)
+   if (newCol >= 0 && newCol < 8)
       colRow += dCol * 16;
    else
       colRow = 0xff;

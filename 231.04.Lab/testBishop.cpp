@@ -37,7 +37,7 @@ void TestBishop::getMoves_blocked()
    BoardEmpty board;
    Bishop bishop(7, 7, false /*white*/);
    bishop.fWhite = true;
-   bishop.position.set(6, 7);
+   bishop.position.set(2, 1);
    board.board[2][1] = &bishop;
    White white1(PAWN);
    board.board[1][2] = &white1;
@@ -82,7 +82,7 @@ void TestBishop::getMoves_slideToEnd()
    BoardEmpty board;
    Bishop bishop(7, 7, false /*white*/);
    bishop.fWhite = true;
-   bishop.position.set(6, 7);
+   bishop.position.set(2, 1);
    board.board[2][1] = &bishop;
    set <Move> moves;
 
@@ -125,7 +125,7 @@ void TestBishop::getMoves_slideToBlock()
    BoardEmpty board;
    Bishop bishop(7, 7, false /*white*/);
    bishop.fWhite = true;
-   bishop.position.set(6, 7);
+   bishop.position.set(2, 1);
    board.board[2][1] = &bishop;
    White white1(PAWN);
    board.board[0][3] = &white1;
@@ -176,7 +176,7 @@ void TestBishop::getMoves_slideToCapture()
    BoardEmpty board;
    Bishop bishop(7, 7, false /*white*/);
    bishop.fWhite = true;
-   bishop.position.set(6, 7);
+   bishop.position.set(2, 1);
    board.board[2][1] = &bishop;
    Black black1(PAWN);
    board.board[0][3] = &black1;
@@ -229,7 +229,7 @@ void TestBishop::getType()
    type = bishop.getType();
 
    // VERIFY
-   assertUnit(type == KNIGHT);
+   assertUnit(type == BISHOP);
    assertUnit(bishop.fWhite == true);
    assertUnit(bishop.position.colRow == 0x34);
 }  // TEARDOWN

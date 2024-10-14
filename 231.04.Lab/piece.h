@@ -80,7 +80,7 @@ public:
 
 protected:
    virtual void getMovesNoSlide(set <Move> & moves, const Board & board) const;
-   virtual void getMovesSlide(set <Move>& moves, const Board& board) const;
+   virtual void getMovesSlide(set <Move>& moves, const Board& board, const Position* directions, int amountOfDirections) const;
 
    int  nMoves;                    // how many times have you moved?
    bool fWhite;                    // which team are you on?
