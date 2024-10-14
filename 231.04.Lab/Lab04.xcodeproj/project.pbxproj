@@ -72,6 +72,26 @@
 		C1EE0D9B2B28F3C600E5D6E1 /* testPiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testPiece.cpp; sourceTree = "<group>"; };
 		C1EE0DAB2B28F41500E5D6E1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C1EE0DAC2B28F41500E5D6E1 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		F35EF1EE2CBDD12C00EE8415 /* testKing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testKing.cpp; sourceTree = "<group>"; };
+		F35EF1EF2CBDD12C00EE8415 /* pieceQueen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pieceQueen.h; sourceTree = "<group>"; };
+		F35EF1F02CBDD12C00EE8415 /* pieceKing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pieceKing.h; sourceTree = "<group>"; };
+		F35EF1F12CBDD12C00EE8415 /* pieceKing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pieceKing.cpp; sourceTree = "<group>"; };
+		F35EF1F22CBDD12C00EE8415 /* pieceBishop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pieceBishop.h; sourceTree = "<group>"; };
+		F35EF1F32CBDD12C00EE8415 /* pieceQueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pieceQueen.cpp; sourceTree = "<group>"; };
+		F35EF1F42CBDD12C00EE8415 /* piecePawn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = piecePawn.h; sourceTree = "<group>"; };
+		F35EF1F52CBDD12C00EE8415 /* piecePawn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = piecePawn.cpp; sourceTree = "<group>"; };
+		F35EF1F62CBDD12C00EE8415 /* testKing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testKing.h; sourceTree = "<group>"; };
+		F35EF1F72CBDD12C00EE8415 /* testQueen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testQueen.h; sourceTree = "<group>"; };
+		F35EF1F82CBDD12C00EE8415 /* testBishop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testBishop.cpp; sourceTree = "<group>"; };
+		F35EF1F92CBDD12C00EE8415 /* testQueen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testQueen.cpp; sourceTree = "<group>"; };
+		F35EF1FA2CBDD12C00EE8415 /* testRook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testRook.h; sourceTree = "<group>"; };
+		F35EF1FB2CBDD12C00EE8415 /* pieceRook.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pieceRook.cpp; sourceTree = "<group>"; };
+		F35EF1FC2CBDD12C00EE8415 /* pieceRook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pieceRook.h; sourceTree = "<group>"; };
+		F35EF1FD2CBDD12C00EE8415 /* testRook.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testRook.cpp; sourceTree = "<group>"; };
+		F35EF1FE2CBDD12C00EE8415 /* testBishop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testBishop.h; sourceTree = "<group>"; };
+		F35EF1FF2CBDD12C00EE8415 /* testPawn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testPawn.cpp; sourceTree = "<group>"; };
+		F35EF2002CBDD12C00EE8415 /* pieceBishop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pieceBishop.cpp; sourceTree = "<group>"; };
+		F35EF2012CBDD12C00EE8415 /* testPawn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testPawn.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +110,26 @@
 		C1EE0D6A2B28F39600E5D6E1 = {
 			isa = PBXGroup;
 			children = (
+				F35EF2002CBDD12C00EE8415 /* pieceBishop.cpp */,
+				F35EF1F22CBDD12C00EE8415 /* pieceBishop.h */,
+				F35EF1F12CBDD12C00EE8415 /* pieceKing.cpp */,
+				F35EF1F02CBDD12C00EE8415 /* pieceKing.h */,
+				F35EF1F52CBDD12C00EE8415 /* piecePawn.cpp */,
+				F35EF1F42CBDD12C00EE8415 /* piecePawn.h */,
+				F35EF1F32CBDD12C00EE8415 /* pieceQueen.cpp */,
+				F35EF1EF2CBDD12C00EE8415 /* pieceQueen.h */,
+				F35EF1FB2CBDD12C00EE8415 /* pieceRook.cpp */,
+				F35EF1FC2CBDD12C00EE8415 /* pieceRook.h */,
+				F35EF1F82CBDD12C00EE8415 /* testBishop.cpp */,
+				F35EF1FE2CBDD12C00EE8415 /* testBishop.h */,
+				F35EF1EE2CBDD12C00EE8415 /* testKing.cpp */,
+				F35EF1F62CBDD12C00EE8415 /* testKing.h */,
+				F35EF1FF2CBDD12C00EE8415 /* testPawn.cpp */,
+				F35EF2012CBDD12C00EE8415 /* testPawn.h */,
+				F35EF1F92CBDD12C00EE8415 /* testQueen.cpp */,
+				F35EF1F72CBDD12C00EE8415 /* testQueen.h */,
+				F35EF1FD2CBDD12C00EE8415 /* testRook.cpp */,
+				F35EF1FA2CBDD12C00EE8415 /* testRook.h */,
 				C1EE0D7F2B28F3C500E5D6E1 /* board.cpp */,
 				C1EE0D8C2B28F3C600E5D6E1 /* board.h */,
 				C1EE0D7D2B28F3C500E5D6E1 /* chess.cpp */,
