@@ -141,16 +141,12 @@ void TestBishop::getMoves_slideToBlock()
    bishop.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 9);  // Many moves
-   assertUnit(moves.find(Move("c2b1")) != moves.end());
-   assertUnit(moves.find(Move("c2d1")) != moves.end());
+   assertUnit(moves.size() == 5);  // Many moves
    assertUnit(moves.find(Move("c2b3")) != moves.end());
-   assertUnit(moves.find(Move("c2a4")) != moves.end());
    assertUnit(moves.find(Move("c2d3")) != moves.end());
    assertUnit(moves.find(Move("c2e4")) != moves.end());
    assertUnit(moves.find(Move("c2f5")) != moves.end());
    assertUnit(moves.find(Move("c2g6")) != moves.end());
-   assertUnit(moves.find(Move("c2h7")) != moves.end());
 
    // TEARDOWN
    board.board[2][1] = nullptr; // white bishop
@@ -177,7 +173,42 @@ void TestBishop::getMoves_slideToBlock()
  **************************************/
 void TestBishop::getMoves_slideToCapture()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   BoardEmpty board;
+   Bishop bishop(7, 7, false /*white*/);
+   bishop.fWhite = true;
+   bishop.position.set(6, 7);
+   board.board[2][1] = &bishop;
+   Black black1(PAWN);
+   board.board[0][3] = &black1;
+   Black black2(PAWN);
+   board.board[7][6] = &black2;
+   Black black3(PAWN);
+   board.board[1][0] = &black3;
+   Black black4(PAWN);
+   board.board[3][0] = &black4;
+   set <Move> moves;
+
+   // EXERCISE
+   bishop.getMoves(moves, board);
+
+   // VERIFY
+   assertUnit(moves.size() == 9);  // Many moves
+   assertUnit(moves.find(Move("c2b1p")) != moves.end());
+   assertUnit(moves.find(Move("c2d1p")) != moves.end());
+   assertUnit(moves.find(Move("c2b3")) != moves.end());
+   assertUnit(moves.find(Move("c2a4p")) != moves.end());
+   assertUnit(moves.find(Move("c2d3")) != moves.end());
+   assertUnit(moves.find(Move("c2e4")) != moves.end());
+   assertUnit(moves.find(Move("c2f5")) != moves.end());
+   assertUnit(moves.find(Move("c2g6")) != moves.end());
+   assertUnit(moves.find(Move("c2h7p")) != moves.end());
+
+   // TEARDOWN
+   board.board[2][1] = nullptr; // white bishop
+   board.board[0][3] = nullptr; // black1 pawn
+   board.board[7][6] = nullptr; // black2 pawn
+   board.board[1][0] = nullptr; // black3 pawn
+   board.board[3][0] = nullptr; // black4 pawn
 }
 
 
@@ -188,5 +219,17 @@ void TestBishop::getMoves_slideToCapture()
  **************************************/
 void TestBishop::getType()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Bishop bishop(7, 7, false /*white*/);
+   bishop.fWhite = true;
+   bishop.position.colRow = 0x34;
+   PieceType type = KING;
+
+   // EXERCISE
+   type = bishop.getType();
+
+   // VERIFY
+   assertUnit(type == KNIGHT);
+   assertUnit(bishop.fWhite == true);
+   assertUnit(bishop.position.colRow == 0x34);
+}  // TEARDOWN
