@@ -37,7 +37,7 @@ void TestQueen::getMoves_blocked()
    Queen queen(2, 1, false /*white*/);
    queen.fWhite = true;
    queen.position.set(2, 1);
-   board.board = &queen;
+   board.board[2][1] =  &queen;
    White white1(PAWN);
    board.board[1][0] = &white1;
    White white2(PAWN);
@@ -47,7 +47,7 @@ void TestQueen::getMoves_blocked()
    White white4(PAWN);
    board.board[2][0] = &white4;
    White white5(PAWN);
-   board.board[2][3] = &white1;
+   board.board[2][2] = &white1;
    White white6(PAWN);
    board.board[3][0] = &white2;
    White white7(PAWN);
@@ -68,7 +68,7 @@ void TestQueen::getMoves_blocked()
    board.board[1][1] = nullptr; // white2 pawn
    board.board[1][2] = nullptr; // white3 pawn
    board.board[2][0] = nullptr; // white4 pawn
-   board.board[2][3] = nullptr; // white5 pawn
+   board.board[2][2] = nullptr; // white5 pawn
    board.board[3][0] = nullptr; // white6 pawn
    board.board[3][1] = nullptr; // white7 pawn
    board.board[3][2] = nullptr; // white8 pawn
@@ -95,7 +95,7 @@ void TestQueen::getMoves_slideToEnd()
    Queen queen(2, 1, false /*white*/);
    queen.fWhite = true;
    queen.position.set(2, 1);
-   board.board = &queen;
+   board.board[2][1] =  &queen;
    set <Move> moves;
 
    // EXERCISE
@@ -153,7 +153,7 @@ void TestQueen::getMoves_slideToBlock()
    Queen queen(2, 1, false /*white*/);
    queen.fWhite = true;
    queen.position.set(2, 1);
-   board.board = &queen;
+   board.board[2][1] =  &queen;
    White white1(PAWN);
    board.board[1][0] = &white1;
    White white2(PAWN);
@@ -226,23 +226,23 @@ void TestQueen::getMoves_slideToCapture()
    Queen queen(2, 1, false /*white*/);
    queen.fWhite = true;
    queen.position.set(2, 1);
-   board.board = &queen;
-   White white1(PAWN);
-   board.board[1][0] = &white1;
-   White white2(PAWN);
-   board.board[0][1] = &white2;
-   White white3(PAWN);
-   board.board[0][3] = &white3;
-   White white4(PAWN);
-   board.board[2][0] = &white4;
-   White white5(PAWN);
-   board.board[2][7] = &white1;
-   White white6(PAWN);
-   board.board[3][0] = &white2;
-   White white7(PAWN);
-   board.board[7][1] = &white3;
-   White white8(PAWN);
-   board.board[7][6] = &white4;
+   board.board[2][1] =  &queen;
+   Black black1(PAWN);
+   board.board[1][0] = &black1;
+   Black black2(PAWN);
+   board.board[0][1] = &black2;
+   Black black3(PAWN);
+   board.board[0][3] = &black3;
+   Black black4(PAWN);
+   board.board[2][0] = &black4;
+   Black black5(PAWN);
+   board.board[2][7] = &black5;
+   Black black6(PAWN);
+   board.board[3][0] = &black6;
+   Black black7(PAWN);
+   board.board[7][1] = &black7;
+   Black black8(PAWN);
+   board.board[7][6] = &black8;
    set <Move> moves;
 
 
@@ -251,19 +251,19 @@ void TestQueen::getMoves_slideToCapture()
 
    // VERIFY
    assertUnit(moves.size() == 23);  // Many moves
-   assertUnit(moves.find(Move("c2a2c")) != moves.end());
-   assertUnit(moves.find(Move("c2a4c")) != moves.end());
-   assertUnit(moves.find(Move("c2b1c")) != moves.end());
+   assertUnit(moves.find(Move("c2a2p")) != moves.end());
+   assertUnit(moves.find(Move("c2a4p")) != moves.end());
+   assertUnit(moves.find(Move("c2b1p")) != moves.end());
    assertUnit(moves.find(Move("c2b2")) != moves.end());
    assertUnit(moves.find(Move("c2b3")) != moves.end());
-   assertUnit(moves.find(Move("c2c1c")) != moves.end());
+   assertUnit(moves.find(Move("c2c1p")) != moves.end());
    assertUnit(moves.find(Move("c2c3")) != moves.end());
    assertUnit(moves.find(Move("c2c4")) != moves.end());
    assertUnit(moves.find(Move("c2c5")) != moves.end());
    assertUnit(moves.find(Move("c2c6")) != moves.end());
    assertUnit(moves.find(Move("c2c7")) != moves.end());
-   assertUnit(moves.find(Move("c2c8c")) != moves.end());
-   assertUnit(moves.find(Move("c2d1c")) != moves.end());
+   assertUnit(moves.find(Move("c2c8p")) != moves.end());
+   assertUnit(moves.find(Move("c2d1p")) != moves.end());
    assertUnit(moves.find(Move("c2d2")) != moves.end());
    assertUnit(moves.find(Move("c2d3")) != moves.end());
    assertUnit(moves.find(Move("c2e2")) != moves.end());
@@ -272,8 +272,8 @@ void TestQueen::getMoves_slideToCapture()
    assertUnit(moves.find(Move("c2f5")) != moves.end());
    assertUnit(moves.find(Move("c2g2")) != moves.end());
    assertUnit(moves.find(Move("c2g6")) != moves.end());
-   assertUnit(moves.find(Move("c2h2c")) != moves.end());
-   assertUnit(moves.find(Move("c2h7c")) != moves.end());
+   assertUnit(moves.find(Move("c2h2p")) != moves.end());
+   assertUnit(moves.find(Move("c2h7p")) != moves.end());
 
 
    // TEARDOWN

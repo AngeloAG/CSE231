@@ -34,13 +34,16 @@ void TestRook::getMoves_blocked()
    BoardEmpty board;
    Rook rook(2, 2, false /*white*/); // Create a white rook at position (2, 2)
    rook.fWhite = true; // The rook is white
-   board.board[2][2] = &rook; // Place the rook on the board
-
-   // Place blocking pieces
-   Piece pawn1(PAWN);
-   board.board[3][2] = &pawn1; // Pawn at (3, 2)
-   Piece pawn2(PAWN);
-   board.board[1][2] = &pawn2; // Pawn at (1, 2)
+   rook.position.set(1, 1);
+   board.board[1][1] = &rook; // Place the rook on the board
+   White white1(PAWN);
+   board.board[0][1] = &white1;
+   White white2(PAWN);
+   board.board[1][0] = &white2;
+   White white3(PAWN);
+   board.board[2][1] = &white3;
+   White white4(PAWN);
+   board.board[1][2] = &white4;
 
    set<Move> moves;
 
@@ -51,9 +54,11 @@ void TestRook::getMoves_blocked()
    assertUnit(moves.size() == 0); // No moves, it's blocked
 
    // TEARDOWN
-   board.board[2][2] = nullptr; // Remove rook
-   board.board[3][2] = nullptr; // Remove pawn1
-   board.board[1][2] = nullptr; // Remove pawn2
+   board.board[1][1] = nullptr;
+   board.board[0][1] = nullptr;
+   board.board[1][0] = nullptr;
+   board.board[2][1] = nullptr;
+   board.board[1][2] = nullptr;
 }
 
 
@@ -75,9 +80,10 @@ void TestRook::getMoves_slideToEnd()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(2, 2, false /*white*/); // Create a white rook at position (2, 2)
+   Rook rook(3, 3, false /*white*/); // Create a white rook at position (2, 2)
    rook.fWhite = true; // The rook is white
-   board.board[2][2] = &rook; // Place the rook on the board
+   rook.position.set(2, 1);
+   board.board[2][1] = &rook; // Place the rook on the board
    set<Move> moves;
 
    // EXERCISE
@@ -85,24 +91,23 @@ void TestRook::getMoves_slideToEnd()
 
    // VERIFY
    assertUnit(moves.size() == 14); // Rook can move to 14 positions
-   assertUnit(moves.find(Move("b2")) != moves.end()); // Left
-   assertUnit(moves.find(Move("c2")) != moves.end()); // Right
-   assertUnit(moves.find(Move("d2")) != moves.end()); // Right
-   assertUnit(moves.find(Move("e2")) != moves.end()); // Right
-   assertUnit(moves.find(Move("f2")) != moves.end()); // Right
-   assertUnit(moves.find(Move("g2")) != moves.end()); // Right
-   assertUnit(moves.find(Move("h2")) != moves.end()); // Right
-   assertUnit(moves.find(Move("a2")) != moves.end()); // Left
-   assertUnit(moves.find(Move("2b")) != moves.end()); // Down
-   assertUnit(moves.find(Move("2c")) != moves.end()); // Down
-   assertUnit(moves.find(Move("2d")) != moves.end()); // Down
-   assertUnit(moves.find(Move("2e")) != moves.end()); // Down
-   assertUnit(moves.find(Move("2f")) != moves.end()); // Down
-   assertUnit(moves.find(Move("2g")) != moves.end()); // Down
-   assertUnit(moves.find(Move("2h")) != moves.end()); // Down
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
+   assertUnit(moves.find(Move("c2a2")) != moves.end());
+   assertUnit(moves.find(Move("c2c1")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2c4")) != moves.end());
+   assertUnit(moves.find(Move("c2c5")) != moves.end());
+   assertUnit(moves.find(Move("c2c6")) != moves.end());
+   assertUnit(moves.find(Move("c2c7")) != moves.end());
+   assertUnit(moves.find(Move("c2c8")) != moves.end());
+   assertUnit(moves.find(Move("c2d2")) != moves.end());
+   assertUnit(moves.find(Move("c2e2")) != moves.end());
+   assertUnit(moves.find(Move("c2f2")) != moves.end());
+   assertUnit(moves.find(Move("c2g2")) != moves.end());
+   assertUnit(moves.find(Move("c2h2")) != moves.end());
 
    // TEARDOWN
-   board.board[2][2] = nullptr; // Remove rook
+   board.board[1][1] = nullptr; // Remove rook
 }
 
 
@@ -124,17 +129,18 @@ void TestRook::getMoves_slideToBlock()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(2, 2, false /*white*/); // Create a white rook at position (2, 2)
+   Rook rook(3, 3, false /*white*/); // Create a white rook at position (2, 2)
    rook.fWhite = true; // The rook is white
-   board.board[2][2] = &rook; // Place the rook on the board
-
-   // Place blocking pieces
-   Piece pawn1(PAWN);
-   board.board[1][2] = &pawn1; // Pawn at (1, 2)
-   Piece pawn2(PAWN);
-   board.board[2][0] = &pawn2; // Pawn at (2, 0)
-   Piece pawn3(PAWN);
-   board.board[3][2] = &pawn3; // Pawn at (3, 2)
+   rook.position.set(2, 1);
+   board.board[2][1] = &rook; // Place the rook on the board
+   White white1(PAWN);
+   board.board[0][1] = &white1;
+   White white2(PAWN);
+   board.board[2][0] = &white2;
+   White white3(PAWN);
+   board.board[7][1] = &white3;
+   White white4(PAWN);
+   board.board[2][7] = &white4;
 
    set<Move> moves;
 
@@ -142,17 +148,24 @@ void TestRook::getMoves_slideToBlock()
    rook.getMoves(moves, board); // Get valid moves for the rook
 
    // VERIFY
-   assertUnit(moves.size() == 4); // Rook can only move to 4 positions
-   assertUnit(moves.find(Move("2b")) != moves.end()); // Block left
-   assertUnit(moves.find(Move("3b")) != moves.end()); // Block down
-   assertUnit(moves.find(Move("2a")) != moves.end()); // Block left
-   assertUnit(moves.find(Move("4b")) != moves.end()); // Block down
+   assertUnit(moves.size() == 10); // Rook can move to 14 positions
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
+   assertUnit(moves.find(Move("c2d2")) != moves.end());
+   assertUnit(moves.find(Move("c2e2")) != moves.end());
+   assertUnit(moves.find(Move("c2f2")) != moves.end());
+   assertUnit(moves.find(Move("c2g2")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2c5")) != moves.end());
+   assertUnit(moves.find(Move("c2c6")) != moves.end());
+   assertUnit(moves.find(Move("c2c7")) != moves.end());
 
    // TEARDOWN
-   board.board[2][2] = nullptr; // Remove rook
-   board.board[1][2] = nullptr; // Remove pawn1
-   board.board[2][0] = nullptr; // Remove pawn2
-   board.board[3][2] = nullptr; // Remove pawn3
+   board.board[1][1] = nullptr;
+   board.board[0][1] = nullptr;
+   board.board[2][0] = nullptr;
+   board.board[7][1] = nullptr;
+   board.board[2][7] = nullptr;
 }
 
 /*************************************
@@ -173,16 +186,18 @@ void TestRook::getMoves_slideToCapture()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(2, 2, false /*white*/); // Create a white rook at position (2, 2)
+   Rook rook(3, 3, false /*white*/); // Create a white rook at position (2, 2)
    rook.fWhite = true; // The rook is white
-   board.board[2][2] = &rook; // Place the rook on the board
-
-   // Place opponent's piece to capture
-   Piece pawn1(PAWN);
-   pawn1.fWhite = false; // The pawn is black
-   board.board[3][2] = &pawn1; // Pawn at (3, 2)
-   Piece pawn2(PAWN);
-   board.board[1][2] = &pawn2; // Pawn at (1, 2)
+   rook.position.set(2, 1);
+   board.board[2][1] = &rook; // Place the rook on the board
+   Black black1(PAWN);
+   board.board[0][1] = &black1;
+   Black black2(PAWN);
+   board.board[2][0] = &black2;
+   Black black3(PAWN);
+   board.board[7][1] = &black3;
+   Black black4(PAWN);
+   board.board[2][7] = &black4;
 
    set<Move> moves;
 
@@ -190,18 +205,28 @@ void TestRook::getMoves_slideToCapture()
    rook.getMoves(moves, board); // Get valid moves for the rook
 
    // VERIFY
-   assertUnit(moves.size() == 6); // Rook can capture 6 positions
-   assertUnit(moves.find(Move("3b")) != moves.end()); // Capture down
-   assertUnit(moves.find(Move("3c")) != moves.end()); // Capture right
-   assertUnit(moves.find(Move("3a")) != moves.end()); // Capture left
-   assertUnit(moves.find(Move("3d")) != moves.end()); // Capture right
-   assertUnit(moves.find(Move("3e")) != moves.end()); // Capture right
-   assertUnit(moves.find(Move("3f")) != moves.end()); // Capture right
+   assertUnit(moves.size() == 14); // Rook can move to 14 positions
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
+   assertUnit(moves.find(Move("c2a2p")) != moves.end());
+   assertUnit(moves.find(Move("c2c1p")) != moves.end());
+   assertUnit(moves.find(Move("c2c3")) != moves.end());
+   assertUnit(moves.find(Move("c2c4")) != moves.end());
+   assertUnit(moves.find(Move("c2c5")) != moves.end());
+   assertUnit(moves.find(Move("c2c6")) != moves.end());
+   assertUnit(moves.find(Move("c2c7")) != moves.end());
+   assertUnit(moves.find(Move("c2c8p")) != moves.end());
+   assertUnit(moves.find(Move("c2d2")) != moves.end());
+   assertUnit(moves.find(Move("c2e2")) != moves.end());
+   assertUnit(moves.find(Move("c2f2")) != moves.end());
+   assertUnit(moves.find(Move("c2g2")) != moves.end());
+   assertUnit(moves.find(Move("c2h2p")) != moves.end());
 
    // TEARDOWN
-   board.board[2][2] = nullptr; // Remove rook
-   board.board[1][2] = nullptr; // Remove pawn1
-   board.board[3][2] = nullptr; // Remove pawn2
+   board.board[1][1] = nullptr;
+   board.board[0][1] = nullptr;
+   board.board[2][0] = nullptr;
+   board.board[7][1] = nullptr;
+   board.board[2][7] = nullptr;
 }
 
 
