@@ -41,11 +41,8 @@ Position& Position::operator = (const string& rhs)
  **************************************/
 Position& Position::operator += (const Delta& rhs)
 {
-   if (isValid())
-   {
-      adjustCol(rhs.dCol);
-      adjustRow(rhs.dRow);
-   }
+   adjustCol(rhs.dCol);
+   adjustRow(rhs.dRow);
    return *this;
 }
 
@@ -102,11 +99,14 @@ int Position::getRow() const
  **************************************/
 void Position::adjustRow(int dRow)
 {
-   int newRow = getRow() + dRow;
-   if (newRow >= 0 && newRow < 8)
-      colRow += dRow;
-   else
-      colRow = 0xff;
+   if (isValid())
+   {
+      int newRow = getRow() + dRow;
+      if (newRow >= 0 && newRow < 8)
+         colRow += dRow;
+      else
+         colRow = 0xff;
+   }
 }
 
 /*************************************
@@ -118,9 +118,12 @@ void Position::adjustRow(int dRow)
  **************************************/
 void Position::adjustCol(int dCol)
 {
-   int newCol = getCol() + dCol;
-   if (newCol >= 0 && newCol < 8)
-      colRow += dCol * 16;
-   else
-      colRow = 0xff;
+   if (isValid())
+   {
+      int newCol = getCol() + dCol;
+      if (newCol >= 0 && newCol < 8)
+         colRow += dCol * 16;
+      else
+         colRow = 0xff;
+   }
 }

@@ -42,50 +42,59 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
  * PIECE : GET MOVES NO SLIDE
  * Iterate through the moves decorator to allow a piece to move no sliding
  ***********************************************/
-void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board) const
+void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Delta deltas[], int deltasSize) const
 {
+   for (int i = 0; i < deltasSize; i++)
+   {
+      Position possibleDest(position, deltas[i]);
+      if (possibleDest.isValid())
+      {
+         const Piece& pieceInDest = board[possibleDest];
+         if (pieceInDest.isWhite() != fWhite || pieceInDest == SPACE)
+         {
+            if(pieceInDest != SPACE)
+               movesSet.insert(Move(position, possibleDest, fWhite, pieceInDest.getType()));
+            else
+               movesSet.insert(Move(position, possibleDest, fWhite));
+         }
+      }
+   }
 }
 
 /************************************************
  * PIECE : GET MOVES Sliding
  * Iterate through the moves decorator to allow a piece to move slide
  ***********************************************/
-void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Position* directions, int amountOfDirections) const
+void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Delta deltas[], int deltasSize) const
 {
-   Position currentPositionCopy(position);
-   for (int i = 0; i < amountOfDirections; i++)
+   for (int i = 0; i < deltasSize; i++)
    {
-      Position possibleDestination = directions[i];
-      bool canCapture = false;
-      while (possibleDestination.isValid() && (board[possibleDestination].isWhite() != fWhite || board[possibleDestination].getType() == SPACE))
+      Delta currentDelta = deltas[i];
+      bool keepSliding = true;
+      while (keepSliding)
       {
-         const Piece& pieceInDest = board[possibleDestination];
-         if (pieceInDest.getType() == SPACE)
+         Position possibleDest(position, currentDelta);
+         if (possibleDest.isValid())
          {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite());
-            movesSet.insert(move);
+            const Piece& pieceInDest = board[possibleDest];
+            if (pieceInDest.isWhite() != fWhite || pieceInDest == SPACE)
+            {
+               if (pieceInDest != SPACE)
+               {
+                  movesSet.insert(Move(position, possibleDest, fWhite, pieceInDest.getType()));
+                  keepSliding = false;
+               }
+               else
+                  movesSet.insert(Move(position, possibleDest, fWhite));
+            } 
+            else 
+               keepSliding = false;
          }
-         else if (pieceInDest.isWhite() != this->fWhite)
-         {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDest.getType());
-            movesSet.insert(move);
-            canCapture = true;
-         }
-
-         // If the destination col is greater that means we are moving to the right
-         if (currentPositionCopy.getCol() < possibleDestination.getCol())
-            possibleDestination.adjustCol(1);
-         else if (currentPositionCopy.getCol() > possibleDestination.getCol())
-            possibleDestination.adjustCol(-1);
-
-         // If the destination row is greater that means we are moving to the up
-         if (currentPositionCopy.getRow() < possibleDestination.getRow())
-            possibleDestination.adjustRow(1);
-         else if (currentPositionCopy.getRow() > possibleDestination.getRow())
-            possibleDestination.adjustRow(-1);
-
-         if(canCapture)
-            break;
+         else
+            keepSliding = false;
+;
+         currentDelta.dCol += deltas[i].dCol;
+         currentDelta.dRow += deltas[i].dRow;
       }
    }
 }

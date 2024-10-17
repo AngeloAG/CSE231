@@ -29,10 +29,10 @@ void Bishop::getMoves(set <Move>& moves, const Board& board) const
    int r = this->position.getRow();
    int c = this->position.getCol();
 
-   Position defaultMoves[4] = {
-      Position(c - 1, r + 1),    Position(c + 1, r + 1),
+   Delta defaultMoves[4] = {
+      {1, -1},    {1, 1},
 
-      Position(c - 1, r - 1),    Position(c + 1, r - 1),
+      {-1, -1},   {-1, 1},
    };
    this->getMovesSlide(moves, board, defaultMoves, 4);
 }

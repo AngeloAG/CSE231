@@ -79,8 +79,8 @@ public:
    void getMoves(set <Move> & moves, const Board & board) const;
 
 protected:
-   virtual void getMovesNoSlide(set <Move> & moves, const Board & board) const;
-   virtual void getMovesSlide(set <Move>& moves, const Board& board, const Position* directions, int amountOfDirections) const;
+   virtual void getMovesNoSlide(set <Move> & moves, const Board & board, const Delta deltas[], int deltasSize) const;
+   virtual void getMovesSlide(set <Move>& movesSet, const Board& board, const Delta deltas[], int deltasSize) const;
 
    int  nMoves;                    // how many times have you moved?
    bool fWhite;                    // which team are you on?

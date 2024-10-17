@@ -30,10 +30,10 @@ void Rook::getMoves(set <Move>& moves, const Board& board) const
    int r = this->position.getRow();
    int c = this->position.getCol();
 
-   Position defaultMoves[4] = {
-                              Position(c, r + 1),
-      Position(c - 1, r),                          Position(c + 1, r),
-                              Position(c, r - 1),
+   Delta defaultMoves[4] = {
+              {1, 0},
+      {0, -1},       {0, 1},
+              {-1,0},
    };
    this->getMovesSlide(moves, board, defaultMoves, 4);
 }
