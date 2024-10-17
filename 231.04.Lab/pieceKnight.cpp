@@ -2,7 +2,7 @@
  * Source File:
  *    KNIGHT
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Angelo Arellano, Connor Hopkins
  * Summary:
  *    The knight class
  ************************************************************************/
@@ -20,7 +20,6 @@ void Knight::display(ogstream* pgout) const
    pgout -> drawKnight(position, fWhite);
 }
 
-
 /**********************************************
  * KNIGHT : GET POSITIONS
  *********************************************/
@@ -29,11 +28,24 @@ void Knight::getMoves(set <Move>& moves, const Board& board) const
    int r = this->position.getRow();
    int c = this->position.getCol();
    
+   // To help keep defaultMoves visually tight,
+   // variables names (primarySecondary) are as follows:
+   //    - Primary direction   = 3 squares
+   //    - Secondary direction = 1 square
+   Position upLeft    = Position(c - 1, r + 2);
+   Position upRight   = Position(c + 1, r + 2);
+   Position leftUp    = Position(c - 2, r + 1);
+   Position leftDown  = Position(c - 2, r - 1);
+   Position rightUp   = Position(c + 2, r + 1);
+   Position rightDown = Position(c + 2, r - 1);
+   Position downLeft  = Position(c - 1, r - 2);
+   Position downRight = Position(c + 1, r - 2);
+
    Position defaultMoves[8] = {
-                         Position(c - 1, r + 2), Position(c + 1, r + 2),
-   Position(c - 2, r + 1),                                             Position(c + 2, r + 1),
-   Position(c - 2, r - 1),                                             Position(c + 2, r - 1),
-                         Position(c - 1, r - 2), Position(c + 1, r - 2)
+                           upLeft, upRight,
+                  leftUp,                   rightUp,
+                leftDown,                   rightDown,
+                         downLeft, downRight
    };
 
    Position currentPositionCopy(position);
@@ -49,7 +61,8 @@ void Knight::getMoves(set <Move>& moves, const Board& board) const
          }
          else if (pieceInDestination.isWhite() != this->fWhite)
          {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDestination.getType());
+            Move move(currentPositionCopy, possibleDestination,
+                      this->isWhite(), pieceInDestination.getType());
             moves.insert(move);
          }
       }

@@ -2,7 +2,7 @@
  * Source File:
  *    King
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Angelo Arellano, Connor Hopkins
  * Summary:
  *    The king class
  ************************************************************************/
@@ -22,7 +22,7 @@ void King::display(ogstream* pgout) const
 
 
 /**********************************************
- * Bishop : GET POSITIONS
+ * KING : GET MOVES
  *********************************************/
 void King::getMoves(set <Move>& moves, const Board& board) const
 {
@@ -35,17 +35,19 @@ void King::getMoves(set <Move>& moves, const Board& board) const
       Position(c - 1, r - 1), Position(c, r - 1),  Position(c + 1, r - 1),
    };
    this->getMovesNoSlide(moves, board, defaultMoves, 8);
-   this->kingSideCastle(moves, board);
+   this->kingSideCastle (moves, board);
    this->queenSideCastle(moves, board);
 }
 
 /**********************************************
- * King: KING SIDE CASTLE
+ * KING : KING SIDE CASTLE
+ * Perform a castle move on the king's side.
  *********************************************/
 void King::kingSideCastle(set <Move>& moves, const Board& board) const
 {
    const Position rightCorner(position, {0,3});
    const Position destination(position, {0,2});
+
    if (canCastle(board, rightCorner))
    {
       Move move(position, destination, fWhite, INVALID);
@@ -55,12 +57,14 @@ void King::kingSideCastle(set <Move>& moves, const Board& board) const
 }
 
 /**********************************************
- * King: QUEEN SIDE CASTLE
+ * KING : QUEEN SIDE CASTLE
+  * Perform a castle move on the queen's side.
  *********************************************/
 void King::queenSideCastle(set <Move>& moves, const Board& board) const
 {
    const Position leftCorner(position, { 0,-4});
    const Position destination(position,{ 0,-2});
+
    if (canCastle(board, leftCorner))
    {
       Move move(position, destination, fWhite, INVALID);
@@ -70,7 +74,8 @@ void King::queenSideCastle(set <Move>& moves, const Board& board) const
 }
 
 /**********************************************
- * King: CAN CASTLE
+ * KING : CAN CASTLE
+ * Verify that the king and rook can castle.
  *********************************************/
 bool King::canCastle(const Board& board, const Position & corner) const
 {
@@ -78,7 +83,7 @@ bool King::canCastle(const Board& board, const Position & corner) const
    if (nMoves != 0)
       return false;
 
-   // Check Rooks position
+   // Check the rook's position
    if (corner.isInvalid())
       return false;
 

@@ -2,7 +2,7 @@
  * Source File:
  *    Queen
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Angelo Arellano, Connor Hopkins
  * Summary:
  *    The bishop class
  ************************************************************************/

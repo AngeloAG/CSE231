@@ -26,7 +26,7 @@ void TestMove::constructor_default()
 
    // VERIFY
    assertUnit(mov.source.isInvalid() == true);
-   assertUnit(mov.dest.isInvalid() == true);
+   assertUnit(mov.dest.isInvalid()   == true);
 
 }
 
@@ -45,13 +45,13 @@ void TestMove::constructString_simple()
    Move mov("e5e6");
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 4);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 4  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID   );
+   assertUnit(mov.promote  == INVALID   );
 }
 
  /*************************************
@@ -70,13 +70,13 @@ void TestMove::read_simple()
    mov.read("e5e6");
    
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 4);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 4  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID   );
+   assertUnit(mov.promote  == INVALID   );
 }
 
  /*************************************
@@ -96,13 +96,13 @@ void TestMove::read_capture()
    mov.read("e5d6r");
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 3);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 3  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
-   assertUnit(mov.capture == ROOK);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == ROOK      );
+   assertUnit(mov.promote  == INVALID   );
 }
 
  /*************************************
@@ -121,13 +121,13 @@ void TestMove::read_enpassant()
    mov.read("e5f6E");
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 5);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4       );
+   assertUnit(mov.source.getRow() == 4       );
+   assertUnit(mov.dest.getCol()   == 5       );
+   assertUnit(mov.dest.getRow()   == 5       );
    assertUnit(mov.moveType == Move::ENPASSANT);
-   assertUnit(mov.capture == PAWN);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == PAWN           );
+   assertUnit(mov.promote  == INVALID        );
 }
 
  /*************************************
@@ -146,13 +146,13 @@ void TestMove::read_castleKing()
    mov.read("e1g1c");
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 0);
-   assertUnit(mov.dest.getCol() == 6);
-   assertUnit(mov.dest.getRow() == 0);
+   assertUnit(mov.source.getCol() == 4         );
+   assertUnit(mov.source.getRow() == 0         );
+   assertUnit(mov.dest.getCol()   == 6         );
+   assertUnit(mov.dest.getRow()   == 0         );
    assertUnit(mov.moveType == Move::CASTLE_KING);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID          );
+   assertUnit(mov.promote  == INVALID          );
 }
 
  /*************************************
@@ -171,13 +171,13 @@ void TestMove::read_castleQueen()
    mov.read("e1c1C");
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 0);
-   assertUnit(mov.dest.getCol() == 2);
-   assertUnit(mov.dest.getRow() == 0);
+   assertUnit(mov.source.getCol() == 4          );
+   assertUnit(mov.source.getRow() == 0          );
+   assertUnit(mov.dest.getCol()   == 2          );
+   assertUnit(mov.dest.getRow()   == 0          );
    assertUnit(mov.moveType == Move::CASTLE_QUEEN);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID           );
+   assertUnit(mov.promote  == INVALID           );
 }
 
  /*************************************
@@ -196,13 +196,13 @@ void TestMove::assign_simple()
    mov = "e5e6";
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 4);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 4  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID   );
+   assertUnit(mov.promote  == INVALID   );
 }
 
  /*************************************
@@ -222,13 +222,13 @@ void TestMove::assign_capture()
    mov = "e5d6r";
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 3);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 3  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
-   assertUnit(mov.capture == ROOK);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == ROOK      );
+   assertUnit(mov.promote  == INVALID   );
 }
 
  /*************************************
@@ -247,13 +247,13 @@ void TestMove::assign_enpassant()
    mov = "e5f6E";
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 5);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(mov.source.getCol() == 4       );
+   assertUnit(mov.source.getRow() == 4       );
+   assertUnit(mov.dest.getCol()   == 5       );
+   assertUnit(mov.dest.getRow()   == 5       );
    assertUnit(mov.moveType == Move::ENPASSANT);
-   assertUnit(mov.capture == PAWN);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == PAWN           );
+   assertUnit(mov.promote  == INVALID        );
 }
 
  /*************************************
@@ -272,13 +272,13 @@ void TestMove::assign_castleKing()
    mov = "e1g1c";
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 0);
-   assertUnit(mov.dest.getCol() == 6);
-   assertUnit(mov.dest.getRow() == 0);
+   assertUnit(mov.source.getCol() == 4         );
+   assertUnit(mov.source.getRow() == 0         );
+   assertUnit(mov.dest.getCol()   == 6         );
+   assertUnit(mov.dest.getRow()   == 0         );
    assertUnit(mov.moveType == Move::CASTLE_KING);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID          );
+   assertUnit(mov.promote  == INVALID          );
 }
 
  /*************************************
@@ -297,13 +297,13 @@ void TestMove::assign_castleQueen()
    mov = "e1c1C";
 
    // VERIFY
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 0);
-   assertUnit(mov.dest.getCol() == 2);
-   assertUnit(mov.dest.getRow() == 0);
+   assertUnit(mov.source.getCol() == 4          );
+   assertUnit(mov.source.getRow() == 0          );
+   assertUnit(mov.dest.getCol()   == 2          );
+   assertUnit(mov.dest.getRow()   == 0          );
    assertUnit(mov.moveType == Move::CASTLE_QUEEN);
-   assertUnit(mov.capture == INVALID);
-   assertUnit(mov.promote == INVALID);
+   assertUnit(mov.capture  == INVALID           );
+   assertUnit(mov.promote  == INVALID           );
 }
 
  /*************************************
@@ -322,11 +322,11 @@ void TestMove::getText_simple()
    string smith = mov.getText();
 
    // VERIFY
-   assertUnit(smith == "e5e6");
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 4);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(smith == "e5e6"           );
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 4  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
 }
 
@@ -347,13 +347,13 @@ void TestMove::getText_capture()
    string smith = mov.getText();
 
    // VERIFY
-   assertUnit(smith == "e5e6r");
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 4);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(smith == "e5e6r"          );
+   assertUnit(mov.source.getCol() == 4  );
+   assertUnit(mov.source.getRow() == 4  );
+   assertUnit(mov.dest.getCol()   == 4  );
+   assertUnit(mov.dest.getRow()   == 5  );
    assertUnit(mov.moveType == Move::MOVE);
-   assertUnit(mov.capture == ROOK);
+   assertUnit(mov.capture  == ROOK      );
 }
 
  /*************************************
@@ -373,13 +373,13 @@ void TestMove::getText_enpassant()
    string smith = mov.getText();
 
    // VERIFY
-   assertUnit(smith == "e5f6E");
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 4);
-   assertUnit(mov.dest.getCol() == 5);
-   assertUnit(mov.dest.getRow() == 5);
+   assertUnit(smith == "e5f6E"               );
+   assertUnit(mov.source.getCol() == 4       );
+   assertUnit(mov.source.getRow() == 4       );
+   assertUnit(mov.dest.getCol()   == 5       );
+   assertUnit(mov.dest.getRow()   == 5       );
    assertUnit(mov.moveType == Move::ENPASSANT);
-   assertUnit(mov.capture == PAWN);
+   assertUnit(mov.capture  == PAWN           );
 }
 
  /*************************************
@@ -398,13 +398,13 @@ void TestMove::getText_castleKing()
    string smith = mov.getText();
 
    // VERIFY
-   assertUnit(smith == "e1g1c");
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 0);
-   assertUnit(mov.dest.getCol() == 6);
-   assertUnit(mov.dest.getRow() == 0);
+   assertUnit(smith == "e1g1c"                 );
+   assertUnit(mov.source.getCol() == 4         );
+   assertUnit(mov.source.getRow() == 0         );
+   assertUnit(mov.dest.getCol()   == 6         );
+   assertUnit(mov.dest.getRow()   == 0         );
    assertUnit(mov.moveType == Move::CASTLE_KING);
-   assertUnit(mov.capture == INVALID);
+   assertUnit(mov.capture  == INVALID          );
 }
 
  /*************************************
@@ -423,13 +423,13 @@ void TestMove::getText_castleQueen()
    string smith = mov.getText();
 
    // VERIFY
-   assertUnit(smith == "e1c1C");
-   assertUnit(mov.source.getCol() == 4);
-   assertUnit(mov.source.getRow() == 0);
-   assertUnit(mov.dest.getCol() == 2);
-   assertUnit(mov.dest.getRow() == 0);
+   assertUnit(smith == "e1c1C"                  );
+   assertUnit(mov.source.getCol() == 4          );
+   assertUnit(mov.source.getRow() == 0          );
+   assertUnit(mov.dest.getCol()   == 2          );
+   assertUnit(mov.dest.getRow()   == 0          );
    assertUnit(mov.moveType == Move::CASTLE_QUEEN);
-   assertUnit(mov.capture == INVALID);
+   assertUnit(mov.capture  == INVALID           );
 }
 
  /*************************************
@@ -670,20 +670,21 @@ void TestMove::equal_not()
 
    // VERIFY
    assertUnit(!equals);
-   assertUnit(mov1.source.getCol() == 1);
-   assertUnit(mov1.source.getRow() == 1);
-   assertUnit(mov1.dest.getCol() == 1);
-   assertUnit(mov1.dest.getRow() == 3);
-   assertUnit(mov1.moveType == Move::MOVE);
-   assertUnit(mov1.capture == INVALID);
-   assertUnit(mov1.promote == INVALID);
-   assertUnit(mov2.source.getCol() == 1);
-   assertUnit(mov2.source.getRow() == 1);
-   assertUnit(mov2.dest.getCol() == 1);
-   assertUnit(mov2.dest.getRow() == 4);
-   assertUnit(mov2.moveType == Move::MOVE);
-   assertUnit(mov2.capture == INVALID);
-   assertUnit(mov2.promote == INVALID);
+   assertUnit(mov1.source.getCol() == 1         );
+   assertUnit(mov1.source.getRow() == 1         );
+   assertUnit(mov1.dest.getCol()   == 1         );
+   assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.capture         == INVALID   );
+   assertUnit(mov1.promote         == INVALID   );
+   assertUnit(mov1.moveType        == Move::MOVE);
+
+   assertUnit(mov2.source.getCol() == 1         );
+   assertUnit(mov2.source.getRow() == 1         );
+   assertUnit(mov2.dest.getCol()   == 1         );
+   assertUnit(mov2.dest.getRow()   == 4         );
+   assertUnit(mov2.capture         == INVALID   );
+   assertUnit(mov2.promote         == INVALID   );
+   assertUnit(mov2.moveType        == Move::MOVE);
 }
 
  /*************************************
@@ -702,13 +703,14 @@ void TestMove::equal_equals()
 
    // VERIFY
    assertUnit(equals);
-   assertUnit(mov1.source.getCol() == 1);
-   assertUnit(mov1.source.getRow() == 1);
-   assertUnit(mov1.dest.getCol() == 1);
-   assertUnit(mov1.dest.getRow() == 3);
-   assertUnit(mov1.moveType == Move::MOVE);
-   assertUnit(mov1.capture == INVALID);
-   assertUnit(mov1.promote == INVALID);
+   assertUnit(mov1.source.getCol() == 1         );
+   assertUnit(mov1.source.getRow() == 1         );
+   assertUnit(mov1.dest.getCol()   == 1         );
+   assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.capture         == INVALID   );
+   assertUnit(mov1.promote         == INVALID   );
+   assertUnit(mov1.moveType        == Move::MOVE);
+
    assertUnit(mov2.source.getCol() == 1);
    assertUnit(mov2.source.getRow() == 1);
    assertUnit(mov2.dest.getCol() == 1);
@@ -734,20 +736,21 @@ void TestMove::lessthan_lessthan()
 
    // VERIFY
    assertUnit(lessThan);
-   assertUnit(mov1.source.getCol() == 1);
-   assertUnit(mov1.source.getRow() == 1);
-   assertUnit(mov1.dest.getCol() == 1);
-   assertUnit(mov1.dest.getRow() == 1);
-   assertUnit(mov1.moveType == Move::MOVE);
-   assertUnit(mov1.capture == INVALID);
-   assertUnit(mov1.promote == INVALID);
-   assertUnit(mov2.source.getCol() == 1);
-   assertUnit(mov2.source.getRow() == 1);
-   assertUnit(mov2.dest.getCol() == 1);
-   assertUnit(mov2.dest.getRow() == 3);
-   assertUnit(mov2.moveType == Move::MOVE);
-   assertUnit(mov2.capture == INVALID);
-   assertUnit(mov2.promote == INVALID);
+   assertUnit(mov1.source.getCol() == 1         );
+   assertUnit(mov1.source.getRow() == 1         );
+   assertUnit(mov1.dest.getCol()   == 1         );
+   assertUnit(mov1.dest.getRow()   == 1         );
+   assertUnit(mov1.capture         == INVALID   );
+   assertUnit(mov1.promote         == INVALID   );
+   assertUnit(mov1.moveType        == Move::MOVE);
+
+   assertUnit(mov2.source.getCol() == 1         );
+   assertUnit(mov2.source.getRow() == 1         );
+   assertUnit(mov2.dest.getCol()   == 1         );
+   assertUnit(mov2.dest.getRow()   == 3         );
+   assertUnit(mov2.capture         == INVALID   );
+   assertUnit(mov2.promote         == INVALID   );
+   assertUnit(mov2.moveType        == Move::MOVE);
 }
 
  /*************************************
@@ -766,20 +769,21 @@ void TestMove::lessthan_equals()
 
    // VERIFY
    assertUnit(!lessThan);
-   assertUnit(mov1.source.getCol() == 1);
-   assertUnit(mov1.source.getRow() == 1);
-   assertUnit(mov1.dest.getCol() == 1);
-   assertUnit(mov1.dest.getRow() == 3);
-   assertUnit(mov1.moveType == Move::MOVE);
-   assertUnit(mov1.capture == INVALID);
-   assertUnit(mov1.promote == INVALID);
-   assertUnit(mov2.source.getCol() == 1);
-   assertUnit(mov2.source.getRow() == 1);
-   assertUnit(mov2.dest.getCol() == 1);
-   assertUnit(mov2.dest.getRow() == 3);
-   assertUnit(mov2.moveType == Move::MOVE);
-   assertUnit(mov2.capture == INVALID);
-   assertUnit(mov2.promote == INVALID);
+   assertUnit(mov1.source.getCol() == 1         );
+   assertUnit(mov1.source.getRow() == 1         );
+   assertUnit(mov1.dest.getCol()   == 1         );
+   assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.capture         == INVALID   );
+   assertUnit(mov1.promote         == INVALID   );
+   assertUnit(mov1.moveType        == Move::MOVE);
+
+   assertUnit(mov2.source.getCol() == 1         );
+   assertUnit(mov2.source.getRow() == 1         );
+   assertUnit(mov2.dest.getCol()   == 1         );
+   assertUnit(mov2.dest.getRow()   == 3         );
+   assertUnit(mov2.capture         == INVALID   );
+   assertUnit(mov2.promote         == INVALID   );
+   assertUnit(mov2.moveType        == Move::MOVE);
 }
 
  /*************************************
@@ -798,18 +802,19 @@ void TestMove::lessthan_greaterthan()
 
    // VERIFY
    assertUnit(!lessThan);
-   assertUnit(mov1.source.getCol() == 1);
-   assertUnit(mov1.source.getRow() == 1);
-   assertUnit(mov1.dest.getCol() == 1);
-   assertUnit(mov1.dest.getRow() == 3);
-   assertUnit(mov1.moveType == Move::MOVE);
-   assertUnit(mov1.capture == INVALID);
-   assertUnit(mov1.promote == INVALID);
-   assertUnit(mov2.source.getCol() == 1);
-   assertUnit(mov2.source.getRow() == 1);
-   assertUnit(mov2.dest.getCol() == 1);
-   assertUnit(mov2.dest.getRow() == 1);
-   assertUnit(mov2.moveType == Move::MOVE);
-   assertUnit(mov2.capture == INVALID);
-   assertUnit(mov2.promote == INVALID);
+   assertUnit(mov1.source.getCol() == 1         );
+   assertUnit(mov1.source.getRow() == 1         );
+   assertUnit(mov1.dest.getCol()   == 1         );
+   assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.capture         == INVALID   );
+   assertUnit(mov1.promote         == INVALID   );
+   assertUnit(mov1.moveType        == Move::MOVE);
+
+   assertUnit(mov2.source.getCol() == 1         );
+   assertUnit(mov2.source.getRow() == 1         );
+   assertUnit(mov2.dest.getCol()   == 1         );
+   assertUnit(mov2.dest.getRow()   == 1         );
+   assertUnit(mov2.capture         == INVALID   );
+   assertUnit(mov2.promote         == INVALID   );
+   assertUnit(mov2.moveType        == Move::MOVE);
 }

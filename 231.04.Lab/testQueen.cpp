@@ -2,7 +2,7 @@
  * Source File:
  *    TEST QUEEN
  * Author:
- *    <your name here>
+ *    Jacob Mower, Angelo Arellano, Connor Hopkins
  * Summary:
  *    The unit tests for the queen
  ************************************************************************/
@@ -12,9 +12,6 @@
 #include "board.h"
 #include "uiDraw.h"
 #include <cassert>
-
-
-
 
 /*************************************
  * +---a-b-c-d-e-f-g-h---+
@@ -254,24 +251,24 @@ void TestQueen::getMoves_slideToCapture()
    assertUnit(moves.find(Move("c2a2p")) != moves.end());
    assertUnit(moves.find(Move("c2a4p")) != moves.end());
    assertUnit(moves.find(Move("c2b1p")) != moves.end());
-   assertUnit(moves.find(Move("c2b2")) != moves.end());
-   assertUnit(moves.find(Move("c2b3")) != moves.end());
+   assertUnit(moves.find(Move("c2b2"))  != moves.end());
+   assertUnit(moves.find(Move("c2b3"))  != moves.end());
    assertUnit(moves.find(Move("c2c1p")) != moves.end());
-   assertUnit(moves.find(Move("c2c3")) != moves.end());
-   assertUnit(moves.find(Move("c2c4")) != moves.end());
-   assertUnit(moves.find(Move("c2c5")) != moves.end());
-   assertUnit(moves.find(Move("c2c6")) != moves.end());
-   assertUnit(moves.find(Move("c2c7")) != moves.end());
+   assertUnit(moves.find(Move("c2c3"))  != moves.end());
+   assertUnit(moves.find(Move("c2c4"))  != moves.end());
+   assertUnit(moves.find(Move("c2c5"))  != moves.end());
+   assertUnit(moves.find(Move("c2c6"))  != moves.end());
+   assertUnit(moves.find(Move("c2c7"))  != moves.end());
    assertUnit(moves.find(Move("c2c8p")) != moves.end());
    assertUnit(moves.find(Move("c2d1p")) != moves.end());
-   assertUnit(moves.find(Move("c2d2")) != moves.end());
-   assertUnit(moves.find(Move("c2d3")) != moves.end());
-   assertUnit(moves.find(Move("c2e2")) != moves.end());
-   assertUnit(moves.find(Move("c2e4")) != moves.end());
-   assertUnit(moves.find(Move("c2f2")) != moves.end());
-   assertUnit(moves.find(Move("c2f5")) != moves.end());
-   assertUnit(moves.find(Move("c2g2")) != moves.end());
-   assertUnit(moves.find(Move("c2g6")) != moves.end());
+   assertUnit(moves.find(Move("c2d2"))  != moves.end());
+   assertUnit(moves.find(Move("c2d3"))  != moves.end());
+   assertUnit(moves.find(Move("c2e2"))  != moves.end());
+   assertUnit(moves.find(Move("c2e4"))  != moves.end());
+   assertUnit(moves.find(Move("c2f2"))  != moves.end());
+   assertUnit(moves.find(Move("c2f5"))  != moves.end());
+   assertUnit(moves.find(Move("c2g2"))  != moves.end());
+   assertUnit(moves.find(Move("c2g6"))  != moves.end());
    assertUnit(moves.find(Move("c2h2p")) != moves.end());
    assertUnit(moves.find(Move("c2h7p")) != moves.end());
 
@@ -298,15 +295,15 @@ void TestQueen::getType()
 {
    // SETUP
    Queen queen(7, 7, false /*white*/);
-   queen.fWhite = true;
+   queen.fWhite          = true;
    queen.position.colRow = 0x34;
-   PieceType type = KING;
+   PieceType type        = KING;
 
    // EXERCISE
    type = queen.getType();
 
    // VERIFY
-   assertUnit(type == QUEEN);
-   assertUnit(queen.fWhite == true);
-   assertUnit(queen.position.colRow == 0x34);
+   assertUnit(type                  == QUEEN);
+   assertUnit(queen.fWhite          == true );
+   assertUnit(queen.position.colRow == 0x34 );
 }  // TEARDOWN

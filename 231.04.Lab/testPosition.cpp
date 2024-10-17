@@ -40,7 +40,7 @@ void PositionTest::getRow_zero()
    row = pos.getRow();
 
    // VERIFY
-   assertUnit(row == 0);
+   assertUnit(row == 0          );
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
@@ -55,7 +55,7 @@ void PositionTest::getCol_zero()
    col = pos.getCol();
 
    // VERIFY
-   assertUnit(col == 0);
+   assertUnit(col == 0          );
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
@@ -70,7 +70,7 @@ void PositionTest::getLocation_zero()
    location = pos.getLocation();
 
    // VERIFY
-   assertUnit(location == 0);
+   assertUnit(location   == 0   );
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
@@ -85,7 +85,7 @@ void PositionTest::isValid_zero()
    f = pos.isValid();
 
    // VERIFY
-   assertUnit(f == true);
+   assertUnit(f == true         );
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
@@ -100,7 +100,7 @@ void PositionTest::isInvalid_zero()
    f = pos.isInvalid();
 
    // VERIFY
-   assertUnit(f == false);
+   assertUnit(f == false        );
    assertUnit(pos.colRow == 0x00);
 
 }  // TEARDOWN
@@ -133,7 +133,7 @@ void PositionTest::getRow_middle()
    row = pos.getRow();
 
    // VERIFY
-   assertUnit(row == 4);
+   assertUnit(row == 4          );
    assertUnit(pos.colRow == 0x14);
 
 }  // TEARDOWN
@@ -163,7 +163,7 @@ void PositionTest::getLocation_middle()
    location = pos.getLocation();
 
    // VERIFY
-   assertUnit(location == 33);
+   assertUnit(location   == 33  );
    assertUnit(pos.colRow == 0x14);
 
 }  // TEARDOWN
@@ -178,7 +178,7 @@ void PositionTest::isValid_middle()
    f = pos.isValid();
 
    // VERIFY
-   assertUnit(f == true);
+   assertUnit(f == true         );
    assertUnit(pos.colRow == 0x14);
 
 }  // TEARDOWN
@@ -193,7 +193,7 @@ void PositionTest::isInvalid_middle()
    f = pos.isInvalid();
 
    // VERIFY
-   assertUnit(f == false);
+   assertUnit(f == false        );
    assertUnit(pos.colRow == 0x14);
 
 }  // TEARDOWN
@@ -225,7 +225,7 @@ void PositionTest::getRow_end()
    row = pos.getRow();
 
    // VERIFY
-   assertUnit(row == 7);
+   assertUnit(row == 7          );
    assertUnit(pos.colRow == 0x77);
 
 }  // TEARDOWN
@@ -240,7 +240,7 @@ void PositionTest::getCol_end()
    col = pos.getCol();
 
    // VERIFY
-   assertUnit(col == 7);
+   assertUnit(col == 7          );
    assertUnit(pos.colRow == 0x77);
 
 }  // TEARDOWN
@@ -255,7 +255,7 @@ void PositionTest::getLocation_end()
    location = pos.getLocation();
 
    // VERIFY
-   assertUnit(location == 63);
+   assertUnit(location   == 63  );
    assertUnit(pos.colRow == 0x77);
 
 }  // TEARDOWN
@@ -270,7 +270,7 @@ void PositionTest::isValid_end()
    f = pos.isValid();
 
    // VERIFY
-   assertUnit(f == true);
+   assertUnit(f == true         );
    assertUnit(pos.colRow == 0x77);
 
 }  // TEARDOWN
@@ -285,7 +285,7 @@ void PositionTest::isInvalid_end()
    f = pos.isInvalid();
 
    // VERIFY
-   assertUnit(f == false);
+   assertUnit(f == false        );
    assertUnit(pos.colRow == 0x77);
 
 }  // TEARDOWN
@@ -317,7 +317,7 @@ void PositionTest::getRow_invalid()
    row = pos.getRow();
 
    // VERIFY
-   assertUnit(row == -1);
+   assertUnit(row == -1         );
    assertUnit(pos.colRow == 0xff);
 
 }  // TEARDOWN
@@ -332,7 +332,7 @@ void PositionTest::getCol_invalid()
    col = pos.getCol();
 
    // VERIFY
-   assertUnit(col == -1);
+   assertUnit(col == -1         );
    assertUnit(pos.colRow == 0xff);
 
 }  // TEARDOWN
@@ -347,7 +347,7 @@ void PositionTest::isValid_invalid()
    f = pos.isValid();
 
    // VERIFY
-   assertUnit(f == false);
+   assertUnit(f == false        );
    assertUnit(pos.colRow == 0xff);
 
 }  // TEARDOWN
@@ -362,7 +362,7 @@ void PositionTest::isInvalid_invalid()
    f = pos.isInvalid();
 
    // VERIFY
-   assertUnit(f == true);
+   assertUnit(f == true         );
    assertUnit(pos.colRow == 0xff);
 
 }  // TEARDOWN
@@ -393,7 +393,7 @@ void PositionTest::getRow_rowInvalid()
    row = pos.getRow();
 
    // VERIFY
-   assertUnit(row == -1);
+   assertUnit(row == -1         );
    assertUnit(pos.colRow == 0x59);
 
 }  // TEARDOWN
@@ -408,7 +408,7 @@ void PositionTest::getCol_rowInvalid()
    col = pos.getCol();
 
    // VERIFY
-   assertUnit(col == -1);
+   assertUnit(col == -1         );
    assertUnit(pos.colRow == 0x59);
 
 }  // TEARDOWN
@@ -423,7 +423,7 @@ void PositionTest::isValid_rowInvalid()
    f = pos.isValid();
 
    // VERIFY
-   assertUnit(f == false);
+   assertUnit(f == false        );
    assertUnit(pos.colRow == 0x59);
 
 }  // TEARDOWN
@@ -438,7 +438,7 @@ void PositionTest::isInvalid_rowInvalid()
    f = pos.isInvalid();
 
    // VERIFY
-   assertUnit(f == true);
+   assertUnit(f == true         );
    assertUnit(pos.colRow == 0x59);
 
 }  // TEARDOWN
@@ -468,7 +468,7 @@ void PositionTest::getRow_colInvalid()
    row = pos.getRow();
 
    // VERIFY
-   assertUnit(row == -1);
+   assertUnit(row == -1         );
    assertUnit(pos.colRow == 0x95);
 
 }  // TEARDOWN
@@ -483,7 +483,7 @@ void PositionTest::getCol_colInvalid()
    col = pos.getCol();
 
    // VERIFY
-   assertUnit(col == -1);
+   assertUnit(col == -1         );
    assertUnit(pos.colRow == 0x95);
 
 }  // TEARDOWN
@@ -498,7 +498,7 @@ void PositionTest::isValid_colInvalid()
    f = pos.isValid();
 
    // VERIFY
-   assertUnit(f == false);
+   assertUnit(f == false        );
    assertUnit(pos.colRow == 0x95);
 
 }  // TEARDOWN
@@ -513,7 +513,7 @@ void PositionTest::isInvalid_colInvalid()
    f = pos.isInvalid();
 
    // VERIFY
-   assertUnit(f == true);
+   assertUnit(f == true         );
    assertUnit(pos.colRow == 0x95);
 
 }  // TEARDOWN
@@ -669,7 +669,7 @@ void PositionTest::set_copy()
    pos = posRHS;
 
    // VERIFY
-   assertUnit(pos.colRow == 0x25);
+   assertUnit(pos.colRow    == 0x25);
    assertUnit(posRHS.colRow == 0x25);
 
    // TEARDOWN

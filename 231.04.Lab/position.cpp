@@ -74,7 +74,7 @@ int Position::getCol() const
 }
 
 /*************************************
- * GET ROw
+ * GET ROW
  * If the current position is valid
  * the row is returned 0 - 7, otherwise -1
  **************************************/

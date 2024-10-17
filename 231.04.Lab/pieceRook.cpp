@@ -3,7 +3,7 @@
  * Source File:
  *    Rook
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Angelo Arellano, Connor Hopkins
  * Summary:
  *    The bishop class
  ************************************************************************/
@@ -23,7 +23,7 @@ void Rook::display(ogstream* pgout) const
 
 
 /**********************************************
- * Rook : GET POSITIONS
+ * ROOK : GET POSITIONS
  *********************************************/
 void Rook::getMoves(set <Move>& moves, const Board& board) const
 {
@@ -32,8 +32,9 @@ void Rook::getMoves(set <Move>& moves, const Board& board) const
 
    Position defaultMoves[4] = {
                               Position(c, r + 1),
-      Position(c - 1, r),                          Position(c + 1, r),
+           Position(c - 1, r),                   Position(c + 1, r),
                               Position(c, r - 1),
    };
+
    this->getMovesSlide(moves, board, defaultMoves, 4);
 }

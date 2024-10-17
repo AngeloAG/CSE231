@@ -2,7 +2,7 @@
  * Source File:
  *    PIECE 
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Angelo Arellano, Connor Hopkins
  * Summary:
  *    The Piece base class and all the derived classes:
  *       SPACE, KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN
@@ -42,14 +42,18 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
  * PIECE : GET MOVES NO SLIDE
  * Iterate through the moves decorator to allow a piece to move no sliding
  ***********************************************/
-void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Position* directions, int amountOfDirections) const
+void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board,
+                            const Position* directions, int amountOfDirections
+                           ) const
 {
    Position currentPositionCopy(position);
    for (int i = 0; i < amountOfDirections; i++)
    {
       Position possibleDestination = directions[i];
       bool canCapture = false;
-      if (possibleDestination.isValid() && (board[possibleDestination].isWhite() != fWhite || board[possibleDestination].getType() == SPACE))
+      if (possibleDestination.isValid() &&
+         (board[possibleDestination].isWhite() != fWhite ||
+          board[possibleDestination].getType() == SPACE))
       {
          const Piece& pieceInDest = board[possibleDestination];
          if (pieceInDest.getType() == SPACE)
@@ -59,7 +63,8 @@ void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Posi
          }
          else if (pieceInDest.isWhite() != this->fWhite)
          {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDest.getType());
+            Move move(currentPositionCopy, possibleDestination,
+                      this->isWhite(), pieceInDest.getType());
             movesSet.insert(move);
             canCapture = true;
          }
@@ -83,14 +88,18 @@ void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Posi
  * PIECE : GET MOVES Sliding
  * Iterate through the moves decorator to allow a piece to move slide
  ***********************************************/
-void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Position* directions, int amountOfDirections) const
+void Piece::getMovesSlide(set <Move>& movesSet, const Board& board,
+                          const Position* directions, int amountOfDirections
+                         ) const
 {
    Position currentPositionCopy(position);
    for (int i = 0; i < amountOfDirections; i++)
    {
       Position possibleDestination = directions[i];
       bool canCapture = false;
-      while (possibleDestination.isValid() && (board[possibleDestination].isWhite() != fWhite || board[possibleDestination].getType() == SPACE))
+      while (possibleDestination.isValid() &&
+            (board[possibleDestination].isWhite() != fWhite ||
+             board[possibleDestination].getType() == SPACE))
       {
          const Piece& pieceInDest = board[possibleDestination];
          if (pieceInDest.getType() == SPACE)
@@ -100,18 +109,19 @@ void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Positi
          }
          else if (pieceInDest.isWhite() != this->fWhite)
          {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDest.getType());
+            Move move(currentPositionCopy, possibleDestination,
+                      this->isWhite(), pieceInDest.getType());
             movesSet.insert(move);
             canCapture = true;
          }
 
-         // If the destination col is greater that means we are moving to the right
+         // If the destination col is greater, move right
          if (currentPositionCopy.getCol() < possibleDestination.getCol())
             possibleDestination.adjustCol(1);
          else if (currentPositionCopy.getCol() > possibleDestination.getCol())
             possibleDestination.adjustCol(-1);
 
-         // If the destination row is greater that means we are moving to the up
+         // If the destination row is greater, move up
          if (currentPositionCopy.getRow() < possibleDestination.getRow())
             possibleDestination.adjustRow(1);
          else if (currentPositionCopy.getRow() > possibleDestination.getRow())
@@ -123,6 +133,10 @@ void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Positi
    }
 }
 
+/************************************************
+ * PIECE : JUST MOVED
+ * Add to the most recent piece's movement count.
+ ***********************************************/
 bool Piece::justMoved(int currentMove) const
 {
    return lastMove + 1 == currentMove;
