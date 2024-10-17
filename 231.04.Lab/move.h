@@ -32,8 +32,7 @@ public:
    // constructor
    Move();
    Move(const char * s);
-   Move(Position source, Position dest, bool isWhite, PieceType capture = INVALID, 
-        MoveType type = MOVE, PieceType promote = INVALID);
+   Move(Position source, Position dest, bool isWhite, PieceType capture = INVALID, PieceType promote = INVALID);
    bool operator == (const Move & rhs) const  { return rhs.text == this->text;    }
    bool operator != (const Move & rhs) const  { return rhs.text != this->text;    }
    bool operator <  (const Move & rhs) const  { return dest.getLocation() < rhs.dest.getLocation(); }
@@ -43,7 +42,7 @@ public:
    const Position& getSource()const           { return source;                    }
    const Position& getDest() const            { return dest;                      }
    PieceType getCapture() const               { return capture;                   }
-
+   void setCastle(bool isKingSide) { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; }
    
 private:
    char letterFromPieceType(PieceType pt)     const;

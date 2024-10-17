@@ -42,8 +42,41 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
  * PIECE : GET MOVES NO SLIDE
  * Iterate through the moves decorator to allow a piece to move no sliding
  ***********************************************/
-void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board) const
+void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Position* directions, int amountOfDirections) const
 {
+   Position currentPositionCopy(position);
+   for (int i = 0; i < amountOfDirections; i++)
+   {
+      Position possibleDestination = directions[i];
+      bool canCapture = false;
+      if (possibleDestination.isValid() && (board[possibleDestination].isWhite() != fWhite || board[possibleDestination].getType() == SPACE))
+      {
+         const Piece& pieceInDest = board[possibleDestination];
+         if (pieceInDest.getType() == SPACE)
+         {
+            Move move(currentPositionCopy, possibleDestination, this->isWhite());
+            movesSet.insert(move);
+         }
+         else if (pieceInDest.isWhite() != this->fWhite)
+         {
+            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDest.getType());
+            movesSet.insert(move);
+            canCapture = true;
+         }
+
+         // If the destination col is greater that means we are moving to the right
+         if (currentPositionCopy.getCol() < possibleDestination.getCol())
+            possibleDestination.adjustCol(1);
+         else if (currentPositionCopy.getCol() > possibleDestination.getCol())
+            possibleDestination.adjustCol(-1);
+
+         // If the destination row is greater that means we are moving to the up
+         if (currentPositionCopy.getRow() < possibleDestination.getRow())
+            possibleDestination.adjustRow(1);
+         else if (currentPositionCopy.getRow() > possibleDestination.getRow())
+            possibleDestination.adjustRow(-1);
+      }
+   }
 }
 
 /************************************************

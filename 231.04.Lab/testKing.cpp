@@ -35,6 +35,7 @@ void TestKing::getMoves_blocked()
    BoardEmpty board;
    King king(5, 5, false /*white*/);
    king.fWhite = true;
+   king.nMoves = 1; // King has already moved
    king.position.set(3, 4);
    board.board[3][4] = &king;
    
@@ -96,26 +97,27 @@ void TestKing::getMoves_capture()
    BoardEmpty board;
    King king(5, 5, false /*white*/);
    king.fWhite = true;
-   king.position.set(4, 4);
-   board.board[4][4] = &king;
+   king.nMoves = 1; // King has already moved
+   king.position.set(3, 4);
+   board.board[3][4] = &king;
 
    // Surround the king with enemy pawns (possible capture moves)
    Black blackPawn1(PAWN);
-   board.board[3][3] = &blackPawn1; // Top-left
+   board.board[2][5] = &blackPawn1; // Top-left
    Black blackPawn2(PAWN);
-   board.board[3][4] = &blackPawn2; // Top-center
+   board.board[3][5] = &blackPawn2; // Top-center
    Black blackPawn3(PAWN);
-   board.board[3][5] = &blackPawn3; // Top-right
+   board.board[4][5] = &blackPawn3; // Top-right
    Black blackPawn4(PAWN);
-   board.board[4][3] = &blackPawn4; // Left
+   board.board[2][4] = &blackPawn4; // Left
    Black blackPawn5(PAWN);
-   board.board[4][5] = &blackPawn5; // Right
+   board.board[4][4] = &blackPawn5; // Right
    Black blackPawn6(PAWN);
-   board.board[5][3] = &blackPawn6; // Bottom-left
+   board.board[2][3] = &blackPawn6; // Bottom-left
    Black blackPawn7(PAWN);
-   board.board[5][4] = &blackPawn7; // Bottom-center
+   board.board[3][3] = &blackPawn7; // Bottom-center
    Black blackPawn8(PAWN);
-   board.board[5][5] = &blackPawn8; // Bottom-right
+   board.board[4][3] = &blackPawn8; // Bottom-right
 
    set<Move> moves;
 
@@ -124,25 +126,25 @@ void TestKing::getMoves_capture()
 
    // VERIFY
    assertUnit(moves.size() == 8);  // The king should be able to capture all 8 pawns
-   assertUnit(moves.find(Move("e5d4")) != moves.end()); // capture blackPawn1
-   assertUnit(moves.find(Move("e5e4")) != moves.end()); // capture blackPawn2
-   assertUnit(moves.find(Move("e5f4")) != moves.end()); // capture blackPawn3
-   assertUnit(moves.find(Move("e5d5")) != moves.end()); // capture blackPawn4
-   assertUnit(moves.find(Move("e5f5")) != moves.end()); // capture blackPawn5
-   assertUnit(moves.find(Move("e5d6")) != moves.end()); // capture blackPawn6
-   assertUnit(moves.find(Move("e5e6")) != moves.end()); // capture blackPawn7
-   assertUnit(moves.find(Move("e5f6")) != moves.end()); // capture blackPawn8
+   assertUnit(moves.find(Move("d5c6p")) != moves.end()); // capture blackPawn1
+   assertUnit(moves.find(Move("d5d6p")) != moves.end()); // capture blackPawn2
+   assertUnit(moves.find(Move("d5e6p")) != moves.end()); // capture blackPawn3
+   assertUnit(moves.find(Move("d5e5p")) != moves.end()); // capture blackPawn4
+   assertUnit(moves.find(Move("d5e4p")) != moves.end()); // capture blackPawn5
+   assertUnit(moves.find(Move("d5d4p")) != moves.end()); // capture blackPawn6
+   assertUnit(moves.find(Move("d5c4p")) != moves.end()); // capture blackPawn7
+   assertUnit(moves.find(Move("d5c5p")) != moves.end()); // capture blackPawn8
 
    // TEARDOWN
-   board.board[4][4] = nullptr; // king
-   board.board[3][3] = nullptr; // blackPawn1
-   board.board[3][4] = nullptr; // blackPawn2
-   board.board[3][5] = nullptr; // blackPawn3
-   board.board[4][3] = nullptr; // blackPawn4
-   board.board[4][5] = nullptr; // blackPawn5
-   board.board[5][3] = nullptr; // blackPawn6
-   board.board[5][4] = nullptr; // blackPawn7
-   board.board[5][5] = nullptr; // blackPawn8
+   board.board[3][4] = nullptr; // king
+   board.board[2][5] = nullptr; // blackPawn1
+   board.board[3][5] = nullptr; // blackPawn2
+   board.board[4][5] = nullptr; // blackPawn3
+   board.board[2][4] = nullptr; // blackPawn4
+   board.board[4][4] = nullptr; // blackPawn5
+   board.board[2][3] = nullptr; // blackPawn6
+   board.board[3][3] = nullptr; // blackPawn7
+   board.board[4][3] = nullptr; // blackPawn8
 }
 
 
@@ -166,6 +168,7 @@ void TestKing::getMoves_free()
    BoardEmpty board;
    King king(5, 5, false /*white*/);
    king.fWhite = true;
+   king.nMoves = 1; // King has already moved
    king.position.set(4, 4);
    board.board[4][4] = &king;
 
@@ -211,6 +214,7 @@ void TestKing::getMoves_end()
    BoardEmpty board;
    King king(1, 1, false /*white*/);
    king.fWhite = true;
+   king.nMoves = 1; // King has already moved
    king.position.set(0, 0); // King at a1
    board.board[0][0] = &king;
 
@@ -249,9 +253,10 @@ void TestKing::getMoves_whiteCastle()
    // SETUP
    BoardEmpty board;
    King king(1, 4, false /*white*/); // white king starting at e1
-   king.fWhite = true;
-   king.position.set(0, 4); // e1
+   king.fWhite   = true;
    king.lastMove = 0;
+   king.nMoves   = 0;
+   king.position.set(0, 4); // e1
    board.board[0][4] = &king;
 
    // Place rooks on a1 and h1
@@ -259,12 +264,14 @@ void TestKing::getMoves_whiteCastle()
    rook1.fWhite = true;
    rook1.position.set(0, 0); // a1
    rook1.lastMove = 0;
+   rook1.nMoves = 0;
    board.board[0][0] = &rook1;
 
    Rook rook2(1, 7, false /*white*/); // white rook on h1
    rook2.fWhite = true;
    rook2.position.set(0, 7); // h1
    rook2.lastMove = 0;
+   rook2.nMoves = 0;
    board.board[0][7] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
@@ -282,8 +289,9 @@ void TestKing::getMoves_whiteCastle()
 
    // VERIFY
    // Check for castling moves
-   assertUnit(moves.find(Move("e1c1")) != moves.end()); // Queen-side castling (a1 to e1)
-   assertUnit(moves.find(Move("e1g1")) != moves.end()); // King-side castling (h1 to e1)
+   assertUnit(moves.size() == 4);
+   assertUnit(moves.find(Move("e1c1C")) != moves.end()); // Queen-side castling (a1 to e1)
+   assertUnit(moves.find(Move("e1g1c")) != moves.end()); // King-side castling (h1 to e1)
 
    // TEARDOWN
    board.board[0][4] = nullptr; // king
@@ -315,30 +323,33 @@ void TestKing::getMoves_blackCastle()
    BoardEmpty board;
    King king(8, 5, true /*black*/); // Black king starting at e8
    king.fWhite = false;
-   king.position.set(7, 4); // e8
+   king.position.set(4, 7); // e8
    king.lastMove = 0;
-   board.board[7][4] = &king;
+   king.nMoves = 0;
+   board.board[4][7] = &king;
 
    // Place black rooks on a8 and h8
    Rook rook1(8, 1, true /*black*/); // black rook on a8
    rook1.fWhite = false;
-   rook1.position.set(7, 0); // a8
+   rook1.position.set(0, 7); // a8
    rook1.lastMove = 0;
-   board.board[7][0] = &rook1;
+   rook1.nMoves = 0;
+   board.board[0][7] = &rook1;
 
    Rook rook2(8, 8, true /*black*/); // black rook on h8
    rook2.fWhite = false;
    rook2.position.set(7, 7); // h8
    rook2.lastMove = 0;
+   rook2.nMoves = 0;
    board.board[7][7] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
    Black blackPawn1(PAWN);
-   board.board[6][3] = &blackPawn1; // d7
+   board.board[3][6] = &blackPawn1; // d7
    Black blackPawn2(PAWN);
-   board.board[6][4] = &blackPawn2; // e7
+   board.board[4][6] = &blackPawn2; // e7
    Black blackPawn3(PAWN);
-   board.board[6][5] = &blackPawn3; // f7
+   board.board[5][6] = &blackPawn3; // f7
 
    set<Move> moves;
 
@@ -346,17 +357,17 @@ void TestKing::getMoves_blackCastle()
    king.getMoves(moves, board);
 
    // VERIFY
-   // Check for castling moves
-   assertUnit(moves.find(Move("e8c8")) != moves.end()); // Queen-side castling (a8 to e8)
-   assertUnit(moves.find(Move("e8g8")) != moves.end()); // King-side castling (h8 to e8)
+   assertUnit(moves.size() == 4);
+   assertUnit(moves.find(Move("e8c8C")) != moves.end()); // Queen-side castling (a8 to e8)
+   assertUnit(moves.find(Move("e8g8c")) != moves.end()); // King-side castling (h8 to e8)
 
    // TEARDOWN
-   board.board[7][4] = nullptr; // king
-   board.board[7][0] = nullptr; // rook1
+   board.board[4][7] = nullptr; // king
+   board.board[0][7] = nullptr; // rook1
    board.board[7][7] = nullptr; // rook2
-   board.board[6][3] = nullptr; // blackPawn1
-   board.board[6][4] = nullptr; // blackPawn2
-   board.board[6][5] = nullptr; // blackPawn3
+   board.board[3][6] = nullptr; // blackPawn1
+   board.board[4][6] = nullptr; // blackPawn2
+   board.board[5][6] = nullptr; // blackPawn3
 }
 
 
@@ -381,7 +392,7 @@ void TestKing::getMoves_whiteCastleKingMoved()
    King king(1, 4, false /*white*/); // white king starting at e1
    king.fWhite = true;
    king.position.set(0, 4); // e1
-   king.lastMove = 1; // Simulate that the king has already moved
+   king.lastMove = 1; // King has already moved
    board.board[0][4] = &king;
 
    // Place white rooks on a1 and h1

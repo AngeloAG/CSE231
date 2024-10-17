@@ -17,7 +17,7 @@
  ***************************************************/
 void King::display(ogstream* pgout) const
 {
-   pgout->drawQueen(position, fWhite);
+   pgout->drawKing(position, fWhite);
 }
 
 
@@ -34,5 +34,85 @@ void King::getMoves(set <Move>& moves, const Board& board) const
       Position(c - 1, r),                          Position(c + 1, r),
       Position(c - 1, r - 1), Position(c, r - 1),  Position(c + 1, r - 1),
    };
-   this->getMovesSlide(moves, board, defaultMoves, 8);
+   this->getMovesNoSlide(moves, board, defaultMoves, 8);
+   this->kingSideCastle(moves, board);
+   this->queenSideCastle(moves, board);
+}
+
+/**********************************************
+ * King: KING SIDE CASTLE
+ *********************************************/
+void King::kingSideCastle(set <Move>& moves, const Board& board) const
+{
+   const Position rightCorner(position, {0,3});
+   const Position destination(position, {0,2});
+   if (canCastle(board, rightCorner))
+   {
+      Move move(position, destination, fWhite, INVALID);
+      move.setCastle(true);
+      moves.insert(move);
+   }
+}
+
+/**********************************************
+ * King: QUEEN SIDE CASTLE
+ *********************************************/
+void King::queenSideCastle(set <Move>& moves, const Board& board) const
+{
+   const Position leftCorner(position, { 0,-4});
+   const Position destination(position,{ 0,-2});
+   if (canCastle(board, leftCorner))
+   {
+      Move move(position, destination, fWhite, INVALID);
+      move.setCastle(true);
+      moves.insert(move);
+   }
+}
+
+/**********************************************
+ * King: CAN CASTLE
+ *********************************************/
+bool King::canCastle(const Board& board, const Position & corner) const
+{
+   // Verify neither the king nor the rook has moved yet
+   if (nMoves != 0)
+      return false;
+
+   // Check Rooks position
+   if (corner.isInvalid())
+      return false;
+
+   // For testing
+   int testCol = corner.getCol();
+   int testRow = corner.getRow();
+
+   // Make sure it's a rook
+   if (board[corner].getType() != ROOK && board[corner].getNMoves() != 0)
+      return false;
+
+   // Check if queenside is empty
+   if (position.getCol() > corner.getCol())
+   {
+      int difference = position.getCol() - corner.getCol();
+      for (int i = difference; i > 0; i--)
+      {
+         if (board[Position (position, {0,-i})] != SPACE)
+            return false;
+         else
+            return true;
+      }
+   }
+
+   // Check if kingside is empty
+   if (position.getCol() < corner.getCol())
+   {
+      int difference = corner.getCol() - position.getCol();
+      for (int i = 0; i < difference; i++)
+      {
+         if (board[Position(position, { 0,i})] != SPACE)
+            return false;
+         else
+            return true;
+      }
+   }
 }
