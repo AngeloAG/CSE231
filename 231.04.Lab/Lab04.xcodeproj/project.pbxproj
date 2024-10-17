@@ -29,6 +29,8 @@
 		F363F8802CBF1BB0008CE23A /* testQueen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35EF1F92CBDD12C00EE8415 /* testQueen.cpp */; };
 		F363F8812CBF1FC0008CE23A /* pieceRook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35EF1FB2CBDD12C00EE8415 /* pieceRook.cpp */; };
 		F363F8822CBF1FC0008CE23A /* testRook.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35EF1FD2CBDD12C00EE8415 /* testRook.cpp */; };
+		F363F8832CC0A324008CE23A /* pieceKing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35EF1F12CBDD12C00EE8415 /* pieceKing.cpp */; };
+		F363F8842CC0A324008CE23A /* testKing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35EF1EE2CBDD12C00EE8415 /* testKing.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -246,6 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F363F8832CC0A324008CE23A /* pieceKing.cpp in Sources */,
+				F363F8842CC0A324008CE23A /* testKing.cpp in Sources */,
 				F363F8812CBF1FC0008CE23A /* pieceRook.cpp in Sources */,
 				F363F8822CBF1FC0008CE23A /* testRook.cpp in Sources */,
 				F363F87F2CBF1BB0008CE23A /* pieceQueen.cpp in Sources */,

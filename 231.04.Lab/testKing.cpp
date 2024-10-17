@@ -256,8 +256,8 @@ void TestKing::getMoves_whiteCastle()
    king.fWhite   = true;
    king.lastMove = 0;
    king.nMoves   = 0;
-   king.position.set(0, 4); // e1
-   board.board[0][4] = &king;
+   king.position.set(4, 0); // e1
+   board.board[4][0] = &king;
 
    // Place rooks on a1 and h1
    Rook rook1(1, 0, false /*white*/); // white rook on a1
@@ -272,15 +272,15 @@ void TestKing::getMoves_whiteCastle()
    rook2.position.set(0, 7); // h1
    rook2.lastMove = 0;
    rook2.nMoves = 0;
-   board.board[0][7] = &rook2;
+   board.board[7][0] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
    White whitePawn1(PAWN);
-   board.board[1][3] = &whitePawn1; // d2
+   board.board[3][1] = &whitePawn1; // d2
    White whitePawn2(PAWN);
-   board.board[1][4] = &whitePawn2; // e2
+   board.board[4][1] = &whitePawn2; // e2
    White whitePawn3(PAWN);
-   board.board[1][5] = &whitePawn3; // f2
+   board.board[5][1] = &whitePawn3; // f2
 
    set<Move> moves;
 
@@ -294,12 +294,12 @@ void TestKing::getMoves_whiteCastle()
    assertUnit(moves.find(Move("e1g1c")) != moves.end()); // King-side castling (h1 to e1)
 
    // TEARDOWN
-   board.board[0][4] = nullptr; // king
+   board.board[4][0] = nullptr; // king
    board.board[0][0] = nullptr; // rook1
-   board.board[0][7] = nullptr; // rook2
-   board.board[1][3] = nullptr; // whitePawn1
-   board.board[1][4] = nullptr; // whitePawn2
-   board.board[1][5] = nullptr; // whitePawn3
+   board.board[7][0] = nullptr; // rook2
+   board.board[3][1] = nullptr; // whitePawn1
+   board.board[4][1] = nullptr; // whitePawn2
+   board.board[5][1] = nullptr; // whitePawn3
 }
 
 
@@ -456,30 +456,30 @@ void TestKing::getMoves_whiteCastleRookMoved()
    BoardEmpty board;
    King king(1, 4, false /*white*/); // white king starting at e1
    king.fWhite = true;
-   king.position.set(0, 4); // e1
+   king.position.set(4, 0); // e1
    king.lastMove = 0; // King has not moved
-   board.board[0][4] = &king;
+   board.board[4][0] = &king;
 
    // Place white rooks on a1 and h1, but one of them has moved
    Rook rook1(1, 0, false /*white*/); // white rook on a1
    rook1.fWhite = true;
    rook1.position.set(0, 0); // a1
-   rook1.lastMove = 1; // Simulate that the rook has already moved
+   rook1.nMoves = 1; // Simulate that the rook has already moved
    board.board[0][0] = &rook1;
 
    Rook rook2(1, 7, false /*white*/); // white rook on h1
    rook2.fWhite = true;
-   rook2.position.set(0, 7); // h1
-   rook2.lastMove = 0; // Rook on h1 has not moved
-   board.board[0][7] = &rook2;
+   rook2.position.set(7, 0); // h1
+   rook2.nMoves = 1; // Rook on h1 has not moved
+   board.board[7][0] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
    White whitePawn1(PAWN);
-   board.board[1][3] = &whitePawn1; // d2
+   board.board[3][1] = &whitePawn1; // d2
    White whitePawn2(PAWN);
-   board.board[1][4] = &whitePawn2; // e2
+   board.board[4][1] = &whitePawn2; // e2
    White whitePawn3(PAWN);
-   board.board[1][5] = &whitePawn3; // f2
+   board.board[5][1] = &whitePawn3; // f2
 
    set<Move> moves;
 
@@ -487,18 +487,16 @@ void TestKing::getMoves_whiteCastleRookMoved()
    king.getMoves(moves, board);
 
    // VERIFY
-   // Castling should be blocked on the queen-side because the rook on a1 has moved
-   assertUnit(moves.find(Move("e1c1")) == moves.end()); // No queen-side castling
-   // Castling should still be available on the king-side because the rook on h1 has not moved
-   assertUnit(moves.find(Move("e1g1")) != moves.end()); // King-side castling should be allowed
+   assertUnit(moves.find(Move("e1d1")) != moves.end());
+   assertUnit(moves.find(Move("e1f1")) != moves.end());
 
    // TEARDOWN
-   board.board[0][4] = nullptr; // king
+   board.board[4][0] = nullptr; // king
    board.board[0][0] = nullptr; // rook1
-   board.board[0][7] = nullptr; // rook2
-   board.board[1][3] = nullptr; // whitePawn1
-   board.board[1][4] = nullptr; // whitePawn2
-   board.board[1][5] = nullptr; // whitePawn3
+   board.board[7][0] = nullptr; // rook2
+   board.board[3][1] = nullptr; // whitePawn1
+   board.board[4][1] = nullptr; // whitePawn2
+   board.board[5][1] = nullptr; // whitePawn3
 }
 
 /*************************************

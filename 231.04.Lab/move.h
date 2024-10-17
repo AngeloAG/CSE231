@@ -42,7 +42,7 @@ public:
    const Position& getSource()const           { return source;                    }
    const Position& getDest() const            { return dest;                      }
    PieceType getCapture() const               { return capture;                   }
-   void setCastle(bool isKingSide) { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; }
+   void setCastle(bool isKingSide) { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; text = getText(); }
    
 private:
    char letterFromPieceType(PieceType pt)     const;

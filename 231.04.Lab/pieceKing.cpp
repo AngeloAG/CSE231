@@ -64,7 +64,7 @@ void King::queenSideCastle(set <Move>& moves, const Board& board) const
    if (canCastle(board, leftCorner))
    {
       Move move(position, destination, fWhite, INVALID);
-      move.setCastle(true);
+      move.setCastle(false);
       moves.insert(move);
    }
 }
@@ -82,10 +82,6 @@ bool King::canCastle(const Board& board, const Position & corner) const
    if (corner.isInvalid())
       return false;
 
-   // For testing
-   int testCol = corner.getCol();
-   int testRow = corner.getRow();
-
    // Make sure it's a rook
    if (board[corner].getType() != ROOK && board[corner].getNMoves() != 0)
       return false;
@@ -94,7 +90,7 @@ bool King::canCastle(const Board& board, const Position & corner) const
    if (position.getCol() > corner.getCol())
    {
       int difference = position.getCol() - corner.getCol();
-      for (int i = difference; i > 0; i--)
+      for (int i = difference - 1; i > 0; i--)
       {
          if (board[Position (position, {0,-i})] != SPACE)
             return false;
@@ -107,7 +103,7 @@ bool King::canCastle(const Board& board, const Position & corner) const
    if (position.getCol() < corner.getCol())
    {
       int difference = corner.getCol() - position.getCol();
-      for (int i = 0; i < difference; i++)
+      for (int i = 1; i < difference; i++)
       {
          if (board[Position(position, { 0,i})] != SPACE)
             return false;
@@ -115,4 +111,5 @@ bool King::canCastle(const Board& board, const Position & corner) const
             return true;
       }
    }
+   return false;
 }
