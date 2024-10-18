@@ -2,7 +2,7 @@
  * Source File:
  *    TEST BISHOP
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor, Angelo Arellano
  * Summary:
  *    The unit tests for a bishop
  ************************************************************************/

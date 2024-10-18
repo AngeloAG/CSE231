@@ -2,7 +2,7 @@
  * Source File:
  *    BISHOP
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Connor, Angelo Arellano
  * Summary:
  *    The bishop class
  ************************************************************************/
@@ -13,22 +13,20 @@
 
  /***************************************************
  * PIECE DRAW
- * Draw all the pieces.
+ * Draw the piece.
  ***************************************************/
 void Bishop::display(ogstream* pgout) const
 {
-   pgout->drawKnight(position, fWhite);
+   pgout->drawBishop(position, fWhite);
 }
 
 
 /**********************************************
- * Bishop : GET POSITIONS
+ * Bishop : GET MOVES
+ * Gets possible moves based on current location
  *********************************************/
 void Bishop::getMoves(set <Move>& moves, const Board& board) const
 {
-   int r = this->position.getRow();
-   int c = this->position.getCol();
-
    Delta defaultMoves[4] = {
       {1, -1},    {1, 1},
 

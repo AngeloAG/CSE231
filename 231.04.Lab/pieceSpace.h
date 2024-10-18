@@ -2,7 +2,7 @@
  * Header File:
  *    SPACE
  * Author:
- *    <your name here> 
+ *    Jacob Mower, Connor, Angelo Arellano Gaona 
  * Summary:
  *    The space
  ************************************************************************/

@@ -3,8 +3,8 @@
 #include "piece.h"
 
 /***************************************************
- * BISHOP
- * The BISHOP, aka the "diagonal guy"
+ * KING
+ * The king, aka the "'go fight for me' guy"
  ***************************************************/
 class King : public Piece
 {
