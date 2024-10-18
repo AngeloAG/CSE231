@@ -42,8 +42,8 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
  * PIECE : GET MOVES NO SLIDE
  * Iterate through the moves decorator to allow a piece to move no sliding
  ***********************************************/
-void Piece::getMovesNoSlide(set <Move>& movesSet, 
-                            const Board& board, const Delta deltas[], int deltasSize) const
+void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, 
+                            const Delta deltas[], int deltasSize) const
 {
    // We iterate though each of the deltas
    // to check if we can move there
@@ -74,8 +74,8 @@ void Piece::getMovesNoSlide(set <Move>& movesSet,
  * PIECE : GET MOVES Sliding
  * Iterate through the moves decorator to allow a piece to move slide
  ***********************************************/
-void Piece::getMovesSlide(set <Move>& movesSet, 
-                          const Board& board, const Delta deltas[], int deltasSize) const
+void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, 
+                          const Delta deltas[], int deltasSize) const
 {
    // We iterate though each of the deltas
    // to check if we can move there
