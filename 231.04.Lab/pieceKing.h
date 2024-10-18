@@ -15,4 +15,9 @@ public:
    PieceType getType()            const { return KING; }
    void getMoves(set <Move>& moves, const Board& board) const;
    void display(ogstream* pgout)  const;
+   
+private:
+   void queenSideCastle(set <Move>& moves, const Board& board) const;
+   void kingSideCastle(set <Move>& moves, const Board& board) const;
+   bool canCastle(const Board& board, const Position & corner) const;
 };
