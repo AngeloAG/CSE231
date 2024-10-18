@@ -2,7 +2,7 @@
  * Source File:
  *    King
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Connor, Angelo Arellano
  * Summary:
  *    The king class
  ************************************************************************/
@@ -13,7 +13,7 @@
 
  /***************************************************
  * PIECE DRAW
- * Draw the pieces.
+ * Draw piece.
  ***************************************************/
 void King::display(ogstream* pgout) const
 {
@@ -22,30 +22,29 @@ void King::display(ogstream* pgout) const
 
 
 /**********************************************
- * Bishop : GET POSITIONS
+ * King : GET MOVES
+ * Gets possible moves based on current location
  *********************************************/
 void King::getMoves(set <Move>& moves, const Board& board) const
 {
-   int r = this->position.getRow();
-   int c = this->position.getCol();
-
-   Position defaultMoves[8] = {
-      Position(c - 1, r + 1), Position(c, r + 1),  Position(c + 1, r + 1),
-      Position(c - 1, r),                          Position(c + 1, r),
-      Position(c - 1, r - 1), Position(c, r - 1),  Position(c + 1, r - 1),
+   Delta defaultMoves[8] = {
+      {- 1, 1}, {0, 1},  {1, 1},
+      {- 1, 0},          {1, 0},
+      {- 1,-1}, {0,-1},  {1,-1},
    };
-   this->getMovesNoSlide(moves, board, defaultMoves, 8);
-   this->kingSideCastle(moves, board);
-   this->queenSideCastle(moves, board);
+   this->getMovesNoSlide(moves, board, defaultMoves, 8); //get normal moves
+   this->kingSideCastle(moves, board); // get possible castling in king side
+   this->queenSideCastle(moves, board); // get possible castling in queen side
 }
 
 /**********************************************
  * King: KING SIDE CASTLE
+ * If castling is possible in the king's side, get the move
  *********************************************/
 void King::kingSideCastle(set <Move>& moves, const Board& board) const
 {
-   const Position rightCorner(position, {0,3});
-   const Position destination(position, {0,2});
+   const Position rightCorner(position, {0,3}); //King side corner
+   const Position destination(position, {0,2}); //Where the king lands
    if (canCastle(board, rightCorner))
    {
       Move move(position, destination, fWhite, INVALID);
@@ -56,11 +55,12 @@ void King::kingSideCastle(set <Move>& moves, const Board& board) const
 
 /**********************************************
  * King: QUEEN SIDE CASTLE
+ * If castling is possible in the queen's side, get the move
  *********************************************/
 void King::queenSideCastle(set <Move>& moves, const Board& board) const
 {
-   const Position leftCorner(position, { 0,-4});
-   const Position destination(position,{ 0,-2});
+   const Position leftCorner(position, { 0,-4}); //Queen side corner
+   const Position destination(position,{ 0,-2}); //Where the king lands
    if (canCastle(board, leftCorner))
    {
       Move move(position, destination, fWhite, INVALID);
@@ -71,6 +71,7 @@ void King::queenSideCastle(set <Move>& moves, const Board& board) const
 
 /**********************************************
  * King: CAN CASTLE
+ * Returns true if the king can castle to the specified corner
  *********************************************/
 bool King::canCastle(const Board& board, const Position & corner) const
 {
@@ -82,15 +83,17 @@ bool King::canCastle(const Board& board, const Position & corner) const
    if (corner.isInvalid())
       return false;
 
-   // Make sure it's a rook
-   if (board[corner].getType() != ROOK && board[corner].getNMoves() != 0)
+   // Make sure it's a rook and that is hasn't moved
+   if (board[corner].getType() != ROOK || board[corner].getNMoves() != 0)
       return false;
 
-   // Check if queenside is empty
+   // If the corner is the right side one 
+   // Check if path on queenside is empty
    if (position.getCol() > corner.getCol())
    {
       int difference = position.getCol() - corner.getCol();
-      for (int i = difference - 1; i > 0; i--)
+      // Check square by square between king and left corner
+      for (int i = difference - 1; i > 0; i--) // Make sure they are all spaces
       {
          if (board[Position (position, {0,-i})] != SPACE)
             return false;
@@ -99,11 +102,13 @@ bool King::canCastle(const Board& board, const Position & corner) const
       }
    }
 
-   // Check if kingside is empty
+   // If the corner is the left side one 
+   // Check if path on queenside is empty
    if (position.getCol() < corner.getCol())
    {
       int difference = corner.getCol() - position.getCol();
-      for (int i = 1; i < difference; i++)
+      // Check square by square between king and right corner
+      for (int i = 1; i < difference; i++) // Make sure they are all spaces
       {
          if (board[Position(position, { 0,i})] != SPACE)
             return false;

@@ -2,7 +2,7 @@
  * Header File:
  *    TEST BISHOP
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the bishop
  ************************************************************************/

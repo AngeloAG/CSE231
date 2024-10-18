@@ -292,6 +292,8 @@ void TestKing::getMoves_whiteCastle()
    assertUnit(moves.size() == 4);
    assertUnit(moves.find(Move("e1c1C")) != moves.end()); // Queen-side castling (a1 to e1)
    assertUnit(moves.find(Move("e1g1c")) != moves.end()); // King-side castling (h1 to e1)
+   assertUnit(moves.find(Move("e1d1")) != moves.end());  // Normal king moves
+   assertUnit(moves.find(Move("e1f1")) != moves.end());  // Normal king moves
 
    // TEARDOWN
    board.board[4][0] = nullptr; // king
@@ -360,6 +362,8 @@ void TestKing::getMoves_blackCastle()
    assertUnit(moves.size() == 4);
    assertUnit(moves.find(Move("e8c8C")) != moves.end()); // Queen-side castling (a8 to e8)
    assertUnit(moves.find(Move("e8g8c")) != moves.end()); // King-side castling (h8 to e8)
+   assertUnit(moves.find(Move("e8d8")) != moves.end());  // Normal king moves
+   assertUnit(moves.find(Move("e8f8")) != moves.end());  // Normal king moves
 
    // TEARDOWN
    board.board[4][7] = nullptr; // king
@@ -423,6 +427,7 @@ void TestKing::getMoves_whiteCastleKingMoved()
 
    // VERIFY
    // Castling should not be available since the king has moved
+   assertUnit(moves.size() == 2);
    assertUnit(moves.find(Move("e1c1")) == moves.end()); // No queen-side castling
    assertUnit(moves.find(Move("e1g1")) == moves.end()); // No king-side castling
 
@@ -464,13 +469,13 @@ void TestKing::getMoves_whiteCastleRookMoved()
    Rook rook1(1, 0, false /*white*/); // white rook on a1
    rook1.fWhite = true;
    rook1.position.set(0, 0); // a1
-   rook1.nMoves = 1; // Simulate that the rook has already moved
+   rook1.nMoves = 1; // Rook on a1 has moved
    board.board[0][0] = &rook1;
 
    Rook rook2(1, 7, false /*white*/); // white rook on h1
    rook2.fWhite = true;
    rook2.position.set(7, 0); // h1
-   rook2.nMoves = 1; // Rook on h1 has not moved
+   rook2.nMoves = 1; // Rook on h1 has moved
    board.board[7][0] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
@@ -487,8 +492,9 @@ void TestKing::getMoves_whiteCastleRookMoved()
    king.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.find(Move("e1d1")) != moves.end());
-   assertUnit(moves.find(Move("e1f1")) != moves.end());
+   assertUnit(moves.size() == 2);
+   assertUnit(moves.find(Move("e1d1")) != moves.end()); // Normal King moves
+   assertUnit(moves.find(Move("e1f1")) != moves.end()); // Normal King moves
 
    // TEARDOWN
    board.board[4][0] = nullptr; // king
@@ -507,18 +513,18 @@ void TestKing::getMoves_whiteCastleRookMoved()
 void TestKing::getType()
 {
    // SETUP
-   King king(7, 7, false /*white*/);  // Create a white king at position (7, 7)
-   king.fWhite = true;  // The king is white
-   king.position.colRow = 0x34;  // Set the position of the king (just an arbitrary value)
-   PieceType type = BISHOP;  // Initialize with a wrong type for testing purposes
+   King king(7, 7, false /*white*/); 
+   king.fWhite = true;  
+   king.position.colRow = 0x34; 
+   PieceType type = BISHOP;  
 
    // EXERCISE
-   type = king.getType();  // Call the method to get the actual type of the piece
+   type = king.getType();  
 
    // VERIFY
-   assertUnit(type == KING);  // Verify the piece type is KING
-   assertUnit(king.fWhite == true);  // Verify the king is white
-   assertUnit(king.position.colRow == 0x34);  // Verify the position is still set to 0x34
+   assertUnit(type == KING); 
+   assertUnit(king.fWhite == true); 
+   assertUnit(king.position.colRow == 0x34); 
 }  // TEARDOWN
 
 

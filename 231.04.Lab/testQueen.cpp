@@ -2,7 +2,7 @@
  * Source File:
  *    TEST QUEEN
  * Author:
- *    <your name here>
+ *       Jacob Mower, Connor, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the queen
  ************************************************************************/
