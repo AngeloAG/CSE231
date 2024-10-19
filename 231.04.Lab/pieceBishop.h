@@ -1,6 +1,6 @@
 /***********************************************************************
  * Header File:
- *    KNIGHT
+ *    BISHOP
  * Author:
 *    Jacob Mower, Angelo Arellano
  * Summary:

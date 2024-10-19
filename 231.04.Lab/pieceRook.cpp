@@ -4,8 +4,9 @@
  *    Rook
  * Author:
  *    Jacob Mower, Angelo Arellano, Connor Hopkins
+ *    Jacob Mower, Connor, Angelo Arellano
  * Summary:
- *    The bishop class
+ *    The rook class
  ************************************************************************/
 
 #include "pieceRook.h"
@@ -14,16 +15,16 @@
 
  /***************************************************
  * PIECE DRAW
- * Draw all the pieces.
+ * Draw the piece.
  ***************************************************/
 void Rook::display(ogstream* pgout) const
 {
-   pgout->drawQueen(position, fWhite);
+   pgout->drawRook(position, fWhite);
 }
 
 
 /**********************************************
- * ROOK : GET POSITIONS
+ * Rook : GET POSITIONS
  *********************************************/
 void Rook::getMoves(set <Move>& moves, const Board& board) const
 {
@@ -32,7 +33,7 @@ void Rook::getMoves(set <Move>& moves, const Board& board) const
 
    Position defaultMoves[4] = {
                               Position(c, r + 1),
-           Position(c - 1, r),                   Position(c + 1, r),
+      Position(c - 1, r),                          Position(c + 1, r),
                               Position(c, r - 1),
    };
 

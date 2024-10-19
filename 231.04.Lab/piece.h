@@ -79,8 +79,8 @@ public:
    void getMoves(set <Move> & moves, const Board & board) const;
 
 protected:
-   virtual void getMovesNoSlide(set <Move> & moves, const Board & board, const Position* directions, int amountOfDirections) const;
-   virtual void getMovesSlide(set <Move>& moves, const Board& board, const Position* directions, int amountOfDirections) const;
+   virtual void getMovesNoSlide(set <Move> & moves, const Board & board, const Delta deltas[], int deltasSize) const;
+   virtual void getMovesSlide(set <Move>& movesSet, const Board& board, const Delta deltas[], int deltasSize) const;
 
    int  nMoves;                    // how many times have you moved?
    bool fWhite;                    // which team are you on?
@@ -229,4 +229,67 @@ public:
 };
 
 
+/***************************************************
+ * WHITE PAWN PIECE THAT HAS NOT MOVED
+ * Generic pawn that it always says that it has not just moved
+ **************************************************/
+class WhitePawnNotJustMovedFake : public PieceDummy
+{
+   PieceType pt;
+public:
+   WhitePawnNotJustMovedFake() : PieceDummy(), pt(ROOK) {}
+   WhitePawnNotJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
+   bool isWhite() const { return true; }
+   PieceType getType() const { return pt; }
+   void getMoves(set <Move>& moves, const Board& board) const {}
+   bool justMoved(int currentMove) const { return false; }
+};
 
+/***************************************************
+ * BLACK PAWN PIECE THAT HAS NOT MOVED
+ * Generic pawn that it always says that it has not just moved
+ **************************************************/
+class BlackPawnNotJustMovedFake : public PieceDummy
+{
+   PieceType pt;
+public:
+   BlackPawnNotJustMovedFake() : PieceDummy(), pt(PAWN) {}
+   BlackPawnNotJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
+   bool isWhite() const { return false; }
+   PieceType getType() const { return pt; }
+   void getMoves(set <Move>& moves, const Board& board) const {}
+   bool justMoved(int currentMove) const { return false; }
+};
+
+/***************************************************
+ * WHITE PAWN PIECE THAT HAS NOT MOVED
+ * * Generic pawn that it always says that it has just moved
+ **************************************************/
+class WhitePawnJustMovedFake : public PieceDummy
+{
+   PieceType pt;
+public:
+   WhitePawnJustMovedFake() : PieceDummy(), pt(PAWN) {}
+   WhitePawnJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
+   bool isWhite() const { return true; }
+   PieceType getType() const { return pt; }
+   void getMoves(set <Move>& moves, const Board& board) const {}
+   bool justMoved(int currentMove) const { return true; }
+};
+
+
+/***************************************************
+ * WHITE PAWN PIECE THAT HAS NOT MOVED
+ * Generic pawn that it always says that it has just moved
+ **************************************************/
+class BlackPawnJustMovedFake : public PieceDummy
+{
+   PieceType pt;
+public:
+   BlackPawnJustMovedFake() : PieceDummy(), pt(PAWN) {}
+   BlackPawnJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
+   bool isWhite() const { return false; }
+   PieceType getType() const { return pt; }
+   void getMoves(set <Move>& moves, const Board& board) const {}
+   bool justMoved(int currentMove) const { return true; }
+};

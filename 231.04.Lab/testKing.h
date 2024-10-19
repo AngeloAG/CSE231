@@ -2,7 +2,7 @@
  * Header File:
  *    TEST KING
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for King
  ************************************************************************/

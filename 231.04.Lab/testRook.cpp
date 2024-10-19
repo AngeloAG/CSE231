@@ -2,7 +2,7 @@
  * Source File:
  *    TEST ROOK
  * Author:
- *    Jacob Mower, Angelo Arellano, Connor Hopkins
+ *    Jacob Mower, Connor, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the rook
  ************************************************************************/
@@ -32,8 +32,8 @@ void TestRook::getMoves_blocked()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(2, 2, false /*white*/);
-   rook.fWhite = true;
+   Rook rook(2, 2, false /*white*/); // Create a white rook at position (2, 2)
+   rook.fWhite = true; // The rook is white
    rook.position.set(1, 1);
    board.board[1][1] = &rook;
    White white1(PAWN);
@@ -80,8 +80,8 @@ void TestRook::getMoves_slideToEnd()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(3, 3, false /*white*/);
-   rook.fWhite = true;
+   Rook rook(3, 3, false /*white*/); // Create a white rook at position (2, 2)
+   rook.fWhite = true; // The rook is white
    rook.position.set(2, 1);
    board.board[2][1] = &rook;
    set<Move> moves;
@@ -90,7 +90,7 @@ void TestRook::getMoves_slideToEnd()
    rook.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 14);
+   assertUnit(moves.size() == 14); // Rook can move to 14 positions
    assertUnit(moves.find(Move("c2b2")) != moves.end());
    assertUnit(moves.find(Move("c2a2")) != moves.end());
    assertUnit(moves.find(Move("c2c1")) != moves.end());
@@ -129,8 +129,8 @@ void TestRook::getMoves_slideToBlock()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(3, 3, false /*white*/);
-   rook.fWhite = true;
+   Rook rook(3, 3, false /*white*/); // Create a white rook at position (2, 2)
+   rook.fWhite = true; // The rook is white
    rook.position.set(2, 1);
    board.board[2][1] = &rook;
    White white1(PAWN);
@@ -148,7 +148,7 @@ void TestRook::getMoves_slideToBlock()
    rook.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 10);
+   assertUnit(moves.size() == 10); // Rook can move to 14 positions
    assertUnit(moves.find(Move("c2b2")) != moves.end());
    assertUnit(moves.find(Move("c2d2")) != moves.end());
    assertUnit(moves.find(Move("c2e2")) != moves.end());
@@ -186,8 +186,8 @@ void TestRook::getMoves_slideToCapture()
 {
    // SETUP
    BoardEmpty board;
-   Rook rook(3, 3, false /*white*/);
-   rook.fWhite = true;
+   Rook rook(3, 3, false /*white*/); // Create a white rook at position (2, 2)
+   rook.fWhite = true; // The rook is white
    rook.position.set(2, 1);
    board.board[2][1] = &rook;
    Black black1(PAWN);
@@ -205,8 +205,8 @@ void TestRook::getMoves_slideToCapture()
    rook.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 14);
-   assertUnit(moves.find(Move("c2b2"))  != moves.end());
+   assertUnit(moves.size() == 14); // Rook can move to 14 positions
+   assertUnit(moves.find(Move("c2b2")) != moves.end());
    assertUnit(moves.find(Move("c2a2p")) != moves.end());
    assertUnit(moves.find(Move("c2c1p")) != moves.end());
    assertUnit(moves.find(Move("c2c3"))  != moves.end());
@@ -238,17 +238,17 @@ void TestRook::getMoves_slideToCapture()
 void TestRook::getType()
 {
    // SETUP
-   Rook rook(7, 7, false /*white*/);
-   rook.fWhite          = true;
-   rook.position.colRow = 0x34;
+   Rook rook(7, 7, false /*white*/); // Create a white rook at (7, 7)
+   rook.fWhite = true; // The rook is white
+   rook.position.colRow = 0x34; // Position
 
-   PieceType type = KING;
+   PieceType type = KING; // Initialize type as KING
 
    // EXERCISE
-   type = rook.getType();
+   type = rook.getType(); // Get the type of the rook
 
    // VERIFY
-   assertUnit(type                 == ROOK);
-   assertUnit(rook.fWhite          == true);
-   assertUnit(rook.position.colRow == 0x34);
+   assertUnit(type == ROOK); // Type should be ROOK
+   assertUnit(rook.fWhite == true); // Rook should be white
+   assertUnit(rook.position.colRow == 0x34); // Position should remain
 }

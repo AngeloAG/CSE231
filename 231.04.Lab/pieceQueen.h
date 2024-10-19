@@ -12,8 +12,8 @@
 #include "piece.h"
 
  /***************************************************
-  * BISHOP
-  * The BISHOP, aka the "diagonal guy"
+  * QUEEN
+  * The queen, aka the "I move wherever I want"
   ***************************************************/
 class Queen : public Piece
 {

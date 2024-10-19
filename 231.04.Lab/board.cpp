@@ -52,6 +52,39 @@ void Board::reset(bool fFree)
 
 }
 
+/************************************************
+ * BOARD : CONSTRUCT
+ *         Free up all the allocated memory
+ ************************************************/
+Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
+{
+   if (noreset) {
+      for (int r = 0; r < 8; r++)
+         for (int c = 0; c < 8; c++)
+            board[c][r] = nullptr;
+   }
+   else
+   {
+      reset(false);
+   }
+}
+
+
+/************************************************
+ * BOARD : FREE
+ *         Free up all the allocated memory
+ ************************************************/
+void Board::free()
+{
+   for (int c = 0; c < 8; c++)
+   {
+      for (int r = 0; r < 8; r++)
+      {
+         delete board[c][r];
+      }
+   }
+}
+
 // we really REALLY need to delete this.
 Space space(0,0);
 
@@ -87,38 +120,6 @@ void Board::display(const Position & posHover, const Position & posSelect) const
 }
 
 
-/************************************************
- * BOARD : CONSTRUCT
- *         Free up all the allocated memory
- ************************************************/
-Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
-{
-   if (noreset) {
-      for (int r = 0; r < 8; r++)
-         for (int c = 0; c < 8; c++)
-            board[c][r] = nullptr;
-   }
-   else
-   {
-      reset(noreset);
-   }
-}
-
-
-/************************************************
- * BOARD : FREE
- *         Free up all the allocated memory
- ************************************************/
-void Board::free()
-{
-   for (int c = 0; c < 8; c++)
-   {
-      for (int r = 0; r < 8; r++)
-      {
-         delete board[c][r];
-      }
-   }
-}
 
 
 /**********************************************

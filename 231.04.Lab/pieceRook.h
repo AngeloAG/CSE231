@@ -4,7 +4,7 @@
  * Author:
 *    Jacob Mower, Angelo Arellano
  * Summary:
- *    The BISHOP class
+ *    The ROOK class
  ************************************************************************/
 
 #pragma once
@@ -12,8 +12,8 @@
 #include "piece.h"
 
  /***************************************************
-  * BISHOP
-  * The BISHOP, aka the "diagonal guy"
+  * OK
+  * The Rook, aka the "best piece"
   ***************************************************/
 class Rook : public Piece
 {

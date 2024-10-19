@@ -2,7 +2,7 @@
  * Source File:
  *    TEST KNIGHT
  * Author:
- *    Jacob Mower, Angelo Arellano, Connor Hopkins
+ *    Jacob Mower, Connor, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the knight
  ************************************************************************/
@@ -45,7 +45,7 @@ void TestKnight::getMoves_end()
    knight.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 2);  // many possible moves
+   assertUnit(moves.size() == 2);  // a capture and standard move
    assertUnit(moves.find(Move("g1e2p")) != moves.end());
    assertUnit(moves.find(Move("g1h3"))  != moves.end());
 
