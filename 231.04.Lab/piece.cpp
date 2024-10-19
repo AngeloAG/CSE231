@@ -2,7 +2,7 @@
  * Source File:
  *    PIECE 
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The Piece base class and all the derived classes:
  *       SPACE, KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN
@@ -59,10 +59,8 @@ void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board,
          {
             // We create the simple move or capture move
             if(pieceInDest != SPACE)
-               movesSet.insert(Move(position, 
-                                    possibleDest, 
-                                    fWhite, 
-                                    pieceInDest.getType()));
+               movesSet.insert(Move(position, possibleDest, 
+                                    fWhite,  pieceInDest.getType()));
             else
                movesSet.insert(Move(position, possibleDest, fWhite));
          }
@@ -98,10 +96,8 @@ void Piece::getMovesSlide(set <Move>& movesSet, const Board& board,
                // We create the simple move or capture move
                if (pieceInDest != SPACE)
                {
-                  movesSet.insert(Move(position, 
-                                       possibleDest, 
-                                       fWhite, 
-                                       pieceInDest.getType()));
+               movesSet.insert(Move(position, possibleDest, 
+                                    fWhite,  pieceInDest.getType()));
                   keepSliding = false; //We cannot move past a capture
                }
                else

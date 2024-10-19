@@ -2,7 +2,7 @@
  * Source File:
  *    King
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The king class
  ************************************************************************/
@@ -28,9 +28,9 @@ void King::display(ogstream* pgout) const
 void King::getMoves(set <Move>& moves, const Board& board) const
 {
    Delta defaultMoves[8] = {
-      {- 1, 1}, {0, 1},  {1, 1},
-      {- 1, 0},          {1, 0},
-      {- 1,-1}, {0,-1},  {1,-1},
+      {- 1, 1}, {0, 1}, {1, 1},
+      {- 1, 0},         {1, 0},
+      {- 1,-1}, {0,-1}, {1,-1}
    };
    this->getMovesNoSlide(moves, board, defaultMoves, 8); //get normal moves
    this->kingSideCastle(moves, board); // get possible castling in king side

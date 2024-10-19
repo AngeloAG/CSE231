@@ -2,7 +2,7 @@
  * Header File:
  *    PIECE 
  * Author:
-*    Jacob Mower, Angelo Arellano
+*    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The Piece base class and all the derived classes:
  *       SPACE, KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN
@@ -79,16 +79,16 @@ public:
    void getMoves(set <Move> & moves, const Board & board) const;
 
 protected:
-   virtual void getMovesNoSlide(set <Move> & moves, const Board & board, const Delta deltas[], int deltasSize) const;
-   virtual void getMovesSlide(set <Move>& movesSet, const Board& board, const Delta deltas[], int deltasSize) const;
+   virtual void getMovesNoSlide(set <Move> & moves, const Board & board,
+                                const Delta deltas[], int deltasSize) const;
+   virtual void getMovesSlide(set <Move>& movesSet, const Board& board,
+                              const Delta deltas[], int deltasSize) const;
 
    int  nMoves;                    // how many times have you moved?
    bool fWhite;                    // which team are you on?
    Position position;              // current position of this piece
    int  lastMove;                  // last time this piece moved
 };
-
-
 
 /***************************************************
  * PIECE DERIVED
@@ -99,9 +99,9 @@ class PieceDerived : public Piece
 public:
    PieceDerived(const Position& pos, bool isWhite) : Piece(9, 9) { }
    PieceDerived(int c, int r, bool isWhite) : Piece(9, 9)        { }
-   ~PieceDerived()                                                       { }
-   PieceType getType()            const     { return SPACE;                }
-   void display(ogstream* pgout)  const     { assert(false);               }
+   ~PieceDerived()                          {                      }
+   PieceType getType()            const     { return SPACE;        }
+   void display(ogstream* pgout)  const     { assert(false);       }
 };
 
 
@@ -132,17 +132,15 @@ public:
    }
 
    // getters
-   bool operator == (char letter)  const { assert(false); return true;  }
-   bool operator != (char letter)  const { assert(false); return true;  }
-   bool isWhite()                  const { assert(false); return true;  }
-   bool isMoved()                  const { assert(false); return true;  }
-   int  getNMoves()                const { assert(false); return 0;     }
-   void decrementNMoves()                { assert(false);               }
+   bool operator == (char letter)  const { assert(false); return true;     }
+   bool operator != (char letter)  const { assert(false); return true;     }
+   bool isWhite()                  const { assert(false); return true;     }
+   bool isMoved()                  const { assert(false); return true;     }
+   int  getNMoves()                const { assert(false); return 0;        }
+   void decrementNMoves()                { assert(false);                  }
    const Position & getPosition()  const { assert(false); return position; }
-   bool justMoved(int currentMove) const { assert(false); return true;  }
-
-   // setter
-   void setLastMove(int currentMove)     { assert(false);               }
+   bool justMoved(int currentMove) const { assert(false); return true;     }
+   void setLastMove(int currentMove)     { assert(false);                  }
 
    // overwritten by the various pieces
    PieceType getType()             const { assert(false); return SPACE; }
@@ -181,11 +179,10 @@ public:
       position = rhs;              // actually change the position
       return *this;                // return self
    }
-   void setLastMove(int currentMove) { lastMove = currentMove; }
-   const Position& getPosition()  const { return position; }
-   PieceType getType()            const { return pt;       }
-   bool isWhite()                 const { return fWhite;   }
-
+   void setLastMove(int currentMove)   { lastMove = currentMove; }
+   const Position& getPosition() const { return position;        }
+   PieceType getType()           const { return pt;              }
+   bool isWhite()                const { return fWhite;          }
 
    static int numConstruct;
    static int numCopy;
@@ -201,7 +198,6 @@ private:
    PieceType pt;
 };
 
-
 /***************************************************
  * WHITE PIECE
  * Generic piece whose only allowable property is the color
@@ -210,21 +206,21 @@ class White : public PieceDummy
 {
    PieceType pt;
 public:
-   White() : PieceDummy(), pt(ROOK) {}
-   White(PieceType pt) : PieceDummy(), pt(pt) {}
-   bool isWhite() const { return true; }
-   PieceType getType() const { return pt; }
-   void getMoves(set <Move>& moves, const Board& board) const { }
+   White()             : PieceDummy(), pt(ROOK) {              }
+   White(PieceType pt) : PieceDummy(), pt(pt)   {              }
+   bool isWhite()      const                    { return true; }
+   PieceType getType() const                    { return pt;   }
+   void getMoves(set <Move>& moves, const Board& board) const {}
 };
 
 class Black : public PieceDummy
 {
    PieceType pt;
 public:
-   Black() : PieceDummy(), pt(ROOK) {}
-   Black(PieceType pt) : PieceDummy(), pt(pt) {}
-   bool isWhite() const { return false; }
-   PieceType getType() const { return pt; }
+   Black()             : PieceDummy(), pt(ROOK) {               }
+   Black(PieceType pt) : PieceDummy(), pt(pt)   {               }
+   bool isWhite()      const                    { return false; }
+   PieceType getType() const                    { return pt;    }
    void getMoves(set <Move>& moves, const Board& board) const { }
 };
 
@@ -237,12 +233,12 @@ class WhitePawnNotJustMovedFake : public PieceDummy
 {
    PieceType pt;
 public:
-   WhitePawnNotJustMovedFake() : PieceDummy(), pt(ROOK) {}
-   WhitePawnNotJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
-   bool isWhite() const { return true; }
-   PieceType getType() const { return pt; }
-   void getMoves(set <Move>& moves, const Board& board) const {}
-   bool justMoved(int currentMove) const { return false; }
+   WhitePawnNotJustMovedFake()             : PieceDummy(), pt(ROOK) { }
+   WhitePawnNotJustMovedFake(PieceType pt) : PieceDummy(), pt(pt)   { }
+   bool isWhite()                               const { return true;  }
+   PieceType getType()                          const { return pt;    }
+   void getMoves(set <Move>& moves, const Board& board) const       { }
+   bool justMoved(int currentMove)  const             { return false; }
 };
 
 /***************************************************
@@ -253,12 +249,12 @@ class BlackPawnNotJustMovedFake : public PieceDummy
 {
    PieceType pt;
 public:
-   BlackPawnNotJustMovedFake() : PieceDummy(), pt(PAWN) {}
-   BlackPawnNotJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
-   bool isWhite() const { return false; }
-   PieceType getType() const { return pt; }
-   void getMoves(set <Move>& moves, const Board& board) const {}
-   bool justMoved(int currentMove) const { return false; }
+   BlackPawnNotJustMovedFake()             : PieceDummy(), pt(PAWN) {}
+   BlackPawnNotJustMovedFake(PieceType pt) : PieceDummy(), pt(pt)   {}
+   bool isWhite()                         const { return false;      }
+   PieceType getType()                    const { return pt;         }
+   void getMoves(set <Move>& moves,       const Board& board) const {}
+   bool justMoved(int currentMove)        const { return false;      }
 };
 
 /***************************************************
@@ -269,14 +265,13 @@ class WhitePawnJustMovedFake : public PieceDummy
 {
    PieceType pt;
 public:
-   WhitePawnJustMovedFake() : PieceDummy(), pt(PAWN) {}
-   WhitePawnJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
-   bool isWhite() const { return true; }
-   PieceType getType() const { return pt; }
-   void getMoves(set <Move>& moves, const Board& board) const {}
-   bool justMoved(int currentMove) const { return true; }
+   WhitePawnJustMovedFake()             : PieceDummy(), pt(PAWN) {}
+   WhitePawnJustMovedFake(PieceType pt) : PieceDummy(), pt(pt)   {}
+   bool isWhite()                   const { return true;          }
+   PieceType getType()              const { return pt;            }
+   void getMoves(set <Move>& moves, const Board& board) const    {}
+   bool justMoved(int currentMove)  const { return true;          }
 };
-
 
 /***************************************************
  * WHITE PAWN PIECE THAT HAS NOT MOVED
@@ -286,10 +281,10 @@ class BlackPawnJustMovedFake : public PieceDummy
 {
    PieceType pt;
 public:
-   BlackPawnJustMovedFake() : PieceDummy(), pt(PAWN) {}
-   BlackPawnJustMovedFake(PieceType pt) : PieceDummy(), pt(pt) {}
-   bool isWhite() const { return false; }
-   PieceType getType() const { return pt; }
-   void getMoves(set <Move>& moves, const Board& board) const {}
-   bool justMoved(int currentMove) const { return true; }
+   BlackPawnJustMovedFake()             : PieceDummy(), pt(PAWN) {}
+   BlackPawnJustMovedFake(PieceType pt) : PieceDummy(), pt(pt)   {}
+   bool isWhite()                   const { return false;         }
+   PieceType getType()              const { return pt;            }
+   void getMoves(set <Move>& moves, const Board& board) const    {}
+   bool justMoved(int currentMove)  const { return true;          }
 };

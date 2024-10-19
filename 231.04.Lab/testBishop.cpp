@@ -195,12 +195,12 @@ void TestBishop::getMoves_slideToCapture()
    assertUnit(moves.size() == 9);  // Many moves
    assertUnit(moves.find(Move("c2b1p")) != moves.end());
    assertUnit(moves.find(Move("c2d1p")) != moves.end());
-   assertUnit(moves.find(Move("c2b3")) != moves.end());
+   assertUnit(moves.find(Move("c2b3"))  != moves.end());
    assertUnit(moves.find(Move("c2a4p")) != moves.end());
-   assertUnit(moves.find(Move("c2d3")) != moves.end());
-   assertUnit(moves.find(Move("c2e4")) != moves.end());
-   assertUnit(moves.find(Move("c2f5")) != moves.end());
-   assertUnit(moves.find(Move("c2g6")) != moves.end());
+   assertUnit(moves.find(Move("c2d3"))  != moves.end());
+   assertUnit(moves.find(Move("c2e4"))  != moves.end());
+   assertUnit(moves.find(Move("c2f5"))  != moves.end());
+   assertUnit(moves.find(Move("c2g6"))  != moves.end());
    assertUnit(moves.find(Move("c2h7p")) != moves.end());
 
    // TEARDOWN
@@ -221,15 +221,15 @@ void TestBishop::getType()
 {
    // SETUP
    Bishop bishop(7, 7, false /*white*/);
-   bishop.fWhite = true;
+   bishop.fWhite          = true;
    bishop.position.colRow = 0x34;
-   PieceType type = KING;
+   PieceType type         = KING;
 
    // EXERCISE
    type = bishop.getType();
 
    // VERIFY
-   assertUnit(type == BISHOP);
-   assertUnit(bishop.fWhite == true);
-   assertUnit(bishop.position.colRow == 0x34);
+   assertUnit(type                   == BISHOP);
+   assertUnit(bishop.fWhite          == true  );
+   assertUnit(bishop.position.colRow == 0x34  );
 }  // TEARDOWN

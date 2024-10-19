@@ -32,7 +32,6 @@
 using namespace std;
 #endif
 
-
 int PieceSpy::numConstruct = 0;
 int PieceSpy::numCopy = 0;
 int PieceSpy::numDelete = 0;

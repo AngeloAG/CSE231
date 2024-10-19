@@ -2,7 +2,7 @@
  * Source File:
  *    TEST KNIGHT
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano Gaona
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the knight
  ************************************************************************/
@@ -47,7 +47,7 @@ void TestKnight::getMoves_end()
    // VERIFY
    assertUnit(moves.size() == 2);  // a capture and standard move
    assertUnit(moves.find(Move("g1e2p")) != moves.end());
-   assertUnit(moves.find(Move("g1h3")) != moves.end());
+   assertUnit(moves.find(Move("g1h3"))  != moves.end());
 
    // TEARDOWN
    board.board[6][0] = nullptr; // white knight
@@ -222,8 +222,6 @@ void TestKnight::getMoves_free()
 
 }
 
-
-
 /*************************************
  * GET TYPE : knight
  * Input:
@@ -233,15 +231,15 @@ void TestKnight::getType()
 {
    // SETUP
    Knight knight(7, 7, false /*white*/);
-   knight.fWhite = true;
+   knight.fWhite          = true;
    knight.position.colRow = 0x34;
-   PieceType type = KING;
+   PieceType type         = KING;
 
    // EXERCISE
    type = knight.getType();
 
    // VERIFY
-   assertUnit(type == KNIGHT);
-   assertUnit(knight.fWhite == true);
-   assertUnit(knight.position.colRow == 0x34);
+   assertUnit(type                   == KNIGHT);
+   assertUnit(knight.fWhite          == true  );
+   assertUnit(knight.position.colRow == 0x34  );
 }  // TEARDOWN

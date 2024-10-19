@@ -2,7 +2,7 @@
  * Header File:
  *    TEST SPACE
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the space
  ************************************************************************/

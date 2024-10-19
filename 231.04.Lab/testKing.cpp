@@ -261,17 +261,17 @@ void TestKing::getMoves_whiteCastle()
 
    // Place rooks on a1 and h1
    Rook rook1(1, 0, false /*white*/); // white rook on a1
-   rook1.fWhite = true;
+   rook1.fWhite   = true;
    rook1.position.set(0, 0); // a1
    rook1.lastMove = 0;
-   rook1.nMoves = 0;
+   rook1.nMoves   = 0;
    board.board[0][0] = &rook1;
 
    Rook rook2(1, 7, false /*white*/); // white rook on h1
-   rook2.fWhite = true;
+   rook2.fWhite   = true;
    rook2.position.set(0, 7); // h1
    rook2.lastMove = 0;
-   rook2.nMoves = 0;
+   rook2.nMoves   = 0;
    board.board[7][0] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
@@ -324,25 +324,25 @@ void TestKing::getMoves_blackCastle()
    // SETUP
    BoardEmpty board;
    King king(8, 5, true /*black*/); // Black king starting at e8
-   king.fWhite = false;
+   king.fWhite       = false;
    king.position.set(4, 7); // e8
-   king.lastMove = 0;
-   king.nMoves = 0;
+   king.lastMove     = 0;
+   king.nMoves       = 0;
    board.board[4][7] = &king;
 
    // Place black rooks on a8 and h8
    Rook rook1(8, 1, true /*black*/); // black rook on a8
-   rook1.fWhite = false;
+   rook1.fWhite      = false;
    rook1.position.set(0, 7); // a8
-   rook1.lastMove = 0;
-   rook1.nMoves = 0;
+   rook1.lastMove    = 0;
+   rook1.nMoves      = 0;
    board.board[0][7] = &rook1;
 
    Rook rook2(8, 8, true /*black*/); // black rook on h8
-   rook2.fWhite = false;
+   rook2.fWhite      = false;
    rook2.position.set(7, 7); // h8
-   rook2.lastMove = 0;
-   rook2.nMoves = 0;
+   rook2.lastMove    = 0;
+   rook2.nMoves      = 0;
    board.board[7][7] = &rook2;
 
    // Add pawns in front of the king to ensure they don't block
@@ -393,26 +393,24 @@ void TestKing::getMoves_whiteCastleKingMoved()
 {
    // SETUP
    BoardEmpty board;
-   King king(1, 4, false /*white*/); // white king starting at e1
-   king.fWhite = true;
+   King king(1, 4, false /*white*/);
+   king.fWhite       = true;
    king.position.set(0, 4); // e1
-   king.lastMove = 1; // King has already moved
+   king.lastMove     = 1;   // King has already moved
    board.board[0][4] = &king;
 
-   // Place white rooks on a1 and h1
-   Rook rook1(1, 0, false /*white*/); // white rook on a1
-   rook1.fWhite = true;
+   Rook rook1(1, 0, false /*white*/);
+   rook1.fWhite      = true;
    rook1.position.set(0, 0); // a1
-   rook1.lastMove = 0;
+   rook1.lastMove    = 0;
    board.board[0][0] = &rook1;
 
-   Rook rook2(1, 7, false /*white*/); // white rook on h1
-   rook2.fWhite = true;
+   Rook rook2(1, 7, false /*white*/);
+   rook2.fWhite      = true;
    rook2.position.set(0, 7); // h1
-   rook2.lastMove = 0;
+   rook2.lastMove    = 0;
    board.board[0][7] = &rook2;
 
-   // Add pawns in front of the king to ensure they don't block
    White whitePawn1(PAWN);
    board.board[1][3] = &whitePawn1; // d2
    White whitePawn2(PAWN);
@@ -426,7 +424,6 @@ void TestKing::getMoves_whiteCastleKingMoved()
    king.getMoves(moves, board);
 
    // VERIFY
-   // Castling should not be available since the king has moved
    assertUnit(moves.size() == 2);
    assertUnit(moves.find(Move("e1c1")) == moves.end()); // No queen-side castling
    assertUnit(moves.find(Move("e1g1")) == moves.end()); // No king-side castling
@@ -459,13 +456,12 @@ void TestKing::getMoves_whiteCastleRookMoved()
 {
    // SETUP
    BoardEmpty board;
-   King king(1, 4, false /*white*/); // white king starting at e1
+   King king(1, 4, false /*white*/);
    king.fWhite = true;
    king.position.set(4, 0); // e1
-   king.lastMove = 0; // King has not moved
+   king.lastMove = 0;       // King has not moved
    board.board[4][0] = &king;
 
-   // Place white rooks on a1 and h1, but one of them has moved
    Rook rook1(1, 0, false /*white*/); // white rook on a1
    rook1.fWhite = true;
    rook1.position.set(0, 0); // a1
@@ -475,10 +471,9 @@ void TestKing::getMoves_whiteCastleRookMoved()
    Rook rook2(1, 7, false /*white*/); // white rook on h1
    rook2.fWhite = true;
    rook2.position.set(7, 0); // h1
-   rook2.nMoves = 1; // Rook on h1 has moved
+   rook2.nMoves = 1;         // Rook on h1 has moved
    board.board[7][0] = &rook2;
 
-   // Add pawns in front of the king to ensure they don't block
    White whitePawn1(PAWN);
    board.board[3][1] = &whitePawn1; // d2
    White whitePawn2(PAWN);
@@ -514,17 +509,17 @@ void TestKing::getType()
 {
    // SETUP
    King king(7, 7, false /*white*/); 
-   king.fWhite = true;  
-   king.position.colRow = 0x34; 
-   PieceType type = BISHOP;  
+   king.fWhite          = true  ;  
+   king.position.colRow = 0x34  ; 
+   PieceType type       = BISHOP;  
 
    // EXERCISE
    type = king.getType();  
 
    // VERIFY
-   assertUnit(type == KING); 
-   assertUnit(king.fWhite == true); 
-   assertUnit(king.position.colRow == 0x34); 
+   assertUnit(type                 == KING);
+   assertUnit(king.fWhite          == true);
+   assertUnit(king.position.colRow == 0x34);
 }  // TEARDOWN
 
 

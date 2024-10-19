@@ -2,7 +2,7 @@
  * Source File:
  *    PAWN
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The pawn class
  ************************************************************************/
@@ -13,22 +13,13 @@
 
 const int MOVES_SIZE = 2;
 
-const Delta DIAGONAL_MOVES_BOTTOM[MOVES_SIZE] =
-{
-   {-1, -1}, {-1, 1}
-};
+const Delta DIAGONAL_MOVES_BOTTOM[MOVES_SIZE] = { {-1, -1}, {-1, 1} };
 
-const Delta DIAGONAL_MOVES_TOP[MOVES_SIZE] =
-{
-            
-   {1, -1}, {1, 1}
-};
+const Delta DIAGONAL_MOVES_TOP[MOVES_SIZE]    = { {1, -1} , {1, 1}  };
 
 const Delta VERTICAL_MOVE_BOTTOM = {-1, 0};
 
-const Delta VERTICAL_MOVE_TOP = {1, 0};
-
-
+const Delta VERTICAL_MOVE_TOP    = {1, 0 };
 
  /***************************************************
  * PIECE DRAW
@@ -39,15 +30,14 @@ void Pawn::display(ogstream* pgout) const
    pgout->drawPawn(position, fWhite);
 }
 
-
 /**********************************************
  * PAWN : GET MOVES
  * Gets possible moves based on current location
  *********************************************/
 void Pawn::getMoves(set <Move>& moves, const Board& board) const
 {
-  this->getMovesVertical(moves, board);
-  this->getMovesDiagonal(moves, board);
+  this->getMovesVertical(moves, board );
+  this->getMovesDiagonal(moves, board );
   this->getMovesEnpassant(moves, board);
 }
 
@@ -65,20 +55,21 @@ void Pawn::getMovesVertical(set <Move>& moves, const Board& board) const
       const Piece& pieceInDest = board[possibleDest];
       if (pieceInDest == SPACE)
       { 
-
          // Advance one
          Move move(position, possibleDest, fWhite);
          if (canPromote(possibleDest.getRow()))
             move.setPromotion(QUEEN);
          moves.insert(move);
 
-         // trying to jump, we must not have moved and the path should be clear
+         // trying to jump, we must not have moved and the path must be clear
          if (nMoves == 0) 
          {
             // We want to jump to rows (either up or down)
             int jumpRow = defaultMove.dRow + defaultMove.dRow;
+
             // Create the landing postion
             Position jumpPosition(position, {jumpRow, 0});
+
             // Add the move
             moves.insert(Move(position, jumpPosition, fWhite));
          }
@@ -133,8 +124,8 @@ void Pawn::getMovesEnpassant(set <Move>& moves, const Board& board) const
          if (sidePosition.isValid() && pieceInDest == SPACE)
          {
             // We check if the piece in the right is an opposite color pawn that just moved
-            const Piece& sidePiece = board[sidePosition];
-            if (sidePiece == PAWN &&
+            const Piece& sidePiece   = board[sidePosition];
+            if (sidePiece           == PAWN &&
                 sidePiece.isWhite() != fWhite &&
                 sidePiece.justMoved(board.getCurrentMove()))
             {

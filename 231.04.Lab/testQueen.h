@@ -2,7 +2,7 @@
  * Header File:
  *    QUEEN TEST
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano Gaona
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the Queen
  ************************************************************************/

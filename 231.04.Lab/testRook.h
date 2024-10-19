@@ -2,7 +2,7 @@
  * Header File:
  *    TEST ROOK
  * Author:
- *    Jacbo Mower, Connor, Angelo Arellano Gaona
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the Rook
  ************************************************************************/

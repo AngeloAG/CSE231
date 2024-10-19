@@ -2,7 +2,7 @@
  * Header File:
  *    TEST KNIGHT
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano Gaona
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
          
  * Summary:
  *    The unit tests for Knight
