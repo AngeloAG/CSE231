@@ -18,6 +18,7 @@
 #include "testQueen.h"
 #include "testRook.h"
 #include "testKing.h"
+#include "testPawn.h"
 
 // This code, and the similar IF_DEF in testRunner(), is to ensure that
 // you can see the text output (called the console window) and OpenGL's
@@ -62,6 +63,5 @@ void testRunner()
    TestQueen().run();
    TestRook().run();
    TestKing().run();
-
-
+   TestPawn().run();
 }
