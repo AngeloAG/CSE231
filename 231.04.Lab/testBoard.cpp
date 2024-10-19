@@ -13,6 +13,7 @@
 #include "piece.h"
 #include "board.h"
 #include <cassert>
+#include "piecePawn.h"
 
 
 
@@ -620,7 +621,38 @@ void TestBoard::createDummyBoard(Board& board)
   ********************************************************/
 void TestBoard::move_pawnSimple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move move;
+   move.source.set(0, 1);
+   move.dest.set(0, 2);
+   move.capture = INVALID;
+   move.promote = INVALID;
+   move.isWhite = true;
+   move.moveType = Move::MOVE;
+   Board board(nullptr, true /*noreset*/);
+   board.numMoves = 17;
+   board.board[0][1] = new PieceSpy(0, 1, true  /*isWhite*/, PAWN);
+   board.board[0][2] = new PieceSpy(0, 2, false /*isWhite*/, SPACE);
+   board.board[0][1]->nMoves = 17;
+   PieceSpy::reset();
+
+   // EXERCISE
+   board.move(move);
+
+   // VERIFY
+   assertUnit(18 == board.numMoves);
+   assertUnit(SPACE == (board.board[0][1])->getType());
+   assertUnit(PAWN == (board.board[0][2])->getType());
+   assertUnit(PieceSpy::numConstruct == 0);
+   assertUnit(PieceSpy::numCopy == 0);
+   assertUnit(PieceSpy::numDelete == 0);
+   assertUnit(PieceSpy::numAssign == 0);
+   assertUnit(PieceSpy::numMove == 0);
+
+   // TEARDOWN
+   delete board.board[0][1];
+   delete board.board[0][2];
+   board.board[0][1] = board.board[0][2] = nullptr;
 }
 
 
