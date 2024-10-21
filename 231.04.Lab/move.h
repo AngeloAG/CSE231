@@ -2,7 +2,7 @@
  * Header File:
  *    MOVE
  * Author:
- *    Jacob Mower, Angelo Arellano Gaona
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    Everything we need to know about a single chess move
  ************************************************************************/
@@ -12,7 +12,6 @@
 #include <string>
 #include "position.h"  // Every move has two Positions as attributes
 #include "pieceType.h" // A piece type
-
 
 class TestMove;
 class TestBoard;
@@ -38,13 +37,21 @@ public:
    bool operator <  (const Move & rhs) const  { return dest.getLocation() < rhs.dest.getLocation(); }
    const Move & operator = (const char * rhs) { read(string(rhs)); return *this; }
    Move & operator = (const Move & rhs);
+
    string getText() const;
    const Position& getSource()const           { return source;  }
    const Position& getDest() const            { return dest;    }
    PieceType getCapture() const               { return capture; }
-   void setCastle(bool isKingSide) { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; text = getText(); }
+
+   void setCastle(bool isKingSide)
+   { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; text = getText(); }
+
    void setEnpassant() { moveType = ENPASSANT;  text = getText(); }
    void setPromotion(PieceType promote) { this->promote = promote; text += 'Q'; }
+   bool isEnPassant()     const { return moveType == ENPASSANT;    }
+   bool isCastleK()       const { return moveType == CASTLE_KING;  }
+   bool isCastleQ()       const { return moveType == CASTLE_QUEEN; }
+   PieceType getPromote() const { return promote; }
    
 private:
    char letterFromPieceType(PieceType pt)     const;

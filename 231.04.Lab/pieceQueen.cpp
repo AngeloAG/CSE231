@@ -2,7 +2,7 @@
  * Source File:
  *    Queen
  * Author:
- *    Jacob Mower, Connor Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The Queen class
  ************************************************************************/
@@ -19,7 +19,6 @@ void Queen::display(ogstream* pgout) const
 {
    pgout->drawQueen(position, fWhite);
 }
-
 
 /**********************************************
  * Bishop : GET MOVES

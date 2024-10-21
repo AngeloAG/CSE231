@@ -18,12 +18,14 @@ using namespace std;
 /***************************************************
  * MOVE : DEFAULT CONSTRUCTOR
  ***************************************************/
-Move::Move(): source(), dest(), promote(INVALID), capture(INVALID), moveType(MOVE), text(""), isWhite(true) {}
+Move::Move(): source(), dest(), promote(INVALID),
+              capture(INVALID), moveType(MOVE), text(""), isWhite(true) {}
 
 /***************************************************
  * MOVE : CONSTRUCTOR FROM STRING
  ***************************************************/
-Move::Move(const char * s): promote(INVALID), capture(INVALID), moveType(MOVE), text(s), isWhite(true)
+Move::Move(const char * s): promote(INVALID), capture(INVALID),
+                            moveType(MOVE), text(s), isWhite(true)
 {
    read(string(s));
 }
@@ -32,7 +34,8 @@ Move::Move(const char * s): promote(INVALID), capture(INVALID), moveType(MOVE), 
  * MOVE : CONSTRUCTOR FROM OBJECTS
  ***************************************************/
 Move::Move(const Position source, Position dest, bool isWhite, PieceType capture)
-   : source(source), dest(dest), promote(INVALID), capture(capture), moveType(MOVE), isWhite(isWhite)
+   : source(source), dest(dest), promote(INVALID),
+     capture(capture), moveType(MOVE), isWhite(isWhite)
 {
    this->text = this->getText();
 }
@@ -42,13 +45,13 @@ Move::Move(const Position source, Position dest, bool isWhite, PieceType capture
  **************************************/
 Move& Move::operator = (const Move & rhs)
 {
-   source = rhs.source;
-   dest = rhs.dest;
-   promote = rhs.promote;
-   capture = rhs.capture;
+   source   = rhs.source;
+   dest     = rhs.dest;
+   promote  = rhs.promote;
+   capture  = rhs.capture;
    moveType = rhs.moveType;
-   text = rhs.text;
-   isWhite = rhs.isWhite;
+   text     = rhs.text;
+   isWhite  = rhs.isWhite;
    return *this;
 }
 
@@ -131,8 +134,8 @@ void Move::read(const string smithMove)
 
    sourceChars[0] = smithMove[0];
    sourceChars[1] = smithMove[1];
-   destChars[0] = smithMove[2];
-   destChars[1] = smithMove[3];
+   destChars[0]   = smithMove[2];
+   destChars[1]   = smithMove[3];
 
    source = Position(sourceChars);
    dest = Position(destChars);

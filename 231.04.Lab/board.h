@@ -2,7 +2,7 @@
  * Header File:
  *    BOARD 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    A collection of pieces and a small amount of game state
  ************************************************************************/

@@ -3,7 +3,7 @@
  * Source File:
  *    Rook
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The rook class
  ************************************************************************/
@@ -20,7 +20,6 @@ void Rook::display(ogstream* pgout) const
 {
    pgout->drawRook(position, fWhite);
 }
-
 
 /**********************************************
  * Rook : GET MOVES
