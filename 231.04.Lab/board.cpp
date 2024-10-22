@@ -111,6 +111,7 @@ Piece& Board::operator [] (const Position& pos)
 void Board::display(const Position & posHover, const Position & posSelect) const
 {
    ogstream ogstream;
+   ogstream.drawHover(posHover);
    ogstream.drawBoard();
    for (int c = 0; c < 8; c++)
    {
