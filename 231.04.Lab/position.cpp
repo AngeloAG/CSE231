@@ -128,6 +128,11 @@ void Position::adjustCol(int dCol)
    }
 }
 
+/*************************************
+ * SETXY
+ * Sets the column and row based on 
+ * pixels
+ **************************************/
 void Position::setXY(double x, double y)
 {
 

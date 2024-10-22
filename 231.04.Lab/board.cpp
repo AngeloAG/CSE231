@@ -19,6 +19,8 @@
 #include "piecePawn.h"
 #include "pieceKing.h"
 #include <cassert>
+
+#include <iostream>
 using namespace std;
 
 /***********************************************
@@ -112,7 +114,18 @@ void Board::display(const Position & posHover, const Position & posSelect) const
 {
    ogstream ogstream;
    ogstream.drawHover(posHover);
+   ogstream.drawSelected(posSelect);
    ogstream.drawBoard();
+   if (posSelect.isValid())
+   {
+      set<Move> moves;
+      const Piece& selectedPiece = this->operator[](posSelect);
+      selectedPiece.getMoves(moves, *(this));
+      for (auto move : moves)
+      {
+         ogstream.drawPossible(move.getDest());
+      }
+   }
    for (int c = 0; c < 8; c++)
    {
       for (int r = 0; r < 8; r++)
@@ -121,6 +134,23 @@ void Board::display(const Position & posHover, const Position & posSelect) const
       }
    }
 
+}
+
+void Board::update(const Position& source, const Position& dest)
+{
+   if (source.isValid() && dest.isValid())
+   {
+      set<Move> moves;
+      const Piece& selectedPiece = this->operator[](source);
+      selectedPiece.getMoves(moves, *(this));
+      for (auto move : moves)
+      {
+         if (move.getSource() == source && move.getDest() == dest)
+         {
+            this->move(move);
+         }
+      }
+   }
 }
 
 /**********************************************

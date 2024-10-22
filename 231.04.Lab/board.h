@@ -55,6 +55,7 @@ public:
    virtual void free();
    virtual void reset(bool fFree = true);
    virtual void move(const Move & move);
+   virtual void update(const Position & source, const Position & dest);
    virtual Piece& operator [] (const Position& pos);
 
 protected:
