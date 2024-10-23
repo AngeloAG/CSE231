@@ -122,5 +122,5 @@ void Piece::getMovesSlide(set <Move>& movesSet, const Board& board,
  ***********************************************/
 bool Piece::justMoved(int currentMove) const
 {
-   return lastMove + 1 == currentMove;
+   return lastMove == currentMove;
 }

@@ -17,9 +17,9 @@ const Delta DIAGONAL_MOVES_BOTTOM[MOVES_SIZE] = { {-1, -1}, {-1, 1} };
 
 const Delta DIAGONAL_MOVES_TOP[MOVES_SIZE]    = { {1, -1} , {1, 1}  };
 
-const Delta VERTICAL_MOVE_BOTTOM = {-1, 0};
+const Delta VERTICAL_MOVE_BOTTOM = {-1, 0}; // 
 
-const Delta VERTICAL_MOVE_TOP    = {1, 0 };
+const Delta VERTICAL_MOVE_TOP    = {1, 0 }; // 
 
  /***************************************************
  * PIECE DRAW
@@ -27,7 +27,7 @@ const Delta VERTICAL_MOVE_TOP    = {1, 0 };
  ***************************************************/
 void Pawn::display(ogstream* pgout) const
 {
-   pgout->drawPawn(position, fWhite);
+   pgout->drawPawn(position, !fWhite);
 }
 
 /**********************************************
@@ -72,6 +72,7 @@ void Pawn::getMovesVertical(set <Move>& moves, const Board& board) const
 
             // Add the move
             moves.insert(Move(position, jumpPosition, fWhite));
+            // nMoves --;
          }
       }
    }
@@ -127,7 +128,8 @@ void Pawn::getMovesEnpassant(set <Move>& moves, const Board& board) const
             const Piece& sidePiece   = board[sidePosition];
             if (sidePiece           == PAWN &&
                 sidePiece.isWhite() != fWhite &&
-                sidePiece.justMoved(board.getCurrentMove()))
+                sidePiece.justMoved(board.getCurrentMove()) &&
+                sidePiece.getNMoves() == 1)
             {
                // Create an enpassant move
                Move move(position, possibleDest, fWhite);

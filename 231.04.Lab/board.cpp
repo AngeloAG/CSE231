@@ -116,16 +116,24 @@ void Board::display(const Position & posHover, const Position & posSelect) const
    ogstream.drawHover(posHover);
    ogstream.drawSelected(posSelect);
    ogstream.drawBoard();
+
    if (posSelect.isValid())
    {
-      set<Move> moves;
-      const Piece& selectedPiece = this->operator[](posSelect);
-      selectedPiece.getMoves(moves, *(this));
-      for (auto move : moves)
+      // Keep track of turns
+      if ((this->whiteTurn() && this->operator[](posSelect).isWhite()) ||
+         (!this->whiteTurn() && !this->operator[](posSelect).isWhite()))
       {
-         ogstream.drawPossible(move.getDest());
+         set<Move> moves;
+         const Piece& selectedPiece = this->operator[](posSelect);
+         selectedPiece.getMoves(moves, *(this));
+         for (auto move : moves)
+         {
+            ogstream.drawPossible(move.getDest());
+         }
       }
    }
+
+   // Display pieces
    for (int c = 0; c < 8; c++)
    {
       for (int r = 0; r < 8; r++)
@@ -138,16 +146,22 @@ void Board::display(const Position & posHover, const Position & posSelect) const
 
 void Board::update(const Position& source, const Position& dest)
 {
+   // Check that the piece moves are in board boundaries
    if (source.isValid() && dest.isValid())
    {
-      set<Move> moves;
-      const Piece& selectedPiece = this->operator[](source);
-      selectedPiece.getMoves(moves, *(this));
-      for (auto move : moves)
+      // Keep track of turns
+      if ((this->whiteTurn() && this->operator[](source).isWhite()) ||
+         (!this->whiteTurn() && !this->operator[](source).isWhite()))
       {
-         if (move.getSource() == source && move.getDest() == dest)
+         set<Move> moves;
+         const Piece& selectedPiece = this->operator[](source);
+         selectedPiece.getMoves(moves, *(this));
+         for (auto move : moves)
          {
-            this->move(move);
+            if (move.getSource() == source && move.getDest() == dest)
+            {
+               this->move(move);
+            }
          }
       }
    }
@@ -172,7 +186,6 @@ void Board::move(const Move & move)
    numMoves ++;
    Position source = move.getSource();
    Position dest   = move.getDest();
-   this-> operator[](source).incrementNMoves();
    this-> operator[](source).setLastMove(this->numMoves);
 
    // Handles Simple captures
@@ -221,12 +234,12 @@ void Board::move(const Move & move)
       if (move.isCastleK())
       {
          board[7][dest.getRow()] = new Space(7, dest.getRow());
-         board[5][dest.getRow()] = new Rook(5, dest.getRow() );
+         board[5][dest.getRow()] = new Rook(Position(5, dest.getRow()), sourcePiece->isWhite());
       }
       if (move.isCastleQ())
       {
          board[0][dest.getRow()] = new Space(0, dest.getRow());
-         board[3][dest.getRow()] = new Rook(3, dest.getRow() );
+         board[3][dest.getRow()] = new Rook(Position(3,dest.getRow()), sourcePiece->isWhite());
       }
    }
 
@@ -234,7 +247,7 @@ void Board::move(const Move & move)
    if (move.getPromote() != INVALID)
    {
       board[dest.getCol()][dest.getRow()]
-         = new Queen(dest.getCol(), dest.getRow());
+         = new Queen(dest, move.isWhiteTurn());
    }
 }
 
@@ -277,8 +290,8 @@ void Board::setUpKings()
  *********************************************/
 void Board::setUpBishops()
 {
-   board[2][0] = new Bishop(2, 0, true );
-   board[5][0] = new Bishop(5, 0, true );
+   board[2][0] = new Bishop(2, 0, true);
+   board[5][0] = new Bishop(5, 0, true);
    board[2][7] = new Bishop(2, 7, false);
    board[5][7] = new Bishop(5, 7, false);
 };
@@ -289,8 +302,8 @@ void Board::setUpBishops()
  *********************************************/
 void Board::setUpRooks()
 {
-   board[0][0] = new Rook(0, 0, true );
-   board[7][0] = new Rook(7, 0, true );
+   board[0][0] = new Rook(0, 0, true);
+   board[7][0] = new Rook(7, 0, true);
    board[0][7] = new Rook(0, 7, false);
    board[7][7] = new Rook(7, 7, false);
 };

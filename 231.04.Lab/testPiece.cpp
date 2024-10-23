@@ -380,7 +380,7 @@ void TestPiece::justMoved_justMoved()
    piece.lastMove  = 4;
    piece.nMoves    = 2;
    piece.position  = Position(2, 3);
-   int currentMove = 5;
+   int currentMove = 4;
    bool justMoved  = false;
 
    // exercise

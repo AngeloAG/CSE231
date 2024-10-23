@@ -46,12 +46,13 @@ public:
    void setCastle(bool isKingSide)
    { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; text = getText(); }
 
-   void setEnpassant() { moveType = ENPASSANT;  text = getText(); }
+   void setEnpassant() { moveType = ENPASSANT;  text = getText(); capture = PAWN; }
    void setPromotion(PieceType promote) { this->promote = promote; text += 'Q'; }
    bool isEnPassant()     const { return moveType == ENPASSANT;    }
    bool isCastleK()       const { return moveType == CASTLE_KING;  }
    bool isCastleQ()       const { return moveType == CASTLE_QUEEN; }
-   PieceType getPromote() const { return promote; }
+   bool isWhiteTurn()     const { return isWhite;                  }
+   PieceType getPromote() const { return promote;                  }
    
 private:
    char letterFromPieceType(PieceType pt)     const;

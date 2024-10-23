@@ -72,7 +72,7 @@ public:
    virtual bool justMoved(int currentMove) const;
 
    // setter
-   virtual void setLastMove(int currentMove) {nMoves ++; lastMove = currentMove;}
+   virtual void setLastMove(int currentMove) { nMoves++; lastMove = currentMove; }
 
    // overwritten by the various pieces
    virtual PieceType getType()                                    const = 0;
@@ -240,6 +240,7 @@ public:
    PieceType getType()                          const { return pt;    }
    void getMoves(set <Move>& moves, const Board& board) const       { }
    bool justMoved(int currentMove)  const             { return false; }
+   int getNMoves()                  const             { return 0;     }
 };
 
 /***************************************************
@@ -256,6 +257,7 @@ public:
    PieceType getType()                    const { return pt;         }
    void getMoves(set <Move>& moves,       const Board& board) const {}
    bool justMoved(int currentMove)        const { return false;      }
+   int getNMoves()                        const { return 0;          }
 };
 
 /***************************************************
@@ -272,6 +274,7 @@ public:
    PieceType getType()              const { return pt;            }
    void getMoves(set <Move>& moves, const Board& board) const    {}
    bool justMoved(int currentMove)  const { return true;          }
+   int getNMoves()                  const { return 1;             }
 };
 
 /***************************************************
@@ -288,4 +291,5 @@ public:
    PieceType getType()              const { return pt;            }
    void getMoves(set <Move>& moves, const Board& board) const    {}
    bool justMoved(int currentMove)  const { return true;          }
+   int getNMoves()                  const { return 1;             }
 };
