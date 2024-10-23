@@ -67,6 +67,7 @@ public:
    virtual bool isMoved()                  const { return nMoves > 0;           }
    virtual int  getNMoves()                const { return nMoves;               }
    virtual void decrementNMoves()                { nMoves --;                   }
+   virtual void incrementNMoves()                { nMoves ++;                   }
    virtual const Position & getPosition()  const { return this->position;       }
    virtual bool justMoved(int currentMove) const;
 

@@ -172,6 +172,8 @@ void Board::move(const Move & move)
    numMoves ++;
    Position source = move.getSource();
    Position dest   = move.getDest();
+   this-> operator[](source).incrementNMoves();
+   this-> operator[](source).setLastMove(this->numMoves);
 
    // Handles Simple captures
    if (move.getCapture() != INVALID)
