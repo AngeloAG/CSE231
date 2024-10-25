@@ -40,9 +40,10 @@ public:
    Move & operator = (const Move & rhs);
 
    string getText() const;
-   const Position& getSource()const           { return source;  }
-   const Position& getDest() const            { return dest;    }
-   PieceType getCapture() const               { return capture; }
+   const Position& getSource() const { return source;  }
+   const Position& getDest()   const { return dest;    }
+   PieceType getCapture()      const { return capture; }
+   PieceType getPromote()      const { return promote; }
 
    void setCastle(bool isKingSide)
    { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; text = getText(); }
@@ -53,14 +54,11 @@ public:
    bool isCastleK()       const { return moveType == CASTLE_KING;  }
    bool isCastleQ()       const { return moveType == CASTLE_QUEEN; }
    bool isWhiteTurn()     const { return isWhite;                  }
-   PieceType getPromote() const { return promote;                  }
-   
+
 private:
    char letterFromPieceType(PieceType pt)     const;
    PieceType pieceTypeFromLetter(char letter) const;
    void read(const string smithMove);
-
-
 
    Position  source;    // where the move originated from
    Position  dest;      // where the move finished

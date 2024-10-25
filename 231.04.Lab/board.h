@@ -74,8 +74,6 @@ private:
    void setUpRooks();
    void setUpPawns();
    void setUpBishops();
-   
-
 };
 
 
