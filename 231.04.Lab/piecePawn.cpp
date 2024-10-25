@@ -84,13 +84,13 @@ void Pawn::getMovesVertical(set <Move>& moves, const Board& board) const
  *********************************************/
 void Pawn::getMovesDiagonal(set <Move>& moves, const Board& board) const 
 {
-   const Delta* defaultMoves = fWhite ? DIAGONAL_MOVES_TOP : DIAGONAL_MOVES_BOTTOM;
+   const Delta* defaultMoves = fWhite ? DIAGONAL_MOVES_TOP:DIAGONAL_MOVES_BOTTOM;
    for (int i = 0; i < MOVES_SIZE; i++)
    {
       Position possibleDest(position, defaultMoves[i]);
       if (possibleDest.isValid())
       {
-         // If it is a valid position we get the piece to see if it is an opposite piece
+         //If it is a valid position we get the piece to see if it is an opponent
          const Piece& pieceInDest = board[possibleDest];
          if (pieceInDest != SPACE && pieceInDest.isWhite() != fWhite)
          {
@@ -107,12 +107,12 @@ void Pawn::getMovesDiagonal(set <Move>& moves, const Board& board) const
 }
 
 /**********************************************
- * PAWN : GET MOVES
+ * PAWN : GET MOVES ENPASSANT
  * Gets possible enpassant moves based on current location
  *********************************************/
 void Pawn::getMovesEnpassant(set <Move>& moves, const Board& board) const 
 {
-   const Delta* defaultMoves = fWhite ? DIAGONAL_MOVES_TOP : DIAGONAL_MOVES_BOTTOM;
+   const Delta* defaultMoves = fWhite ? DIAGONAL_MOVES_TOP:DIAGONAL_MOVES_BOTTOM;
    for (int i = 0; i < MOVES_SIZE; i++)
    {
       Position possibleDest(position, defaultMoves[i]);
@@ -124,7 +124,7 @@ void Pawn::getMovesEnpassant(set <Move>& moves, const Board& board) const
          // If we are not in the edge of the board
          if (sidePosition.isValid() && pieceInDest == SPACE)
          {
-            // We check if the piece in the right is an opposite color pawn that just moved
+            //Check if the piece in the right is an opponent pawn that just moved
             const Piece& sidePiece   = board[sidePosition];
             if (sidePiece           == PAWN &&
                 sidePiece.isWhite() != fWhite &&
@@ -141,7 +141,12 @@ void Pawn::getMovesEnpassant(set <Move>& moves, const Board& board) const
    }
 };
 
-bool Pawn::canPromote(int destinationRow) const 
+
+/**********************************************
+ * PAWN : CAN PROMOTE
+ * Checks to see if promotion is a possible move
+ *********************************************/
+bool Pawn::canPromote(int destinationRow) const
 {
    if (fWhite == true && destinationRow == 7)
       return true;

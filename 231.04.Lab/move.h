@@ -31,11 +31,12 @@ public:
    // constructor
    Move();
    Move(const char * s);
-   Move(Position source, Position dest, bool isWhite, PieceType capture = INVALID);
-   bool operator == (const Move & rhs) const  { return rhs.text == this->text;    }
-   bool operator != (const Move & rhs) const  { return rhs.text != this->text;    }
-   bool operator <  (const Move & rhs) const  { return dest.getLocation() < rhs.dest.getLocation(); }
-   const Move & operator = (const char * rhs) { read(string(rhs)); return *this; }
+   Move(Position source,Position dest,bool isWhite,PieceType capture = INVALID);
+   bool operator == (const Move & rhs) const  { return rhs.text == this->text;  }
+   bool operator != (const Move & rhs) const  { return rhs.text != this->text;  }
+   bool operator <  (const Move & rhs) const  { return dest.getLocation() 
+                                                < rhs.dest.getLocation(); }
+   const Move & operator = (const char * rhs) { read(string(rhs)); return *this;}
    Move & operator = (const Move & rhs);
 
    string getText() const;
@@ -46,7 +47,7 @@ public:
    void setCastle(bool isKingSide)
    { moveType = isKingSide ? CASTLE_KING : CASTLE_QUEEN; text = getText(); }
 
-   void setEnpassant() { moveType = ENPASSANT;  text = getText(); capture = PAWN; }
+   void setEnpassant() {moveType = ENPASSANT;  text = getText(); capture = PAWN;}
    void setPromotion(PieceType promote) { this->promote = promote; text += 'Q'; }
    bool isEnPassant()     const { return moveType == ENPASSANT;    }
    bool isCastleK()       const { return moveType == CASTLE_KING;  }

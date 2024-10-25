@@ -2,7 +2,7 @@
 * Source File:
 *    Lab 04: Chess
 * Author:
-*    <your name here>
+*    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
 * Summary:
 *    Play the game of chess
 ************************************************************************/
@@ -35,8 +35,12 @@ void callBack(Interface *pUI, void * p)
    Board * pBoard = (Board *)p;  
    pBoard->display(pUI->getHoverPosition(), pUI->getSelectPosition());
 
-   if (pUI->getPreviousPosition() != pUI->getSelectPosition() && pUI->getPreviousPosition().isValid() && pUI->getSelectPosition().isValid())
+   //If the new space selected makes sense
+   if (pUI->getPreviousPosition() != pUI->getSelectPosition()
+       && pUI->getPreviousPosition().isValid()
+       && pUI->getSelectPosition().isValid())
    {
+      //Update the board with the user input
       pBoard->update(pUI->getPreviousPosition(), pUI->getSelectPosition());
       pUI->clearPreviousPosition();
       pUI->clearSelectPosition();

@@ -27,10 +27,11 @@ void Rook::display(ogstream* pgout) const
  *********************************************/
 void Rook::getMoves(set <Move>& moves, const Board& board) const
 {
-   Delta defaultMoves[4] = {
+   Delta defaultMoves[4] = { //List of move directions for rook
               {1, 0},
       {0, -1},       {0, 1},
               {-1,0},
    };
+   //Send thsee moves to move slide
    this->getMovesSlide(moves, board, defaultMoves, 4);
 }

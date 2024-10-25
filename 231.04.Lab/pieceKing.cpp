@@ -45,7 +45,7 @@ void King::kingSideCastle(set <Move>& moves, const Board& board) const
 {
    const Position rightCorner(position, {0,3}); //King side corner
    const Position destination(position, {0,2}); //Where the king lands
-   if (canCastle(board, rightCorner))
+   if (canCastle(board, rightCorner))           //Craft move and add to list
    {
       Move move(position, destination, fWhite, INVALID);
       move.setCastle(true);
@@ -61,7 +61,7 @@ void King::queenSideCastle(set <Move>& moves, const Board& board) const
 {
    const Position leftCorner(position, { 0,-4}); //Queen side corner
    const Position destination(position,{ 0,-2}); //Where the king lands
-   if (canCastle(board, leftCorner))
+   if (canCastle(board, leftCorner))             //Craft move and add to list
    {
       Move move(position, destination, fWhite, INVALID);
       move.setCastle(false);

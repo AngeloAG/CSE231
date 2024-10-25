@@ -62,8 +62,8 @@ void TestKing::getMoves_blocked()
    // EXERCISE
    king.getMoves(moves, board);
    
-   // VERIFY
-   assertUnit(moves.size() == 0);  // King should have no valid moves since it's blocked by friendly pieces
+   // VERIFY // King should have no valid moves since it's blocked by friendly pieces
+   assertUnit(moves.size() == 0);
    
    // TEARDOWN
    board.board[4][4] = nullptr; // king
@@ -125,7 +125,7 @@ void TestKing::getMoves_capture()
    king.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 8);  // The king should be able to capture all 8 pawns
+   assertUnit(moves.size() == 8);//The king should be able to capture all pawns
    assertUnit(moves.find(Move("d5c6p")) != moves.end()); // capture blackPawn1
    assertUnit(moves.find(Move("d5d6p")) != moves.end()); // capture blackPawn2
    assertUnit(moves.find(Move("d5e6p")) != moves.end()); // capture blackPawn3
@@ -224,7 +224,7 @@ void TestKing::getMoves_end()
    king.getMoves(moves, board);
 
    // VERIFY
-   assertUnit(moves.size() == 3);  // The king should have only 3 valid moves from the corner
+   assertUnit(moves.size() == 3);  // The king should have only 3 valid moves
    assertUnit(moves.find(Move("a1a2")) != moves.end()); // Move to a2
    assertUnit(moves.find(Move("a1b1")) != moves.end()); // Move to b1
    assertUnit(moves.find(Move("a1b2")) != moves.end()); // Move to b2

@@ -26,10 +26,11 @@ void Queen::display(ogstream* pgout) const
  *********************************************/
 void Queen::getMoves(set <Move>& moves, const Board& board) const
 {
-   Delta defaultMoves[8] = {
+   Delta defaultMoves[8] = { //The move directions queen can do
       {1, -1}, {1, 0},  {1, 1},
       {0, -1},          {0, 1},
       {-1,-1}, {-1,0},  {-1,1},
    };
+   //Send these moves to move slide to interpret
    this->getMovesSlide(moves, board, defaultMoves, 8);
 }

@@ -27,12 +27,13 @@ void Knight::display(ogstream* pgout) const
  *********************************************/
 void Knight::getMoves(set <Move>& moves, const Board& board) const
 {
-   Delta defaultMoves[8] = {
+   Delta defaultMoves[8] = { //Theoretical possible moves for knight
                { 2, -1}, { 2, 1},
       {1 , -2},                  { 1, 2},
       {-1, -2},                  {-1, 2},
                {-2, -1}, {-2, 1}
    };
-
+   
+   //Send those moves on
    this->getMovesNoSlide(moves, board, defaultMoves, 8);
 }

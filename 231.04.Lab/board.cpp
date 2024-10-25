@@ -233,13 +233,17 @@ void Board::move(const Move & move)
       // Castling condition
       if (move.isCastleK())
       {
-         board[7][dest.getRow()] = new Space(7, dest.getRow());
-         board[5][dest.getRow()] = new Rook(Position(5, dest.getRow()), sourcePiece->isWhite());
+         board[7][dest.getRow()] = 
+         new Space(7, dest.getRow());
+         board[5][dest.getRow()] =
+         new Rook(Position(5, dest.getRow()), sourcePiece->isWhite());
       }
       if (move.isCastleQ())
       {
-         board[0][dest.getRow()] = new Space(0, dest.getRow());
-         board[3][dest.getRow()] = new Rook(Position(3,dest.getRow()), sourcePiece->isWhite());
+         board[0][dest.getRow()] = 
+         new Space(0, dest.getRow());
+         board[3][dest.getRow()] =
+         new Rook(Position(3,dest.getRow()), sourcePiece->isWhite());
       }
    }
 
