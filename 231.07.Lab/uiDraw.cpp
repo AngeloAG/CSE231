@@ -15,7 +15,6 @@
 #include <cassert>    // I feel the need... the need for asserts
 #include <time.h>     // for clock
 
-
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
 #include <openGL/gl.h>    // Main OpenGL library
@@ -41,15 +40,15 @@
 using namespace std;
 
 // colors ueed in the simulator
-const int RGB_WHITE[] =      { 255, 255, 255 };
+const int RGB_WHITE[]      = { 255, 255, 255 };
 const int RGB_LIGHT_GREY[] = { 196, 196, 196 };
-const int RGB_GREY[] =       { 128, 128, 128 };
-const int RGB_DARK_GREY[] =  { 64,   64,  64 };
-const int RGB_DEEP_BLUE[] =  { 64,   64, 156 };
-const int RGB_BLUE[] =       { 0,     0, 256 };
-const int RGB_RED[] =        { 255,   0,   0 };
-const int RGB_GOLD[] =       { 255, 255,   0 };
-const int RGB_TAN[] =        { 180, 150, 110 };
+const int RGB_GREY[]       = { 128, 128, 128 };
+const int RGB_DARK_GREY[]  = { 64,   64,  64 };
+const int RGB_DEEP_BLUE[]  = { 64,   64, 156 };
+const int RGB_BLUE[]  =      { 0,     0, 256 };
+const int RGB_RED[]   =      { 255,   0,   0 };
+const int RGB_GOLD[]  =      { 255, 255,   0 };
+const int RGB_TAN[]   =      { 180, 150, 110 };
 const int RGB_GREEN[] =      {   0, 150,   0 };
 
 /************************************************************************
@@ -247,10 +246,10 @@ void ogstream::drawCrewDragonCenter(const Position& center, double rotation)
 {
    ColorRect rects[] = 
    {
-      {-5,5,   3,5,   3,-5,  -5,-5,  RGB_LIGHT_GREY },
-      { 3,5,   3,-5, 11,-3,  11,3,   RGB_GREY },
-      {12,-3, 12,3,  11,-3,  11,3,   RGB_DARK_GREY },
-      { 4,3,   7,2,   7,-2,   4,-3,  RGB_DARK_GREY}
+      {  -5,5,  3,5,  3,-5, -5,-5, RGB_LIGHT_GREY },
+      {   3,5, 3,-5, 11,-3,  11,3, RGB_GREY       },
+      { 12,-3, 12,3, 11,-3,  11,3, RGB_DARK_GREY  },
+      {   4,3,  7,2,  7,-2,  4,-3, RGB_DARK_GREY  }
    };
 
    for (int i = 0; i < sizeof(rects)/sizeof(ColorRect); i++)
@@ -269,9 +268,9 @@ void ogstream::drawCrewDragonRight(const Position& center, double rotation, cons
 {
    ColorRect rects[] =
    {
-      {-4,5,  4,5,  4,1,  -4,1,  RGB_DEEP_BLUE },
-      {-4,-1, 4,1,  4,-5, -4,-5, RGB_DEEP_BLUE },
-      {0,2,   0,-6, 1,-6,  1,2,  RGB_GREY },
+      {  -4,5,  4,5,  4,1,  -4,1, RGB_DEEP_BLUE },
+      { -4,-1,  4,1, 4,-5, -4,-5, RGB_DEEP_BLUE },
+      {   0,2, 0,-6, 1,-6,   1,2, RGB_GREY      },
    };
 
    for (int i = 0; i < sizeof(rects) / sizeof(ColorRect); i++)
@@ -290,15 +289,14 @@ void ogstream::drawCrewDragonLeft(const Position& center, double rotation, const
 {
    ColorRect rects[] =
    {
-      {-4,5,  4,5,  4,1,  -4,1,  RGB_DEEP_BLUE },
-      {-4,-1, 4,1,  4,-5, -4,-5, RGB_DEEP_BLUE },
-      {0,2,   0,-6, 1,-6,  1,2,  RGB_GREY }
+      {  -4,5,  4,5,  4,1,  -4,1, RGB_DEEP_BLUE },
+      { -4,-1,  4,1, 4,-5, -4,-5, RGB_DEEP_BLUE },
+      {   0,2, 0,-6, 1,-6,   1,2, RGB_GREY      }
    };
 
    for (int i = 0; i < sizeof(rects) / sizeof(ColorRect); i++)
       glDrawRect(center, offset, rects[i], rotation);
 }
-
 
 /************************************************************************
  * DRAW Crew Dragon
@@ -447,10 +445,10 @@ void ogstream::drawGPSCenter(const Position& center, double rotation)
 {
    ColorRect rects[4] =
    {
-      {-3,4,  4,4,  4,-4, -3,-4, RGB_GOLD  },
-      {4,4,  -3,4, -3,-4, -4,-4, RGB_WHITE },
-      {4,3,   7,3,   7,1,   4,1, RGB_GREY  },
-      {4,-3, 7,-3,  7,-1,  4,-1, RGB_GREY  }
+      { -3,4,  4,4,  4,-4, -3,-4, RGB_GOLD  },
+      {  4,4, -3,4, -3,-4, -4,-4, RGB_WHITE },
+      {  4,3,  7,3,   7,1,   4,1, RGB_GREY  },
+      { 4,-3, 7,-3,  7,-1,  4,-1, RGB_GREY  }
    };
 
    for (int i = 0; i < sizeof(rects) / sizeof(ColorRect); i++)
@@ -490,9 +488,9 @@ void ogstream::drawHubbleTelescope(const Position& center, double rotation, cons
 {
    ColorRect rects[] =
    {
-      {-9,3,  11,3,  11,-3, -9,-3,  RGB_LIGHT_GREY},
-      {11,3,  15,6,  16,5,  12,2,   RGB_GREY},
-      {-9,-2, 11,-2, 11,-3, -9,-3,  RGB_GREY}
+      {  -9,3,  11,3, 11,-3, -9,-3, RGB_LIGHT_GREY },
+      {  11,3,  15,6,  16,5,  12,2, RGB_GREY       },
+      { -9,-2, 11,-2, 11,-3, -9,-3, RGB_GREY       }
    };
 
    for (int i = 0; i < sizeof(rects) / sizeof(ColorRect); i++)
