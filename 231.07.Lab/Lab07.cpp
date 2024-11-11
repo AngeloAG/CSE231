@@ -21,7 +21,7 @@
 using namespace std;
 
 const double FRAME_RATE = 15.0;
-const int NUMBER_OF_STARS = 10000;
+const int NUMBER_OF_STARS = 480000;
 const double STARTING_HEIGHT = 42164000.0;
 const double GRAVITY_AT_SEA = 9.80665;
 const double EARTH_RADIUS = 6378000;
@@ -94,7 +94,7 @@ void callBack(const Interface* pUI, void* p)
 
    // rotate the earth
    pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) * (TIME_DIALATION / SECONDS_PER_DAY);
-   pDemo->angleShip += 0.02;
+   pDemo->angleShip += 10.9;
    
    double totalHeight = sqrt( pow(pDemo->ptHubble.getMetersX(), 2)
                                + pow(pDemo->ptHubble.getMetersY(), 2) )

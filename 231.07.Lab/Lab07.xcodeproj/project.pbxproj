@@ -14,6 +14,9 @@
 		C11C7EB325780B6500EA4B2E /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11C7EA925780B5E00EA4B2E /* uiInteract.cpp */; };
 		C11C7EB525780B6500EA4B2E /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11C7EAD25780B6000EA4B2E /* uiDraw.cpp */; };
 		C179C6C127E375AF00E3E514 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C179C6C027E375AF00E3E514 /* position.cpp */; };
+		F3D6BB942CE2CA0200FFC4DE /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BB902CE2C8CB00FFC4DE /* acceleration.cpp */; };
+		F3D6BB952CE2CA0200FFC4DE /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BB8E2CE2C8CB00FFC4DE /* angle.cpp */; };
+		F3D6BB962CE2CA0200FFC4DE /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BB932CE2C8CB00FFC4DE /* velocity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +46,15 @@
 		C179C6C027E375AF00E3E514 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
 		C179C6C227E375D600E3E514 /* position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
 		C1FC37B62C221C36000A76B0 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
+		F3D6BB8B2CE2C8CA00FFC4DE /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
+		F3D6BB8C2CE2C8CB00FFC4DE /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
+		F3D6BB8D2CE2C8CB00FFC4DE /* testAcceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAcceleration.h; sourceTree = "<group>"; };
+		F3D6BB8E2CE2C8CB00FFC4DE /* angle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = angle.cpp; sourceTree = "<group>"; };
+		F3D6BB8F2CE2C8CB00FFC4DE /* angle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = angle.h; sourceTree = "<group>"; };
+		F3D6BB902CE2C8CB00FFC4DE /* acceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = acceleration.cpp; sourceTree = "<group>"; };
+		F3D6BB912CE2C8CB00FFC4DE /* testAngle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAngle.h; sourceTree = "<group>"; };
+		F3D6BB922CE2C8CB00FFC4DE /* velocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = velocity.h; sourceTree = "<group>"; };
+		F3D6BB932CE2C8CB00FFC4DE /* velocity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = velocity.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,15 @@
 		C11C7E8D2578098A00EA4B2E = {
 			isa = PBXGroup;
 			children = (
+				F3D6BB902CE2C8CB00FFC4DE /* acceleration.cpp */,
+				F3D6BB8C2CE2C8CB00FFC4DE /* acceleration.h */,
+				F3D6BB8E2CE2C8CB00FFC4DE /* angle.cpp */,
+				F3D6BB8F2CE2C8CB00FFC4DE /* angle.h */,
+				F3D6BB8D2CE2C8CB00FFC4DE /* testAcceleration.h */,
+				F3D6BB912CE2C8CB00FFC4DE /* testAngle.h */,
+				F3D6BB8B2CE2C8CA00FFC4DE /* testVelocity.h */,
+				F3D6BB932CE2C8CB00FFC4DE /* velocity.cpp */,
+				F3D6BB922CE2C8CB00FFC4DE /* velocity.h */,
 				C1FC37B62C221C36000A76B0 /* unitTest.h */,
 				C179C6C227E375D600E3E514 /* position.h */,
 				C179C6C027E375AF00E3E514 /* position.cpp */,
@@ -150,6 +171,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D6BB942CE2CA0200FFC4DE /* acceleration.cpp in Sources */,
+				F3D6BB952CE2CA0200FFC4DE /* angle.cpp in Sources */,
+				F3D6BB962CE2CA0200FFC4DE /* velocity.cpp in Sources */,
 				C11C7EB525780B6500EA4B2E /* uiDraw.cpp in Sources */,
 				C11C7EB125780B6500EA4B2E /* Lab07.cpp in Sources */,
 				C11C7EB225780B6500EA4B2E /* test.cpp in Sources */,
