@@ -14,19 +14,19 @@
 #include <cassert>      // for ASSERT
 #include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*
-#include "position.h"      // for POINT
+#include "position.h"   // for POINT
+#include <math.h>       // for M_PI
 #include "test.h"
-#include <math.h>
 #include <iostream>
 using namespace std;
 
-const double FRAME_RATE = 15.0;
-const int NUMBER_OF_STARS = 480000;
+const double FRAME_RATE      = 15.0;
+const int NUMBER_OF_STARS    = 10000;
 const double STARTING_HEIGHT = 42164000.0;
-const double GRAVITY_AT_SEA = 9.80665;
-const double EARTH_RADIUS = 6378000;
-const double TIME_DIALATION = 24 * 60; //hours * minutes
-const double TIME_PER_FRAME = TIME_DIALATION / FRAME_RATE;
+const double GRAVITY_AT_SEA  = 9.80665;
+const double EARTH_RADIUS    = 6378000;
+const double TIME_DIALATION  = 24 * 60; //hours * minutes
+const double TIME_PER_FRAME  = TIME_DIALATION / FRAME_RATE;
 const double SECONDS_PER_DAY = 86400.0;
 
 
@@ -48,16 +48,13 @@ public:
          phaseStar[i] = i;
       }
 
-      angleShip = 0.0;
+      angleShip  = 0.0;
       angleEarth = 0.0;
-      dx = -3100.0;
-      dy = 0.0;
+      dx  = -3100.0;
+      dy  = 0.0;
       ddx = 0.0;
       ddy = 0.0;
-      
    }
-
-
    
    Position ptHubble;
    Position ptStar[NUMBER_OF_STARS];
@@ -86,22 +83,24 @@ void callBack(const Interface* pUI, void* p)
    // is the first step of every single callback function in OpenGL. 
    Demo* pDemo = (Demo*)p;
 
-
-
    //
    // perform all the game logic
    //
 
    // rotate the earth
-   pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) * (TIME_DIALATION / SECONDS_PER_DAY);
-   pDemo->angleShip += 10.9;
+   pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
+                         (TIME_DIALATION / SECONDS_PER_DAY);
+   pDemo->angleShip  += 0.02;
    
-   double totalHeight = sqrt( pow(pDemo->ptHubble.getMetersX(), 2)
-                               + pow(pDemo->ptHubble.getMetersY(), 2) )
-                              -EARTH_RADIUS;
+   double totalHeight = sqrt(pow(pDemo->ptHubble.getMetersX(), 2)  +
+                             pow(pDemo->ptHubble.getMetersY(), 2)) -
+                             EARTH_RADIUS;
    
-   double gravity = GRAVITY_AT_SEA * pow(EARTH_RADIUS/(EARTH_RADIUS + totalHeight), 2.0);
-   double gravityDirection = atan2(0.0 - pDemo->ptHubble.getMetersX(), 0.0 - pDemo->ptHubble.getMetersY());
+   double gravity = GRAVITY_AT_SEA *
+                    pow(EARTH_RADIUS/(EARTH_RADIUS + totalHeight), 2.0);
+
+   double gravityDirection = atan2(0.0 - pDemo->ptHubble.getMetersX(),
+                                   0.0 - pDemo->ptHubble.getMetersY());
    
    double ddx = gravity * sin(gravityDirection);
    double ddy = gravity * cos(gravityDirection);
@@ -109,10 +108,6 @@ void callBack(const Interface* pUI, void* p)
    pDemo->dy += (ddy * TIME_PER_FRAME);
    pDemo->ptHubble.addMetersX(pDemo->dx * TIME_PER_FRAME);
    pDemo->ptHubble.addMetersY(pDemo->dy * TIME_PER_FRAME);
-   std::cout << "              x" << pDemo->dx << endl;
-   std::cout << "y" << pDemo->dy << endl;
-//   std::cout << pDemo->ptHubble.getMetersX() << endl;
-//   std::cout << totalHeight << endl;
 
    //
    // draw everything
@@ -123,7 +118,6 @@ void callBack(const Interface* pUI, void* p)
 
    // draw satellites
    gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
-
 
    // draw parts
    pt.setPixelsX(pDemo->ptHubble.getPixelsX() + 20);
