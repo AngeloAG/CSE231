@@ -54,12 +54,12 @@ public:
 
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
-   Position(const Position & rhs): colRow(rhs.colRow) {}
-   Position() : colRow(0xff)      {              }
-   bool isInvalid() const         { return !isValid();                               }
-   bool isValid()   const         { return getLocation() >= 0 && getLocation() < 64; }
-   void setValid()                {              }
-   void setInvalid()              {              }
+   Position(const Position & rhs): colRow(rhs.colRow) {                               }
+   Position() : colRow(0xff)      {                                                   }
+   bool isInvalid() const         { return !isValid();                                }
+   bool isValid()   const         { return getLocation() >= 0 && getLocation() < 64;  }
+   void setValid()                { set(0,   0);                                      }
+   void setInvalid()              { set(-1, -1);                                      }
    bool operator <  (const Position & rhs) const { return this->colRow < rhs.colRow;  }
    bool operator == (const Position & rhs) const { return rhs.colRow == this->colRow; }
    bool operator != (const Position & rhs) const { return rhs.colRow != this->colRow; }
@@ -91,13 +91,13 @@ public:
    // Pixels:    The Position class can work with screen coordinates,
    //            a.k.a. Pixels, these are X and Y coordinates. Note that
    //            we need to scale them according to the size of the board.
-   int getX()   const { return 99; }
-   int getY()   const { return 99; }
-   void setXY(double x, double y) { }
-   double getSquareWidth()  const { return 99; }
-   double getSquareHeight() const { return 99; }
-   void setSquareWidth (double width )  {  }
-   void setSquareHeight(double height)  {  }
+   int getX()               const { return getCol()*squareHeight + OFFSET_BOARD; }
+   int getY()               const { return getRow()*squareWidth + OFFSET_BOARD; }
+   void setXY(double x, double y);
+   double getSquareWidth()  const { return squareWidth; }
+   double getSquareHeight() const { return squareHeight; }
+   void setSquareWidth (double width ) { squareWidth  = width;  }
+   void setSquareHeight(double height) { squareHeight = height; }
 
    // Delta:    The Position class can work with deltas, which are
    //           offsets from a given location. This helps pieces move

@@ -7,11 +7,15 @@
  *    The unit tests for a bishop
  ************************************************************************/
 
+
 #include "testBishop.h"
 #include "pieceBishop.h"     
 #include "board.h"
 #include "uiDraw.h"
 #include <cassert>      
+
+
+
 
 /*************************************
  * +---a-b-c-d-e-f-g-h---+
@@ -218,8 +222,8 @@ void TestBishop::getType()
    // SETUP
    Bishop bishop(7, 7, false /*white*/);
    bishop.fWhite          = true;
-   PieceType type         = KING;
    bishop.position.colRow = 0x34;
+   PieceType type         = KING;
 
    // EXERCISE
    type = bishop.getType();

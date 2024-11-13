@@ -2,7 +2,7 @@
  * Header File:
  *    TEST PAWN
  * Author:
- *    <your name here>
+ *    Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for Pawn
  ************************************************************************/

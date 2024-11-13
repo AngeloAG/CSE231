@@ -3,8 +3,7 @@
  * Source File:
  *    Rook
  * Author:
- *    Jacob Mower, Angelo Arellano, Connor Hopkins
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The rook class
  ************************************************************************/
@@ -19,23 +18,20 @@
  ***************************************************/
 void Rook::display(ogstream* pgout) const
 {
-   pgout->drawRook(position, fWhite);
+   pgout->drawRook(position, !fWhite);
 }
 
-
 /**********************************************
- * Rook : GET POSITIONS
+ * Rook : GET MOVES
+ * Gets possible moves based on current location
  *********************************************/
 void Rook::getMoves(set <Move>& moves, const Board& board) const
 {
-   int r = this->position.getRow();
-   int c = this->position.getCol();
-
-   Position defaultMoves[4] = {
-                              Position(c, r + 1),
-      Position(c - 1, r),                          Position(c + 1, r),
-                              Position(c, r - 1),
+   Delta defaultMoves[4] = { //List of move directions for rook
+              {1, 0},
+      {0, -1},       {0, 1},
+              {-1,0},
    };
-
+   //Send thsee moves to move slide
    this->getMovesSlide(moves, board, defaultMoves, 4);
 }

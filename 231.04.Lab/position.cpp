@@ -127,3 +127,21 @@ void Position::adjustCol(int dCol)
          colRow = 0xff;
    }
 }
+
+/*************************************
+ * SETXY
+ * Sets the column and row based on 
+ * pixels
+ **************************************/
+void Position::setXY(double x, double y)
+{
+
+   if (x < OFFSET_BOARD || y < OFFSET_BOARD) {
+      this->setInvalid();
+   }
+   else
+   {
+      this->setCol((int)((double)(x-OFFSET_BOARD) / getSquareWidth()));
+      this->setRow(7 - (int)((double)(y-OFFSET_BOARD) / getSquareHeight()));
+   }
+}

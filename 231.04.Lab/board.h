@@ -2,7 +2,7 @@
  * Header File:
  *    BOARD 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    A collection of pieces and a small amount of game state
  ************************************************************************/
@@ -48,13 +48,14 @@ public:
    // getters
    virtual int  getCurrentMove() const { return numMoves;           }
    virtual bool whiteTurn()      const { return numMoves % 2 == 0;  }
-   virtual void display(const Position& posHover, const Position& posSelect) const;
+   virtual void display(const Position& posHover,const Position& posSelect)const;
    virtual const Piece& operator [] (const Position& pos) const;
 
    // setters
    virtual void free();
    virtual void reset(bool fFree = true);
    virtual void move(const Move & move);
+   virtual void update(const Position & source, const Position & dest);
    virtual Piece& operator [] (const Position& pos);
 
 protected:
@@ -73,8 +74,6 @@ private:
    void setUpRooks();
    void setUpPawns();
    void setUpBishops();
-   
-
 };
 
 
@@ -86,17 +85,17 @@ class BoardDummy : public Board
 {
    friend TestBoard;
 public:
-   BoardDummy() : Board(nullptr, true /*noreset*/)        {                }
-   ~BoardDummy()                                          {                }
+   BoardDummy() : Board(nullptr, true /*noreset*/){                }
+   ~BoardDummy()                                  {                }
 
    void display(const Position& posHover,
-                const Position& posSelect) const          { assert(false); }
-   void reset(bool fFree = true)                          { assert(false); }
-   void move       (const Move& move)                     { assert(false); }
-   void undo()                                            { assert(false); }
-   int  getCurrentMove() const                            { assert(false); return 0; }
-   bool whiteTurn()      const                            { assert(false); return false; }
-   void free()                                            { assert(false); }
+                const Position& posSelect) const  { assert(false); }
+   void reset(bool fFree = true)                  { assert(false); }
+   void move       (const Move& move)             { assert(false); }
+   void undo()                                    { assert(false); }
+   int  getCurrentMove() const                    { assert(false); return 0; }
+   bool whiteTurn()      const                    { assert(false); return false;}
+   void free()                                    { assert(false); }
    Piece& operator [] (const Position& pos)
    { 
       assert(false); 

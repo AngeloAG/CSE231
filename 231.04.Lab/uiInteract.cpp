@@ -163,7 +163,7 @@ void resizeCallback(int width, int height)
     // member variables are static.
     Position pos;
 
-    pos.setSquareWidth ((double)(width - OFFSET_BOARD * 2) / 8.0 );
+    pos.setSquareWidth ((double)(width - OFFSET_BOARD * 2) / 8.0);
     pos.setSquareHeight((double)(height- OFFSET_BOARD * 2) / 8.0);
 
     glViewport(0, 0, width, height);

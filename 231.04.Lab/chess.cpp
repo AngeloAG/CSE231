@@ -2,7 +2,7 @@
 * Source File:
 *    Lab 04: Chess
 * Author:
-*    <your name here>
+*    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
 * Summary:
 *    Play the game of chess
 ************************************************************************/
@@ -33,8 +33,18 @@ void callBack(Interface *pUI, void * p)
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
    Board * pBoard = (Board *)p;  
-   Position hoverSelect;
-   pBoard -> display(hoverSelect, hoverSelect);
+   pBoard->display(pUI->getHoverPosition(), pUI->getSelectPosition());
+
+   //If the new space selected makes sense
+   if (pUI->getPreviousPosition() != pUI->getSelectPosition()
+       && pUI->getPreviousPosition().isValid()
+       && pUI->getSelectPosition().isValid())
+   {
+      //Update the board with the user input
+      pBoard->update(pUI->getPreviousPosition(), pUI->getSelectPosition());
+      pUI->clearPreviousPosition();
+      pUI->clearSelectPosition();
+   }
 }
 
 

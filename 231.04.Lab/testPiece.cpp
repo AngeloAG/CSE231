@@ -2,18 +2,16 @@
  * Source File:
  *    TEST PIECE
  * Author:
- *    Jacob Mower, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The unit tests for a piece base class
  ************************************************************************/
-
 
 #include "testPiece.h"
 #include "piece.h"     
 #include "board.h"
 #include "uiDraw.h"
 #include <cassert>      
-
 
  /*************************************
   * ASSIGNMENT
@@ -25,12 +23,12 @@ void TestPiece::assignment()
 {  // setup
    PieceDerived lhs(0,0,true);
    lhs.fWhite   = false;
-   lhs.nMoves   = 2;
    lhs.lastMove = 6;
+   lhs.nMoves   = 2;
    PieceDerived rhs(3, 3, true);
    rhs.fWhite   = true;
-   rhs.nMoves   = 1;
    rhs.lastMove = 3;
+   rhs.nMoves   = 1;
 
    // exercise
    lhs = rhs;
@@ -54,8 +52,8 @@ void TestPiece::equals_same()
 {  // setup
    PieceDerived lhs(0, 0, true);
    lhs.fWhite    = false;
-   lhs.nMoves    = 2;
    lhs.lastMove  = 6;
+   lhs.nMoves    = 2;
    lhs.position  = Position(2, 3);
    bool isSame   = false;
    PieceType rhs = SPACE;
@@ -64,10 +62,10 @@ void TestPiece::equals_same()
    isSame = lhs == rhs;
 
    // verify
-   assertUnit(isSame       == true);
+   assertUnit(isSame       == true );
    assertUnit(lhs.fWhite   == false);
-   assertUnit(lhs.lastMove == 6);
-   assertUnit(lhs.nMoves   == 2);
+   assertUnit(lhs.lastMove == 6    );
+   assertUnit(lhs.nMoves   == 2    );
 }  // teardown
 
  /*************************************
@@ -168,8 +166,8 @@ void TestPiece::isWhite_white()
    // verify
    assertUnit(isWhite        == true);
    assertUnit(piece.fWhite   == true);
-   assertUnit(piece.lastMove == 6   );
    assertUnit(piece.nMoves   == 2   );
+   assertUnit(piece.lastMove == 6   );
 }  // teardown
 
  /*************************************
@@ -284,6 +282,7 @@ void TestPiece::getNMoves_hasMoved()
 
    // exercise
    nMoves = piece.getNMoves();
+
    // verify
    assertUnit(nMoves         == 2    );
    assertUnit(piece.fWhite   == false);
@@ -381,7 +380,7 @@ void TestPiece::justMoved_justMoved()
    piece.lastMove  = 4;
    piece.nMoves    = 2;
    piece.position  = Position(2, 3);
-   int currentMove = 5;
+   int currentMove = 4;
    bool justMoved  = false;
 
    // exercise

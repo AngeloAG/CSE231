@@ -2,7 +2,7 @@
  * Source File:
  *    BOARD 
  * Author:
- *    <your name here>
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    A collection of pieces and a small amount of game state
  ************************************************************************/
@@ -13,9 +13,15 @@
 #include "piece.h"
 #include "pieceSpace.h"
 #include "pieceKnight.h"
+#include "pieceQueen.h"
+#include "pieceRook.h"
+#include "pieceBishop.h"
+#include "piecePawn.h"
+#include "pieceKing.h"
 #include <cassert>
-using namespace std;
 
+#include <iostream>
+using namespace std;
 
 /***********************************************
  * BOARD : RESET
@@ -69,7 +75,6 @@ Board::Board(ogstream* pgout, bool noreset) : pgout(pgout), numMoves(0)
    }
 }
 
-
 /************************************************
  * BOARD : FREE
  *         Free up all the allocated memory
@@ -108,7 +113,27 @@ Piece& Board::operator [] (const Position& pos)
 void Board::display(const Position & posHover, const Position & posSelect) const
 {
    ogstream ogstream;
+   ogstream.drawHover(posHover);
+   ogstream.drawSelected(posSelect);
    ogstream.drawBoard();
+
+   if (posSelect.isValid())
+   {
+      // Keep track of turns
+      if ((this->whiteTurn() && this->operator[](posSelect).isWhite()) ||
+         (!this->whiteTurn() && !this->operator[](posSelect).isWhite()))
+      {
+         set<Move> moves;
+         const Piece& selectedPiece = this->operator[](posSelect);
+         selectedPiece.getMoves(moves, *(this));
+         for (auto move : moves)
+         {
+            ogstream.drawPossible(move.getDest());
+         }
+      }
+   }
+
+   // Display pieces
    for (int c = 0; c < 8; c++)
    {
       for (int r = 0; r < 8; r++)
@@ -119,8 +144,28 @@ void Board::display(const Position & posHover, const Position & posSelect) const
 
 }
 
-
-
+void Board::update(const Position& source, const Position& dest)
+{
+   // Check that the piece moves are in board boundaries
+   if (source.isValid() && dest.isValid())
+   {
+      // Keep track of turns
+      if ((this->whiteTurn() && this->operator[](source).isWhite()) ||
+         (!this->whiteTurn() && !this->operator[](source).isWhite()))
+      {
+         set<Move> moves;
+         const Piece& selectedPiece = this->operator[](source);
+         selectedPiece.getMoves(moves, *(this));
+         for (auto move : moves)
+         {
+            if (move.getSource() == source && move.getDest() == dest)
+            {
+               this->move(move);
+            }
+         }
+      }
+   }
+}
 
 /**********************************************
  * BOARD : ASSERT BOARD
@@ -130,9 +175,6 @@ void Board::assertBoard()
 {
 
 }
-
-
-
 
 /**********************************************
  * BOARD : MOVE
@@ -144,31 +186,74 @@ void Board::move(const Move & move)
    numMoves ++;
    Position source = move.getSource();
    Position dest   = move.getDest();
+   this-> operator[](source).setLastMove(this->numMoves);
+
+   // Handles Simple captures
    if (move.getCapture() != INVALID)
    {
       this->operator[](source) = dest;
       board[dest.getCol()][dest.getRow()]
       = board[source.getCol()][source.getRow()];
-      
-      
+         
       board[source.getCol()][source.getRow()]
       = new Space(source.getCol(), source.getRow());
+   
+      // Check en passant condition
+      if (move.isEnPassant())
+      {
+         // En passant is moving up
+         if (dest.getRow() > source.getRow())
+         {
+            // From where the pawn was captured
+            board[dest.getCol()][dest.getRow() - 1]
+               = new Space(dest.getCol(), dest.getRow() - 1);
+         }
+         // En passant is moving down
+         else
+         {
+            // From where the pawn was captured
+            board[dest.getCol()][dest.getRow() + 1]
+               = new Space(dest.getCol(), dest.getRow() + 1);
+         }
+      }
    }
+   // Handles moves
    else 
    {
+      // Simple moves
       this->operator[](source) = dest;
       this->operator[](dest) = source;
       Piece* sourcePiece = board[source.getCol()][source.getRow()];
+
       board[source.getCol()][source.getRow()] 
-      = board[dest.getCol()][dest.getRow()];
+      = board[dest.getCol()][dest.getRow()  ];
+
       board[dest.getCol()][dest.getRow()] = sourcePiece;
+
+      // Castling condition
+      if (move.isCastleK())
+      {
+         board[7][dest.getRow()] = 
+         new Space(7, dest.getRow());
+         board[5][dest.getRow()] =
+         new Rook(Position(5, dest.getRow()), sourcePiece->isWhite());
+      }
+      if (move.isCastleQ())
+      {
+         board[0][dest.getRow()] = 
+         new Space(0, dest.getRow());
+         board[3][dest.getRow()] =
+         new Rook(Position(3,dest.getRow()), sourcePiece->isWhite());
+      }
    }
 
-   
-
-
+   // Handles promotions (queen only)
+   if (move.getPromote() != INVALID)
+   {
+      board[dest.getCol()][dest.getRow()]
+         = new Queen(dest, move.isWhiteTurn());
+   }
 }
-
 
 /**********************************************
  * BOARD : setUpKnights()
@@ -176,10 +261,10 @@ void Board::move(const Move & move)
  *********************************************/
 void Board::setUpKnights()
 {
-   board[1][0] = new Knight(1, 0, false);
-   board[6][0] = new Knight(6, 0, false);
-   board[1][7] = new Knight(1, 7, true);
-   board[6][7] = new Knight(6, 7, true);
+   board[1][0] = new Knight(1, 0, true );
+   board[6][0] = new Knight(6, 0, true );
+   board[1][7] = new Knight(1, 7, false);
+   board[6][7] = new Knight(6, 7, false);
 
 };
 
@@ -189,8 +274,8 @@ void Board::setUpKnights()
  *********************************************/
 void Board::setUpQueens()
 {
-   board[3][0] = new Space(3, 0);
-   board[3][7] = new Space(3, 7);
+   board[3][0] = new Queen(3, 0, true );
+   board[3][7] = new Queen(3, 7, false);
 };
 
 /**********************************************
@@ -199,8 +284,8 @@ void Board::setUpQueens()
  *********************************************/
 void Board::setUpKings()
 {
-   board[4][0] = new Space(4, 0);
-   board[4][7] = new Space(4, 7);
+   board[4][0] = new King(4, 0, true );
+   board[4][7] = new King(4, 7, false);
 };
 
 /**********************************************
@@ -209,10 +294,10 @@ void Board::setUpKings()
  *********************************************/
 void Board::setUpBishops()
 {
-   board[2][0] = new Space(2, 0);
-   board[5][0] = new Space(5, 0);
-   board[2][7] = new Space(2, 7);
-   board[5][7] = new Space(5, 7);
+   board[2][0] = new Bishop(2, 0, true);
+   board[5][0] = new Bishop(5, 0, true);
+   board[2][7] = new Bishop(2, 7, false);
+   board[5][7] = new Bishop(5, 7, false);
 };
 
 /**********************************************
@@ -221,10 +306,10 @@ void Board::setUpBishops()
  *********************************************/
 void Board::setUpRooks()
 {
-   board[0][0] = new Space(0, 0);
-   board[7][0] = new Space(7, 0);
-   board[0][7] = new Space(0, 7);
-   board[7][7] = new Space(7, 7);
+   board[0][0] = new Rook(0, 0, true);
+   board[7][0] = new Rook(7, 0, true);
+   board[0][7] = new Rook(0, 7, false);
+   board[7][7] = new Rook(7, 7, false);
 };
 
 /**********************************************
@@ -235,8 +320,8 @@ void Board::setUpPawns()
 {
    for (int c = 0; c < 8; c++)
    {
-      board[c][1] = new Space(c,1);
-      board[c][6] = new Space(c,6);
+      board[c][1] = new Pawn(c, 1, true );
+      board[c][6] = new Pawn(c, 6, false);
    }
 };
 /**********************************************

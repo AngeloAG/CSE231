@@ -30,7 +30,7 @@ public:
 
     // Methods specific to drawing text on the screen
     virtual void flush();
-    void setPosition(const Position& position) { flush(); this->position = position; }
+    void setPosition(const Position& position){flush();this->position=position;}
     ogstream& operator = (const Position& position)
     {
         setPosition(position);

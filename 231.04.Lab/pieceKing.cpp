@@ -2,7 +2,7 @@
  * Source File:
  *    King
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The king class
  ************************************************************************/
@@ -17,33 +17,35 @@
  ***************************************************/
 void King::display(ogstream* pgout) const
 {
-   pgout->drawKing(position, fWhite);
+   pgout->drawKing(position, !fWhite);
 }
 
 
 /**********************************************
- * Bishop : GET POSITIONS
+ * King : GET MOVES
+ * Gets possible moves based on current location
  *********************************************/
 void King::getMoves(set <Move>& moves, const Board& board) const
 {
    Delta defaultMoves[8] = {
-      {- 1, 1}, {0, 1},  {1, 1},
-      {- 1, 0},          {1, 0},
-      {- 1,-1}, {0,-1},  {1,-1},
+      {- 1, 1}, {0, 1}, {1, 1},
+      {- 1, 0},         {1, 0},
+      {- 1,-1}, {0,-1}, {1,-1}
    };
-   this->getMovesNoSlide(moves, board, defaultMoves, 8);
-   this->kingSideCastle(moves, board);
-   this->queenSideCastle(moves, board);
+   this->getMovesNoSlide(moves, board, defaultMoves, 8); //get normal moves
+   this->kingSideCastle(moves, board); // get possible castling in king side
+   this->queenSideCastle(moves, board); // get possible castling in queen side
 }
 
 /**********************************************
  * King: KING SIDE CASTLE
+ * If castling is possible in the king's side, get the move
  *********************************************/
 void King::kingSideCastle(set <Move>& moves, const Board& board) const
 {
-   const Position rightCorner(position, {0,3});
-   const Position destination(position, {0,2});
-   if (canCastle(board, rightCorner))
+   const Position rightCorner(position, {0,3}); //King side corner
+   const Position destination(position, {0,2}); //Where the king lands
+   if (canCastle(board, rightCorner))           //Craft move and add to list
    {
       Move move(position, destination, fWhite, INVALID);
       move.setCastle(true);
@@ -53,12 +55,13 @@ void King::kingSideCastle(set <Move>& moves, const Board& board) const
 
 /**********************************************
  * King: QUEEN SIDE CASTLE
+ * If castling is possible in the queen's side, get the move
  *********************************************/
 void King::queenSideCastle(set <Move>& moves, const Board& board) const
 {
-   const Position leftCorner(position, { 0,-4});
-   const Position destination(position,{ 0,-2});
-   if (canCastle(board, leftCorner))
+   const Position leftCorner(position, { 0,-4}); //Queen side corner
+   const Position destination(position,{ 0,-2}); //Where the king lands
+   if (canCastle(board, leftCorner))             //Craft move and add to list
    {
       Move move(position, destination, fWhite, INVALID);
       move.setCastle(false);
@@ -68,6 +71,7 @@ void King::queenSideCastle(set <Move>& moves, const Board& board) const
 
 /**********************************************
  * King: CAN CASTLE
+ * Returns true if the king can castle to the specified corner
  *********************************************/
 bool King::canCastle(const Board& board, const Position & corner) const
 {
@@ -75,7 +79,7 @@ bool King::canCastle(const Board& board, const Position & corner) const
    if (nMoves != 0)
       return false;
 
-   // Check the rook's position
+   // Check Rooks position
    if (corner.isInvalid())
       return false;
 

@@ -2,7 +2,7 @@
  * Source File:
  *    BISHOP
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The bishop class
  ************************************************************************/
@@ -17,7 +17,7 @@
  ***************************************************/
 void Bishop::display(ogstream* pgout) const
 {
-   pgout->drawBishop(position, fWhite);
+   pgout->drawBishop(position, !fWhite);
 }
 
 

@@ -2,7 +2,7 @@
  * Source File:
  *    TEST KNIGHT
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano Gaona
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano Gaona
  * Summary:
  *    The unit tests for the knight
  ************************************************************************/
@@ -32,8 +32,8 @@ void TestKnight::getMoves_end()
    // SETUP
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
+   knight.fWhite = true;
    knight.position.set(6, 0);
-   knight.fWhite     = true;
    board.board[6][0] = &knight;
    Black black(PAWN);
    board.board[4][1] = &black;
@@ -74,8 +74,8 @@ void TestKnight::getMoves_blocked()
    // SETUP
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
+   knight.fWhite = true;
    knight.position.set(3, 4);
-   knight.fWhite     = true;
    board.board[3][4] = &knight;
    White white1(PAWN);
    board.board[4][6] = &white1;
@@ -132,8 +132,8 @@ void TestKnight::getMoves_capture()
    // SETUP
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
+   knight.fWhite = true;
    knight.position.set(3, 4);
-   knight.fWhite     = true;
    board.board[3][4] = &knight;
    Black black1(PAWN);
    board.board[4][6] = &black1;
@@ -198,8 +198,8 @@ void TestKnight::getMoves_free()
    // SETUP
    BoardEmpty board;
    Knight knight(7, 7, false /*white*/);
+   knight.fWhite = true;
    knight.position.set(3, 4);
-   knight.fWhite     = true;
    board.board[3][4] = &knight;
    set <Move> moves;
    
@@ -222,8 +222,6 @@ void TestKnight::getMoves_free()
 
 }
 
-
-
 /*************************************
  * GET TYPE : knight
  * Input:
@@ -234,8 +232,8 @@ void TestKnight::getType()
    // SETUP
    Knight knight(7, 7, false /*white*/);
    knight.fWhite          = true;
-   PieceType type         = KING;
    knight.position.colRow = 0x34;
+   PieceType type         = KING;
 
    // EXERCISE
    type = knight.getType();

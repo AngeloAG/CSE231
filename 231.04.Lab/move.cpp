@@ -34,7 +34,8 @@ Move::Move(const char * s): promote(INVALID), capture(INVALID),
  * MOVE : CONSTRUCTOR FROM OBJECTS
  ***************************************************/
 Move::Move(const Position source, Position dest, bool isWhite, PieceType capture)
-   : source(source), dest(dest), promote(INVALID), capture(capture), moveType(MOVE), isWhite(isWhite)
+   : source(source), dest(dest), promote(INVALID),
+     capture(capture), moveType(MOVE), isWhite(isWhite)
 {
    this->text = this->getText();
 }

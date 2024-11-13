@@ -2,7 +2,7 @@
  * Source File:
  *    PIECE 
  * Author:
- *    Jacob Mower, Connor, Angelo Arellano
+ *    Jacob Mower, Connor Hopkins, Angelo Arellano
  * Summary:
  *    The Piece base class and all the derived classes:
  *       SPACE, KING, QUEEN, ROOK, KNIGHT, BISHOP, PAWN
@@ -42,15 +42,15 @@ void Piece::getMoves(set <Move> & movesSet, const Board & board) const
  * PIECE : GET MOVES NO SLIDE
  * Iterate through the moves decorator to allow a piece to move no sliding
  ***********************************************/
-void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Position* directions, int amountOfDirections) const
+void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, 
+                            const Delta deltas[], int deltasSize) const
 {
    // We iterate though each of the deltas
    // to check if we can move there
    for (int i = 0; i < deltasSize; i++)
    {
-      Position possibleDestination = directions[i];
-      bool canCapture = false;
-      if (possibleDestination.isValid() && (board[possibleDestination].isWhite() != fWhite || board[possibleDestination].getType() == SPACE))
+      Position possibleDest(position, deltas[i]);
+      if (possibleDest.isValid())
       {
          // If it is a valid position we get the piece 
          // and check if it is a space or if we can capture it
@@ -59,31 +59,11 @@ void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Posi
          {
             // We create the simple move or capture move
             if(pieceInDest != SPACE)
-               movesSet.insert(Move(position, 
-                                    possibleDest, 
-                                    fWhite, 
-                                    pieceInDest.getType()));
+               movesSet.insert(Move(position, possibleDest, 
+                                    fWhite,  pieceInDest.getType()));
             else
                movesSet.insert(Move(position, possibleDest, fWhite));
          }
-         else if (pieceInDest.isWhite() != this->fWhite)
-         {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDest.getType());
-            movesSet.insert(move);
-            canCapture = true;
-         }
-
-         // If the destination col is greater that means we are moving to the right
-         if (currentPositionCopy.getCol() < possibleDestination.getCol())
-            possibleDestination.adjustCol(1);
-         else if (currentPositionCopy.getCol() > possibleDestination.getCol())
-            possibleDestination.adjustCol(-1);
-
-         // If the destination row is greater that means we are moving to the up
-         if (currentPositionCopy.getRow() < possibleDestination.getRow())
-            possibleDestination.adjustRow(1);
-         else if (currentPositionCopy.getRow() > possibleDestination.getRow())
-            possibleDestination.adjustRow(-1);
       }
    }
 }
@@ -92,39 +72,42 @@ void Piece::getMovesNoSlide(set <Move>& movesSet, const Board& board, const Posi
  * PIECE : GET MOVES Sliding
  * Iterate through the moves decorator to allow a piece to move slide
  ***********************************************/
-void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Position* directions, int amountOfDirections) const
+void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, 
+                          const Delta deltas[], int deltasSize) const
 {
-   Position currentPositionCopy(position);
-   for (int i = 0; i < amountOfDirections; i++)
+   // We iterate though each of the deltas
+   // to check if we can move there
+   for (int i = 0; i < deltasSize; i++)
    {
-      Position possibleDestination = directions[i];
-      bool canCapture = false;
-      while (possibleDestination.isValid() && (board[possibleDestination].isWhite() != fWhite || board[possibleDestination].getType() == SPACE))
+      Delta currentDelta = deltas[i];
+      // We will keep sliding with the delta until we reach
+      // the end of the board or a piece we cannot capture
+      bool keepSliding = true;
+      while (keepSliding)
       {
-         const Piece& pieceInDest = board[possibleDestination];
-         if (pieceInDest.getType() == SPACE)
+         Position possibleDest(position, currentDelta);
+         if (possibleDest.isValid())
          {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite());
-            movesSet.insert(move);
+            // If it is a valid position we get the piece 
+            // and check if it is a space or if we can capture it
+            const Piece& pieceInDest = board[possibleDest];
+            if (pieceInDest.isWhite() != fWhite || pieceInDest == SPACE)
+            {
+               // We create the simple move or capture move
+               if (pieceInDest != SPACE)
+               {
+               movesSet.insert(Move(position, possibleDest, 
+                                    fWhite,  pieceInDest.getType()));
+                  keepSliding = false; //We cannot move past a capture
+               }
+               else
+                  movesSet.insert(Move(position, possibleDest, fWhite));
+            } 
+            else 
+               keepSliding = false;
          }
-         else if (pieceInDest.isWhite() != this->fWhite)
-         {
-            Move move(currentPositionCopy, possibleDestination, this->isWhite(), pieceInDest.getType());
-            movesSet.insert(move);
-            canCapture = true;
-         }
-
-         // If the destination col is greater that means we are moving to the right
-         if (currentPositionCopy.getCol() < possibleDestination.getCol())
-            possibleDestination.adjustCol(1);
-         else if (currentPositionCopy.getCol() > possibleDestination.getCol())
-            possibleDestination.adjustCol(-1);
-
-         // If the destination row is greater that means we are moving to the up
-         if (currentPositionCopy.getRow() < possibleDestination.getRow())
-            possibleDestination.adjustRow(1);
-         else if (currentPositionCopy.getRow() > possibleDestination.getRow())
-            possibleDestination.adjustRow(-1);
+         else
+            keepSliding = false;
 
          // This moves the delta to keep sliding
          currentDelta.dCol += deltas[i].dCol;
@@ -133,7 +116,11 @@ void Piece::getMovesSlide(set <Move>& movesSet, const Board& board, const Positi
    }
 }
 
+/************************************************
+ * PIECE : JUST MOVED
+ * Check if the piece moved in the last turn
+ ***********************************************/
 bool Piece::justMoved(int currentMove) const
 {
-   return lastMove + 1 == currentMove;
+   return lastMove == currentMove;
 }

@@ -423,13 +423,13 @@ void TestMove::getText_castleQueen()
    string smith = mov.getText();
 
    // VERIFY
-   assertUnit(smith == "e1c1C"                  );
-   assertUnit(mov.source.getCol() == 4          );
-   assertUnit(mov.source.getRow() == 0          );
-   assertUnit(mov.dest.getCol()   == 2          );
-   assertUnit(mov.dest.getRow()   == 0          );
-   assertUnit(mov.moveType == Move::CASTLE_QUEEN);
-   assertUnit(mov.capture  == INVALID           );
+   assertUnit(smith == "e1c1C"                         );
+   assertUnit(mov.source.getCol() == 4                 );
+   assertUnit(mov.source.getRow() == 0                 );
+   assertUnit(mov.dest.getCol()   == 2                 );
+   assertUnit(mov.dest.getRow()   == 0                 );
+   assertUnit(mov.moveType        == Move::CASTLE_QUEEN);
+   assertUnit(mov.capture         == INVALID           );
 }
 
  /*************************************
@@ -669,22 +669,21 @@ void TestMove::equal_not()
    bool equals = mov1 == mov2;
 
    // VERIFY
-   assertUnit(!equals);
+   assertUnit(!equals                           );
    assertUnit(mov1.source.getCol() == 1         );
    assertUnit(mov1.source.getRow() == 1         );
    assertUnit(mov1.dest.getCol()   == 1         );
    assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.moveType        == Move::MOVE);
    assertUnit(mov1.capture         == INVALID   );
    assertUnit(mov1.promote         == INVALID   );
-   assertUnit(mov1.moveType        == Move::MOVE);
-
    assertUnit(mov2.source.getCol() == 1         );
    assertUnit(mov2.source.getRow() == 1         );
    assertUnit(mov2.dest.getCol()   == 1         );
    assertUnit(mov2.dest.getRow()   == 4         );
+   assertUnit(mov2.moveType        == Move::MOVE);
    assertUnit(mov2.capture         == INVALID   );
    assertUnit(mov2.promote         == INVALID   );
-   assertUnit(mov2.moveType        == Move::MOVE);
 }
 
  /*************************************
@@ -702,22 +701,21 @@ void TestMove::equal_equals()
    bool equals = mov1 == mov2;
 
    // VERIFY
-   assertUnit(equals);
+   assertUnit(equals                            );
    assertUnit(mov1.source.getCol() == 1         );
    assertUnit(mov1.source.getRow() == 1         );
    assertUnit(mov1.dest.getCol()   == 1         );
    assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.moveType        == Move::MOVE);
    assertUnit(mov1.capture         == INVALID   );
    assertUnit(mov1.promote         == INVALID   );
-   assertUnit(mov1.moveType        == Move::MOVE);
-
-   assertUnit(mov2.source.getCol() == 1);
-   assertUnit(mov2.source.getRow() == 1);
-   assertUnit(mov2.dest.getCol() == 1);
-   assertUnit(mov2.dest.getRow() == 3);
-   assertUnit(mov2.moveType == Move::MOVE);
-   assertUnit(mov2.capture == INVALID);
-   assertUnit(mov2.promote == INVALID);
+   assertUnit(mov2.source.getCol() == 1         );
+   assertUnit(mov2.source.getRow() == 1         );
+   assertUnit(mov2.dest.getCol()   == 1         );
+   assertUnit(mov2.dest.getRow()   == 3         );
+   assertUnit(mov2.moveType        == Move::MOVE);
+   assertUnit(mov2.capture         == INVALID   );
+   assertUnit(mov2.promote         == INVALID   );
 }
 
  /*************************************
@@ -735,22 +733,21 @@ void TestMove::lessthan_lessthan()
    bool lessThan = mov1 < mov2;
 
    // VERIFY
-   assertUnit(lessThan);
+   assertUnit(lessThan                          );
    assertUnit(mov1.source.getCol() == 1         );
    assertUnit(mov1.source.getRow() == 1         );
    assertUnit(mov1.dest.getCol()   == 1         );
    assertUnit(mov1.dest.getRow()   == 1         );
+   assertUnit(mov1.moveType        == Move::MOVE);
    assertUnit(mov1.capture         == INVALID   );
    assertUnit(mov1.promote         == INVALID   );
-   assertUnit(mov1.moveType        == Move::MOVE);
-
    assertUnit(mov2.source.getCol() == 1         );
    assertUnit(mov2.source.getRow() == 1         );
    assertUnit(mov2.dest.getCol()   == 1         );
    assertUnit(mov2.dest.getRow()   == 3         );
+   assertUnit(mov2.moveType        == Move::MOVE);
    assertUnit(mov2.capture         == INVALID   );
    assertUnit(mov2.promote         == INVALID   );
-   assertUnit(mov2.moveType        == Move::MOVE);
 }
 
  /*************************************
@@ -768,22 +765,21 @@ void TestMove::lessthan_equals()
    bool lessThan = mov1 < mov2;
 
    // VERIFY
-   assertUnit(!lessThan);
+   assertUnit(!lessThan                         );
    assertUnit(mov1.source.getCol() == 1         );
    assertUnit(mov1.source.getRow() == 1         );
    assertUnit(mov1.dest.getCol()   == 1         );
    assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.moveType        == Move::MOVE);
    assertUnit(mov1.capture         == INVALID   );
    assertUnit(mov1.promote         == INVALID   );
-   assertUnit(mov1.moveType        == Move::MOVE);
-
    assertUnit(mov2.source.getCol() == 1         );
    assertUnit(mov2.source.getRow() == 1         );
    assertUnit(mov2.dest.getCol()   == 1         );
    assertUnit(mov2.dest.getRow()   == 3         );
+   assertUnit(mov2.moveType        == Move::MOVE);
    assertUnit(mov2.capture         == INVALID   );
    assertUnit(mov2.promote         == INVALID   );
-   assertUnit(mov2.moveType        == Move::MOVE);
 }
 
  /*************************************
@@ -801,20 +797,19 @@ void TestMove::lessthan_greaterthan()
    bool lessThan = mov1 < mov2;
 
    // VERIFY
-   assertUnit(!lessThan);
+   assertUnit(!lessThan                         );
    assertUnit(mov1.source.getCol() == 1         );
    assertUnit(mov1.source.getRow() == 1         );
    assertUnit(mov1.dest.getCol()   == 1         );
    assertUnit(mov1.dest.getRow()   == 3         );
+   assertUnit(mov1.moveType        == Move::MOVE);
    assertUnit(mov1.capture         == INVALID   );
    assertUnit(mov1.promote         == INVALID   );
-   assertUnit(mov1.moveType        == Move::MOVE);
-
    assertUnit(mov2.source.getCol() == 1         );
    assertUnit(mov2.source.getRow() == 1         );
    assertUnit(mov2.dest.getCol()   == 1         );
    assertUnit(mov2.dest.getRow()   == 1         );
+   assertUnit(mov2.moveType        == Move::MOVE);
    assertUnit(mov2.capture         == INVALID   );
    assertUnit(mov2.promote         == INVALID   );
-   assertUnit(mov2.moveType        == Move::MOVE);
 }
