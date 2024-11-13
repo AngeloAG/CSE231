@@ -14,9 +14,11 @@
 #include "uiDraw.h"
 class Position;
 class ogstream;
+class TestOrbital;
 
 class Entity {
    friend TestEntity;
+   friend TestOrbital;
 protected:
    Position pos;
    

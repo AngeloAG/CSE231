@@ -11,10 +11,13 @@
 
 #pragma once
 
+#include <cassert>
+
 // for unit tests
 class TestPosition;
 class TestVelocity;
 class TestAcceleration;
+class TestOrbital;
 
 // for add()
 class Acceleration;
@@ -29,6 +32,7 @@ class Velocity
    // for unit tests
    friend TestPosition;
    friend TestVelocity;
+   friend TestOrbital;
 public:
    // constructors
    Velocity()                     : dx(0.0), dy(0.0) { }
@@ -52,3 +56,20 @@ private:
    double dy;           // vertical velocity
 };
 
+class DummyVelocity : public Velocity
+{
+public:
+   DummyVelocity(): Velocity() {}
+   // getters
+   double getDX()       const { assert(false); return 0.0; }
+   double getDY()       const { assert(false); return 0.0; }
+   double getSpeed()    const { assert(false); return 0.0; }
+
+   // setters
+   void setDX(double dx) { assert(false); }
+   void setDY(double dy) { assert(false); }
+   void set(const Angle& angle, double magnitude) { assert(false); }
+   void addDX(double dx) { assert(false); }
+   void addDY(double dy) { assert(false); }
+   void add(const Acceleration& acceleration, double time) { assert(false); }
+};

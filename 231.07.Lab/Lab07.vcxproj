@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
+    <ClInclude Include="constants.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="orbital.h" />
     <ClInclude Include="position.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
     <ClInclude Include="testEntity.h" />
+    <ClInclude Include="testOrbital.h" />
     <ClInclude Include="testOribital.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testVelocity.h" />

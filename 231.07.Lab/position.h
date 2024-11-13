@@ -12,8 +12,10 @@
 
 #include <iostream> 
 #include <cmath>
+#include <cassert>
 
 class TestPosition;
+class TestOrbital;
 class Acceleration;
 class Velocity;
 class TestEntity;
@@ -27,6 +29,7 @@ class Position
 public:
    friend TestPosition;
    friend TestEntity;
+   friend TestOrbital;
    
    // constructors
    Position()            : x(0.0), y(0.0)  {}
@@ -50,6 +53,7 @@ public:
    void addMetersY(double dyMeters) { setMetersY(getMetersY() + dyMeters);    }
    void addPixelsX(double dxPixels) { setPixelsX(getPixelsX() + dxPixels);    }
    void addPixelsY(double dyPixels) { setPixelsY(getPixelsY() + dyPixels);    }
+   void add(const Acceleration& a, const Velocity& v, double t);
 
    // deal with the ratio of meters to pixels
    void setZoom(double metersFromPixels)
@@ -91,3 +95,32 @@ struct PT
 };
 
 
+class DummyPosition : public Position
+{
+public:
+   DummyPosition() : Position() {};
+   double getMetersX() const { assert(false); return 0.0; }
+   double getMetersY() const { assert(false); return 0.0; }
+   double getPixelsX() const { assert(false); return 0.0; }
+   double getPixelsY() const { assert(false); return 0.0; }
+
+   // setters
+   void setMeters(double xMeters, double yMeters) { assert(false); }
+   void setMetersX(double xMeters) { assert(false); }
+   void setMetersY(double yMeters) { assert(false); }
+   void setPixelsX(double xPixels) { assert(false); }
+   void setPixelsY(double yPixels) { assert(false); }
+   void addMetersX(double dxMeters) { assert(false); }
+   void addMetersY(double dyMeters) { assert(false); }
+   void addPixelsX(double dxPixels) { assert(false); }
+   void addPixelsY(double dyPixels) { assert(false); }
+   void add(const Acceleration& a, const Velocity& v, double t) { assert(false); };
+};
+
+class FakePosition1122 : public DummyPosition
+{
+public:
+   FakePosition1122() : DummyPosition() {};
+   double getMetersX() const { return 11.1; }
+   double getMetersY() const { return 22.2; }
+};

@@ -11,18 +11,22 @@
 
 #include "orbital.h"
 #include "acceleration.h"
+#include "constants.h"
 #include <cmath>     // for SQRT() and ATAN2()
 
-const double EARTH_RADIUS = 6378000;
-const double FRAME_RATE = 15.0;
-const double TIME_DIALATION = 24 * 60; //hours * minutes
-const double TIME_PER_FRAME = TIME_DIALATION / FRAME_RATE;
+ /*******************************************************************************
+ * ORBITAL :: CONSTRUCTOR
+ *******************************************************************************/
+Orbital::Orbital(Position& initialPos, int fragmentCount, double radius, 
+   Velocity& initialVelocity, Angle& initialAngle): 
+     Entity(initialPos), vel(initialVelocity), radius(radius), 
+     fragmentCount(fragmentCount), hasCrashed(false), angle(initialAngle) {}
 
 /*******************************************************************************
 * ORBITAL :: GET CURRENT HEIGHT
 *  Description.
 *******************************************************************************/
-double Orbital::getCurrentHeight()
+double Orbital::getCurrentHeight() const
 {
    return sqrt((this->pos.getMetersX() * this->pos.getMetersX()) +
 		  (this->pos.getMetersY() * this->pos.getMetersY())) -
@@ -33,13 +37,13 @@ double Orbital::getCurrentHeight()
 * ORBITAL :: GET GRAVITY DIRECTION
 *  Description.
 *******************************************************************************/
-double Orbital::getGravityDirection()
+double Orbital::getGravityDirection() const
 {
    return atan2(0.0 - this->pos.getMetersX(), 0.0 - this->pos.getMetersY());
 }
 
 /*******************************************************************************
-* ORBITAL :: GET GRAVITY DIRECTION
+* ORBITAL :: UPDATE
 *  Description.
 *******************************************************************************/
 void Orbital::update()
@@ -54,4 +58,34 @@ void Orbital::update()
    Acceleration gravityAcceleration(currentGravity, gravityDirection);
    // And move the orbital based on gravity
    move(gravityAcceleration, TIME_PER_FRAME);
+}
+
+/*******************************************************************************
+* ORBITAL :: MOVE
+*  Description.
+*******************************************************************************/
+void Orbital::move(Acceleration& accel, double time)
+{
+   this->vel.add(accel, time);
+   this->pos.add(accel, this->vel, time);
+}
+
+/*******************************************************************************
+* ORBITAL :: DETECT COLLISIONS
+*  Description.
+*******************************************************************************/
+void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
+{
+   for (auto orbital : orbitals)
+   {
+      double distanceBetween = sqrt(((orbital->pos.getMetersX() - this->pos.getMetersX()) *
+                                     (orbital->pos.getMetersX() - this->pos.getMetersX())) +
+                                    ((orbital->pos.getMetersY() - this->pos.getMetersY()) *
+                                     (orbital->pos.getMetersY() - this->pos.getMetersY())));
+      double sumOfRadii = this->getRadius() + orbital->getRadius();
+      if (distanceBetween <= sumOfRadii)
+      {
+         this->hasCrashed = true;
+      }
+   }
 }

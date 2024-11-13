@@ -14,12 +14,10 @@
 #include "entity.h"
 #include "velocity.h"
 #include "angle.h"
-#include <vector>
+#include "constants.h"
+#include <list>
 
-const double FRAME_RATE = 15.0;
-const double GRAVITY_AT_SEA = 9.80665;
-const double TIME_DIALATION = 24 * 60; //hours * minutes
-const double TIME_PER_FRAME = TIME_DIALATION / FRAME_RATE;
+class TestOrbital;
 
 /*********************************************
 * Orbital
@@ -27,16 +25,17 @@ const double TIME_PER_FRAME = TIME_DIALATION / FRAME_RATE;
 *********************************************/
 class Orbital : public Entity
 {
+   friend TestOrbital;
 public:
-   Orbital(Position initialPos, int fragmentCount,
-           double radius, Velocity initialVelocity);
-   double getRadius()           { return radius; }
-   int  getFragmentCount()      { return fragmentCount; }
-   bool hasCrashed()            { return false; }
+   Orbital(Position& initialPos, int fragmentCount, double radius, 
+           Velocity& initialVelocity, Angle& initialAngle);
+   double getRadius()      const { return radius; }
+   int  getFragmentCount() const { return fragmentCount; }
+   bool crashed()          const { return hasCrashed; }
    void update();
-   void move(Acceleration accel, double time);
-   void detectCollisions(std::vector<Orbital>orbitals);
-   virtual Orbital& getParts();
+   void move(Acceleration& accel, double time);
+   void detectCollisions(std::list<Orbital*>& orbitals);
+   virtual std::list<Orbital*>& getParts() = 0;
 
 private:
    Velocity vel;
@@ -45,12 +44,26 @@ private:
    int fragmentCount;
    bool hasCrashed;
 
-   double getCurrentHeight()    { return 0.0; }
-   double getGravityDirection() { return 0.0; }
+   double getCurrentHeight() const;
+   double getGravityDirection() const;
 };
 
 inline double getGravityFromHeight(double currentHeight)
 {
    double radiusAndHeight = EARTH_RADIUS / (EARTH_RADIUS + currentHeight);
    return GRAVITY_AT_SEA * (radiusAndHeight * radiusAndHeight);
-}
+};
+
+class DummyOrbital : public Orbital
+{
+public:
+   DummyOrbital(Position& initialPos, int fragmentCount, double radius,
+      Velocity& initialVelocity, Angle& initialAngle): 
+        Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
+
+   std::list<Orbital*>& getParts()
+   {
+      std::list<Orbital*> emptyList;
+      return emptyList;
+   }
+};

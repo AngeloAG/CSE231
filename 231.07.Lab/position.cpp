@@ -8,6 +8,8 @@
  ************************************************************************/
 
 #include "position.h"
+#include "velocity.h"
+#include "acceleration.h"
 #include <cassert>
 
 
@@ -52,4 +54,15 @@ std::istream& operator >> (std::istream& in, Position& pt)
    pt.setMetersY(y);
 
    return in;
+}
+
+/******************************************
+ * POINT : ADD
+ * Update point based on the distance formula
+ *   s = s_0 + vt + 1/2 a t^2
+ *****************************************/
+void Position::add(const Acceleration& a, const Velocity& v, double t)
+{
+   x = this->x + (v.getDX() * t) + (0.5 * a.getDDX() * (t * t));
+   y = this->y + (v.getDY() * t) + (0.5 * a.getDDY() * (t * t));
 }
