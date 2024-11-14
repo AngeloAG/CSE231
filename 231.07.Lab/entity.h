@@ -12,22 +12,22 @@
 #pragma once
 #include "position.h"
 #include "uiDraw.h"
-class Position;
-class ogstream;
-class TestOrbital;
 
+class ogstream;
+
+/*********************************************
+* Enity
+* A single instance of an entity.
+*********************************************/
 class Entity {
    friend TestEntity;
    friend TestOrbital;
-protected:
-   Position pos;
-   
 public:
-   
-   Entity(Position pos):pos(pos)                  {}
-   
+   Entity(Position& pos):pos(pos)                  {}
    virtual void draw(ogstream ogstream)           {}
-   const Position& getPos() const {return pos;     }
-   void setPos(Position& rhs) {this->pos = rhs;    }
-   
+   const Position& getPos() const { return pos;    }
+   void setPos(Position& rhs) { this->pos = rhs;   }
+
+protected:
+   Position pos;   
 };

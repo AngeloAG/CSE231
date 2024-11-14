@@ -1,10 +1,12 @@
 /***********************************************************************
  * Header File:
- *    TEST ACCELERATION
+ *    TEST ORBITAL
  * Author:
- *    Br. Helfrich
+ *    Angelo Arellano
+ *    Connor Hopkins
+ *    Jacob Mower
  * Summary:
- *    Unit tests for the Acceleration class.
+ *    Unit tests for the Orbital class.
  ************************************************************************/
 
 #pragma once
@@ -43,8 +45,10 @@ private:
 
    /*********************************************
     * name:    NON-DEFAULT CONSTRUCTOR
-    * input:   
-    * output:  
+    * input:   Pos(11.1, 22.2), Vel(9.9, 8.8), Angle(0.0), 
+    *          radius 10.0, fragmentCount 5
+    * output:  Pos(11.1, 22.2), Vel(9.9, 8.8), Angle(0.0), 
+    *          radius 10.0, fragmentCount 5
     *********************************************/
    void constructor_nonDefault()
    {  // setup
@@ -73,6 +77,18 @@ private:
       assertEquals(orbital.hasCrashed, false);
    }  // teardown
 
+   /*****************************************************************
+   *****************************************************************
+   * PRIVATE METHODS
+   *****************************************************************
+   *****************************************************************/
+
+   /*********************************************
+    * name:    GETCURRENTHEIGHT NOHEIGHT (CENTER OF EARTH)
+    * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  currentHeight = -6378000.0 (Under earth's surface)
+    *********************************************/
    void getCurrentHeight_noHeight()
    {
       // setup
@@ -95,6 +111,12 @@ private:
       assertEquals(currentHeight, -6378000.0);
    }
 
+   /*********************************************
+    * name:    GETCURRENTHEIGHT EARTH SURFACE X
+    * input:   Pos(6378000.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  currentHeight = 0.0 (At sea level on earth's surface)
+    *********************************************/
    void getCurrentHeight_earthSurfaceX()
    {
       // setup
@@ -117,6 +139,12 @@ private:
       assertEquals(currentHeight, 0.0);
    }
 
+   /*********************************************
+    * name:    GETCURRENTHEIGHT EARTH SURFACE Y
+    * input:   Pos(0.0, 6378000.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  currentHeight = 0.0 (At sea level on earth's surface)
+    *********************************************/
    void getCurrentHeight_earthSurfaceY()
    {
       // setup
@@ -139,6 +167,12 @@ private:
       assertEquals(currentHeight, 0.0);
    }
 
+   /*********************************************
+    * name:    GETCURRENTHEIGHT IN SPACE X
+    * input:   Pos(6378010.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  currentHeight = 10.0 (10 meters over the earth)
+    *********************************************/
    void getCurrentHeight_inSpaceX()
    {
       // setup
@@ -161,6 +195,12 @@ private:
       assertEquals(currentHeight, 10.0);
    }
 
+   /*********************************************
+    * name:    GETCURRENTHEIGHT IN SPACE Y
+    * input:   Pos(0.0, 6378010.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  currentHeight = 10.0 (10 meters over the earth)
+    *********************************************/
    void getCurrentHeight_inSpaceY()
    {
       // setup
@@ -183,6 +223,12 @@ private:
       assertEquals(currentHeight, 10.0);
    }
 
+   /*********************************************
+    * name:    GETCURRENTHEIGHT IN SPACE XY
+    * input:   Pos(6378010.0, 6378010.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  currentHeight = 2641868.2430 (meters over the earth)
+    *********************************************/
    void getCurrentHeight_inSpaceXY()
    {
       // setup
@@ -205,6 +251,18 @@ private:
       assertEquals(currentHeight, 2641868.2430);
    }
 
+   /*****************************************************************
+   *****************************************************************
+   * PUBLIC METHODS
+   *****************************************************************
+   *****************************************************************/
+
+   /*********************************************
+    * name:    UPDATE NO VELOCITY
+    * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  Pos(0.0, 0.0), Vel(0.0, 0.0) Didn't move
+    *********************************************/
    void update_noVelocity()
    {
       // setup

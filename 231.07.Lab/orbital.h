@@ -2,9 +2,9 @@
  * Header File:
  *    ORBITAL
  * Author:
- *    Angelo
- *    Connor
- *    Jacob
+ *    Angelo Arellano
+ *    Connor Hopkins
+ *    Jacob Mower
  * Summary:
  *    Orbital class.
  ************************************************************************/
@@ -16,6 +16,7 @@
 #include "angle.h"
 #include "constants.h"
 #include <list>
+using std::list;
 
 class TestOrbital;
 
@@ -34,8 +35,8 @@ public:
    bool crashed()          const { return hasCrashed; }
    void update();
    void move(Acceleration& accel, double time);
-   void detectCollisions(std::list<Orbital*>& orbitals);
-   virtual std::list<Orbital*>& getParts() = 0;
+   void detectCollisions(list<Orbital*>& orbitals);
+   virtual list<Orbital*>& getParts() = 0;
 
 private:
    Velocity vel;
@@ -48,12 +49,20 @@ private:
    double getGravityDirection() const;
 };
 
+/*******************************************************************************
+* INLINE :: GET GRAVITY FROM HEIGHT
+* Description. Helper function to determine the force of gravity at certain height
+*******************************************************************************/
 inline double getGravityFromHeight(double currentHeight)
 {
    double radiusAndHeight = EARTH_RADIUS / (EARTH_RADIUS + currentHeight);
    return GRAVITY_AT_SEA * (radiusAndHeight * radiusAndHeight);
 };
 
+/*********************************************
+* DummyOrbital
+* An dummy class to test the orbital.
+*********************************************/
 class DummyOrbital : public Orbital
 {
 public:
@@ -61,9 +70,9 @@ public:
       Velocity& initialVelocity, Angle& initialAngle): 
         Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
-   std::list<Orbital*>& getParts()
+   list<Orbital*>& getParts()
    {
-      std::list<Orbital*> emptyList;
+      list<Orbital*> emptyList;
       return emptyList;
    }
 };

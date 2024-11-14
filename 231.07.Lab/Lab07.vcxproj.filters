@@ -92,9 +92,6 @@
     <ClInclude Include="orbital.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testOribital.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>

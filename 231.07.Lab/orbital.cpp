@@ -2,16 +2,15 @@
  * Source File:
  *    ORBITAL
  * Author:
- *    Angelo
- *    Connor
- *    Jacob
+ *    Angelo Arellano
+ *    Connor Hopkins
+ *    Jacob Mower
  * Summary:
  *    Orbital class.
  ************************************************************************/
 
 #include "orbital.h"
 #include "acceleration.h"
-#include "constants.h"
 #include <cmath>     // for SQRT() and ATAN2()
 
  /*******************************************************************************
@@ -24,7 +23,8 @@ Orbital::Orbital(Position& initialPos, int fragmentCount, double radius,
 
 /*******************************************************************************
 * ORBITAL :: GET CURRENT HEIGHT
-*  Description.
+* Description. Returns the current distance between the orbital and 
+*              earth's surface
 *******************************************************************************/
 double Orbital::getCurrentHeight() const
 {
@@ -35,7 +35,7 @@ double Orbital::getCurrentHeight() const
 
 /*******************************************************************************
 * ORBITAL :: GET GRAVITY DIRECTION
-*  Description.
+* Description. Returns the angle at which the gravity is pulling
 *******************************************************************************/
 double Orbital::getGravityDirection() const
 {
@@ -44,7 +44,8 @@ double Orbital::getGravityDirection() const
 
 /*******************************************************************************
 * ORBITAL :: UPDATE
-*  Description.
+* Description. Recalculates the position and velocity of the orbital 
+*              due to gravity and moves it
 *******************************************************************************/
 void Orbital::update()
 {
@@ -62,7 +63,7 @@ void Orbital::update()
 
 /*******************************************************************************
 * ORBITAL :: MOVE
-*  Description.
+* Description. Acctually changes the position of the orbital
 *******************************************************************************/
 void Orbital::move(Acceleration& accel, double time)
 {
@@ -72,7 +73,8 @@ void Orbital::move(Acceleration& accel, double time)
 
 /*******************************************************************************
 * ORBITAL :: DETECT COLLISIONS
-*  Description.
+* Description. Checks if the orbital has collided with any other orbital 
+*              in the list
 *******************************************************************************/
 void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
 {
