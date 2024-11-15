@@ -1,6 +1,6 @@
 #pragma once
 
-const double FRAME_RATE = 15.0;
+const double FRAME_RATE = 30.0;
 const int NUMBER_OF_STARS = 10000;
 const double STARTING_HEIGHT = 42164000.0;
 const double GRAVITY_AT_SEA = 9.80665;
