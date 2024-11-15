@@ -23,7 +23,8 @@ class GPS : public Orbital
 public:
    GPS(Position* initialPos, int fragmentCount, double radius,
       Velocity& initialVelocity, Angle& initialAngle);
-   ~GPS() {}
-   virtual list<Orbital*>& getParts() const;
+   ~GPS() { }
+
+   virtual list<Orbital*>& getParts()    const;
    virtual void draw(ogstream& ogstream) const;
 };

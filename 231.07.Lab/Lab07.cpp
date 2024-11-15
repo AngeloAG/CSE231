@@ -39,11 +39,12 @@ public:
    {
       Position* initalGpsPos = new Position(0.0, STARTING_HEIGHT);
       Velocity initialGpsVel(-3100.0, 0.0);
-      double radius = 10.0;
+      double radius     = 10.0;
       int fragmentCount = 10;
       Angle initalAngle;
 
-      gps = new GPS(initalGpsPos, fragmentCount, radius, initialGpsVel, initalAngle);
+      gps = new GPS(initalGpsPos, fragmentCount, radius,
+                    initialGpsVel, initalAngle);
       angleEarth = 0.0;
 
       for (int i = 0; i < NUMBER_OF_STARS; i++) {
@@ -81,7 +82,7 @@ void callBack(const Interface* pUI, void* p)
 
    // rotate the earth
    pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
-      (TIME_DIALATION / SECONDS_PER_DAY);
+         (TIME_DIALATION / SECONDS_PER_DAY);
 
    pDemo->gps->update();
 

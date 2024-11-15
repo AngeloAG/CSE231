@@ -47,6 +47,7 @@ public:
    void setDDX(double ddx) { this->ddx = ddx; }
    void setDDY(double ddy) { this->ddy = ddy; }
    void set(const Angle& a, double magnitude);
+
    void addDDX(double ddx) { this->ddx += ddx; }
    void addDDY(double ddy) { this->ddy += ddy; }
    void add(const Acceleration& rhs);
@@ -61,13 +62,13 @@ class DummyAcceleration : public Acceleration
 public:
    DummyAcceleration() : Acceleration() {}
    
-   double getDDX()   const       { assert(false);return 0.0; }
-   double getDDY()   const       { assert(false);return 0.0; }
+   double getDDX()   const       { assert(false); return 0.0; }
+   double getDDY()   const       { assert(false); return 0.0; }
    
-   void setDDX(double ddx)       { assert(false);            }
-   void setDDY(double ddy)       { assert(false);            }
-   void set(const Angle& a, double magnitude){ assert(false);}
-   void addDDX(double ddx)                   { assert(false);}
-   void addDDY(double ddy)                   { assert(false);}
-   void add(const Acceleration& rhs)         { assert(false);}
+   void setDDX(double ddx)       { assert(false);             }
+   void setDDY(double ddy)       { assert(false);             }
+   void set(const Angle& a, double magnitude){ assert(false); }
+   void addDDX(double ddx)                   { assert(false); }
+   void addDDY(double ddy)                   { assert(false); }
+   void add(const Acceleration& rhs)         { assert(false); }
 };

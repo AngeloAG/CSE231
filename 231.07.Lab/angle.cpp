@@ -25,7 +25,8 @@ using namespace std;
  ************************************/
 int calculateOffset(double radians)
 {
-   int offset = floor(radians / (M_PI * 2)); //We separated it because the compiler thinks we try to abs a double
+   // We separated it because the compiler thinks we try to abs a double
+   int offset = floor(radians / (M_PI * 2));
    return abs(offset);
 }
 

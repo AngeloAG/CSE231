@@ -34,10 +34,10 @@ public:
 
    // Constructors
    //Default constructor 
-   Angle() : radians(0.0) {}
+   Angle() : radians(0.0) { }
 
    //Copy constructor creates a copy of the given angle
-   Angle(const Angle& rhs) : radians(rhs.radians) {}
+   Angle(const Angle& rhs) : radians(rhs.radians) { }
 
    // Cosntructor to explicitly set the angle from degrees
    Angle(double degrees) : radians(0.0)
@@ -199,17 +199,16 @@ class DummyAngle : public Angle
 public:
    DummyAngle(): Angle() {}
    
-   double getDegrees() const {assert(false); return 0.0;}
-   double getRadians() const {assert(false); return 0.0;}
+   double getDegrees() const { assert(false); return 0.0;  }
+   double getRadians() const { assert(false); return 0.0;  }
    
-   void setDegrees(double degrees){assert(false);       }
-   void setRadians(double radians){assert(false);       }
-   void setUp()                   {assert(false);       }
-   void setDown()                 {assert(false);       }
-   void setRight()                {assert(false);       }
-   void setLeft()                 {assert(false);       }
-   void reverse()                 {assert(false);       }
-   Angle& add(double delta){assert(false); return *this;}
-   
+   void setDegrees(double degrees) { assert(false);        }
+   void setRadians(double radians) { assert(false);        }
+   void setUp()                    { assert(false);        }
+   void setDown()                  { assert(false);        }
+   void setRight()                 { assert(false);        }
+   void setLeft()                  { assert(false);        }
+   void reverse()                  { assert(false);        }
+   Angle& add(double delta) { assert(false); return *this; }
 };
  

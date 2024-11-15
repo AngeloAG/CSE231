@@ -1,0 +1,16 @@
+﻿  GPS.cpp
+  Lab07.cpp
+  acceleration.cpp
+  angle.cpp
+  entity.cpp
+C:\Users\conho\source\repos\CSE231\231.07.Lab\angle.cpp(29,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  orbital.cpp
+  position.cpp
+  test.cpp
+  uiDraw.cpp
+  uiInteract.cpp
+  velocity.cpp
+  Generating Code...
+C:\Users\conho\source\repos\CSE231\231.07.Lab\orbital.h(82,1): warning C4172: returning address of local variable or temporary: emptyList
+C:\Users\conho\source\repos\CSE231\231.07.Lab\GPS.cpp(18,1): warning C4172: returning address of local variable or temporary: emptyList
+  Lab07.vcxproj -> C:\Users\conho\source\repos\CSE231\231.07.Lab\x64\Debug\Lab07.exe

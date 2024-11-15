@@ -29,7 +29,7 @@ Orbital::Orbital(Position* initialPos, int fragmentCount, double radius,
 double Orbital::getCurrentHeight() const
 {
    return sqrt((this->pos->getMetersX() * this->pos->getMetersX()) +
-		  (this->pos->getMetersY() * this->pos->getMetersY())) -
+		  (this->pos->getMetersY() * this->pos->getMetersY()))     -
 		  EARTH_RADIUS;
 }
 
@@ -50,15 +50,19 @@ Acceleration Orbital::getGravityAcceleration() const
 {
    // We get the distance from the surface of the earth
    double currentHeight = getCurrentHeight();
+
    // Use that to calculate the current gravity experienced by the orbital
    double currentGravity = getGravityFromHeight(currentHeight);
+
    // Calculate the current angle the gravity is being applied
    double gravityDirection = getGravityDirection();
    Angle gravityAngle;
    gravityAngle.setRadians(gravityDirection);
+
    // And finally get the acceleration due to gravity
    Acceleration acc;
    acc.set(gravityAngle, currentGravity);
+
    return acc;
 }
 
@@ -72,8 +76,10 @@ void Orbital::update()
    // rotate a little the orbital
    this->angle.add(-(2.0 * M_PI / FRAME_RATE) *
                     (TIME_DIALATION / SECONDS_PER_DAY));
+
    // Get the acceleration due to gravity
    Acceleration gravityAcceleration = getGravityAcceleration();
+
    // And move the orbital based on gravity
    move(gravityAcceleration, TIME_PER_FRAME);
 }
@@ -97,10 +103,15 @@ void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
 {
    for (auto orbital : orbitals)
    {
-      double distanceBetween = sqrt(((orbital->pos->getMetersX() - this->pos->getMetersX()) *
-                                     (orbital->pos->getMetersX() - this->pos->getMetersX())) +
-                                    ((orbital->pos->getMetersY() - this->pos->getMetersY()) *
-                                     (orbital->pos->getMetersY() - this->pos->getMetersY())));
+      double distanceBetween = sqrt(((orbital->pos->getMetersX()   -
+                                      this->   pos->getMetersX())  *
+                                     (orbital->pos->getMetersX()   -
+                                      this->   pos->getMetersX())) +
+                                    ((orbital->pos->getMetersY()   -
+                                      this->   pos->getMetersY())  *
+                                     (orbital->pos->getMetersY()   -
+                                      this->pos->getMetersY())));
+
       double sumOfRadii = this->getRadius() + orbital->getRadius();
       if (distanceBetween <= sumOfRadii)
       {

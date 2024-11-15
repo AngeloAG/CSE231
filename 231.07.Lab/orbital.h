@@ -30,10 +30,10 @@ class Orbital : public Entity
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
            Velocity& initialVelocity, Angle& initialAngle);
-   ~Orbital() {}
-   double getRadius()      const { return radius; }
+   ~Orbital()                    {                       }
+   double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
-   bool crashed()          const { return hasCrashed; }
+   bool crashed()          const { return hasCrashed;    }
    void update();
    void move(Acceleration& accel, double time);
    void detectCollisions(list<Orbital*>& orbitals);
@@ -56,7 +56,7 @@ private:
 
 /*******************************************************************************
 * INLINE :: GET GRAVITY FROM HEIGHT
-* Description. Helper function to determine the force of gravity at certain height
+*     Helper function to determine the force of gravity at a certain height.
 *******************************************************************************/
 inline double getGravityFromHeight(double currentHeight)
 {
@@ -73,7 +73,8 @@ class DummyOrbital : public Orbital
 public:
    DummyOrbital(Position* initialPos, int fragmentCount, double radius,
       Velocity& initialVelocity, Angle& initialAngle): 
-        Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
+            Orbital(initialPos, fragmentCount, radius,
+                    initialVelocity, initialAngle) {  }
 
    list<Orbital*>& getParts() const
    {
