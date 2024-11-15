@@ -29,5 +29,5 @@ public:
    void setPos(Position& rhs) { this->pos = rhs;   }
 
 protected:
-   Position pos;   
+   Position& pos;   
 };
