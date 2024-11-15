@@ -22,6 +22,7 @@
 #include "constants.h"
 #include <vector>
 #include "test.h"
+#include "gps.h"
 #include <iostream>
 
 using namespace std;
@@ -36,35 +37,28 @@ public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight)
    {
-      ptHubble.setMeters(0.0, STARTING_HEIGHT);
+      /*Position initalGpsPos(0.0, STARTING_HEIGHT);
+      Velocity initialGpsVel(-3100.0, 0.0);
+      double radius = 10.0;
+      int fragmentCount = 10;
+      Angle initalAngle;
+
+      gps = new GPS(initalGpsPos, fragmentCount, radius, initialGpsVel, initalAngle);
+      angleEarth = 0.0;*/
 
       for (int i = 0; i < NUMBER_OF_STARS; i++) {
          ptStar[i].setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
          ptStar[i].setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
          phaseStar[i] = i;
       }
-
-      angleShip  = 0.0;
-      angleEarth = 0.0;
-      dx  = -3100.0;
-      dy  = 0.0;
-      ddx = 0.0;
-      ddy = 0.0;
    }
    
-   Position ptHubble;
+   //Orbital* gps;
    Position ptStar[NUMBER_OF_STARS];
    Position ptUpperRight;
-   vector<Orbital>orbitals;
 
    unsigned char phaseStar[NUMBER_OF_STARS];
-
-   double angleShip;
    double angleEarth;
-   double dx;
-   double dy;
-   double ddx;
-   double ddy;
 };
 
 /*************************************
@@ -86,25 +80,9 @@ void callBack(const Interface* pUI, void* p)
 
    // rotate the earth
    pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
-                         (TIME_DIALATION / SECONDS_PER_DAY);
-   pDemo->angleShip  += 0.02;
-   
-   double totalHeight = sqrt(pow(pDemo->ptHubble.getMetersX(), 2)  +
-                             pow(pDemo->ptHubble.getMetersY(), 2)) -
-                             EARTH_RADIUS;
-   
-   double gravity = GRAVITY_AT_SEA *
-                    pow(EARTH_RADIUS/(EARTH_RADIUS + totalHeight), 2.0);
+      (TIME_DIALATION / SECONDS_PER_DAY);
 
-   double gravityDirection = atan2(0.0 - pDemo->ptHubble.getMetersX(),
-                                   0.0 - pDemo->ptHubble.getMetersY());
-   
-   double ddx = gravity * sin(gravityDirection);
-   double ddy = gravity * cos(gravityDirection);
-   pDemo->dx += (ddx * TIME_PER_FRAME);
-   pDemo->dy += (ddy * TIME_PER_FRAME);
-   pDemo->ptHubble.addMetersX(pDemo->dx * TIME_PER_FRAME);
-   pDemo->ptHubble.addMetersY(pDemo->dy * TIME_PER_FRAME);
+   //pDemo->gps->update();
 
    //
    // draw everything
@@ -114,19 +92,14 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
 
    // draw satellites
-   gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
+   //pDemo->gps->draw(gout);
 
    // draw parts
-   pt.setPixelsX(pDemo->ptHubble.getPixelsX() + 20);
-   pt.setPixelsY(pDemo->ptHubble.getPixelsY() + 20);
-   gout.drawHubbleLeft(pt, pDemo->angleShip);      // notice only two parameters are set
-   gout.drawStarlinkArray(pt, pDemo->angleShip);   // notice only two parameters are set
 
    // draw a single star
    for (int i = 0; i < NUMBER_OF_STARS; i ++) {
       gout.drawStar(pDemo->ptStar[i], pDemo->phaseStar[i]);
       pDemo->phaseStar[i]++;
-
    }
 
    // draw the earth

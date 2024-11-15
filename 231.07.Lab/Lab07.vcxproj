@@ -142,6 +142,7 @@
     <ClCompile Include="acceleration.cpp" />
     <ClCompile Include="angle.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="GPS.cpp" />
     <ClCompile Include="Lab07.cpp" />
     <ClCompile Include="orbital.cpp" />
     <ClCompile Include="position.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="angle.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="GPS.h" />
     <ClInclude Include="orbital.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="test.h" />

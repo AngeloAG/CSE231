@@ -43,11 +43,10 @@ double Orbital::getGravityDirection() const
 }
 
 /*******************************************************************************
-* ORBITAL :: UPDATE
-* Description. Recalculates the position and velocity of the orbital 
-*              due to gravity and moves it
+* ORBITAL :: GET GRAVITY ACCELARTION
+* Description. Returns the acceleration due to gravity the orbital experiences
 *******************************************************************************/
-void Orbital::update()
+Acceleration Orbital::getGravityAcceleration() const
 {
    // We get the distance from the surface of the earth
    double currentHeight = getCurrentHeight();
@@ -55,8 +54,26 @@ void Orbital::update()
    double currentGravity = getGravityFromHeight(currentHeight);
    // Calculate the current angle the gravity is being applied
    double gravityDirection = getGravityDirection();
+   Angle gravityAngle;
+   gravityAngle.setRadians(gravityDirection);
    // And finally get the acceleration due to gravity
-   Acceleration gravityAcceleration(currentGravity, gravityDirection);
+   Acceleration acc;
+   acc.set(gravityAngle, currentGravity);
+   return acc;
+}
+
+/*******************************************************************************
+* ORBITAL :: UPDATE
+* Description. Recalculates the position and velocity of the orbital 
+*              due to gravity and moves it
+*******************************************************************************/
+void Orbital::update()
+{
+   // rotate a little the orbital
+   this->angle.add(-(2.0 * M_PI / FRAME_RATE) *
+                    (TIME_DIALATION / SECONDS_PER_DAY));
+   // Get the acceleration due to gravity
+   Acceleration gravityAcceleration = getGravityAcceleration();
    // And move the orbital based on gravity
    move(gravityAcceleration, TIME_PER_FRAME);
 }

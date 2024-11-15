@@ -133,12 +133,28 @@ public:
    virtual double getMetersY() const { return 0.0; }
 };
 
+class StubPositionXMINUS6378000Y0 : public DummyPosition
+{
+public:
+   StubPositionXMINUS6378000Y0() : DummyPosition() {};
+   virtual double getMetersX() const { return -6378000.0; }
+   virtual double getMetersY() const { return 0.0; }
+};
+
 class StubPositionX0Y6378000 : public DummyPosition
 {
 public:
    StubPositionX0Y6378000() : DummyPosition() {};
    virtual double getMetersX() const { return 0.0; }
    virtual double getMetersY() const { return 6378000.0; }
+};
+
+class StubPositionX0YMINUS6378000 : public DummyPosition
+{
+public:
+   StubPositionX0YMINUS6378000() : DummyPosition() {};
+   virtual double getMetersX() const { return 0.0; }
+   virtual double getMetersY() const { return -6378000.0; }
 };
 
 class StubPositionX6378010Y6378010 : public DummyPosition

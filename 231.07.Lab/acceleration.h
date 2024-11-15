@@ -16,6 +16,7 @@
 class TestAcceleration;
 class TestVelocity;
 class TestPosition;
+class TestOrbital;
 class Angle;
 
 
@@ -28,6 +29,7 @@ class Acceleration
    friend TestPosition;
    friend TestVelocity;
    friend TestAcceleration;
+   friend TestOrbital;
 
 public:
    // constructors

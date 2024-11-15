@@ -36,17 +36,20 @@ public:
    void update();
    void move(Acceleration& accel, double time);
    void detectCollisions(list<Orbital*>& orbitals);
-   virtual list<Orbital*>& getParts() = 0;
+   virtual list<Orbital*>& getParts() const = 0;
+
+protected:
+   Angle angle;
 
 private:
    Velocity& vel;
-   Angle& angle;
    double radius;
    int fragmentCount;
    bool hasCrashed;
 
    double getCurrentHeight() const;
    double getGravityDirection() const;
+   Acceleration getGravityAcceleration() const;
 };
 
 /*******************************************************************************
@@ -70,7 +73,7 @@ public:
       Velocity& initialVelocity, Angle& initialAngle): 
         Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
-   list<Orbital*>& getParts()
+   list<Orbital*>& getParts() const
    {
       list<Orbital*> emptyList;
       return emptyList;
