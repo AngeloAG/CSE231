@@ -13,6 +13,7 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>   // for M_PI which is 3.14159
+#include <cassert>
 
 class TestPosition;
 class TestVelocity;
@@ -193,3 +194,22 @@ private:
    double radians;   // 360 degrees equals 2 PI radians
 };
 
+class DummyAngle : public Angle
+{
+public:
+   DummyAngle(): Angle() {}
+   
+   double getDegrees() const {assert(false); return 0.0;}
+   double getRadians() const {assert(false); return 0.0;}
+   
+   void setDegrees(double degrees){assert(false);       }
+   void setRadians(double radians){assert(false);       }
+   void setUp()                   {assert(false);       }
+   void setDown()                 {assert(false);       }
+   void setRight()                {assert(false);       }
+   void setLeft()                 {assert(false);       }
+   void reverse()                 {assert(false);       }
+   Angle& add(double delta){assert(false); return *this;}
+   
+};
+ 

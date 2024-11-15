@@ -73,3 +73,12 @@ public:
    void addDY(double dy) { assert(false); }
    void add(const Acceleration& acceleration, double time) { assert(false); }
 };
+
+class FakeVelocityDX0DY0 : public DummyVelocity
+{
+public:
+   FakeVelocityDX0DY0(): DummyVelocity() {}
+   
+   double getDX() const { return 0.0;}
+   double getDY() const { return 0.0;}
+};

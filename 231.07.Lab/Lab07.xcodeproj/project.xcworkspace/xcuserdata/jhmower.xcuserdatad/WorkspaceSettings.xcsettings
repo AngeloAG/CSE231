@@ -7,10 +7,10 @@
 	<key>CustomBuildLocationType</key>
 	<string>RelativeToDerivedData</string>
 	<key>DerivedDataCustomLocation</key>
-	<string>/Users/jhmower/Library/Developer/Xcode/DerivedData</string>
+	<string>/Users/jhmower/Desktop/School projects/Inheritance/CSE231/231.07.Lab</string>
 	<key>DerivedDataLocationStyle</key>
 	<string>AbsolutePath</string>
 	<key>ShowSharedSchemesAutomaticallyEnabled</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

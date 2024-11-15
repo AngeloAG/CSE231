@@ -10,7 +10,7 @@
  ************************************************************************/
 
 #pragma once
-
+#define _USE_MATH_DEFINES
 #include "unitTest.h"
 #include "orbital.h"
 
@@ -31,7 +31,10 @@ public:
       getCurrentHeight_inSpaceX();
       getCurrentHeight_inSpaceY();
       getCurrentHeight_inSpaceXY();
-
+      getGravityDirection_Top();
+      getGravityDirection_Middle();
+      getGravityDirection_Right();
+      
       report("Orbital");
    }
 
@@ -92,14 +95,9 @@ private:
    void getCurrentHeight_noHeight()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 0.0;
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      StubPosition00 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
@@ -120,14 +118,9 @@ private:
    void getCurrentHeight_earthSurfaceX()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 6378000.0;
-      initialPosition.y = 0.0;
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      StubPositionX6378000Y0 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
@@ -148,14 +141,9 @@ private:
    void getCurrentHeight_earthSurfaceY()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 6378000.0;
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      StubPositionX0Y6378000 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
@@ -176,14 +164,9 @@ private:
    void getCurrentHeight_inSpaceX()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 6378010.0;
-      initialPosition.y = 0.0;
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      StubPositionX6378010Y0 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
@@ -204,14 +187,9 @@ private:
    void getCurrentHeight_inSpaceY()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 6378010.0;
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      StubPositionX0Y6378010 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
@@ -232,14 +210,9 @@ private:
    void getCurrentHeight_inSpaceXY()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 6378010.0;
-      initialPosition.y = 6378010.0;
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      StubPositionX6378010Y6378010 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
@@ -251,6 +224,75 @@ private:
       assertEquals(currentHeight, 2641868.2430);
    }
 
+   /*********************************************
+    * name:    getGravityDirection_Middle
+    * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  gravity direction = 0.0
+    *********************************************/
+   void getGravityDirection_Middle()
+   {
+      // setup
+      StubPosition00 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
+      double radius = 10.0;
+      int fragmentCount = 0;
+      DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
+      double gravityDirection = 999.9;
+
+      //exercise
+      gravityDirection = orbital.getGravityDirection();
+      // verify
+      assertEquals(gravityDirection, 0.0);
+   }
+   
+   /*********************************************
+    * name:    getGravityDirection_Top
+    * input:   Pos(0.0, 6378000.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  gravity direction = M_PI
+    *********************************************/
+   void getGravityDirection_Top()
+   {
+      // setup
+      StubPositionX0Y6378000 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
+      double radius = 10.0;
+      int fragmentCount = 0;
+      DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
+      double gravityDirection = 999.9;
+
+      //exercise
+      gravityDirection = orbital.getGravityDirection();
+      // verify
+      assertEquals(gravityDirection, M_PI);
+   }
+   
+   /*********************************************
+    * name:    getGravityDirection_Right
+    * input:   Pos(6378000.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
+    *          radius 10.0, fragmentCount 0
+    * output:  gravity direction = PI/2
+    *********************************************/
+   void getGravityDirection_Right()
+   {
+      // setup
+      StubPositionX6378000Y0 initialPosition;
+      DummyVelocity initialVelocity;
+      DummyAngle initialAngle;
+      double radius = 10.0;
+      int fragmentCount = 0;
+      DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
+      double gravityDirection = 999.9;
+
+      //exercise
+      gravityDirection = orbital.getGravityDirection();
+      // verify
+      assertEquals(gravityDirection, -M_PI_2);
+   }
+   
    /*****************************************************************
    *****************************************************************
    * PUBLIC METHODS

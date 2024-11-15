@@ -39,8 +39,8 @@ public:
    virtual list<Orbital*>& getParts() = 0;
 
 private:
-   Velocity vel;
-   Angle angle;
+   Velocity& vel;
+   Angle& angle;
    double radius;
    int fragmentCount;
    bool hasCrashed;

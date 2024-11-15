@@ -38,8 +38,8 @@ public:
    Position& operator = (const Position& pt);
 
    // getters
-   double getMetersX() const { return x;                    }
-   double getMetersY() const { return y;                    }
+   virtual double getMetersX() const { return x;                    }
+   virtual double getMetersY() const { return y;                    }
    double getPixelsX() const { return x / metersFromPixels; }
    double getPixelsY() const { return y / metersFromPixels; }
 
@@ -99,8 +99,8 @@ class DummyPosition : public Position
 {
 public:
    DummyPosition() : Position() {};
-   double getMetersX() const { assert(false); return 0.0; }
-   double getMetersY() const { assert(false); return 0.0; }
+   virtual double getMetersX() const { assert(false); return 0.0; }
+   virtual double getMetersY() const { assert(false); return 0.0; }
    double getPixelsX() const { assert(false); return 0.0; }
    double getPixelsY() const { assert(false); return 0.0; }
 
@@ -117,10 +117,50 @@ public:
    void add(const Acceleration& a, const Velocity& v, double t) { assert(false); };
 };
 
-class FakePosition1122 : public DummyPosition
+class StubPosition00 : public DummyPosition
 {
 public:
-   FakePosition1122() : DummyPosition() {};
-   double getMetersX() const { return 11.1; }
-   double getMetersY() const { return 22.2; }
+   StubPosition00() : DummyPosition() {};
+   virtual double getMetersX() const { return 0.0; }
+   virtual double getMetersY() const { return 0.0; }
+};
+
+class StubPositionX6378000Y0 : public DummyPosition
+{
+public:
+   StubPositionX6378000Y0() : DummyPosition() {};
+   virtual double getMetersX() const { return 6378000.0; }
+   virtual double getMetersY() const { return 0.0; }
+};
+
+class StubPositionX0Y6378000 : public DummyPosition
+{
+public:
+   StubPositionX0Y6378000() : DummyPosition() {};
+   virtual double getMetersX() const { return 0.0; }
+   virtual double getMetersY() const { return 6378000.0; }
+};
+
+class StubPositionX6378010Y6378010 : public DummyPosition
+{
+public:
+   StubPositionX6378010Y6378010() : DummyPosition() {};
+   virtual double getMetersX() const { return 6378010.0; }
+   virtual double getMetersY() const { return 6378010.0; }
+};
+
+class StubPositionX6378010Y0 : public DummyPosition
+{
+public:
+   StubPositionX6378010Y0() : DummyPosition() {};
+   virtual double getMetersX() const { return 6378010.0; }
+   virtual double getMetersY() const { return 0.0; }
+};
+
+class StubPositionX0Y6378010 : public DummyPosition
+{
+public:
+   StubPositionX0Y6378010() : DummyPosition() {};
+   virtual double getMetersX() const { return 0.0; }
+   virtual double getMetersY() const { return 6378010.0; }
 };

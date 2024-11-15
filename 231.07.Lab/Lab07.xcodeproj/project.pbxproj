@@ -14,8 +14,11 @@
 		C11C7EB325780B6500EA4B2E /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11C7EA925780B5E00EA4B2E /* uiInteract.cpp */; };
 		C11C7EB525780B6500EA4B2E /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C11C7EAD25780B6000EA4B2E /* uiDraw.cpp */; };
 		C179C6C127E375AF00E3E514 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C179C6C027E375AF00E3E514 /* position.cpp */; };
+		F31090D12CE6D5BD005DA3E8 /* orbital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F31090CF2CE6D5BC005DA3E8 /* orbital.cpp */; };
+		F31090D22CE6D5BD005DA3E8 /* orbital.h in Sources */ = {isa = PBXBuildFile; fileRef = F31090D02CE6D5BD005DA3E8 /* orbital.h */; };
 		F3345B212CE2D29500CDC002 /* entity.h in Sources */ = {isa = PBXBuildFile; fileRef = F3345B1F2CE2D29500CDC002 /* entity.h */; };
 		F3345B222CE2D29500CDC002 /* testEntity.h in Sources */ = {isa = PBXBuildFile; fileRef = F3345B202CE2D29500CDC002 /* testEntity.h */; };
+		F345ED6D2CE6DD5500AFA3C4 /* testOrbital.h in Sources */ = {isa = PBXBuildFile; fileRef = F31090D32CE6D5CF005DA3E8 /* testOrbital.h */; };
 		F392FED72CE2D179004385B6 /* acceleration.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BB8C2CE2C8CB00FFC4DE /* acceleration.h */; };
 		F392FED82CE2D179004385B6 /* angle.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BB8F2CE2C8CB00FFC4DE /* angle.h */; };
 		F392FED92CE2D179004385B6 /* testAcceleration.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D6BB8D2CE2C8CB00FFC4DE /* testAcceleration.h */; };
@@ -61,6 +64,9 @@
 		C179C6C027E375AF00E3E514 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
 		C179C6C227E375D600E3E514 /* position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
 		C1FC37B62C221C36000A76B0 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
+		F31090CF2CE6D5BC005DA3E8 /* orbital.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = orbital.cpp; sourceTree = "<group>"; };
+		F31090D02CE6D5BD005DA3E8 /* orbital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = orbital.h; sourceTree = "<group>"; };
+		F31090D32CE6D5CF005DA3E8 /* testOrbital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testOrbital.h; sourceTree = "<group>"; };
 		F3345B1F2CE2D29500CDC002 /* entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entity.h; sourceTree = "<group>"; };
 		F3345B202CE2D29500CDC002 /* testEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testEntity.h; sourceTree = "<group>"; };
 		F3D6BB8B2CE2C8CA00FFC4DE /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
@@ -91,6 +97,9 @@
 		C11C7E8D2578098A00EA4B2E = {
 			isa = PBXGroup;
 			children = (
+				F31090D32CE6D5CF005DA3E8 /* testOrbital.h */,
+				F31090CF2CE6D5BC005DA3E8 /* orbital.cpp */,
+				F31090D02CE6D5BD005DA3E8 /* orbital.h */,
 				F3345B1F2CE2D29500CDC002 /* entity.h */,
 				F3345B202CE2D29500CDC002 /* testEntity.h */,
 				F3D6BB902CE2C8CB00FFC4DE /* acceleration.cpp */,
@@ -192,6 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F345ED6D2CE6DD5500AFA3C4 /* testOrbital.h in Sources */,
+				F31090D12CE6D5BD005DA3E8 /* orbital.cpp in Sources */,
+				F31090D22CE6D5BD005DA3E8 /* orbital.h in Sources */,
 				F3345B212CE2D29500CDC002 /* entity.h in Sources */,
 				F3345B222CE2D29500CDC002 /* testEntity.h in Sources */,
 				F392FED72CE2D179004385B6 /* acceleration.h in Sources */,
