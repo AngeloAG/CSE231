@@ -44,18 +44,16 @@ private:
    void constructorWithPos()
    {
       //setup
-      Position pos;
-      pos.x = 11.1;
-      pos.y = 22.2;
+      Position* pos = new Position();
+      pos->x = 11.1;
+      pos->y = 22.2;
 
       //exercise
       Entity ent(pos);
       
       //verify
-      assertEquals(ent.pos.x, 11.1);
-      assertEquals(ent.pos.y, 22.2);
-
-      //teardown
+      assertEquals(ent.pos->x, 11.1);
+      assertEquals(ent.pos->y, 22.2);
    }
 
    /*****************************************************************
@@ -72,16 +70,15 @@ private:
    void entityGetPosition()
    {
       //setup
-      Position pos1;
-      pos1.x = 11.1;
-      pos1.y = 22.2;
+      Position* pos1 = new Position();
+      pos1->x = 11.1;
+      pos1->y = 22.2;
       Entity ent(pos1);
       //exercise
-      pos1 = ent.getPos();
+      *pos1 = ent.getPos();
       //verify
-      assertEquals(pos1.x, 11.1);
-      assertEquals(pos1.y, 22.2);
-      //teardown
+      assertEquals(pos1->x, 11.1);
+      assertEquals(pos1->y, 22.2);
    }
    
    /*********************************************
@@ -92,20 +89,19 @@ private:
    void entitySetPosition()
    {
       //setup
-      Position pos;
-      pos.x = 11.1;
-      pos.y = 22.2;
+      Position* pos = new Position();
+      pos->x = 11.1;
+      pos->y = 22.2;
       Entity ent(pos);
-      ent.pos.x = 99.9;
-      ent.pos.y = 99.9;
-      Position pos1;
-      pos1.x = 33.3;
-      pos1.y = 44.4;
+      ent.pos->x = 99.9;
+      ent.pos->y = 99.9;
+      Position* pos1 = new Position();
+      pos1->x = 33.3;
+      pos1->y = 44.4;
       //exercise
       ent.setPos(pos1);
       //verify
-      assertEquals(ent.pos.x, 33.3);
-      assertEquals(ent.pos.y, 44.4);
-      //teardown
+      assertEquals(ent.pos->x, 33.3);
+      assertEquals(ent.pos->y, 44.4);
    }
 };

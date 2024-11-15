@@ -68,9 +68,9 @@ private:
     *********************************************/
    void constructor_nonDefault()
    {  // setup
-      Position initialPosition;
-      initialPosition.x = 11.1;
-      initialPosition.y = 22.2;
+      Position* initialPosition = new Position();
+      initialPosition->x = 11.1;
+      initialPosition->y = 22.2;
       Velocity initialVelocity;
       initialVelocity.dx = 9.9;
       initialVelocity.dy = 8.8;
@@ -83,15 +83,15 @@ private:
       DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
 
       // verify
-      assertEquals(orbital.pos.x, 11.1);
-      assertEquals(orbital.pos.y, 22.2);
+      assertEquals(orbital.pos->x, 11.1);
+      assertEquals(orbital.pos->y, 22.2);
       assertEquals(orbital.vel.dx, 9.9);
       assertEquals(orbital.vel.dy, 8.8);
       assertEquals(orbital.angle.radians, 0.0);
       assertEquals(orbital.radius, 10.0);
       assertEquals(orbital.fragmentCount, 5);
       assertEquals(orbital.hasCrashed, false);
-   }  // teardown
+   }  
 
    /*****************************************************************
    *****************************************************************
@@ -108,7 +108,7 @@ private:
    void getCurrentHeight_noHeight()
    {
       // setup
-      StubPosition00 initialPosition;
+      StubPosition00* initialPosition = new StubPosition00();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -131,7 +131,7 @@ private:
    void getCurrentHeight_earthSurfaceX()
    {
       // setup
-      StubPositionX6378000Y0 initialPosition;
+      StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -154,7 +154,7 @@ private:
    void getCurrentHeight_earthSurfaceY()
    {
       // setup
-      StubPositionX0Y6378000 initialPosition;
+      StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -177,7 +177,7 @@ private:
    void getCurrentHeight_inSpaceX()
    {
       // setup
-      StubPositionX6378010Y0 initialPosition;
+      StubPositionX6378010Y0* initialPosition = new StubPositionX6378010Y0();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -200,7 +200,7 @@ private:
    void getCurrentHeight_inSpaceY()
    {
       // setup
-      StubPositionX0Y6378010 initialPosition;
+      StubPositionX0Y6378010* initialPosition = new StubPositionX0Y6378010();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -223,7 +223,7 @@ private:
    void getCurrentHeight_inSpaceXY()
    {
       // setup
-      StubPositionX6378010Y6378010 initialPosition;
+      StubPositionX6378010Y6378010* initialPosition = new StubPositionX6378010Y6378010();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -246,7 +246,7 @@ private:
    void getGravityDirection_Middle()
    {
       // setup
-      StubPosition00 initialPosition;
+      StubPosition00* initialPosition = new StubPosition00();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -269,7 +269,7 @@ private:
    void getGravityDirection_Top()
    {
       // setup
-      StubPositionX0Y6378000 initialPosition;
+      StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -292,7 +292,7 @@ private:
    void getGravityDirection_Bottom()
    {
       // setup
-      StubPositionX0YMINUS6378000 initialPosition;
+      StubPositionX0YMINUS6378000* initialPosition = new StubPositionX0YMINUS6378000();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -315,7 +315,7 @@ private:
    void getGravityDirection_Right()
    {
       // setup
-      StubPositionX6378000Y0 initialPosition;
+      StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -338,7 +338,7 @@ private:
    void getGravityDirection_Left()
    {
       // setup
-      StubPositionXMINUS6378000Y0 initialPosition;
+      StubPositionXMINUS6378000Y0* initialPosition = new StubPositionXMINUS6378000Y0();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -361,7 +361,7 @@ private:
    void getGravityAcceleration_earthSurfaceX()
    {
       // setup
-      StubPositionX6378000Y0 initialPosition;
+      StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -387,7 +387,7 @@ private:
    void getGravityAcceleration_earthSurfaceY()
    {
       // setup
-      StubPositionX0Y6378000 initialPosition;
+      StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -413,7 +413,7 @@ private:
    void getGravityAcceleration_spaceXY()
    {
       // setup
-      StubPositionX6378010Y6378010 initialPosition;
+      StubPositionX6378010Y6378010* initialPosition = new StubPositionX6378010Y6378010();
       DummyVelocity initialVelocity;
       DummyAngle initialAngle;
       double radius = 10.0;
@@ -487,9 +487,9 @@ private:
    void move_Right()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 0.0;
+      Position* initialPosition = new Position();
+      initialPosition->x = 0.0;
+      initialPosition->y = 0.0;
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
@@ -506,8 +506,8 @@ private:
       orbital.move(acc, 0.033333333);
 
       // verify
-      assertEquals(orbital.pos.x, 1.5);
-      assertEquals(orbital.pos.y, 0.0);
+      assertEquals(orbital.pos->x, 1.5);
+      assertEquals(orbital.pos->y, 0.0);
       assertEquals(orbital.vel.dx, 30.0);
       assertEquals(orbital.vel.dy, 0.0);
       assertEquals(orbital.radius, 10.0);
@@ -524,9 +524,9 @@ private:
    void move_Up()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 0.0;
+      Position* initialPosition = new Position();
+      initialPosition->x = 0.0;
+      initialPosition->y = 0.0;
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
@@ -543,8 +543,8 @@ private:
       orbital.move(acc, 0.033333333);
 
       // verify
-      assertEquals(orbital.pos.x, 0.0);
-      assertEquals(orbital.pos.y, 1.5);
+      assertEquals(orbital.pos->x, 0.0);
+      assertEquals(orbital.pos->y, 1.5);
       assertEquals(orbital.vel.dx, 0.0);
       assertEquals(orbital.vel.dy, 30.0);
       assertEquals(orbital.radius, 10.0);
@@ -561,9 +561,9 @@ private:
    void move_RightAndUp()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 0.0;
+      Position* initialPosition = new Position();
+      initialPosition->x = 0.0;
+      initialPosition->y = 0.0;
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
@@ -580,8 +580,8 @@ private:
       orbital.move(acc, 0.033333333);
 
       // verify
-      assertEquals(orbital.pos.x, 1.5);
-      assertEquals(orbital.pos.y, 1.5);
+      assertEquals(orbital.pos->x, 1.5);
+      assertEquals(orbital.pos->y, 1.5);
       assertEquals(orbital.vel.dx, 30.0);
       assertEquals(orbital.vel.dy, 30.0);
       assertEquals(orbital.radius, 10.0);
@@ -598,9 +598,9 @@ private:
    void move_NoMovement()
    {
       // setup
-      Position initialPosition;
-      initialPosition.x = 0.0;
-      initialPosition.y = 0.0;
+      Position* initialPosition = new Position();
+      initialPosition->x = 0.0;
+      initialPosition->y = 0.0;
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
@@ -617,8 +617,8 @@ private:
       orbital.move(acc, 0.033333333);
 
       // verify
-      assertEquals(orbital.pos.x, 0.0);
-      assertEquals(orbital.pos.y, 0.0);
+      assertEquals(orbital.pos->x, 0.0);
+      assertEquals(orbital.pos->y, 0.0);
       assertEquals(orbital.vel.dx, 0.0);
       assertEquals(orbital.vel.dy, 0.0);
       assertEquals(orbital.radius, 10.0);

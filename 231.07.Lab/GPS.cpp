@@ -4,7 +4,7 @@
 /*******************************************************************************
 * GPS :: CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(Position& initialPos, int fragmentCount, double radius,
+GPS::GPS(Position* initialPos, int fragmentCount, double radius,
    Velocity& initialVelocity, Angle& initialAngle): 
      Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
@@ -22,7 +22,7 @@ list<Orbital*>& GPS::getParts() const
 * GPS :: DRAW
 * Description. Draws the GPS in the screen
 *******************************************************************************/
-void GPS::draw(ogstream ogstream) const
+void GPS::draw(ogstream& ogstream) const
 {
-   ogstream.drawGPS(this->pos, this->angle.getDegrees());
+   ogstream.drawGPS(*this->pos, this->angle.getDegrees());
 }

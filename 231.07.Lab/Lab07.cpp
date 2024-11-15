@@ -35,16 +35,16 @@ class Demo
 {
 public:
    Demo(Position ptUpperRight) :
-      ptUpperRight(ptUpperRight)
+      ptUpperRight(ptUpperRight), angleEarth(0.0)
    {
-      /*Position initalGpsPos(0.0, STARTING_HEIGHT);
+      Position* initalGpsPos = new Position(0.0, STARTING_HEIGHT);
       Velocity initialGpsVel(-3100.0, 0.0);
       double radius = 10.0;
       int fragmentCount = 10;
       Angle initalAngle;
 
       gps = new GPS(initalGpsPos, fragmentCount, radius, initialGpsVel, initalAngle);
-      angleEarth = 0.0;*/
+      angleEarth = 0.0;
 
       for (int i = 0; i < NUMBER_OF_STARS; i++) {
          ptStar[i].setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
@@ -52,8 +52,9 @@ public:
          phaseStar[i] = i;
       }
    }
+   ~Demo() { delete gps; }
    
-   //Orbital* gps;
+   Orbital* gps;
    Position ptStar[NUMBER_OF_STARS];
    Position ptUpperRight;
 
@@ -82,7 +83,7 @@ void callBack(const Interface* pUI, void* p)
    pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
       (TIME_DIALATION / SECONDS_PER_DAY);
 
-   //pDemo->gps->update();
+   pDemo->gps->update();
 
    //
    // draw everything
@@ -92,7 +93,7 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
 
    // draw satellites
-   //pDemo->gps->draw(gout);
+   pDemo->gps->draw(gout);
 
    // draw parts
 

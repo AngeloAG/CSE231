@@ -28,8 +28,9 @@ class Orbital : public Entity
 {
    friend TestOrbital;
 public:
-   Orbital(Position& initialPos, int fragmentCount, double radius, 
+   Orbital(Position* initialPos, int fragmentCount, double radius, 
            Velocity& initialVelocity, Angle& initialAngle);
+   ~Orbital() {}
    double getRadius()      const { return radius; }
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed; }
@@ -37,12 +38,13 @@ public:
    void move(Acceleration& accel, double time);
    void detectCollisions(list<Orbital*>& orbitals);
    virtual list<Orbital*>& getParts() const = 0;
+   virtual void draw(ogstream& ogstream) const {}
 
 protected:
    Angle angle;
 
 private:
-   Velocity& vel;
+   Velocity vel;
    double radius;
    int fragmentCount;
    bool hasCrashed;
@@ -69,7 +71,7 @@ inline double getGravityFromHeight(double currentHeight)
 class DummyOrbital : public Orbital
 {
 public:
-   DummyOrbital(Position& initialPos, int fragmentCount, double radius,
+   DummyOrbital(Position* initialPos, int fragmentCount, double radius,
       Velocity& initialVelocity, Angle& initialAngle): 
         Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 

@@ -16,7 +16,7 @@
  /*******************************************************************************
  * ORBITAL :: CONSTRUCTOR
  *******************************************************************************/
-Orbital::Orbital(Position& initialPos, int fragmentCount, double radius, 
+Orbital::Orbital(Position* initialPos, int fragmentCount, double radius, 
    Velocity& initialVelocity, Angle& initialAngle): 
      Entity(initialPos), vel(initialVelocity), radius(radius), 
      fragmentCount(fragmentCount), hasCrashed(false), angle(initialAngle) {}
@@ -28,8 +28,8 @@ Orbital::Orbital(Position& initialPos, int fragmentCount, double radius,
 *******************************************************************************/
 double Orbital::getCurrentHeight() const
 {
-   return sqrt((this->pos.getMetersX() * this->pos.getMetersX()) +
-		  (this->pos.getMetersY() * this->pos.getMetersY())) -
+   return sqrt((this->pos->getMetersX() * this->pos->getMetersX()) +
+		  (this->pos->getMetersY() * this->pos->getMetersY())) -
 		  EARTH_RADIUS;
 }
 
@@ -39,7 +39,7 @@ double Orbital::getCurrentHeight() const
 *******************************************************************************/
 double Orbital::getGravityDirection() const
 {
-   return atan2(0.0 - this->pos.getMetersX(), 0.0 - this->pos.getMetersY());
+   return atan2(0.0 - this->pos->getMetersX(), 0.0 - this->pos->getMetersY());
 }
 
 /*******************************************************************************
@@ -85,7 +85,7 @@ void Orbital::update()
 void Orbital::move(Acceleration& accel, double time)
 {
    this->vel.add(accel, time);
-   this->pos.add(accel, this->vel, time);
+   this->pos->add(accel, this->vel, time);
 }
 
 /*******************************************************************************
@@ -97,10 +97,10 @@ void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
 {
    for (auto orbital : orbitals)
    {
-      double distanceBetween = sqrt(((orbital->pos.getMetersX() - this->pos.getMetersX()) *
-                                     (orbital->pos.getMetersX() - this->pos.getMetersX())) +
-                                    ((orbital->pos.getMetersY() - this->pos.getMetersY()) *
-                                     (orbital->pos.getMetersY() - this->pos.getMetersY())));
+      double distanceBetween = sqrt(((orbital->pos->getMetersX() - this->pos->getMetersX()) *
+                                     (orbital->pos->getMetersX() - this->pos->getMetersX())) +
+                                    ((orbital->pos->getMetersY() - this->pos->getMetersY()) *
+                                     (orbital->pos->getMetersY() - this->pos->getMetersY())));
       double sumOfRadii = this->getRadius() + orbital->getRadius();
       if (distanceBetween <= sumOfRadii)
       {
