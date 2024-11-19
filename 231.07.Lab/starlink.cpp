@@ -1,28 +1,28 @@
 
-#include "GPS.h"
+#include "starlink.h"
 
 /*******************************************************************************
-* GPS :: CONSTRUCTOR
+* STARLINK :: CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle): 
-     Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle){}
+Starlink::Starlink(Position* initialPos, int fragmentCount, double radius,
+   Velocity& initialVelocity, Angle& initialAngle) :
+   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
-* GPS :: GET GPS PARTS
-*     Returns the parts the GPS breaks into
+* STARLINK :: GET STARLINK PARTS
+*     Returns the parts the STARLINK breaks into
 *******************************************************************************/
-list<Orbital*>& GPS::getParts() const
+list<Orbital*>& Starlink::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;
 }
 
 /*******************************************************************************
-* GPS :: DRAW
-*     Draws the GPS in the screen
+* STARLINK :: DRAW
+*     Draws the STARLINK in the screen
 *******************************************************************************/
-void GPS::draw(ogstream& ogstream) const
+void Starlink::draw(ogstream& ogstream) const
 {
-   ogstream.drawGPS(*this->pos, this->angle.getDegrees());
+   ogstream.drawStarlink(*this->pos, this->angle.getDegrees());
 }

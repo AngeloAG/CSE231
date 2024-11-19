@@ -141,11 +141,16 @@
   <ItemGroup>
     <ClCompile Include="acceleration.cpp" />
     <ClCompile Include="angle.cpp" />
+    <ClCompile Include="crewDragon.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="GPS.cpp" />
+    <ClCompile Include="hubble.cpp" />
     <ClCompile Include="Lab07.cpp" />
     <ClCompile Include="orbital.cpp" />
     <ClCompile Include="position.cpp" />
+    <ClCompile Include="ship.cpp" />
+    <ClCompile Include="sputnik.cpp" />
+    <ClCompile Include="starlink.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="uiDraw.cpp" />
     <ClCompile Include="uiInteract.cpp" />
@@ -155,10 +160,16 @@
     <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
     <ClInclude Include="constants.h" />
+    <ClInclude Include="crewDragon.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="GPS.h" />
+    <ClInclude Include="hubble.h" />
+    <ClInclude Include="keyPress.h" />
     <ClInclude Include="orbital.h" />
     <ClInclude Include="position.h" />
+    <ClInclude Include="ship.h" />
+    <ClInclude Include="sputnik.h" />
+    <ClInclude Include="starlink.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />

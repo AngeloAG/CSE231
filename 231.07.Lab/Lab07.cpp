@@ -23,7 +23,13 @@
 #include <vector>
 #include "test.h"
 #include "gps.h"
+#include "hubble.h"
+#include "sputnik.h"
+#include "starlink.h"
+#include "crewDragon.h"
+#include "ship.h"
 #include <iostream>
+#include <list>  // for LIST
 
 using namespace std;
 
@@ -37,14 +43,84 @@ public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight), angleEarth(0.0)
    {
-      Position* initalGpsPos = new Position(0.0, STARTING_HEIGHT);
-      Velocity initialGpsVel(-3100.0, 0.0);
-      double radius     = 10.0;
-      int fragmentCount = 10;
-      Angle initalAngle;
+      // GPS 1
+      Velocity initialGpsVel1(-3880.0, 0.0);
+      double radiusGPS = 10.0;
+      int fragmentCountGPS = 10;
+      Angle initalAngleGPS;
+      gpsCount.push_back(new GPS(new Position(0.0, 26560000.0), fragmentCountGPS, radiusGPS,
+         initialGpsVel1, initalAngleGPS));
 
-      gps = new GPS(initalGpsPos, fragmentCount, radius,
-                    initialGpsVel, initalAngle);
+      // GPS 2
+      Velocity initialGpsVel2(-1940.0, 3360.18);
+      gpsCount.push_back(new GPS(new Position(23001634.72, 13280000.0), fragmentCountGPS, radiusGPS,
+         initialGpsVel2, initalAngleGPS));
+
+      // GPS 3
+      Velocity initialGpsVel3(1940.0, 3360.18);
+      gpsCount.push_back(new GPS(new Position(23001634.72, -13280000.0), fragmentCountGPS, radiusGPS,
+         initialGpsVel3, initalAngleGPS));
+
+      // GPS 4
+      Velocity initialGpsVel4(3880.0, 0.0);
+      gpsCount.push_back(new GPS(new Position(0.0, -26560000.0), fragmentCountGPS, radiusGPS,
+         initialGpsVel4, initalAngleGPS));
+
+      // GPS 5
+      Velocity initialGpsVel5(1940.0, -3360.18);
+      gpsCount.push_back(new GPS(new Position(-23001634.72, -13280000.0), fragmentCountGPS, radiusGPS,
+         initialGpsVel5, initalAngleGPS));
+
+      // GPS 6
+      Velocity initialGpsVel6(-1940.0, -3360.18);
+      gpsCount.push_back(new GPS(new Position(-23001634.72, 13280000.0), fragmentCountGPS, radiusGPS,
+         initialGpsVel6, initalAngleGPS));
+
+      // HUBBLE
+      Velocity initialHubbleVel(3100.0, 0.0);
+      double radiusHubble     = 10.0;
+      int fragmentCountHubble = 0;
+      Angle initalAngleHubble;
+      hubble = new Hubble(new Position(0.0, STARTING_HEIGHT_HUBBLE), fragmentCountHubble, radiusHubble,
+         initialHubbleVel, initalAngleHubble);
+
+      // SPUTNIK
+      Velocity initialSputnikVel(2050.0, 2684.68);
+      double radiusSputnik     = 4.0;
+      int fragmentCountSputnik = 4;
+      Angle initalAngleSputnik;
+      sputnik = new Sputnik(new Position(-36515095.13, STARTING_HEIGHT_SPUTNIK), fragmentCountSputnik, radiusSputnik,
+         initialSputnikVel, initalAngleSputnik);
+
+      // STARLINK
+      Velocity initialStarlinkVel(5800.0, 0.0);
+      double radiusStarlink     = 6.0;
+      int fragmentCountStarlink = 2;
+      Angle initalAngleStarlink;
+      starlink = new Starlink(new Position(0.0, STARTING_HEIGHT_STARLINK), fragmentCountStarlink, radiusStarlink,
+         initialStarlinkVel, initalAngleStarlink);
+
+      // CREW DRAGON
+      Velocity initialCrewDragonVel(-7900.0, 0.0);
+      double radiusCrewDragon     = 7.0;
+      int fragmentCountCrewDragon = 2;
+      Angle initalAngleCrewDragon;
+      crewDragon = new CrewDragon(new Position(0.0, STARTING_HEIGHT_CREWDRAGON), fragmentCountCrewDragon, radiusCrewDragon,
+         initialCrewDragonVel, initalAngleCrewDragon);
+
+      // SHIP
+      Position* startingPosition = new Position();
+      startingPosition->setPixelsX(-450);
+      startingPosition->setPixelsY(450);
+      Velocity initialShipVel(0.0, -2000.0);
+      double radiusShip     = 10.0;
+      int fragmentCountShip = 2;
+      Angle initalAngleShip;
+
+      ship = new Ship(startingPosition, fragmentCountShip, radiusShip,
+         initialShipVel, initalAngleShip);
+
+      // EARTH
       angleEarth = 0.0;
 
       for (int i = 0; i < NUMBER_OF_STARS; i++) {
@@ -53,14 +129,25 @@ public:
          phaseStar[i] = i;
       }
    }
-   ~Demo() { delete gps; }
-   
-   Orbital* gps;
+   ~Demo()
+   {
+      for (auto gps : gpsCount)
+      {
+         delete gps;
+      }
+      delete hubble; delete sputnik; delete starlink; delete crewDragon; delete ship;
+   }
+   Orbital* hubble;
+   Orbital* sputnik;
+   Orbital* starlink;
+   Orbital* crewDragon;
+   Ship* ship;
    Position ptStar[NUMBER_OF_STARS];
    Position ptUpperRight;
 
    unsigned char phaseStar[NUMBER_OF_STARS];
    double angleEarth;
+   list <Orbital*>gpsCount;
 };
 
 /*************************************
@@ -84,7 +171,37 @@ void callBack(const Interface* pUI, void* p)
    pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
          (TIME_DIALATION / SECONDS_PER_DAY);
 
-   pDemo->gps->update();
+   for (auto gps : pDemo->gpsCount)
+   {
+      gps->update();
+   }
+
+   pDemo->hubble->update();
+   pDemo->sputnik->update();
+   pDemo->starlink->update();
+   pDemo->crewDragon->update();
+   pDemo->ship->update();
+
+   //
+   // Input
+   //
+   if (pUI->isDown())
+   {
+      pDemo->ship->input(DOWN);
+   }
+   if (pUI->isLeft())
+   {
+      pDemo->ship->input(LEFT);
+   }
+   if (pUI->isRight())
+   {
+      pDemo->ship->input(RIGHT);
+   }
+   if (pUI->isSpace())
+   {
+      pDemo->ship->input(SPACE);
+   }
+
 
    //
    // draw everything
@@ -94,7 +211,15 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
 
    // draw satellites
-   pDemo->gps->draw(gout);
+   for (auto gps : pDemo->gpsCount)
+   {
+      gps->draw(gout);
+   }
+   pDemo->hubble->draw(gout);
+   pDemo->sputnik->draw(gout);
+   pDemo->starlink->draw(gout);
+   pDemo->crewDragon->draw(gout);
+   pDemo->ship->draw(gout);
 
    // draw parts
 

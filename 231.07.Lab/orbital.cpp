@@ -23,8 +23,7 @@ Orbital::Orbital(Position* initialPos, int fragmentCount, double radius,
 
 /*******************************************************************************
 * ORBITAL :: GET CURRENT HEIGHT
-* Description. Returns the current distance between the orbital and 
-*              earth's surface
+*     Returns the current distance between the orbital and earth's surface
 *******************************************************************************/
 double Orbital::getCurrentHeight() const
 {
@@ -35,7 +34,7 @@ double Orbital::getCurrentHeight() const
 
 /*******************************************************************************
 * ORBITAL :: GET GRAVITY DIRECTION
-* Description. Returns the angle at which the gravity is pulling
+*     Returns the angle at which the gravity is pulling
 *******************************************************************************/
 double Orbital::getGravityDirection() const
 {
@@ -44,7 +43,7 @@ double Orbital::getGravityDirection() const
 
 /*******************************************************************************
 * ORBITAL :: GET GRAVITY ACCELARTION
-* Description. Returns the acceleration due to gravity the orbital experiences
+*     Returns the acceleration due to gravity the orbital experiences
 *******************************************************************************/
 Acceleration Orbital::getGravityAcceleration() const
 {
@@ -68,14 +67,14 @@ Acceleration Orbital::getGravityAcceleration() const
 
 /*******************************************************************************
 * ORBITAL :: UPDATE
-* Description. Recalculates the position and velocity of the orbital 
-*              due to gravity and moves it
+*     Recalculates the position and velocity of the orbital due
+*     to gravity and moves it
 *******************************************************************************/
 void Orbital::update()
 {
    // rotate a little the orbital
-   this->angle.add(-(2.0 * M_PI / FRAME_RATE) *
-                    (TIME_DIALATION / SECONDS_PER_DAY));
+   // this->angle.add(-(2.0 * M_PI / FRAME_RATE) *
+                    // (TIME_DIALATION / SECONDS_PER_DAY));
 
    // Get the acceleration due to gravity
    Acceleration gravityAcceleration = getGravityAcceleration();
@@ -86,7 +85,7 @@ void Orbital::update()
 
 /*******************************************************************************
 * ORBITAL :: MOVE
-* Description. Acctually changes the position of the orbital
+*     Actually changes the position of the orbital
 *******************************************************************************/
 void Orbital::move(Acceleration& accel, double time)
 {
@@ -96,8 +95,7 @@ void Orbital::move(Acceleration& accel, double time)
 
 /*******************************************************************************
 * ORBITAL :: DETECT COLLISIONS
-* Description. Checks if the orbital has collided with any other orbital 
-*              in the list
+*     Checks if the orbital has collided with any other orbital in the list
 *******************************************************************************/
 void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
 {

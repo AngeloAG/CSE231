@@ -33,11 +33,17 @@ class Acceleration
 
 public:
    // constructors
-   //Default values for constructors
+   // Default values for constructors
    Acceleration() : ddx(0.0), ddy(0.0) {}
 
-   //Constructor that uses values given
+   // Constructor that uses values given
    Acceleration(double ddx, double ddy) : ddx(ddx), ddy(ddy) {}
+
+   // For Ship thrust
+   Acceleration(const Angle& angle, double speed) : ddx(0.0), ddy(0.0)
+   {
+      set(angle, speed);
+   }
 
    // getters
    double getDDX()   const { return ddx; }

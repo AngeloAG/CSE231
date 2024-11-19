@@ -1,28 +1,28 @@
 
-#include "GPS.h"
+#include "hubble.h"
 
 /*******************************************************************************
-* GPS :: CONSTRUCTOR
+* Hubble :: CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle): 
-     Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle){}
+Hubble::Hubble(Position* initialPos, int fragmentCount, double radius,
+   Velocity& initialVelocity, Angle& initialAngle) :
+   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
-* GPS :: GET GPS PARTS
-*     Returns the parts the GPS breaks into
+* Hubble :: GET Hubble PARTS
+*     Returns the parts the Hubble breaks into
 *******************************************************************************/
-list<Orbital*>& GPS::getParts() const
+list<Orbital*>& Hubble::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;
 }
 
 /*******************************************************************************
-* GPS :: DRAW
-*     Draws the GPS in the screen
+* Hubble :: DRAW
+*     Draws the Hubble in the screen
 *******************************************************************************/
-void GPS::draw(ogstream& ogstream) const
+void Hubble::draw(ogstream& ogstream) const
 {
-   ogstream.drawGPS(*this->pos, this->angle.getDegrees());
+   ogstream.drawHubble(*this->pos, this->angle.getDegrees());
 }

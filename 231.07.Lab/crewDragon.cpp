@@ -1,28 +1,28 @@
 
-#include "GPS.h"
+#include "crewDragon.h"
 
 /*******************************************************************************
-* GPS :: CONSTRUCTOR
+* GREW DRAGON :: CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle): 
-     Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle){}
+CrewDragon::CrewDragon(Position* initialPos, int fragmentCount, double radius,
+   Velocity& initialVelocity, Angle& initialAngle) :
+   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
-* GPS :: GET GPS PARTS
+* GREW DRAGON :: GET GPS PARTS
 *     Returns the parts the GPS breaks into
 *******************************************************************************/
-list<Orbital*>& GPS::getParts() const
+list<Orbital*>& CrewDragon::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;
 }
 
 /*******************************************************************************
-* GPS :: DRAW
+* GREW DRAGON :: DRAW
 *     Draws the GPS in the screen
 *******************************************************************************/
-void GPS::draw(ogstream& ogstream) const
+void CrewDragon::draw(ogstream& ogstream) const
 {
-   ogstream.drawGPS(*this->pos, this->angle.getDegrees());
+   ogstream.drawCrewDragon(*this->pos, this->angle.getDegrees());
 }

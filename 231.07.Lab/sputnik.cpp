@@ -1,28 +1,28 @@
 
-#include "GPS.h"
+#include "sputnik.h"
 
 /*******************************************************************************
-* GPS :: CONSTRUCTOR
+* SPUTNIK :: CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle): 
-     Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle){}
+Sputnik::Sputnik(Position* initialPos, int fragmentCount, double radius,
+   Velocity& initialVelocity, Angle& initialAngle) :
+   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
-* GPS :: GET GPS PARTS
-*     Returns the parts the GPS breaks into
+* SPUTNIK :: GET GPS PARTS
+*     Returns the parts the SPUTNIK breaks into
 *******************************************************************************/
-list<Orbital*>& GPS::getParts() const
+list<Orbital*>& Sputnik::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;
 }
 
 /*******************************************************************************
-* GPS :: DRAW
-*     Draws the GPS in the screen
+* SPUTNIK :: DRAW
+*     Draws the SPUTNIK in the screen
 *******************************************************************************/
-void GPS::draw(ogstream& ogstream) const
+void Sputnik::draw(ogstream& ogstream) const
 {
-   ogstream.drawGPS(*this->pos, this->angle.getDegrees());
+   ogstream.drawSputnik(*this->pos, this->angle.getDegrees());
 }
