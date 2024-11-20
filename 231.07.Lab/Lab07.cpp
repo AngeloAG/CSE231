@@ -116,7 +116,6 @@ public:
       double radiusShip     = 10.0;
       int fragmentCountShip = 2;
       Angle initalAngleShip;
-
       ship = new Ship(startingPosition, fragmentCountShip, radiusShip,
          initialShipVel, initalAngleShip);
 
@@ -132,10 +131,10 @@ public:
    ~Demo()
    {
       for (auto gps : gpsCount)
-      {
          delete gps;
-      }
-      delete hubble; delete sputnik; delete starlink; delete crewDragon; delete ship;
+
+      delete hubble; delete sputnik; delete starlink;
+      delete crewDragon; delete ship;
    }
    Orbital* hubble;
    Orbital* sputnik;

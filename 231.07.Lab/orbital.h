@@ -37,7 +37,7 @@ public:
    double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed;    }
-   void update();
+   virtual void update();
    void move(Acceleration& accel, double time);
    void detectCollisions(list<Orbital*>& orbitals);
    virtual list<Orbital*>& getParts() const = 0;
@@ -45,6 +45,7 @@ public:
 
 protected:
    Angle angle;
+   Acceleration getGravityAcceleration() const;
 
 private:
    Velocity vel;
@@ -54,7 +55,6 @@ private:
 
    double getCurrentHeight() const;
    double getGravityDirection() const;
-   Acceleration getGravityAcceleration() const;
 };
 
 /*******************************************************************************

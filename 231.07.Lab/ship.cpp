@@ -50,14 +50,28 @@ void Ship::input(KeyPress pressed)
       thrust();
       break;
    case LEFT:
-      turn(true);
+      turnLeft();
       break;
    case RIGHT:
-      turn(false);
+      turnRight();
       break;
    case SPACE:
       break;
    default:
       break;
    }
+}
+
+void Ship::update()
+{
+   Acceleration gravityAcceleration = getGravityAcceleration();
+
+   if (isThrust)
+   {
+      Acceleration thrustAcceleration(this->angle, 2.0);
+      gravityAcceleration.add(thrustAcceleration);
+   }
+
+   move(gravityAcceleration, TIME_PER_FRAME);
+   isThrust = false;
 }

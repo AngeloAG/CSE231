@@ -1,2 +1,3 @@
-﻿  orbital.cpp
+﻿  test.cpp
+C:\Users\conho\source\repos\CSE231\231.07.Lab\orbital.h(85,1): warning C4172: returning address of local variable or temporary: emptyList
   Lab07.vcxproj -> C:\Users\conho\source\repos\CSE231\231.07.Lab\x64\Debug\Lab07.exe

@@ -137,6 +137,9 @@
     <ClInclude Include="keyPress.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="testShip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
