@@ -64,5 +64,5 @@ std::istream& operator >> (std::istream& in, Position& pt)
 void Position::add(const Acceleration& a, const Velocity& v, double t)
 {
    x = this->x + (v.getDX() * t) + (0.5 * a.getDDX() * (t * t));
-   y = this->y + (v.getDY() * t) + (0.5 * a.getDDY() * (t * t));
+   y = this->y + (v.getDY() * t) + (0.5 * a.getDDY() * (t * t)); 
 }

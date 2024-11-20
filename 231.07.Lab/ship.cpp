@@ -24,7 +24,7 @@ list<Orbital*>& Ship::getParts() const
 *******************************************************************************/
 void Ship::draw(ogstream& ogstream) const
 {
-   ogstream.drawShip(*this->pos, this->angle.getDegrees(), this->isThrust);
+   ogstream.drawShip(*this->pos, this->angle.getRadians(), this->isThrust);
 }
 
 /*******************************************************************************
@@ -50,8 +50,10 @@ void Ship::input(KeyPress pressed)
       thrust();
       break;
    case LEFT:
+      turn(true);
       break;
    case RIGHT:
+      turn(false);
       break;
    case SPACE:
       break;

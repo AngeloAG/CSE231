@@ -18,6 +18,7 @@ class TestPosition;
 class TestVelocity;
 class TestAcceleration;
 class TestOrbital;
+class TestShip;
 
 // for add()
 class Acceleration;
@@ -33,6 +34,8 @@ class Velocity
    friend TestPosition;
    friend TestVelocity;
    friend TestOrbital;
+   friend TestShip;
+   
 public:
    // constructors
    Velocity()                     : dx(0.0), dy(0.0) { }

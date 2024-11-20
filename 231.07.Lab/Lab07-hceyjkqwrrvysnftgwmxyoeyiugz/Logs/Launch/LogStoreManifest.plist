@@ -6,10 +6,10 @@
 	<integer>11</integer>
 	<key>logs</key>
 	<dict>
-		<key>1A652FA2-DF8C-4B64-81E2-D249F29CFD3E</key>
+		<key>060D7D0D-88C5-4261-8512-8DFD99DBF219</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>47340C55-FB27-43CF-BD6B-1AC04E835B6A</string>
+			<string>F160901C-E99B-44ED-AB33-AEC8D5926FAD</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -21,7 +21,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -30,7 +30,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-53-45--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-51-42--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -48,7 +48,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -59,13 +59,318 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328425.064134</real>
+			<real>753749502.960253</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>1A652FA2-DF8C-4B64-81E2-D249F29CFD3E</string>
+			<string>060D7D0D-88C5-4261-8512-8DFD99DBF219</string>
+		</dict>
+		<key>1059F710-30E8-45FC-AA52-06ADB732B53B</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>FEFDAB8D-2DAD-471D-9F6B-DD3A2D570FF4</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-04-08--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753750248.49506605</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>1059F710-30E8-45FC-AA52-06ADB732B53B</string>
+		</dict>
+		<key>12F4DB30-AB7E-4239-88EC-DB80193822E2</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>114D0970-F590-44B5-ABB8-DCA58675BB09</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-28-12--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753751692.59356701</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>12F4DB30-AB7E-4239-88EC-DB80193822E2</string>
+		</dict>
+		<key>16DD6E1B-C032-4C18-85D7-55F0E56DCC10</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>12C4DBBA-31FB-4CA3-A97B-883E3C5FCE04</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>18</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-22-34--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>9</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753751354.84137201</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>16DD6E1B-C032-4C18-85D7-55F0E56DCC10</string>
+		</dict>
+		<key>192346EE-C541-4049-AE66-3AB5F4B341F9</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>2196DBD6-E263-44EB-A8C7-437A97949D17</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-23-56--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753751436.48378205</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>192346EE-C541-4049-AE66-3AB5F4B341F9</string>
+		</dict>
+		<key>1A65F926-400F-49D4-8060-7879EE632830</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>313379AB-CECC-45FC-820D-F5F1DF04000C</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-01-15--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753750075.35034394</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>1A65F926-400F-49D4-8060-7879EE632830</string>
 		</dict>
 		<key>1F946833-9E6D-4FA1-AC77-75B86E40CBE8</key>
 		<dict>
@@ -128,10 +433,10 @@
 			<key>uniqueIdentifier</key>
 			<string>1F946833-9E6D-4FA1-AC77-75B86E40CBE8</string>
 		</dict>
-		<key>35168623-B167-4099-A3C6-A2A5889163B1</key>
+		<key>28ED32D9-4541-42AA-AEF0-E4A83B7CB8AD</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>EB4C4D60-7F03-466E-9988-A94BE4F7CA25</string>
+			<string>9EB7C27C-A6C2-40D1-94C5-04A798B5E35F</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -143,7 +448,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -152,7 +457,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-44-38--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-42-56--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -170,7 +475,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -181,18 +486,506 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753327878.64211905</real>
+			<real>753748976.01102197</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>35168623-B167-4099-A3C6-A2A5889163B1</string>
+			<string>28ED32D9-4541-42AA-AEF0-E4A83B7CB8AD</string>
 		</dict>
-		<key>4BDC41AD-B28E-4A7A-B930-11C9CDAF50AA</key>
+		<key>2A14A528-28C9-4905-AA5B-BB2DD4DF936F</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>1DB0357E-62C7-4AB8-A5EE-0483684DED91</string>
+			<string>4AD3E235-071F-40EC-97E9-BCB145667EC1</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-50-46--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753749446.59768903</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>2A14A528-28C9-4905-AA5B-BB2DD4DF936F</string>
+		</dict>
+		<key>37CBB685-3CFB-45B3-9F85-F19D0D3C06B1</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>6D9C10DC-F13F-4C16-9713-E52CEED6B6BF</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-42-36--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753748956.73203599</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>37CBB685-3CFB-45B3-9F85-F19D0D3C06B1</string>
+		</dict>
+		<key>39453850-3C1E-4B37-B232-9AED225FAEC9</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>9235B61C-8DAE-4C71-B9F9-751D372D3FE4</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-25-38--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753751538.78667605</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>39453850-3C1E-4B37-B232-9AED225FAEC9</string>
+		</dict>
+		<key>3D29445F-286E-4818-833C-DDBDCA128E06</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>577C28DF-BFD1-4E21-93D7-77E7045DB4D6</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-35-50--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753748550.02417099</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>3D29445F-286E-4818-833C-DDBDCA128E06</string>
+		</dict>
+		<key>41146331-1529-4E2A-A9A2-A27C1244D7BD</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>12BA1D56-F28F-4F3A-8482-BFD7CAC90C08</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-44-10--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753749050.91158605</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>41146331-1529-4E2A-A9A2-A27C1244D7BD</string>
+		</dict>
+		<key>41F8C894-BC8C-430F-8FB7-05F77081FDCA</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>AB2E4A1A-E445-498A-BD36-B484C0BD5983</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-41-40--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753748900.74999201</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>41F8C894-BC8C-430F-8FB7-05F77081FDCA</string>
+		</dict>
+		<key>54CDCC54-5D1C-4378-9257-1B5FCBF4A164</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>D4BB601B-BFC0-4336-8EE1-B893DD5530FE</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-04-38--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753750278.44538701</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>54CDCC54-5D1C-4378-9257-1B5FCBF4A164</string>
+		</dict>
+		<key>5A1FC00F-5C26-4CAC-BF6C-301A7C56F240</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>62F324F2-146E-4260-9B8E-E5636B381D8A</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-42-16--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753748936.35284805</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>5A1FC00F-5C26-4CAC-BF6C-301A7C56F240</string>
+		</dict>
+		<key>6D68A53B-C910-43A7-A479-97E4B52A74A5</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>5FFE2CB7-0D6E-4862-8F98-7B5B24FA8383</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -200,11 +993,11 @@
 				<key>totalNumberOfAnalyzerIssues</key>
 				<integer>0</integer>
 				<key>totalNumberOfErrors</key>
-				<integer>6</integer>
+				<integer>2</integer>
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>0</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -213,7 +1006,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-52-38--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_16-14-46--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -227,11 +1020,11 @@
 				<key>totalNumberOfAnalyzerIssues</key>
 				<integer>0</integer>
 				<key>totalNumberOfErrors</key>
-				<integer>6</integer>
+				<integer>2</integer>
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>0</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -242,18 +1035,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328358.58171296</real>
+			<real>753750886.31265104</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>4BDC41AD-B28E-4A7A-B930-11C9CDAF50AA</string>
+			<string>6D68A53B-C910-43A7-A479-97E4B52A74A5</string>
 		</dict>
-		<key>59BE9148-870F-4A3D-96F2-53EE66E265A0</key>
+		<key>769C88AC-D2B0-4115-8F95-12EEFCF7C46D</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>2738CAA1-66A3-4015-9A35-5FFF46E49D00</string>
+			<string>9E39F359-3F38-4B16-A3B5-F6BE443A987F</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -265,7 +1058,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -274,7 +1067,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-02-08--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-48-09--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -292,7 +1085,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -303,18 +1096,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328928.48718596</real>
+			<real>753749289.39920998</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>59BE9148-870F-4A3D-96F2-53EE66E265A0</string>
+			<string>769C88AC-D2B0-4115-8F95-12EEFCF7C46D</string>
 		</dict>
-		<key>6F6B2BF6-2914-48C0-A8CC-264BB1DFCA84</key>
+		<key>8D5A37CF-BE80-4833-8149-9953C317099C</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>A113AB6D-0E22-4B1B-A259-22CAB327EFD9</string>
+			<string>6746A90A-ACE7-40F4-AD7D-5D7B9505DA25</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -326,7 +1119,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -335,7 +1128,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-02-59--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-25-12--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -353,7 +1146,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -364,18 +1157,79 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328979.60813498</real>
+			<real>753747912.45179498</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>6F6B2BF6-2914-48C0-A8CC-264BB1DFCA84</string>
+			<string>8D5A37CF-BE80-4833-8149-9953C317099C</string>
 		</dict>
-		<key>7B128A12-1516-4284-94A3-9042B5014151</key>
+		<key>97E89CEE-4BDA-4EC7-8B35-EC686E0A3A91</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>B5498F42-305F-4C08-84BE-6C458CAE9AAC</string>
+			<string>8F035CA0-5B99-4357-8AD7-CB276458F1C9</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-48-03--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>5</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753749283.63995397</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>97E89CEE-4BDA-4EC7-8B35-EC686E0A3A91</string>
+		</dict>
+		<key>9BBAEC2C-7605-42DB-8247-DAD5713A8122</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>B806D08B-D9D0-4A6F-A422-0E79EF57FC49</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -387,7 +1241,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -396,7 +1250,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-13-42--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-52-54--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -414,7 +1268,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -425,18 +1279,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753329622.17597497</real>
+			<real>753749574.78101599</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>7B128A12-1516-4284-94A3-9042B5014151</string>
+			<string>9BBAEC2C-7605-42DB-8247-DAD5713A8122</string>
 		</dict>
-		<key>81BAB451-1BB4-474A-9DB8-33CAFAEF0837</key>
+		<key>9DCB941F-3525-4ACD-8545-F83DC6D86151</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>0BAA317D-0621-40BC-AA5F-BFAF9DA26B7E</string>
+			<string>756C3C58-9505-420F-8014-4266B8716C4C</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -448,7 +1302,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -457,7 +1311,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-53-29--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-36-37--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -475,7 +1329,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -486,18 +1340,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328409.90225995</real>
+			<real>753748597.60636103</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>81BAB451-1BB4-474A-9DB8-33CAFAEF0837</string>
+			<string>9DCB941F-3525-4ACD-8545-F83DC6D86151</string>
 		</dict>
-		<key>9842CE0D-EFDF-4AFB-BD28-A894EF9F4342</key>
+		<key>AADBD2F4-5E82-46A5-B434-CEF32D8DAA7D</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>AAFFB2D8-38D6-4CAA-B660-DF8D30BAE204</string>
+			<string>670397E2-B845-4598-B080-672BDD1A264D</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -509,7 +1363,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -518,7 +1372,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-48-00--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-59-38--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -536,7 +1390,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -547,18 +1401,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328080.55672204</real>
+			<real>753749978.61912405</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>9842CE0D-EFDF-4AFB-BD28-A894EF9F4342</string>
+			<string>AADBD2F4-5E82-46A5-B434-CEF32D8DAA7D</string>
 		</dict>
-		<key>99F83ABB-FE92-42D8-B549-E2276DBDB083</key>
+		<key>B5A0A562-316A-4C5F-AEC1-BB9E871F6FEB</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>A284C0D8-CFE6-452C-9E70-59362EA89050</string>
+			<string>D3E6B8AF-5042-423C-A71C-EF2D5AC31504</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -570,7 +1424,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -579,7 +1433,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-53-10--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-59-09--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -597,7 +1451,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -608,18 +1462,79 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328390.78301895</real>
+			<real>753749949.51994503</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>99F83ABB-FE92-42D8-B549-E2276DBDB083</string>
+			<string>B5A0A562-316A-4C5F-AEC1-BB9E871F6FEB</string>
 		</dict>
-		<key>9F19A8C1-800F-451A-953B-0A8F50E778D4</key>
+		<key>C23A2BDE-B481-4C15-81FC-EF9903194D47</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>37229810-B1CB-4AE8-A856-D26CEC4D135D</string>
+			<string>8505E6D4-99C0-43F4-9ADB-9DCD7B11C9B0</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>14</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_15-47-43--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>7</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753749263.35113204</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>C23A2BDE-B481-4C15-81FC-EF9903194D47</string>
+		</dict>
+		<key>C683CBBA-E545-4CA0-AA41-6FD087695E98</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>71A95152-DD4F-4E26-AA01-B7C00B41A8B9</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -631,7 +1546,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -640,7 +1555,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-16-01--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-57-57--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -658,7 +1573,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -669,18 +1584,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753329761.63104296</real>
+			<real>753749877.47325099</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>9F19A8C1-800F-451A-953B-0A8F50E778D4</string>
+			<string>C683CBBA-E545-4CA0-AA41-6FD087695E98</string>
 		</dict>
-		<key>A8B3F6DA-5795-4E73-884D-EEB1365FCB3D</key>
+		<key>D2D84DAB-0035-4629-9E5D-A95865A2A4F6</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>1B4548F0-DABB-49E2-AFA3-DEFB042AFBF6</string>
+			<string>CCB643AB-7BCE-4276-A64C-A9D213B4C630</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -692,7 +1607,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -701,7 +1616,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-12-48--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_16-23-27--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -719,7 +1634,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -730,18 +1645,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753329568.71838903</real>
+			<real>753751407.84132195</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>A8B3F6DA-5795-4E73-884D-EEB1365FCB3D</string>
+			<string>D2D84DAB-0035-4629-9E5D-A95865A2A4F6</string>
 		</dict>
-		<key>C029FCB6-85EA-48A4-8357-A48CFC2A8091</key>
+		<key>D3276F1B-448B-4932-B7E8-AE176259F9DB</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>B4DAC878-C97E-46C2-A5E9-9E6A92DD22EB</string>
+			<string>B58598F2-0924-45AF-8AAE-F026C98F9C91</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -753,7 +1668,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -762,7 +1677,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-16-40--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_16-01-54--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -780,7 +1695,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -791,18 +1706,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753329800.41702795</real>
+			<real>753750114.49890006</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>C029FCB6-85EA-48A4-8357-A48CFC2A8091</string>
+			<string>D3276F1B-448B-4932-B7E8-AE176259F9DB</string>
 		</dict>
-		<key>CA32C044-77FB-4C96-98FA-4582BDD9A872</key>
+		<key>DB0EE927-9350-45D7-AF4B-857C9999D95C</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>F34689A4-1EE0-4739-8BDD-3EAC48371E58</string>
+			<string>70DF72DD-5684-408E-8248-F9E64C19334B</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -814,7 +1729,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -823,7 +1738,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-42-29--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-53-54--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -841,7 +1756,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -852,18 +1767,18 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753327749.76888204</real>
+			<real>753749634.62697196</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>CA32C044-77FB-4C96-98FA-4582BDD9A872</string>
+			<string>DB0EE927-9350-45D7-AF4B-857C9999D95C</string>
 		</dict>
-		<key>CC94F169-C10B-43D7-AD70-B767F7D65ACF</key>
+		<key>F1B1B67F-49BB-4C37-81AD-A1057E148DDD</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>7B9CF83E-6CF7-427E-943E-A127FBCBBD28</string>
+			<string>BDA900FA-E289-4DAD-B39F-DBAD90056D72</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -875,7 +1790,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -884,7 +1799,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-13-21--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_16-03-07--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -902,7 +1817,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -913,18 +1828,79 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753329601.06408703</real>
+			<real>753750187.31175005</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>CC94F169-C10B-43D7-AD70-B767F7D65ACF</string>
+			<string>F1B1B67F-49BB-4C37-81AD-A1057E148DDD</string>
 		</dict>
-		<key>CDA30DD9-D3FC-4063-93C2-A55392BB2DE1</key>
+		<key>F913A04D-0A47-4D93-849C-52B1A0673362</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>BB04AB39-B78A-4F9D-B40C-CD8AD2A8DC7A</string>
+			<string>BE0A3406-9415-4537-AFC9-0536CB11F415</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>17</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-Lab07-2024.11.19_16-16-49--0700.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>9</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753751009.80933905</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>F913A04D-0A47-4D93-849C-52B1A0673362</string>
+		</dict>
+		<key>FC641A1E-7965-45DF-8F64-63CE880235E4</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>A8C7AB0F-E1FD-4015-8251-64C6DAB452A3</string>
 			<key>auxiliaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -936,7 +1912,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>className</key>
 			<string>IDESchemeActionsInvocationRecord</string>
@@ -945,7 +1921,7 @@
 			<key>domainType</key>
 			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
 			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-00-50--0700.xcresult</string>
+			<string>Run-Lab07-2024.11.19_15-43-30--0700.xcresult</string>
 			<key>hasAuxiliaryLog</key>
 			<true/>
 			<key>hasConsoleLog</key>
@@ -963,7 +1939,7 @@
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
+				<integer>8</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Lab07 project</string>
@@ -974,135 +1950,13 @@
 			<key>signature</key>
 			<string>Run Lab07</string>
 			<key>timeStartedRecording</key>
-			<real>753328850.80817103</real>
+			<real>753749010.91695297</real>
 			<key>timeStoppedRecording</key>
 			<real>0.0</real>
 			<key>title</key>
 			<string>Run Lab07</string>
 			<key>uniqueIdentifier</key>
-			<string>CDA30DD9-D3FC-4063-93C2-A55392BB2DE1</string>
-		</dict>
-		<key>E4C26E58-261E-490D-8D1D-C513B05C454C</key>
-		<dict>
-			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>BA4D3DBE-9F13-4EB6-A999-273B07693539</string>
-			<key>auxiliaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
-			</dict>
-			<key>className</key>
-			<string>IDESchemeActionsInvocationRecord</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
-			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_18-42-59--0700.xcresult</string>
-			<key>hasAuxiliaryLog</key>
-			<true/>
-			<key>hasConsoleLog</key>
-			<true/>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>Lab07 project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Lab07</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Run Lab07</string>
-			<key>timeStartedRecording</key>
-			<real>753327779.82733095</real>
-			<key>timeStoppedRecording</key>
-			<real>0.0</real>
-			<key>title</key>
-			<string>Run Lab07</string>
-			<key>uniqueIdentifier</key>
-			<string>E4C26E58-261E-490D-8D1D-C513B05C454C</string>
-		</dict>
-		<key>FF770C10-AB62-450D-8D64-98CD64933D7D</key>
-		<dict>
-			<key>auxiliaryLogUniqueIdentifier</key>
-			<string>BE355C8E-FD1D-419C-BDE2-72ACB9EF1FD2</string>
-			<key>auxiliaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>4</integer>
-			</dict>
-			<key>className</key>
-			<string>IDESchemeActionsInvocationRecord</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
-			<key>fileName</key>
-			<string>Run-Lab07-2024.11.14_19-16-16--0700.xcresult</string>
-			<key>hasAuxiliaryLog</key>
-			<true/>
-			<key>hasConsoleLog</key>
-			<true/>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>2</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>Lab07 project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Lab07</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Run Lab07</string>
-			<key>timeStartedRecording</key>
-			<real>753329776.20204496</real>
-			<key>timeStoppedRecording</key>
-			<real>0.0</real>
-			<key>title</key>
-			<string>Run Lab07</string>
-			<key>uniqueIdentifier</key>
-			<string>FF770C10-AB62-450D-8D64-98CD64933D7D</string>
+			<string>FC641A1E-7965-45DF-8F64-63CE880235E4</string>
 		</dict>
 	</dict>
 </dict>

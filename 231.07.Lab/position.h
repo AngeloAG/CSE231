@@ -19,6 +19,7 @@ class TestOrbital;
 class Acceleration;
 class Velocity;
 class TestEntity;
+class TestShip;
 
 /*********************************************
  * Position
@@ -30,6 +31,7 @@ public:
    friend TestPosition;
    friend TestEntity;
    friend TestOrbital;
+   friend TestShip;
    
    // constructors
    Position() : x(0.0), y(0.0)  { }
