@@ -34,7 +34,8 @@ void Ship::draw(ogstream& ogstream) const
 void Ship::thrust()
 {
    Acceleration a(this->angle, 2.0);
-   move(a, 48);
+   this->vel.add(a, 48);
+   this->isThrust = true;
 }
 
 /*******************************************************************************
@@ -46,7 +47,6 @@ void Ship::input(KeyPress pressed)
    switch (pressed)
    {
    case DOWN:
-      this->isThrust = true;
       thrust();
       break;
    case LEFT:
@@ -62,16 +62,12 @@ void Ship::input(KeyPress pressed)
    }
 }
 
+/*******************************************************************************
+* SHIP :: UPDATE
+*     Ensures flames are properly drawn.
+*******************************************************************************/
 void Ship::update()
 {
-   Acceleration gravityAcceleration = getGravityAcceleration();
-
-   if (isThrust)
-   {
-      Acceleration thrustAcceleration(this->angle, 2.0);
-      gravityAcceleration.add(thrustAcceleration);
-   }
-
-   move(gravityAcceleration, TIME_PER_FRAME);
-   isThrust = false;
+   Orbital::update();
+   this->isThrust = false;
 }

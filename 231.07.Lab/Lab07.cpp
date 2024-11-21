@@ -166,22 +166,7 @@ void callBack(const Interface* pUI, void* p)
    // perform all the game logic
    //
 
-   // rotate the earth
-   pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
-         (TIME_DIALATION / SECONDS_PER_DAY);
-
-   for (auto gps : pDemo->gpsCount)
-   {
-      gps->update();
-   }
-
-   pDemo->hubble->update();
-   pDemo->sputnik->update();
-   pDemo->starlink->update();
-   pDemo->crewDragon->update();
-   pDemo->ship->update();
-
-   //
+      //
    // Input
    //
    if (pUI->isDown())
@@ -201,13 +186,18 @@ void callBack(const Interface* pUI, void* p)
       pDemo->ship->input(SPACE);
    }
 
-
    //
    // draw everything
    //
 
    Position pt;
    ogstream gout(pt);
+
+   // draw a single star
+   for (int i = 0; i < NUMBER_OF_STARS; i++) {
+      gout.drawStar(pDemo->ptStar[i], pDemo->phaseStar[i]);
+      pDemo->phaseStar[i]++;
+   }
 
    // draw satellites
    for (auto gps : pDemo->gpsCount)
@@ -222,15 +212,24 @@ void callBack(const Interface* pUI, void* p)
 
    // draw parts
 
-   // draw a single star
-   for (int i = 0; i < NUMBER_OF_STARS; i ++) {
-      gout.drawStar(pDemo->ptStar[i], pDemo->phaseStar[i]);
-      pDemo->phaseStar[i]++;
-   }
-
    // draw the earth
    pt.setMeters(0.0, 0.0);
    gout.drawEarth(pt, pDemo->angleEarth);
+
+   // rotate the earth
+   pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
+         (TIME_DIALATION / SECONDS_PER_DAY);
+
+   for (auto gps : pDemo->gpsCount)
+   {
+      gps->update();
+   }
+
+   pDemo->hubble->update();
+   pDemo->sputnik->update();
+   pDemo->starlink->update();
+   pDemo->crewDragon->update();
+   pDemo->ship->update();
 }
 
 double Position::metersFromPixels = 40.0;

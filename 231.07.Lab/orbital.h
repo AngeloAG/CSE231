@@ -45,14 +45,14 @@ public:
 
 protected:
    Angle angle;
-   Acceleration getGravityAcceleration() const;
+   Velocity vel;
 
 private:
-   Velocity vel;
    double radius;
    int fragmentCount;
    bool hasCrashed;
 
+   Acceleration getGravityAcceleration() const;
    double getCurrentHeight() const;
    double getGravityDirection() const;
 };
