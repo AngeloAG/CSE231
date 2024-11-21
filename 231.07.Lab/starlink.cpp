@@ -5,7 +5,7 @@
 * STARLINK :: CONSTRUCTOR
 *******************************************************************************/
 Starlink::Starlink(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle) :
+   Velocity& initialVelocity, Angle* initialAngle) :
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
@@ -24,5 +24,5 @@ list<Orbital*>& Starlink::getParts() const
 *******************************************************************************/
 void Starlink::draw(ogstream& ogstream) const
 {
-   ogstream.drawStarlink(*this->pos, this->angle.getDegrees());
+   ogstream.drawStarlink(*this->pos, this->angle->getDegrees());
 }

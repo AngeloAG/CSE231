@@ -47,7 +47,7 @@ public:
       Velocity initialGpsVel1(-3880.0, 0.0);
       double radiusGPS = 10.0;
       int fragmentCountGPS = 10;
-      Angle initalAngleGPS;
+      Angle* initalAngleGPS = new Angle();
       gpsCount.push_back(new GPS(new Position(0.0, 26560000.0), fragmentCountGPS, radiusGPS,
          initialGpsVel1, initalAngleGPS));
 
@@ -80,7 +80,7 @@ public:
       Velocity initialHubbleVel(3100.0, 0.0);
       double radiusHubble     = 10.0;
       int fragmentCountHubble = 0;
-      Angle initalAngleHubble;
+      Angle* initalAngleHubble = new Angle();
       hubble = new Hubble(new Position(0.0, STARTING_HEIGHT_HUBBLE), fragmentCountHubble, radiusHubble,
          initialHubbleVel, initalAngleHubble);
 
@@ -88,7 +88,7 @@ public:
       Velocity initialSputnikVel(2050.0, 2684.68);
       double radiusSputnik     = 4.0;
       int fragmentCountSputnik = 4;
-      Angle initalAngleSputnik;
+      Angle* initalAngleSputnik = new Angle();
       sputnik = new Sputnik(new Position(-36515095.13, STARTING_HEIGHT_SPUTNIK), fragmentCountSputnik, radiusSputnik,
          initialSputnikVel, initalAngleSputnik);
 
@@ -96,7 +96,7 @@ public:
       Velocity initialStarlinkVel(5800.0, 0.0);
       double radiusStarlink     = 6.0;
       int fragmentCountStarlink = 2;
-      Angle initalAngleStarlink;
+      Angle* initalAngleStarlink = new Angle();
       starlink = new Starlink(new Position(0.0, STARTING_HEIGHT_STARLINK), fragmentCountStarlink, radiusStarlink,
          initialStarlinkVel, initalAngleStarlink);
 
@@ -104,7 +104,7 @@ public:
       Velocity initialCrewDragonVel(-7900.0, 0.0);
       double radiusCrewDragon     = 7.0;
       int fragmentCountCrewDragon = 2;
-      Angle initalAngleCrewDragon;
+      Angle* initalAngleCrewDragon = new Angle();
       crewDragon = new CrewDragon(new Position(0.0, STARTING_HEIGHT_CREWDRAGON), fragmentCountCrewDragon, radiusCrewDragon,
          initialCrewDragonVel, initalAngleCrewDragon);
 
@@ -115,7 +115,7 @@ public:
       Velocity initialShipVel(0.0, -2000.0);
       double radiusShip     = 10.0;
       int fragmentCountShip = 2;
-      Angle initalAngleShip;
+      Angle* initalAngleShip = new Angle();
       ship = new Ship(startingPosition, fragmentCountShip, radiusShip,
          initialShipVel, initalAngleShip);
 

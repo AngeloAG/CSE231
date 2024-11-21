@@ -5,7 +5,7 @@
 * SHIP :: CONSTRUCTOR
 *******************************************************************************/
 Ship::Ship(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle) : isThrust(false),
+   Velocity& initialVelocity, Angle* initialAngle) : isThrust(false),
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
@@ -24,7 +24,7 @@ list<Orbital*>& Ship::getParts() const
 *******************************************************************************/
 void Ship::draw(ogstream& ogstream) const
 {
-   ogstream.drawShip(*this->pos, this->angle.getRadians(), this->isThrust);
+   ogstream.drawShip(*this->pos, this->angle->getRadians(), this->isThrust);
 }
 
 /*******************************************************************************
@@ -33,7 +33,7 @@ void Ship::draw(ogstream& ogstream) const
 *******************************************************************************/
 void Ship::thrust()
 {
-   Acceleration a(this->angle, 2.0);
+   Acceleration a(*this->angle, 2.0);
    this->vel.add(a, 48);
    this->isThrust = true;
 }

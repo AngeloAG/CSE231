@@ -65,7 +65,7 @@ public:
     * input:   Nothing.
     * output:  The current angle in radians 0 to 2pi
     *********************************************/
-   double getRadians() const
+   virtual double getRadians() const
    {
       return radians;
    }
@@ -213,4 +213,29 @@ public:
    void reverse()                  { assert(false);        }
    Angle& add(double delta) { assert(false); return *this; }
 };
+
+/*******************************************************************************
+********************************************************************************
+** STUBS FOR TESTING
+********************************************************************************
+*******************************************************************************/
+class StubAngleUp : public DummyAngle
+{
+public:
+   StubAngleUp() : DummyAngle() {};
+   virtual double getRadians()  const { return 0.0; }
+};
  
+class StubAngleRight : public DummyAngle
+{
+public:
+   StubAngleRight() : DummyAngle() {};
+   virtual double getRadians()  const { return M_PI_2; }
+};
+
+class StubAngleDiagonalUpRight : public DummyAngle
+{
+public:
+   StubAngleDiagonalUpRight() : DummyAngle() {};
+   virtual double getRadians()  const { return M_PI_4; }
+};

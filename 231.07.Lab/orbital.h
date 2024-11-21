@@ -32,8 +32,8 @@ class Orbital : public Entity
    
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
-           Velocity& initialVelocity, Angle& initialAngle);
-   ~Orbital()                    {                       }
+           Velocity& initialVelocity, Angle* initialAngle);
+   ~Orbital()                    { delete angle;         }
    double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed;    }
@@ -44,7 +44,7 @@ public:
    virtual void draw(ogstream& ogstream) const {}
 
 protected:
-   Angle angle;
+   Angle* angle;
    Velocity vel;
 
 private:
@@ -75,7 +75,7 @@ class DummyOrbital : public Orbital
 {
 public:
    DummyOrbital(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle& initialAngle): 
+      Velocity& initialVelocity, Angle* initialAngle): 
             Orbital(initialPos, fragmentCount, radius,
                     initialVelocity, initialAngle) {  }
 

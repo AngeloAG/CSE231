@@ -22,7 +22,7 @@ class Starlink : public Orbital
 {
 public:
    Starlink(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle& initialAngle);
+      Velocity& initialVelocity, Angle* initialAngle);
    ~Starlink() { }
 
    virtual list<Orbital*>& getParts()    const;

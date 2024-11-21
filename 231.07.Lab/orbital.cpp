@@ -17,7 +17,7 @@
  * ORBITAL :: CONSTRUCTOR
  *******************************************************************************/
 Orbital::Orbital(Position* initialPos, int fragmentCount, double radius, 
-   Velocity& initialVelocity, Angle& initialAngle): 
+   Velocity& initialVelocity, Angle* initialAngle): 
      Entity(initialPos), vel(initialVelocity), radius(radius), 
      fragmentCount(fragmentCount), hasCrashed(false), angle(initialAngle) {}
 

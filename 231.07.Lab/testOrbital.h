@@ -73,8 +73,8 @@ private:
       Velocity initialVelocity;
       initialVelocity.dx = 9.9;
       initialVelocity.dy = 8.8;
-      Angle initialAngle;
-      initialAngle.radians = 0.0;
+      Angle* initialAngle = new Angle();
+      initialAngle->radians = 0.0;
       double radius = 10.0;
       int fragmentCount = 5;
 
@@ -86,7 +86,7 @@ private:
       assertEquals(orbital.pos->y, 22.2);
       assertEquals(orbital.vel.dx, 9.9);
       assertEquals(orbital.vel.dy, 8.8);
-      assertEquals(orbital.angle.radians, 0.0);
+      assertEquals(orbital.angle->radians, 0.0);
       assertEquals(orbital.radius, 10.0);
       assertEquals(orbital.fragmentCount, 5);
       assertEquals(orbital.hasCrashed, false);
@@ -109,7 +109,7 @@ private:
       // setup
       StubPosition00* initialPosition = new StubPosition00();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -133,7 +133,7 @@ private:
       // setup
       StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -157,7 +157,7 @@ private:
       // setup
       StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -181,7 +181,7 @@ private:
       // setup
       StubPositionX6378010Y0* initialPosition = new StubPositionX6378010Y0();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -205,7 +205,7 @@ private:
       // setup
       StubPositionX0Y6378010* initialPosition = new StubPositionX0Y6378010();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -229,7 +229,7 @@ private:
       // setup
       StubPositionX6378010Y6378010* initialPosition = new StubPositionX6378010Y6378010();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -253,7 +253,7 @@ private:
       // setup
       StubPosition00* initialPosition = new StubPosition00();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -277,7 +277,7 @@ private:
       // setup
       StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -302,7 +302,7 @@ private:
       StubPositionX0YMINUS6378000* initialPosition =
                                    new StubPositionX0YMINUS6378000();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -326,7 +326,7 @@ private:
       // setup
       StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -351,7 +351,7 @@ private:
       StubPositionXMINUS6378000Y0* initialPosition =
                                    new StubPositionXMINUS6378000Y0();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -375,7 +375,7 @@ private:
       // setup
       StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -402,7 +402,7 @@ private:
       // setup
       StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -430,7 +430,7 @@ private:
       StubPositionX6378010Y6378010* initialPosition =
                                     new StubPositionX6378010Y6378010();
       DummyVelocity initialVelocity;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -498,7 +498,8 @@ private:
     * name:    MOVE TO THE RIGHT
     * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
     *          radius 10.0, fragmentCount 0
-    * output:  Pos(1.5, 0.0), Vel(30.0, 0.0) Moved to the right
+    *          Acc(2.0, 0.0) time=1
+    * output:  Pos(2.0, 0.0), Vel(2.0, 0.0) Moved to the right
     *********************************************/
    void move_Right()
    {
@@ -509,23 +510,23 @@ private:
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
 
       Acceleration acc;
-      acc.ddx = 900.0;
+      acc.ddx = 2.0;
       acc.ddy = 0.0;
 
       // exercise
-      orbital.move(acc, 0.033333333);
+      orbital.move(acc, 1.0);
 
       // verify
-      assertEquals(orbital.pos->x, 1.5);
+      assertEquals(orbital.pos->x, 2.0);
       assertEquals(orbital.pos->y, 0.0);
-      assertEquals(orbital.vel.dx, 30.0);
+      assertEquals(orbital.vel.dx, 2.0);
       assertEquals(orbital.vel.dy, 0.0);
       assertEquals(orbital.radius, 10.0);
       assertEquals(orbital.fragmentCount, 0);
@@ -536,7 +537,8 @@ private:
     * name:    MOVE UP
     * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
     *          radius 10.0, fragmentCount 0
-    * output:  Pos(0.0, 1.5), Vel(0.0, 30.0) Moved up
+    *          Acc(0.0, 2.0) time=1
+    * output:  Pos(0.0, 2.0), Vel(0.0, 2.0) Moved up
     *********************************************/
    void move_Up()
    {
@@ -547,7 +549,7 @@ private:
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -555,16 +557,16 @@ private:
 
       Acceleration acc;
       acc.ddx = 0.0;
-      acc.ddy = 900.0;
+      acc.ddy = 2.0;
 
       // exercise
-      orbital.move(acc, 0.033333333);
+      orbital.move(acc, 1.0);
 
       // verify
       assertEquals(orbital.pos->x, 0.0);
-      assertEquals(orbital.pos->y, 1.5);
+      assertEquals(orbital.pos->y, 2.0);
       assertEquals(orbital.vel.dx, 0.0);
-      assertEquals(orbital.vel.dy, 30.0);
+      assertEquals(orbital.vel.dy, 2.0);
       assertEquals(orbital.radius, 10.0);
       assertEquals(orbital.fragmentCount, 0);
       assertEquals(orbital.hasCrashed, false);
@@ -574,7 +576,8 @@ private:
     * name:    MOVE UP AND RIGHT
     * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
     *          radius 10.0, fragmentCount 0
-    * output:  Pos(1.5, 0.0), Vel(30.0, 0.0) Moved to the right
+    *          Acc(2.0, 2.0) time=1
+    * output:  Pos(2.0, 2.0), Vel(2.0, 2.0) Moved to the right
     *********************************************/
    void move_RightAndUp()
    {
@@ -585,24 +588,24 @@ private:
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
 
       Acceleration acc;
-      acc.ddx = 900.0;
-      acc.ddy = 900.0;
+      acc.ddx = 2.0;
+      acc.ddy = 2.0;
 
       // exercise
-      orbital.move(acc, 0.033333333);
+      orbital.move(acc, 1);
 
       // verify
-      assertEquals(orbital.pos->x, 1.5);
-      assertEquals(orbital.pos->y, 1.5);
-      assertEquals(orbital.vel.dx, 30.0);
-      assertEquals(orbital.vel.dy, 30.0);
+      assertEquals(orbital.pos->x, 2.0);
+      assertEquals(orbital.pos->y, 2.0);
+      assertEquals(orbital.vel.dx, 2.0);
+      assertEquals(orbital.vel.dy, 2.0);
       assertEquals(orbital.radius, 10.0);
       assertEquals(orbital.fragmentCount, 0);
       assertEquals(orbital.hasCrashed, false);
@@ -612,6 +615,7 @@ private:
     * name:    MOVE NO WHERE
     * input:   Pos(0.0, 0.0), Vel(0.0, 0.0), Angle(0.0),
     *          radius 10.0, fragmentCount 0
+    *          Acc(0.0, 0.0) time=1
     * output:  Pos(0.0, 0.0), Vel(0.0, 0.0) Not moved
     *********************************************/
    void move_NoMovement()
@@ -623,7 +627,7 @@ private:
       Velocity initialVelocity;
       initialVelocity.dx = 0.0;
       initialVelocity.dy = 0.0;
-      DummyAngle initialAngle;
+      DummyAngle* initialAngle = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -634,7 +638,7 @@ private:
       acc.ddy = 0.0;
 
       // exercise
-      orbital.move(acc, 0.033333333);
+      orbital.move(acc, 1.0);
 
       // verify
       assertEquals(orbital.pos->x, 0.0);
