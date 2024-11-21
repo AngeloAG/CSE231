@@ -636,6 +636,48 @@
 			<key>uniqueIdentifier</key>
 			<string>71A95152-DD4F-4E26-AA01-B7C00B41A8B9</string>
 		</dict>
+		<key>7283DED3-3487-46AE-9D2D-1CD7AED2DE61</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7283DED3-3487-46AE-9D2D-1CD7AED2DE61.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753815152.355232</real>
+			<key>timeStoppedRecording</key>
+			<real>753815153.48255098</real>
+			<key>title</key>
+			<string>Build Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>7283DED3-3487-46AE-9D2D-1CD7AED2DE61</string>
+		</dict>
 		<key>756C3C58-9505-420F-8014-4266B8716C4C</key>
 		<dict>
 			<key>className</key>
@@ -971,6 +1013,48 @@
 			<string>Build Lab07</string>
 			<key>uniqueIdentifier</key>
 			<string>AB2E4A1A-E445-498A-BD36-B484C0BD5983</string>
+		</dict>
+		<key>AB938726-95DA-43B2-9160-57F52E4AC1F2</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>AB938726-95DA-43B2-9160-57F52E4AC1F2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>16</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Lab07 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Lab07</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Lab07</string>
+			<key>timeStartedRecording</key>
+			<real>753815210.54612505</real>
+			<key>timeStoppedRecording</key>
+			<real>753815211.451877</real>
+			<key>title</key>
+			<string>Build Lab07</string>
+			<key>uniqueIdentifier</key>
+			<string>AB938726-95DA-43B2-9160-57F52E4AC1F2</string>
 		</dict>
 		<key>B58598F2-0924-45AF-8AAE-F026C98F9C91</key>
 		<dict>

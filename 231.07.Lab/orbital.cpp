@@ -89,8 +89,8 @@ void Orbital::update()
 *******************************************************************************/
 void Orbital::move(Acceleration& accel, double time)
 {
-   this->vel.add(accel, time);
    this->pos->add(accel, this->vel, time);
+   this->vel.add(accel, time);
 }
 
 /*******************************************************************************
