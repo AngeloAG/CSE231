@@ -5,7 +5,7 @@
 * SPUTNIK :: CONSTRUCTOR
 *******************************************************************************/
 Sputnik::Sputnik(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle) :
+   Velocity& initialVelocity, Angle* initialAngle) :
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
@@ -24,5 +24,5 @@ list<Orbital*>& Sputnik::getParts() const
 *******************************************************************************/
 void Sputnik::draw(ogstream& ogstream) const
 {
-   ogstream.drawSputnik(*this->pos, this->angle.getDegrees());
+   ogstream.drawSputnik(*this->pos, this->angle->getDegrees());
 }

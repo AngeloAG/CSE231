@@ -5,7 +5,7 @@
 * GREW DRAGON :: CONSTRUCTOR
 *******************************************************************************/
 CrewDragon::CrewDragon(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle) :
+   Velocity& initialVelocity, Angle* initialAngle) :
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
@@ -24,5 +24,5 @@ list<Orbital*>& CrewDragon::getParts() const
 *******************************************************************************/
 void CrewDragon::draw(ogstream& ogstream) const
 {
-   ogstream.drawCrewDragon(*this->pos, this->angle.getDegrees());
+   ogstream.drawCrewDragon(*this->pos, this->angle->getDegrees());
 }

@@ -5,7 +5,7 @@
 * Hubble :: CONSTRUCTOR
 *******************************************************************************/
 Hubble::Hubble(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle& initialAngle) :
+   Velocity& initialVelocity, Angle* initialAngle) :
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
@@ -24,5 +24,5 @@ list<Orbital*>& Hubble::getParts() const
 *******************************************************************************/
 void Hubble::draw(ogstream& ogstream) const
 {
-   ogstream.drawHubble(*this->pos, this->angle.getDegrees());
+   ogstream.drawHubble(*this->pos, this->angle->getDegrees());
 }

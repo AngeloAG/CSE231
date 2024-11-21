@@ -28,17 +28,18 @@ class Ship : public Orbital
    
 public:
    Ship(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle& initialAngle);
+      Velocity& initialVelocity, Angle* initialAngle);
    ~Ship() { }
 
    virtual list<Orbital*>& getParts()    const;
    virtual void draw(ogstream& ogstream) const;
    void input(KeyPress pressed);
+   void update() override;
 private:
 
    void thrust();
-   void turn(bool isLeft) {isLeft ? angle.add(-0.1) : angle.add(0.1);}
-
+   void turnLeft()  { angle->add(-0.1); }
+   void turnRight() { angle->add(0.1);  }
    bool isThrust;
 
 };
