@@ -220,6 +220,7 @@ void callBack(const Interface* pUI, void* p)
    pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
          (TIME_DIALATION / SECONDS_PER_DAY);
 
+   // Update everything
    for (auto gps : pDemo->gpsCount)
    {
       gps->update();
