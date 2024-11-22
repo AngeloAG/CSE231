@@ -87,7 +87,7 @@ void Orbital::update()
 * ORBITAL :: MOVE
 *     Actually changes the position of the orbital
 *******************************************************************************/
-void Orbital::move(Acceleration& accel, double time)
+void Orbital::move(const Acceleration& accel, double time)
 {
    this->vel.add(accel, time / 2.0);
    this->pos->add(accel, this->vel, time);

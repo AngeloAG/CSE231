@@ -24,12 +24,12 @@ class Entity {
    friend TestOrbital;
 public:
    Entity(Position* pos): pos(pos) {             }
-   virtual ~Entity()               { delete pos; }
+   virtual ~Entity()               { delete pos; } // Prevent memory leaks
 
    virtual void draw(ogstream& ogstream) const {                 }
    const Position& getPos() const { return *pos;                 }
    void setPos(Position* rhs)     { delete pos; this->pos = rhs; }
 
 protected:
-   Position* pos;   
+   Position* pos;   // For stubs
 };

@@ -33,18 +33,18 @@ class Orbital : public Entity
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
            Velocity& initialVelocity, Angle* initialAngle);
-   ~Orbital()                    { delete angle;         }
+   ~Orbital()                    { delete angle;         } // Prevent memory leaks
    double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed;    }
    virtual void update();
-   void move(Acceleration& accel, double time);
+   void move(const Acceleration& accel, double time);
    void detectCollisions(list<Orbital*>& orbitals);
    virtual list<Orbital*>& getParts() const = 0;
    virtual void draw(ogstream& ogstream) const {}
 
 protected:
-   Angle* angle;
+   Angle* angle; // For stubs
    Velocity vel;
 
 private:
