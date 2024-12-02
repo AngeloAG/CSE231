@@ -39,17 +39,17 @@ public:
    bool crashed()          const { return hasCrashed;    }
    virtual void update();
    void move(const Acceleration& accel, double time);
-   void detectCollisions(list<Orbital*>& orbitals);
+   void detectCollisions(const list<Orbital*>& orbitals);
    virtual list<Orbital*>& getParts() const = 0;
    virtual void draw(ogstream& ogstream) const {}
 
 protected:
    Angle* angle; // For stubs
    Velocity vel;
-
-private:
    double radius;
    int fragmentCount;
+
+private:
    bool hasCrashed;
 
    Acceleration getGravityAcceleration() const;

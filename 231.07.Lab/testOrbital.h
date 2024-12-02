@@ -48,6 +48,12 @@ public:
       move_RightAndUp();
       move_NoMovement();
 
+      detectCollision_BarelyTouchingHorizontal();
+      detectCollision_BarelyTouchingVertical();
+      detectCollision_BarelyTouchingDiagonal();
+      detectCollision_NoTouchingHorizontal();
+      detectCollision_OnTopOfEachOther();
+
       report("Orbital");
    }
 
@@ -648,5 +654,210 @@ private:
       assertEquals(orbital.radius, 10.0);
       assertEquals(orbital.fragmentCount, 0);
       assertEquals(orbital.hasCrashed, false);
+   }  // teardown
+
+   /*********************************************
+    * name:    DETECT COLLISION BARELY TOUCHING HORIZONTAL
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 3189000.0, fragmentCount1 0
+    *          Pos2(6378000.0, 0.0), Vel2(0.0, 0.0), Angle2(0.0),
+    *          radius2 3189000.0, fragmentCount2 0
+    * output:  orbital1 hasCrashed = true; orbital2 hasCrashed = false;
+    *********************************************/
+   void detectCollision_BarelyTouchingHorizontal()
+   {
+      // setup
+      StubPosition00* initialPosition1 = new StubPosition00();
+      DummyVelocity initialVelocity1;
+      DummyAngle* initialAngle1 = new DummyAngle();
+      double radius1 = 3189000.0;
+      int fragmentCount1 = 0;
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
+         initialVelocity1, initialAngle1);
+      orbital1->hasCrashed = false;
+
+      StubPositionX6378000Y0* initialPosition2 = new StubPositionX6378000Y0();
+      DummyVelocity initialVelocity2;
+      DummyAngle* initialAngle2 = new DummyAngle();
+      double radius2 = 3189000.0;
+      int fragmentCount2 = 0;
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
+         initialVelocity2, initialAngle2);
+      orbital2->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital1);
+      orbitals.push_back(orbital2);
+
+      // exercise
+      orbital1->detectCollisions(orbitals);
+
+      // verify
+      assertEquals(orbital1->hasCrashed, true);
+      assertEquals(orbital2->hasCrashed, false);
+   }  // teardown
+
+   /*********************************************
+    * name:    DETECT COLLISION BARELY TOUCHING VERTICAL
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 3189000.0, fragmentCount1 0
+    *          Pos2(0.0, 6378000.0), Vel2(0.0, 0.0), Angle2(0.0),
+    *          radius2 3189000.0, fragmentCount2 0
+    * output:  orbital1 hasCrashed = true; orbital2 hasCrashed = false;
+    *********************************************/
+   void detectCollision_BarelyTouchingVertical()
+   {
+      // setup
+      StubPosition00* initialPosition1 = new StubPosition00();
+      DummyVelocity initialVelocity1;
+      DummyAngle* initialAngle1 = new DummyAngle();
+      double radius1 = 3189000.0;
+      int fragmentCount1 = 0;
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
+         initialVelocity1, initialAngle1);
+      orbital1->hasCrashed = false;
+
+      StubPositionX0Y6378000* initialPosition2 = new StubPositionX0Y6378000();
+      DummyVelocity initialVelocity2;
+      DummyAngle* initialAngle2 = new DummyAngle();
+      double radius2 = 3189000.0;
+      int fragmentCount2 = 0;
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
+         initialVelocity2, initialAngle2);
+      orbital2->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital1);
+      orbitals.push_back(orbital2);
+
+      // exercise
+      orbital1->detectCollisions(orbitals);
+
+      // verify
+      assertEquals(orbital1->hasCrashed, true);
+      assertEquals(orbital2->hasCrashed, false);
+   }  // teardown
+
+   /*********************************************
+    * name:    DETECT COLLISION BARELY TOUCHING DIAGONAL
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 4509935.0, fragmentCount1 0
+    *          Pos2(6378010.0, 6378010.0), Vel2(0.0, 0.0), Angle2(0.0),
+    *          radius2 4509935.0, fragmentCount2 0
+    * output:  orbital1 hasCrashed = true; orbital2 hasCrashed = false;
+    *********************************************/
+   void detectCollision_BarelyTouchingDiagonal()
+   {
+      // setup
+      StubPosition00* initialPosition1 = new StubPosition00();
+      DummyVelocity initialVelocity1;
+      DummyAngle* initialAngle1 = new DummyAngle();
+      double radius1 = 4509935.0;
+      int fragmentCount1 = 0;
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
+         initialVelocity1, initialAngle1);
+      orbital1->hasCrashed = false;
+
+      StubPositionX6378010Y6378010* initialPosition2 = new StubPositionX6378010Y6378010();
+      DummyVelocity initialVelocity2;
+      DummyAngle* initialAngle2 = new DummyAngle();
+      double radius2 = 4509935.0;
+      int fragmentCount2 = 0;
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
+         initialVelocity2, initialAngle2);
+      orbital2->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital1);
+      orbitals.push_back(orbital2);
+
+      // exercise
+      orbital1->detectCollisions(orbitals);
+
+      // verify
+      assertEquals(orbital1->hasCrashed, true);
+      assertEquals(orbital2->hasCrashed, false);
+   }  // teardown
+
+   /*********************************************
+    * name:    DETECT COLLISION NO TOUCHING HORIZONTAL
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 1000.0, fragmentCount1 0
+    *          Pos2(6378000.0, 0.0), Vel2(0.0, 0.0), Angle2(0.0),
+    *          radius2 1000.0, fragmentCount2 0
+    * output:  orbital1 hasCrashed = false; orbital2 hasCrashed = false;
+    *********************************************/
+   void detectCollision_NoTouchingHorizontal()
+   {
+      // setup
+      StubPosition00* initialPosition1 = new StubPosition00();
+      DummyVelocity initialVelocity1;
+      DummyAngle* initialAngle1 = new DummyAngle();
+      double radius1 = 1000.0;
+      int fragmentCount1 = 0;
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
+         initialVelocity1, initialAngle1);
+      orbital1->hasCrashed = false;
+
+      StubPositionX6378000Y0* initialPosition2 = new StubPositionX6378000Y0();
+      DummyVelocity initialVelocity2;
+      DummyAngle* initialAngle2 = new DummyAngle();
+      double radius2 = 1000.0;
+      int fragmentCount2 = 0;
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
+         initialVelocity2, initialAngle2);
+      orbital2->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital1);
+      orbitals.push_back(orbital2);
+
+      // exercise
+      orbital1->detectCollisions(orbitals);
+
+      // verify
+      assertEquals(orbital1->hasCrashed, false);
+      assertEquals(orbital2->hasCrashed, false);
+   }  // teardown
+
+    /*********************************************
+    * name:    DETECT COLLISION ON TOP OF EACH OTHER
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 10.0, fragmentCount1 0
+    *          Pos2(0.0, 0.0), Vel2(0.0, 0.0), Angle2(0.0),
+    *          radius2 10.0, fragmentCount2 0
+    * output:  orbital1 hasCrashed = true; orbital2 hasCrashed = false;
+    *********************************************/
+   void detectCollision_OnTopOfEachOther()
+   {
+      // setup
+      StubPosition00* initialPosition1 = new StubPosition00();
+      DummyVelocity initialVelocity1;
+      DummyAngle* initialAngle1 = new DummyAngle();
+      double radius1 = 10.0;
+      int fragmentCount1 = 0;
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
+         initialVelocity1, initialAngle1);
+      orbital1->hasCrashed = false;
+
+      StubPosition00* initialPosition2 = new StubPosition00();
+      DummyVelocity initialVelocity2;
+      DummyAngle* initialAngle2 = new DummyAngle();
+      double radius2 = 10.0;
+      int fragmentCount2 = 0;
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
+         initialVelocity2, initialAngle2);
+      orbital2->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital1);
+      orbitals.push_back(orbital2);
+
+      // exercise
+      orbital1->detectCollisions(orbitals);
+
+      // verify
+      assertEquals(orbital1->hasCrashed, true);
+      assertEquals(orbital2->hasCrashed, false);
    }  // teardown
 };

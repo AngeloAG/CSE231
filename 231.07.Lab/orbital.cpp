@@ -98,23 +98,26 @@ void Orbital::move(const Acceleration& accel, double time)
 * ORBITAL :: DETECT COLLISIONS
 *     Checks if the orbital has collided with any other orbital in the list
 *******************************************************************************/
-void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
+void Orbital::detectCollisions(const std::list<Orbital*>& orbitals)
 {
    for (auto orbital : orbitals)
    {
-      double distanceBetween = sqrt(((orbital->pos->getMetersX()   -
-                                      this->   pos->getMetersX())  *
-                                     (orbital->pos->getMetersX()   -
-                                      this->   pos->getMetersX())) +
-                                    ((orbital->pos->getMetersY()   -
-                                      this->   pos->getMetersY())  *
-                                     (orbital->pos->getMetersY()   -
-                                      this->pos->getMetersY())));
-
-      double sumOfRadii = this->getRadius() + orbital->getRadius();
-      if (distanceBetween <= sumOfRadii)
+      if (this != orbital) // Make sure we are not comparing to ourselves
       {
-         this->hasCrashed = true;
+         double distanceBetween = sqrt(((orbital->pos->getMetersX()   -
+                                         this->   pos->getMetersX())  *
+                                        (orbital->pos->getMetersX()   -
+                                         this->   pos->getMetersX())) +
+                                       ((orbital->pos->getMetersY()   -
+                                         this->   pos->getMetersY())  *
+                                        (orbital->pos->getMetersY()   -
+                                         this->pos->getMetersY())));
+
+         double sumOfRadii = this->getRadius() + orbital->getRadius();
+         if (distanceBetween <= sumOfRadii)
+         {
+            this->hasCrashed = true;
+         }
       }
    }
 }
