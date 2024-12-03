@@ -13,6 +13,7 @@
 #include "orbital.h"
 
 class Orbital;
+class TestHubble;
 
 /*********************************************
 * Hubble
@@ -20,6 +21,7 @@ class Orbital;
 *********************************************/
 class Hubble : public Orbital
 {
+   friend TestHubble;
 public:
    Hubble();
    Hubble(Position* initialPos, int fragmentCount, double radius,

@@ -21,6 +21,10 @@ class Velocity;
 class TestEntity;
 class TestShip;
 class TestGPS;
+class TestHubble;
+class TestSputnik;
+class TestStarlink;
+class TestCrewDragon;
 
 /*********************************************
  * Position
@@ -34,6 +38,10 @@ public:
    friend TestOrbital;
    friend TestShip;
    friend TestGPS;
+   friend TestHubble;
+   friend TestSputnik;
+   friend TestStarlink;
+   friend TestCrewDragon;
    
    // constructors
    Position() : x(0.0), y(0.0)  { }

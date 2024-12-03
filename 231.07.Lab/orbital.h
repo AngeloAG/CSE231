@@ -21,6 +21,10 @@ using std::list;
 class TestOrbital;
 class TestShip;
 class TestGPS;
+class TestHubble;
+class TestSputnik;
+class TestStarlink;
+class TestCrewDragon;
 
 /*********************************************
 * Orbital
@@ -31,6 +35,10 @@ class Orbital : public Entity
    friend TestOrbital;
    friend TestShip;
    friend TestGPS;
+   friend TestHubble;
+   friend TestSputnik;
+   friend TestStarlink;
+   friend TestCrewDragon;
    
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 

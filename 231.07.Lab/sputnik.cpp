@@ -15,7 +15,7 @@
 * Sputnik :: DEFAULT CONSTRUCTOR
 *******************************************************************************/
 Sputnik::Sputnik() :
-   Orbital(new Position(-36515095.13, STARTING_HEIGHT_SPUTNIK), 4, 4.0,
+   Orbital(new Position(STARTING_HEIGHT_SPUTNIK_X, STARTING_HEIGHT_SPUTNIK_Y), 4, 4.0,
       new Velocity(2050.0, 2684.68), new Angle()) {}
 
 /*******************************************************************************

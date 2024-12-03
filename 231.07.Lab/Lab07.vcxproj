@@ -176,7 +176,6 @@
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
     <ClInclude Include="testEntity.h" />
-    <ClInclude Include="testGPS.h" />
     <ClInclude Include="testOrbital.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testShip.h" />

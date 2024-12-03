@@ -16,8 +16,8 @@
 
 
 /*********************************************
-* TEST ORBITAL
-* Unit tests for orbital
+* TEST SHIP
+* Unit tests for ship
 *********************************************/
 class TestShip : public UnitTest
 {
