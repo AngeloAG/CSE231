@@ -21,8 +21,9 @@ class Orbital;
 class Hubble : public Orbital
 {
 public:
+   Hubble();
    Hubble(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle* initialAngle);
+      Velocity* initialVelocity, Angle* initialAngle);
    ~Hubble() { }
 
    virtual list<Orbital*>& getParts()    const;

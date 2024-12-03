@@ -143,6 +143,7 @@
     <ClCompile Include="angle.cpp" />
     <ClCompile Include="crewDragon.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="GPS.cpp" />
     <ClCompile Include="hubble.cpp" />
     <ClCompile Include="Lab07.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="crewDragon.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="GPS.h" />
     <ClInclude Include="hubble.h" />
     <ClInclude Include="keyPress.h" />
@@ -174,6 +176,7 @@
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
     <ClInclude Include="testEntity.h" />
+    <ClInclude Include="testGPS.h" />
     <ClInclude Include="testOrbital.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testShip.h" />

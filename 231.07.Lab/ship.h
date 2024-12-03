@@ -27,8 +27,9 @@ class Ship : public Orbital
    friend TestShip;
    
 public:
+   Ship();
    Ship(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle* initialAngle);
+      Velocity* initialVelocity, Angle* initialAngle);
    ~Ship() { }
 
    virtual list<Orbital*>& getParts()    const;

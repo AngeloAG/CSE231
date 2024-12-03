@@ -13,6 +13,7 @@
 #include "orbital.h"
 
 class Orbital;
+class TestGPS;
 
 /*********************************************
 * GPS
@@ -20,9 +21,11 @@ class Orbital;
 *********************************************/
 class GPS : public Orbital
 {
+   friend TestGPS;
 public:
+   GPS(int gpsId);
    GPS(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle* initialAngle);
+      Velocity* initialVelocity, Angle* initialAngle);
    ~GPS() { }
 
    virtual list<Orbital*>& getParts()    const;

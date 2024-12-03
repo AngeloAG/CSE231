@@ -12,10 +12,21 @@
 #include "ship.h"
 
 /*******************************************************************************
+* SHIP :: DEFAULT CONSTRUCTOR
+*******************************************************************************/
+Ship::Ship() :
+   Orbital(new Position(), 0, 10.0,
+      new Velocity(0.0, -2000.0), new Angle()), isThrust(false) 
+{
+   this->pos->setPixelsX(-450);
+   this->pos->setPixelsY(450);
+}
+
+/*******************************************************************************
 * SHIP :: CONSTRUCTOR
 *******************************************************************************/
 Ship::Ship(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle* initialAngle) : isThrust(false),
+   Velocity* initialVelocity, Angle* initialAngle) : isThrust(false),
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
@@ -44,7 +55,7 @@ void Ship::draw(ogstream& ogstream) const
 void Ship::thrust()
 {
    Acceleration a(*this->angle, 2.0);
-   this->vel.add(a, 48);
+   this->vel->add(a, 48);
    this->isThrust = true;
 }
 

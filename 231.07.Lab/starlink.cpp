@@ -11,10 +11,17 @@
 #include "starlink.h"
 
 /*******************************************************************************
+* Starlink :: DEFAULT CONSTRUCTOR
+*******************************************************************************/
+Starlink::Starlink() :
+   Orbital(new Position(0.0, STARTING_HEIGHT_STARLINK), 2, 6.0,
+      new Velocity(5800.0, 0.0), new Angle()) {}
+
+/*******************************************************************************
 * STARLINK :: CONSTRUCTOR
 *******************************************************************************/
 Starlink::Starlink(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle* initialAngle) :
+   Velocity* initialVelocity, Angle* initialAngle) :
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************

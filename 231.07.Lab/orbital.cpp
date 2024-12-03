@@ -17,7 +17,7 @@
  * ORBITAL :: CONSTRUCTOR
  *******************************************************************************/
 Orbital::Orbital(Position* initialPos, int fragmentCount, double radius, 
-   Velocity& initialVelocity, Angle* initialAngle): 
+   Velocity* initialVelocity, Angle* initialAngle): 
      Entity(initialPos), vel(initialVelocity), radius(radius), 
      fragmentCount(fragmentCount), hasCrashed(false), angle(initialAngle) {}
 
@@ -89,32 +89,35 @@ void Orbital::update()
 *******************************************************************************/
 void Orbital::move(const Acceleration& accel, double time)
 {
-   this->vel.add(accel, time / 2.0);
-   this->pos->add(accel, this->vel, time);
-   this->vel.add(accel, time / 2.0);
+   this->vel->add(accel, time / 2.0);
+   this->pos->add(accel, *this->vel, time);
+   this->vel->add(accel, time / 2.0);
 }
 
 /*******************************************************************************
 * ORBITAL :: DETECT COLLISIONS
 *     Checks if the orbital has collided with any other orbital in the list
 *******************************************************************************/
-void Orbital::detectCollisions(std::list<Orbital*>& orbitals)
+void Orbital::detectCollisions(const std::list<Orbital*>& orbitals)
 {
    for (auto orbital : orbitals)
    {
-      double distanceBetween = sqrt(((orbital->pos->getMetersX()   -
-                                      this->   pos->getMetersX())  *
-                                     (orbital->pos->getMetersX()   -
-                                      this->   pos->getMetersX())) +
-                                    ((orbital->pos->getMetersY()   -
-                                      this->   pos->getMetersY())  *
-                                     (orbital->pos->getMetersY()   -
-                                      this->pos->getMetersY())));
-
-      double sumOfRadii = this->getRadius() + orbital->getRadius();
-      if (distanceBetween <= sumOfRadii)
+      if (this != orbital) // Make sure we are not comparing to ourselves
       {
-         this->hasCrashed = true;
+         double distanceBetween = sqrt(((orbital->pos->getMetersX()   -
+                                         this->   pos->getMetersX())  *
+                                        (orbital->pos->getMetersX()   -
+                                         this->   pos->getMetersX())) +
+                                       ((orbital->pos->getMetersY()   -
+                                         this->   pos->getMetersY())  *
+                                        (orbital->pos->getMetersY()   -
+                                         this->pos->getMetersY())));
+
+         double sumOfRadii = this->getRadius() + orbital->getRadius();
+         if (distanceBetween <= sumOfRadii)
+         {
+            this->hasCrashed = true;
+         }
       }
    }
 }
