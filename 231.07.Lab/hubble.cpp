@@ -1,16 +1,16 @@
 
 #include "hubble.h"
-
-Hubble::Hubble(): Orbital(new Position(0.0, STARTING_HEIGHT_HUBBLE), 0, 10.0, Velocity(3100.0, 0.0), new Angle())
-{
-   ;
-}
+//
+//Hubble::Hubble(): Orbital(new Position(0.0, STARTING_HEIGHT_HUBBLE), 0, 10.0, Velocity(3100.0, 0.0), new Angle())
+//{
+//   ;
+//}
 
 /*******************************************************************************
 * Hubble :: CONSTRUCTOR
 *******************************************************************************/
 Hubble::Hubble(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle* initialAngle) :
+   Velocity* initialVelocity, Angle* initialAngle) :
    Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
 
 /*******************************************************************************

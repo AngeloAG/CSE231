@@ -17,7 +17,7 @@
  * ORBITAL :: CONSTRUCTOR
  *******************************************************************************/
 Orbital::Orbital(Position* initialPos, int fragmentCount, double radius, 
-   Velocity& initialVelocity, Angle* initialAngle): 
+   Velocity* initialVelocity, Angle* initialAngle): 
      Entity(initialPos), vel(initialVelocity), radius(radius), 
      fragmentCount(fragmentCount), hasCrashed(false), angle(initialAngle) {}
 
@@ -89,9 +89,9 @@ void Orbital::update()
 *******************************************************************************/
 void Orbital::move(const Acceleration& accel, double time)
 {
-   this->vel.add(accel, time / 2.0);
-   this->pos->add(accel, this->vel, time);
-   this->vel.add(accel, time / 2.0);
+   this->vel->add(accel, time / 2.0);
+   this->pos->add(accel, *this->vel, time);
+   this->vel->add(accel, time / 2.0);
 }
 
 /*******************************************************************************

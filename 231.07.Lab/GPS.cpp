@@ -5,7 +5,7 @@
 * GPS :: CONSTRUCTOR
 *******************************************************************************/
 GPS::GPS(Position* initialPos, int fragmentCount, double radius,
-   Velocity& initialVelocity, Angle* initialAngle): 
+   Velocity* initialVelocity, Angle* initialAngle): 
      Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle){}
 
 /*******************************************************************************

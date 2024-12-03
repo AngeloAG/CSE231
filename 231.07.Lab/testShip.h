@@ -51,9 +51,9 @@ private:
    void thrust_FromZeroUp()
    {  // setup
       Position* initialPosition = new StubPosition00();
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
+      Velocity* initialVelocity = new Velocity();
+      initialVelocity->dx = 0.0;
+      initialVelocity->dy = 0.0;
       StubAngleUp* initialAngle = new StubAngleUp();
       double radius = 10.0;
       int fragmentCount = 0;
@@ -67,8 +67,8 @@ private:
       // verify
       assertEquals(ship.pos->x, 0.0);
       assertEquals(ship.pos->y, 0.0);
-      assertEquals(ship.vel.dx, 0.0);
-      assertEquals(ship.vel.dy, 96.0);
+      assertEquals(ship.vel->dx, 0.0);
+      assertEquals(ship.vel->dy, 96.0);
       assertEquals(ship.isThrust, true);
    }
 
@@ -82,9 +82,9 @@ private:
    void thrust_FromZeroRight()
    {  // setup
       Position* initialPosition = new StubPosition00();
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
+      Velocity* initialVelocity = new Velocity();
+      initialVelocity->dx = 0.0;
+      initialVelocity->dy = 0.0;
       StubAngleRight* initialAngle = new StubAngleRight();
       double radius = 10.0;
       int fragmentCount = 0;
@@ -98,8 +98,8 @@ private:
       // verify
       assertEquals(ship.pos->x, 0.0);
       assertEquals(ship.pos->y, 0.0);
-      assertEquals(ship.vel.dx, 96.0);
-      assertEquals(ship.vel.dy, 0.0);
+      assertEquals(ship.vel->dx, 96.0);
+      assertEquals(ship.vel->dy, 0.0);
       assertEquals(ship.isThrust, true);
    }
 
@@ -113,9 +113,9 @@ private:
    void thrust_FromZeroUpRight()
    {  // setup
       Position* initialPosition = new StubPosition00();
-      Velocity initialVelocity;
-      initialVelocity.dx = 0.0;
-      initialVelocity.dy = 0.0;
+      Velocity* initialVelocity = new Velocity();
+      initialVelocity->dx = 0.0;
+      initialVelocity->dy = 0.0;
       StubAngleDiagonalUpRight* initialAngle = new StubAngleDiagonalUpRight();
       double radius = 10.0;
       int fragmentCount = 0;
@@ -129,8 +129,8 @@ private:
       // verify
       assertEquals(ship.pos->x, 0.0);
       assertEquals(ship.pos->y, 0.0);
-      assertEquals(ship.vel.dx, 67.8822);
-      assertEquals(ship.vel.dy, 67.8822);
+      assertEquals(ship.vel->dx, 67.8822);
+      assertEquals(ship.vel->dy, 67.8822);
       assertEquals(ship.isThrust, true);
    }
 
@@ -144,9 +144,9 @@ private:
    void thrust_MovingBackwardsStop()
    {  // setup
       Position* initialPosition = new StubPosition00();
-      Velocity initialVelocity;
-      initialVelocity.dx = -67.8822;
-      initialVelocity.dy = -67.8822;
+      Velocity* initialVelocity = new Velocity();
+      initialVelocity->dx = -67.8822;
+      initialVelocity->dy = -67.8822;
       StubAngleDiagonalUpRight* initialAngle = new StubAngleDiagonalUpRight();
       double radius = 10.0;
       int fragmentCount = 0;
@@ -160,8 +160,8 @@ private:
       // verify
       assertEquals(ship.pos->x, 0.0);
       assertEquals(ship.pos->y, 0.0);
-      assertEquals(ship.vel.dx, 0.0);
-      assertEquals(ship.vel.dy, 0.0);
+      assertEquals(ship.vel->dx, 0.0);
+      assertEquals(ship.vel->dy, 0.0);
       assertEquals(ship.isThrust, true);
    }
 
@@ -176,7 +176,7 @@ private:
       StubPosition00* initialPosition = new StubPosition00();
       double radius     = 10.0;
       int fragmentCount = 0;
-      DummyVelocity initialVelocity;
+      DummyVelocity* initialVelocity = new DummyVelocity();
       Angle* initialAngle = new Angle();
       initialAngle->radians = 1.0;
       Ship ship(initialPosition, fragmentCount, radius,
@@ -187,10 +187,6 @@ private:
 
       // Verify
       assertEquals(ship.angle->radians, 0.9);
-      assertEquals(ship.pos->x, 0.0);
-      assertEquals(ship.pos->y, 0.0);
-      assertEquals(ship.vel.dx, 0.0);
-      assertEquals(ship.vel.dy, 0.0);
       assertEquals(ship.radius, 10.0);
       assertEquals(ship.fragmentCount, 0);
    }  // Teardown
@@ -206,7 +202,7 @@ private:
       StubPosition00* initialPosition = new StubPosition00();
       double radius = 10.0;
       int fragmentCount = 0;
-      DummyVelocity initialVelocity;
+      DummyVelocity* initialVelocity = new DummyVelocity();
       Angle* initialAngle = new Angle();
       initialAngle->radians = 1.0;
       Ship ship(initialPosition, fragmentCount, radius,
@@ -217,10 +213,6 @@ private:
 
       // Verify
       assertEquals(ship.angle->radians, 1.1);
-      assertEquals(ship.pos->x, 0.0);
-      assertEquals(ship.pos->y, 0.0);
-      assertEquals(ship.vel.dx, 0.0);
-      assertEquals(ship.vel.dy, 0.0);
       assertEquals(ship.radius, 10.0);
       assertEquals(ship.fragmentCount, 0);
    }  // Teardown

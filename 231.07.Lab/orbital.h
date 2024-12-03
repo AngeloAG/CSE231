@@ -32,7 +32,7 @@ class Orbital : public Entity
    
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
-           Velocity& initialVelocity, Angle* initialAngle);
+           Velocity* initialVelocity, Angle* initialAngle);
    ~Orbital()                    { delete angle;         } // Prevent memory leaks
    double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
@@ -45,7 +45,7 @@ public:
 
 protected:
    Angle* angle; // For stubs
-   Velocity vel;
+   Velocity* vel;
    double radius;
    int fragmentCount;
 
@@ -75,7 +75,7 @@ class DummyOrbital : public Orbital
 {
 public:
    DummyOrbital(Position* initialPos, int fragmentCount, double radius,
-      Velocity& initialVelocity, Angle* initialAngle): 
+      Velocity* initialVelocity, Angle* initialAngle): 
             Orbital(initialPos, fragmentCount, radius,
                     initialVelocity, initialAngle) {  }
 

@@ -29,13 +29,13 @@ class Game
 public:
    Game();
    ~Game() { } // Prevent memory leaks
-   void update();
-   void draw() const;
+  /* void update();
+   void draw() const;*/
 
 private:
-   list<Orbital*> orbitals;
-   Entity stars[NUMBER_OF_STARS];
-   Ship* ship;
+   //list<Orbital*> orbitals;
+   //Entity stars[NUMBER_OF_STARS];
+   //Ship* ship;
 
-   void createBullet();
+   /*void createBullet();*/
 };
