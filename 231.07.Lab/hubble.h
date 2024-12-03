@@ -21,7 +21,7 @@ class Orbital;
 class Hubble : public Orbital
 {
 public:
-   //Hubble();
+   Hubble();
    Hubble(Position* initialPos, int fragmentCount, double radius,
       Velocity* initialVelocity, Angle* initialAngle);
    ~Hubble() { }

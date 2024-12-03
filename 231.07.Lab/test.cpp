@@ -15,6 +15,7 @@
 #include "testEntity.h"
 #include "testOrbital.h"
 #include "testShip.h"
+#include "testGPS.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -42,4 +43,5 @@ void testRunner()
    TestEntity().run();
    TestOrbital().run();
    TestShip().run();
+   TestGPS().run();
 }

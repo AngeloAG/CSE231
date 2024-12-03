@@ -21,6 +21,7 @@ class Orbital;
 class Starlink : public Orbital
 {
 public:
+   Starlink();
    Starlink(Position* initialPos, int fragmentCount, double radius,
       Velocity* initialVelocity, Angle* initialAngle);
    ~Starlink() { }

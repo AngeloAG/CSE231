@@ -43,81 +43,16 @@ public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight), angleEarth(0.0)
    {
-      // GPS 1
-      Velocity* initialGpsVel1 = new Velocity(-3880.0, 0.0);
-      double radiusGPS = 10.0;
-      int fragmentCountGPS = 10;
-      Angle* initalAngleGPS = new Angle();
-      gpsCount.push_back(new GPS(new Position(0.0, 26560000.0), fragmentCountGPS, radiusGPS,
-         initialGpsVel1, initalAngleGPS));
+      for (int i = 1; i < 7; i++)
+      {
+         gpsCount.push_back(new GPS(i));
+      }
 
-      // GPS 2
-      Velocity* initialGpsVel2 = new Velocity(-1940.0, 3360.18);
-      gpsCount.push_back(new GPS(new Position(23001634.72, 13280000.0), fragmentCountGPS, radiusGPS,
-         initialGpsVel2, initalAngleGPS));
-
-      // GPS 3
-      Velocity* initialGpsVel3 = new Velocity(1940.0, 3360.18);
-      gpsCount.push_back(new GPS(new Position(23001634.72, -13280000.0), fragmentCountGPS, radiusGPS,
-         initialGpsVel3, initalAngleGPS));
-
-      // GPS 4
-      Velocity* initialGpsVel4 = new Velocity(3880.0, 0.0);
-      gpsCount.push_back(new GPS(new Position(0.0, -26560000.0), fragmentCountGPS, radiusGPS,
-         initialGpsVel4, initalAngleGPS));
-
-      // GPS 5
-      Velocity* initialGpsVel5 = new Velocity(1940.0, -3360.18);
-      gpsCount.push_back(new GPS(new Position(-23001634.72, -13280000.0), fragmentCountGPS, radiusGPS,
-         initialGpsVel5, initalAngleGPS));
-
-      // GPS 6
-      Velocity* initialGpsVel6 = new Velocity(-1940.0, -3360.18);
-      gpsCount.push_back(new GPS(new Position(-23001634.72, 13280000.0), fragmentCountGPS, radiusGPS,
-         initialGpsVel6, initalAngleGPS));
-
-      // HUBBLE
-      Velocity* initialHubbleVel = new Velocity(3100.0, 0.0);
-      double radiusHubble     = 10.0;
-      int fragmentCountHubble = 0;
-      Angle* initalAngleHubble = new Angle();
-      hubble = new Hubble(new Position(0.0, STARTING_HEIGHT_HUBBLE), fragmentCountHubble, radiusHubble,
-         initialHubbleVel, initalAngleHubble);
-
-      // SPUTNIK
-      Velocity* initialSputnikVel = new Velocity(2050.0, 2684.68);
-      double radiusSputnik     = 4.0;
-      int fragmentCountSputnik = 4;
-      Angle* initalAngleSputnik = new Angle();
-      sputnik = new Sputnik(new Position(-36515095.13, STARTING_HEIGHT_SPUTNIK), fragmentCountSputnik, radiusSputnik,
-         initialSputnikVel, initalAngleSputnik);
-
-      // STARLINK
-      Velocity* initialStarlinkVel = new Velocity(5800.0, 0.0);
-      double radiusStarlink     = 6.0;
-      int fragmentCountStarlink = 2;
-      Angle* initalAngleStarlink = new Angle();
-      starlink = new Starlink(new Position(0.0, STARTING_HEIGHT_STARLINK), fragmentCountStarlink, radiusStarlink,
-         initialStarlinkVel, initalAngleStarlink);
-
-      // CREW DRAGON
-      Velocity* initialCrewDragonVel = new Velocity(-7900.0, 0.0);
-      double radiusCrewDragon     = 7.0;
-      int fragmentCountCrewDragon = 2;
-      Angle* initalAngleCrewDragon = new Angle();
-      crewDragon = new CrewDragon(new Position(0.0, STARTING_HEIGHT_CREWDRAGON), fragmentCountCrewDragon, radiusCrewDragon,
-         initialCrewDragonVel, initalAngleCrewDragon);
-
-      // SHIP
-      Position* startingPosition = new Position();
-      startingPosition->setPixelsX(-450);
-      startingPosition->setPixelsY(450);
-      Velocity* initialShipVel = new Velocity(0.0, -2000.0);
-      double radiusShip     = 10.0;
-      int fragmentCountShip = 2;
-      Angle* initalAngleShip = new Angle();
-      ship = new Ship(startingPosition, fragmentCountShip, radiusShip,
-         initialShipVel, initalAngleShip);
+      hubble = new Hubble();
+      sputnik = new Sputnik();
+      starlink = new Starlink();
+      crewDragon = new CrewDragon();
+      ship = new Ship();
 
       // EARTH
       angleEarth = 0.0;

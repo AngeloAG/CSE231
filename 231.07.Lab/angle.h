@@ -21,6 +21,7 @@ class TestAcceleration;
 class TestAngle;
 class TestOrbital;
 class TestShip;
+class TestGPS;
 
 /************************************
  * ANGLE
@@ -33,6 +34,7 @@ public:
    friend TestAngle;
    friend TestOrbital;
    friend TestShip;
+   friend TestGPS;
 
    // Constructors
    //Default constructor 

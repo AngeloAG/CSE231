@@ -1,10 +1,12 @@
 
 #include "hubble.h"
-//
-//Hubble::Hubble(): Orbital(new Position(0.0, STARTING_HEIGHT_HUBBLE), 0, 10.0, Velocity(3100.0, 0.0), new Angle())
-//{
-//   ;
-//}
+
+/*******************************************************************************
+* Hubble :: DEFAULT CONSTRUCTOR
+*******************************************************************************/
+Hubble::Hubble() : 
+   Orbital(new Position(0.0, STARTING_HEIGHT_HUBBLE), 0, 10.0, 
+      new Velocity(3100.0, 0.0), new Angle()) {}
 
 /*******************************************************************************
 * Hubble :: CONSTRUCTOR

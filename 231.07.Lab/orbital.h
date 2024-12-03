@@ -20,6 +20,7 @@ using std::list;
 
 class TestOrbital;
 class TestShip;
+class TestGPS;
 
 /*********************************************
 * Orbital
@@ -29,11 +30,12 @@ class Orbital : public Entity
 {
    friend TestOrbital;
    friend TestShip;
+   friend TestGPS;
    
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
            Velocity* initialVelocity, Angle* initialAngle);
-   ~Orbital()                    { delete angle;         } // Prevent memory leaks
+   ~Orbital()                    { delete angle; delete vel; } // Prevent memory leaks
    double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed;    }
@@ -46,10 +48,10 @@ public:
 protected:
    Angle* angle; // For stubs
    Velocity* vel;
-   double radius;
-   int fragmentCount;
 
 private:
+   double radius;
+   int fragmentCount;
    bool hasCrashed;
 
    Acceleration getGravityAcceleration() const;

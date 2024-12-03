@@ -2,6 +2,17 @@
 #include "ship.h"
 
 /*******************************************************************************
+* SHIP :: DEFAULT CONSTRUCTOR
+*******************************************************************************/
+Ship::Ship() :
+   Orbital(new Position(), 0, 10.0,
+      new Velocity(0.0, -2000.0), new Angle()), isThrust(false) 
+{
+   this->pos->setPixelsX(-450);
+   this->pos->setPixelsY(450);
+}
+
+/*******************************************************************************
 * SHIP :: CONSTRUCTOR
 *******************************************************************************/
 Ship::Ship(Position* initialPos, int fragmentCount, double radius,

@@ -21,6 +21,7 @@ class Orbital;
 class CrewDragon : public Orbital
 {
 public:
+   CrewDragon(); 
    CrewDragon(Position* initialPos, int fragmentCount, double radius,
       Velocity* initialVelocity, Angle* initialAngle);
    ~CrewDragon() { }
