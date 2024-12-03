@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Source File:
+ *    GPS
+ * Author:
+ *    Jacob Mower
+ *    Angelo Arellano Gaona
+ *    Connor Hopkins
+ * Summary:
+ *    GPS class
+ ************************************************************************/
 
 #include "GPS.h"
 

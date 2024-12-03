@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Source File:
+ *    SPUTNIK
+ * Author:
+ *    Jacob Mower
+ *    Angelo Arellano Gaona
+ *    Connor Hopkins
+ * Summary:
+ *    Sputnik class
+ ************************************************************************/
 
 #include "sputnik.h"
 

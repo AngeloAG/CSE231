@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Source File:
+ *    Ship
+ * Author:
+ *    Jacob Mower
+ *    Angelo Arellano Gaona
+ *    Connor Hopkins
+ * Summary:
+ *    Ship class
+ ************************************************************************/
 
 #include "ship.h"
 

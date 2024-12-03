@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Source File:
+ *    Hubble
+ * Author:
+ *    Jacob Mower
+ *    Angelo Arellano Gaona
+ *    Connor Hopkins
+ * Summary:
+ *    Hubble Class
+ ************************************************************************/
 
 #include "hubble.h"
 

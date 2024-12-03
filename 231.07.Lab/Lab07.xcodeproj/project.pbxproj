@@ -48,7 +48,8 @@
 		F3F5B37D2CED47C400C03BD1 /* sputnik.h in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B3702CED47C400C03BD1 /* sputnik.h */; };
 		F3F5B37E2CED47C400C03BD1 /* crewDragon.h in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B3712CED47C400C03BD1 /* crewDragon.h */; };
 		F3F5B37F2CED47C400C03BD1 /* keyPress.h in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B3722CED47C400C03BD1 /* keyPress.h */; };
-		F3F5B3872CED51A900C03BD1 /* testShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B3852CED51A900C03BD1 /* testShip.cpp */; };
+		F3F5B3882CEFFFC600C03BD1 /* testShip.h in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B3862CED51A900C03BD1 /* testShip.h */; };
+		F3F5B38A2CF0030500C03BD1 /* GPS.h in Sources */ = {isa = PBXBuildFile; fileRef = F3F5B3892CF0030500C03BD1 /* GPS.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,8 +108,8 @@
 		F3F5B3702CED47C400C03BD1 /* sputnik.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sputnik.h; sourceTree = "<group>"; };
 		F3F5B3712CED47C400C03BD1 /* crewDragon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crewDragon.h; sourceTree = "<group>"; };
 		F3F5B3722CED47C400C03BD1 /* keyPress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyPress.h; sourceTree = "<group>"; };
-		F3F5B3852CED51A900C03BD1 /* testShip.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testShip.cpp; sourceTree = "<group>"; };
 		F3F5B3862CED51A900C03BD1 /* testShip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testShip.h; sourceTree = "<group>"; };
+		F3F5B3892CF0030500C03BD1 /* GPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +128,7 @@
 		C11C7E8D2578098A00EA4B2E = {
 			isa = PBXGroup;
 			children = (
+				F3F5B3892CF0030500C03BD1 /* GPS.h */,
 				F3F5B3672CED47C400C03BD1 /* constants.h */,
 				F3F5B36D2CED47C400C03BD1 /* crewDragon.cpp */,
 				F3F5B3712CED47C400C03BD1 /* crewDragon.h */,
@@ -136,7 +138,6 @@
 				F3F5B3722CED47C400C03BD1 /* keyPress.h */,
 				F3F5B36F2CED47C400C03BD1 /* orbital.cpp */,
 				F3F5B3682CED47C400C03BD1 /* ship.cpp */,
-				F3F5B3852CED51A900C03BD1 /* testShip.cpp */,
 				F3F5B3862CED51A900C03BD1 /* testShip.h */,
 				F3F5B3662CED47C400C03BD1 /* ship.h */,
 				F3F5B36A2CED47C400C03BD1 /* sputnik.cpp */,
@@ -247,6 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F5B38A2CF0030500C03BD1 /* GPS.h in Sources */,
+				F31090D12CE6D5BD005DA3E8 /* orbital.cpp in Sources */,
+				F3F5B3882CEFFFC600C03BD1 /* testShip.h in Sources */,
 				F3F5B3732CED47C400C03BD1 /* hubble.h in Sources */,
 				F3F5B3742CED47C400C03BD1 /* ship.h in Sources */,
 				F3F5B3752CED47C400C03BD1 /* constants.h in Sources */,
@@ -257,14 +261,12 @@
 				F3F5B37A2CED47C400C03BD1 /* GPS.cpp in Sources */,
 				F3F5B37B2CED47C400C03BD1 /* crewDragon.cpp in Sources */,
 				F3F5B37C2CED47C400C03BD1 /* starlink.h in Sources */,
-				F31090D12CE6D5BD005DA3E8 /* orbital.cpp in Sources */,
 				F3F5B37D2CED47C400C03BD1 /* sputnik.h in Sources */,
 				F3F5B37E2CED47C400C03BD1 /* crewDragon.h in Sources */,
 				F3F5B37F2CED47C400C03BD1 /* keyPress.h in Sources */,
 				F345ED6D2CE6DD5500AFA3C4 /* testOrbital.h in Sources */,
 				F31090D22CE6D5BD005DA3E8 /* orbital.h in Sources */,
 				F3345B212CE2D29500CDC002 /* entity.h in Sources */,
-				F3F5B3872CED51A900C03BD1 /* testShip.cpp in Sources */,
 				F3345B222CE2D29500CDC002 /* testEntity.h in Sources */,
 				F392FED72CE2D179004385B6 /* acceleration.h in Sources */,
 				F392FED82CE2D179004385B6 /* angle.h in Sources */,

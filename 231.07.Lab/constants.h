@@ -1,3 +1,14 @@
+/***********************************************************************
+ * Header File:
+ *    Constants
+ * Author:
+ *    Angelo Arellano
+ *    Connor Hopkins
+ *    Jacob Mower
+ * Summary:
+ *    All the constants for the program
+ ************************************************************************/
+
 #pragma once
 
 const double FRAME_RATE      = 30.0;
