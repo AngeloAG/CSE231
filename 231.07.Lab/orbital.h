@@ -47,11 +47,14 @@ public:
    double getRadius()      const { return radius;        }
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed;    }
-   virtual void update();
+
    void move(const Acceleration& accel, double time);
    void detectCollisions(const list<Orbital*>& orbitals);
-   virtual list<Orbital*>& getParts() const = 0;
+   void destroy(list<Orbital*>& orbitals);
+
+   virtual list<Orbital*> getParts() const = 0;
    virtual void draw(ogstream& ogstream) const {}
+   virtual void update();
 
 protected:
    Angle* angle; // For stubs
@@ -89,9 +92,70 @@ public:
             Orbital(initialPos, fragmentCount, radius,
                     initialVelocity, initialAngle) {  }
 
-   list<Orbital*>& getParts() const
+   list<Orbital*> getParts() const
    {
       list<Orbital*> emptyList;
       return emptyList;
+   }
+};
+
+/*********************************************
+* StubOrbital_OnePart
+* An stub class to test the orbital.
+*********************************************/
+class StubOrbital_OnePart : public Orbital
+{
+public:
+   StubOrbital_OnePart (Position* initialPos, int fragmentCount, double radius,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, fragmentCount, radius,
+         initialVelocity, initialAngle) {  }
+
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> singleOrbital;
+      singleOrbital.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      return singleOrbital;
+   }
+};
+
+/*********************************************
+* StubOrbital_NoParts
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_NoParts : public Orbital
+{
+public:
+   StubOrbital_NoParts(Position* initialPos, int fragmentCount, double radius,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, fragmentCount, radius,
+         initialVelocity, initialAngle) {  }
+
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> singleOrbital;
+      return singleOrbital;
+   }
+};
+
+/*********************************************
+* StubOrbital_ThreeParts
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_ThreeParts : public Orbital
+{
+public:
+   StubOrbital_ThreeParts(Position* initialPos, int fragmentCount, double radius,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, fragmentCount, radius,
+         initialVelocity, initialAngle) {  }
+
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> singleOrbital;
+      singleOrbital.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      singleOrbital.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      singleOrbital.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      return singleOrbital;
    }
 };

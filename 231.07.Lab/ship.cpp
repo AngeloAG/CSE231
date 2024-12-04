@@ -33,7 +33,7 @@ Ship::Ship(Position* initialPos, int fragmentCount, double radius,
 * SHIP :: GET SHIP PARTS
 *     Returns the parts the SHIP breaks into
 *******************************************************************************/
-list<Orbital*>& Ship::getParts() const
+list<Orbital*> Ship::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;

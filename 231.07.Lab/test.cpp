@@ -45,4 +45,7 @@ void testRunner()
    TestShip().run();
    TestGPS().run();
    TestHubble().run();
+   TestStarlink().run();
+   TestSputnik().run();
+   TestCrewDragon().run();
 }

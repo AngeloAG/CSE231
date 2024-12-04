@@ -28,6 +28,6 @@ public:
       Velocity* initialVelocity, Angle* initialAngle);
    ~GPS() { }
 
-   virtual list<Orbital*>& getParts()    const;
+   virtual list<Orbital*> getParts()    const;
    virtual void draw(ogstream& ogstream) const;
 };

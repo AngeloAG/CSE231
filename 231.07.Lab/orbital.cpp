@@ -11,6 +11,7 @@
 
 #include "orbital.h"
 #include "acceleration.h"
+// #include "fragment.h"
 #include <cmath>     // for SQRT() and ATAN2()
 
  /*******************************************************************************
@@ -119,5 +120,26 @@ void Orbital::detectCollisions(const std::list<Orbital*>& orbitals)
             this->hasCrashed = true;
          }
       }
+   }
+}
+
+/*******************************************************************************
+* ORBITAL :: DESTROY
+*     Puts the parts and fragments into a list
+*******************************************************************************/
+void Orbital::destroy(list<Orbital*>& orbitals)
+{
+   orbitals.remove(this);
+
+   for (int i = 0; i < fragmentCount; i++)
+   {
+      // orbitals.push_back(new Fragment());
+   }
+
+   list<Orbital*> parts = this->getParts();
+
+   for (auto part : parts)
+   {
+      orbitals.push_back(part);
    }
 }

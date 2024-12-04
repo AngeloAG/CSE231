@@ -29,7 +29,7 @@ Sputnik::Sputnik(Position* initialPos, int fragmentCount, double radius,
 * SPUTNIK :: GET GPS PARTS
 *     Returns the parts the SPUTNIK breaks into
 *******************************************************************************/
-list<Orbital*>& Sputnik::getParts() const
+list<Orbital*> Sputnik::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;

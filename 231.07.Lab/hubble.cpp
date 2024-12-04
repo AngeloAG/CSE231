@@ -29,7 +29,7 @@ Hubble::Hubble(Position* initialPos, int fragmentCount, double radius,
 * Hubble :: GET Hubble PARTS
 *     Returns the parts the Hubble breaks into
 *******************************************************************************/
-list<Orbital*>& Hubble::getParts() const
+list<Orbital*> Hubble::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;

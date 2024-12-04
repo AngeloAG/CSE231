@@ -28,7 +28,7 @@ CrewDragon::CrewDragon(Position* initialPos, int fragmentCount, double radius,
 * GREW DRAGON :: GET GPS PARTS
 *     Returns the parts the GPS breaks into
 *******************************************************************************/
-list<Orbital*>& CrewDragon::getParts() const
+list<Orbital*> CrewDragon::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;

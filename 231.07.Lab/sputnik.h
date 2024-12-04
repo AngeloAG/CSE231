@@ -26,6 +26,6 @@ public:
       Velocity* initialVelocity, Angle* initialAngle);
    ~Sputnik() { }
 
-   virtual list<Orbital*>& getParts()    const;
+   virtual list<Orbital*> getParts()    const;
    virtual void draw(ogstream& ogstream) const;
 };

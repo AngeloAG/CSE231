@@ -14,6 +14,7 @@
 #include "unitTest.h"
 #include "orbital.h"
 
+#include <ranges>
 
 /*********************************************
 * TEST ORBITAL
@@ -53,6 +54,10 @@ public:
       detectCollision_BarelyTouchingDiagonal();
       detectCollision_NoTouchingHorizontal();
       detectCollision_OnTopOfEachOther();
+
+      destroy_None();
+      destroy_One();
+      destroy_Many();
 
       report("Orbital");
    }
@@ -859,5 +864,103 @@ private:
       // verify
       assertEquals(orbital1->hasCrashed, true);
       assertEquals(orbital2->hasCrashed, false);
+   }  // teardown
+
+    /*********************************************
+    * name:    DESTORY ONE
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 10.0, fragmentCount1 0
+    * output:  orbitals is empty
+    *********************************************/
+   void destroy_One()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      double radius     = 10.0;
+      int fragmentCount = 0;
+      StubOrbital_OnePart* orbital = new StubOrbital_OnePart(initialPosition,
+                                                             fragmentCount,
+                                                             radius,
+                                                             initialVelocity,
+                                                             initialAngle);
+      orbital->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital);
+
+      // exercise
+      orbital->destroy(orbitals);
+
+      // verify
+      assertUnit(std::find(orbitals.begin(), orbitals.end(), orbital) ==
+                           orbitals.end());
+      assertUnit(orbitals.size() == 1);
+   }  // teardown
+
+       /*********************************************
+    * name:    DESTORY NONE
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 10.0, fragmentCount1 0
+    * output:  orbitals is empty
+    *********************************************/
+   void destroy_None()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      double radius = 10.0;
+      int fragmentCount = 0;
+      StubOrbital_NoParts* orbital = new StubOrbital_NoParts(initialPosition,
+         fragmentCount,
+         radius,
+         initialVelocity,
+         initialAngle);
+      orbital->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+
+      // exercise
+      orbital->destroy(orbitals);
+
+      // verify
+      assertUnit(std::find(orbitals.begin(), orbitals.end(), orbital) ==
+         orbitals.end());
+      assertUnit(orbitals.size() == 0);
+   }  // teardown
+
+       /*********************************************
+    * name:    DESTORY MANY
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+    *          radius1 10.0, fragmentCount1 0
+    * output:  orbitals is empty
+    *********************************************/
+   void destroy_Many()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      double radius = 10.0;
+      int fragmentCount = 0;
+      StubOrbital_ThreeParts* orbital = new StubOrbital_ThreeParts(initialPosition,
+         fragmentCount,
+         radius,
+         initialVelocity,
+         initialAngle);
+      orbital->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital);
+
+      // exercise
+      orbital->destroy(orbitals);
+
+      // verify
+      assertUnit(std::find(orbitals.begin(), orbitals.end(), orbital) ==
+         orbitals.end());
+      assertUnit(orbitals.size() == 3);
    }  // teardown
 };

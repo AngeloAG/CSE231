@@ -32,7 +32,7 @@ public:
       Velocity* initialVelocity, Angle* initialAngle);
    ~Ship() { }
 
-   virtual list<Orbital*>& getParts()    const;
+   virtual list<Orbital*> getParts()    const;
    virtual void draw(ogstream& ogstream) const;
    void input(KeyPress pressed);
    void update() override;

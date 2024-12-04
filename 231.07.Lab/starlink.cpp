@@ -28,7 +28,7 @@ Starlink::Starlink(Position* initialPos, int fragmentCount, double radius,
 * STARLINK :: GET STARLINK PARTS
 *     Returns the parts the STARLINK breaks into
 *******************************************************************************/
-list<Orbital*>& Starlink::getParts() const
+list<Orbital*> Starlink::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;

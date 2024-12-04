@@ -66,7 +66,7 @@ GPS::GPS(Position* initialPos, int fragmentCount, double radius,
 * GPS :: GET GPS PARTS
 *     Returns the parts the GPS breaks into
 *******************************************************************************/
-list<Orbital*>& GPS::getParts() const
+list<Orbital*> GPS::getParts() const
 {
    list<Orbital*> emptyList; // This is just a placeholder for next labs
    return emptyList;
