@@ -16,6 +16,7 @@
 #include "crewDragon.h"
 #include "sputnik.h"
 #include "starlink.h"
+#include "GPS.h"
 
 
   /*********************************************
@@ -339,13 +340,13 @@ private:
       Starlink starlink;
       
       // verify
-      assertEquals(Starlink.pos->x, 0.0);
-      assertEquals(Starlink.pos->y, -13020000.0);
-      assertEquals(Starlink.vel->dx, 5800.0);
-      assertEquals(Starlink.vel->dy, 0.0);
-      assertEquals(Starlink.angle->radians, 0.0);
-      assertEquals(Starlink.fragmentCount, 2);
-      assertEquals(Starlink.radius, 6.0);
+      assertEquals(starlink.pos->x, 0.0);
+      assertEquals(starlink.pos->y, -13020000.0);
+      assertEquals(starlink.vel->dx, 5800.0);
+      assertEquals(starlink.vel->dy, 0.0);
+      assertEquals(starlink.angle->radians, 0.0);
+      assertEquals(starlink.fragmentCount, 2);
+      assertEquals(starlink.radius, 6.0);
    }
 };
 
