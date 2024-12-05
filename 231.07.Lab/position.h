@@ -52,8 +52,8 @@ public:
    // getters
    virtual double getMetersX() const { return x;                    }
    virtual double getMetersY() const { return y;                    }
-   double getPixelsX()         const { return x / metersFromPixels; }
-   double getPixelsY()         const { return y / metersFromPixels; }
+   virtual double getPixelsX()         const { return x / metersFromPixels; }
+   virtual double getPixelsY()         const { return y / metersFromPixels; }
 
    // setters
    void setMeters(double xMeters, double yMeters) { x = xMeters; y = yMeters; }
@@ -141,6 +141,8 @@ public:
    StubPosition00() : DummyPosition() {            };
    virtual double getMetersX()  const { return 0.0; }
    virtual double getMetersY()  const { return 0.0; }
+   virtual double getPixelsX()  const { return 0.0; }
+   virtual double getPixelsY()  const { return 0.0; }
 };
 
 class StubPositionX6378000Y0 : public DummyPosition

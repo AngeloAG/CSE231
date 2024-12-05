@@ -58,7 +58,12 @@ public:
       destroy_None();
       destroy_One();
       destroy_Many();
-
+      destroy_ManyPartsAndFragments();
+      destroy_ManyFragmentsNoParts();
+      
+      getFragments_1();
+      getFragments_0();
+      getFragments_3();
       report("Orbital");
    }
 
@@ -963,4 +968,203 @@ private:
          orbitals.end());
       assertUnit(orbitals.size() == 3);
    }  // teardown
+   
+      /*********************************************
+   * name:    DESTORY MANY Parts and Fragments
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+   *          radius1 10.0, fragmentCount1 3
+   * output:  orbitals is empty
+   *********************************************/
+   void destroy_ManyPartsAndFragments()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      StubOrbital_ThreeFragmentThreeParts* orbital =
+      new StubOrbital_ThreeFragmentThreeParts(initialPosition,
+         initialVelocity,
+         initialAngle);
+      orbital->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital);
+
+      // exercise
+      orbital->destroy(orbitals);
+
+      // verify
+      assertUnit(std::find(orbitals.begin(), orbitals.end(), orbital) ==
+         orbitals.end());
+      assertUnit(orbitals.size() == 6);
+   }  // teardown
+   
+   
+      /*********************************************
+   * name:    DESTORY MANY  Fragments No Parts
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
+   *          radius1 10.0, fragmentCount1 3
+   * output:  orbitals is empty
+   *********************************************/
+   void destroy_ManyFragmentsNoParts()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      StubOrbital_ThreeFragmentZeroParts* orbital =
+      new StubOrbital_ThreeFragmentZeroParts(initialPosition,
+         initialVelocity,
+         initialAngle);
+      orbital->hasCrashed = false;
+
+      list<Orbital*> orbitals;
+      orbitals.push_back(orbital);
+
+      // exercise
+      orbital->destroy(orbitals);
+
+      // verify
+      assertUnit(std::find(orbitals.begin(), orbitals.end(), orbital) ==
+         orbitals.end());
+      assertUnit(orbitals.size() == 3);
+   }  // teardown
+
+   /*********************************************
+   * name:    GET FRAGMENTS 1
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  fragments has 1
+   *********************************************/
+   void getFragments_1()
+   {
+     // setup
+     StubPosition00* initialPosition = new StubPosition00();
+     DummyVelocity* initialVelocity = new DummyVelocity();
+     DummyAngle* initialAngle = new DummyAngle();
+     StubOrbital_OneFragment* orbital = new StubOrbital_OneFragment(initialPosition,
+        initialVelocity,
+        initialAngle);
+     orbital->hasCrashed = false;
+
+     list<Orbital*> fragments;
+      
+     // exercise
+     fragments = orbital->getFragments();
+
+     // verify
+    double distance = sqrt((fragments.front()->pos->x/Position::metersFromPixels-
+                           orbital->pos->getPixelsX()) *
+                          (fragments.front()->pos->x/Position::metersFromPixels -
+                           orbital->pos->getPixelsX()) +
+                          (fragments.front()->pos->y/Position::metersFromPixels -
+                           orbital->pos->getPixelsX()) *
+                          (fragments.front()->pos->y/Position::metersFromPixels -
+                           orbital->pos->getPixelsX()));
+     assertEquals(distance, 4);
+     assertUnit(fragments.size() == 1);
+   }  // teardown
+
+   /*********************************************
+   * name:    GET FRAGMENTS 0
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  fragments has 0
+   *********************************************/
+   void getFragments_0()
+   {
+     // setup
+     StubPosition00* initialPosition = new StubPosition00();
+     DummyVelocity* initialVelocity = new DummyVelocity();
+     DummyAngle* initialAngle = new DummyAngle();
+     StubOrbital_ZeroFragment* orbital = new StubOrbital_ZeroFragment(initialPosition,
+        initialVelocity,
+        initialAngle);
+     orbital->hasCrashed = false;
+
+     list<Orbital*> fragments;
+      
+     // exercise
+     fragments = orbital->getFragments();
+
+     // verify
+     assertUnit(fragments.size() == 0);
+   }  // teardown
+   
+   /*********************************************
+   * name:    GET FRAGMENTS 3
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  fragments has 3
+   *********************************************/
+   void getFragments_3()
+   {
+     // setup
+     StubPosition00* initialPosition = new StubPosition00();
+     DummyVelocity* initialVelocity = new DummyVelocity();
+     DummyAngle* initialAngle = new DummyAngle();
+     StubOrbital_ThreeFragment* orbital = new StubOrbital_ThreeFragment(initialPosition,
+        initialVelocity,
+        initialAngle);
+     orbital->hasCrashed = false;
+
+     list<Orbital*> fragments;
+      
+     // exercise
+     fragments = orbital->getFragments();
+
+     // verify
+     double distance1 = sqrt((fragments.front()->pos->x/
+                              Position::metersFromPixels-
+                          orbital->pos->getPixelsX()) *
+                          
+                             (fragments.front()->pos->x/
+                           Position::metersFromPixels -
+                          orbital->pos->getPixelsX()) +
+                          
+                             (fragments.front()->pos->y/
+                           Position::metersFromPixels -
+                          orbital->pos->getPixelsX()) *
+                          
+                             (fragments.front()->pos->y/
+                           Position::metersFromPixels -
+                          orbital->pos->getPixelsX()));
+      
+      
+     double distance2 = sqrt((std::next(fragments.front())->pos->x/
+                              Position::metersFromPixels-
+                          orbital->pos->getPixelsX()) *
+                             
+                         (std::next(fragments.front())->pos->x/
+                          Position::metersFromPixels -
+                          orbital->pos->getPixelsX()) +
+                         
+                         (std::next(fragments.front())->pos->y/
+                          Position::metersFromPixels -
+                          orbital->pos->getPixelsX()) *
+                             
+                         (std::next(fragments.front())->pos->y/
+                          Position::metersFromPixels -
+                          orbital->pos->getPixelsX()));
+      
+      
+     double distance3 = sqrt((fragments.back()->pos->x/
+                              Position::metersFromPixels-
+                          orbital->pos->getPixelsX()) *
+                             
+                         (fragments.back()->pos->x/
+                          Position::metersFromPixels -
+                          orbital->pos->getPixelsX()) +
+                             
+                         (fragments.back()->pos->y/
+                          Position::metersFromPixels -
+                          orbital->pos->getPixelsX()) *
+                             
+                         (fragments.back()->pos->y/
+                          Position::metersFromPixels -
+                          orbital->pos->getPixelsX()));
+     assertEquals(distance1, 4);
+     assertEquals(distance2, 4);
+     assertEquals(distance3, 4);
+     assertUnit(fragments.size() == 3);
+   }  // teardown
+   
+   
 };

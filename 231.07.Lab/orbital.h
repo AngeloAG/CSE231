@@ -64,10 +64,12 @@ private:
    double radius;
    int fragmentCount;
    bool hasCrashed;
+   bool useRandom;
 
    Acceleration getGravityAcceleration() const;
    double getCurrentHeight() const;
    double getGravityDirection() const;
+   list<Orbital*> getFragments() const;
 };
 
 /*******************************************************************************
@@ -157,5 +159,122 @@ public:
       singleOrbital.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
       singleOrbital.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
       return singleOrbital;
+   }
+};
+
+/*********************************************
+* StubOrbital_OneFragment
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_OneFragment : public Orbital
+{
+public:
+   StubOrbital_OneFragment(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 1, 2,
+         initialVelocity, initialAngle) {  }
+
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> emptyOrbital;
+      assert(false);
+      return emptyOrbital;
+   }
+};
+
+/*********************************************
+* StubOrbital_ZeroFragment
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_ZeroFragment : public Orbital
+{
+public:
+   StubOrbital_ZeroFragment(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 0, 2,
+         initialVelocity, initialAngle) {  }
+
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> emptyOrbital;
+      assert(false);
+      return emptyOrbital;
+   }
+};
+
+/*********************************************
+* StubOrbital_ThreeFragment
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_ThreeFragment : public Orbital
+{
+public:
+   StubOrbital_ThreeFragment(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 3, 2,
+         initialVelocity, initialAngle) {  }
+
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> emptyOrbital;
+      assert(false);
+      return emptyOrbital;
+   }
+};
+
+class Fragment: public Orbital
+{
+public:
+   Fragment(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 0, 2,
+         initialVelocity, initialAngle) {  }
+      
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> singleOrbital;
+      return singleOrbital;
+   }
+   
+   virtual void draw(ogstream &ogstream) const 
+   {
+      ogstream.drawFragment(*this->pos, this->angle->getRadians());
+   }
+   
+};
+
+
+class StubOrbital_ThreeFragmentThreeParts : public Orbital
+{
+public:
+   StubOrbital_ThreeFragmentThreeParts(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 3, 2,
+         initialVelocity, initialAngle) {  }
+
+   
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> threeOrbitals;
+      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      return threeOrbitals;
+   }
+};
+
+class StubOrbital_ThreeFragmentZeroParts : public Orbital
+{
+public:
+   StubOrbital_ThreeFragmentZeroParts(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 3, 2,
+         initialVelocity, initialAngle) {  }
+
+   
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> noOrbitals;
+      return noOrbitals;
    }
 };

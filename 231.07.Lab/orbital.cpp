@@ -130,11 +130,8 @@ void Orbital::detectCollisions(const std::list<Orbital*>& orbitals)
 void Orbital::destroy(list<Orbital*>& orbitals)
 {
    orbitals.remove(this);
-
-   for (int i = 0; i < fragmentCount; i++)
-   {
-      // orbitals.push_back(new Fragment());
-   }
+   
+   list<Orbital*> fragments = this->getFragments();
 
    list<Orbital*> parts = this->getParts();
 
@@ -142,4 +139,39 @@ void Orbital::destroy(list<Orbital*>& orbitals)
    {
       orbitals.push_back(part);
    }
+   
+   for (auto fragment : fragments)
+   {
+      orbitals.push_back(fragment);
+   }
+}
+
+/*******************************************************************************
+* ORBITAL :: DESTROY
+*     Puts the parts and fragments into a list
+*******************************************************************************/
+list<Orbital*> Orbital::getFragments() const
+{
+   list<Orbital*> fragments;
+   
+   double randomStartAngle = random(0.0, 360.0);
+
+   for (int i = 0; i < fragmentCount; i++)
+   {
+      Angle* fragmentAngle = new Angle(randomStartAngle +
+                                       (360/fragmentCount * i));
+      Position* fragmentPosition = new Position(*this->pos);
+      fragmentPosition->addPixelsX(4 * cos(fragmentAngle->getRadians()));
+      fragmentPosition->addPixelsY(4 * sin(fragmentAngle->getRadians()));
+      
+      Velocity* fragmentVelocity = new Velocity(*this->vel);
+      double fragmentSpeed = random(5000, 9000);
+      Acceleration fragmentAcceleration(*fragmentAngle, fragmentSpeed);
+      fragmentVelocity->add(fragmentAcceleration, TIME_PER_FRAME);
+      
+      fragments.push_back(new Fragment(fragmentPosition,fragmentVelocity,
+                                       fragmentAngle));
+   }
+   
+   return fragments;
 }

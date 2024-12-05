@@ -35,6 +35,7 @@
        defaultConstructor_gps5();
        defaultConstructor_gps6();
 
+       getPartsGPS();
        report("GPS");
     }
 
@@ -170,6 +171,99 @@
        assertEquals(gps.fragmentCount, 2);
        assertEquals(gps.radius, 12.0);
     }
+    
+    
+    /*********************************************
+    * name:    GET PARTS GPS
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  3 GPS Parts
+    *********************************************/
+    void getPartsGPS()
+    {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      GPS* gps = new GPS(initialPosition,
+         initialVelocity,
+         initialAngle);
+      gps->hasCrashed = false;
+
+      list<Orbital*> parts;
+       
+      // exercise
+      parts = gps->getParts();
+
+      // verify
+      double distance1 = sqrt((parts.front()->pos->x/
+                               Position::metersFromPixels-
+                           gps->pos->getPixelsX()) *
+                           
+                              (parts.front()->pos->x/
+                            Position::metersFromPixels -
+                               gps->pos->getPixelsX()) +
+                           
+                              (parts.front()->pos->y/
+                            Position::metersFromPixels -
+                               gps->pos->getPixelsX()) *
+                           
+                              (parts.front()->pos->y/
+                            Position::metersFromPixels -
+                               gps->pos->getPixelsX()));
+       
+       
+      double distance2 = sqrt((std::next(parts.front())->pos->x/
+                               Position::metersFromPixels-
+                               gps->pos->getPixelsX()) *
+                              
+                          (std::next(parts.front())->pos->x/
+                           Position::metersFromPixels -
+                           gps->pos->getPixelsX()) +
+                          
+                          (std::next(parts.front())->pos->y/
+                           Position::metersFromPixels -
+                           gps->pos->getPixelsY()) *
+                              
+                          (std::next(parts.front())->pos->y/
+                           Position::metersFromPixels -
+                           gps->pos->getPixelsY()));
+//       double distance2 = sqrt((parts.back()->pos->x/
+//                                Position::metersFromPixels-
+//                                gps->pos->getPixelsX()) *
+//                               
+//                           (parts.back()->pos->x/
+//                            Position::metersFromPixels -
+//                            gps->pos->getPixelsX()) +
+//                               
+//                           (parts.back()->pos->y/
+//                            Position::metersFromPixels -
+//                            gps->pos->getPixelsX()) *
+//                               
+//                           (parts.back()->pos->y/
+//                            Position::metersFromPixels -
+//                            gps->pos->getPixelsX()));
+//       
+       
+      double distance3 = sqrt((parts.back()->pos->x/
+                               Position::metersFromPixels-
+                               gps->pos->getPixelsX()) *
+                              
+                          (parts.back()->pos->x/
+                           Position::metersFromPixels -
+                           gps->pos->getPixelsX()) +
+                              
+                          (parts.back()->pos->y/
+                           Position::metersFromPixels -
+                           gps->pos->getPixelsX()) *
+                              
+                          (parts.back()->pos->y/
+                           Position::metersFromPixels -
+                           gps->pos->getPixelsX()));
+      assertEquals(distance1, 4);
+      assertEquals(distance2, 4);
+      assertEquals(distance3, 4);
+      assertUnit(parts.size() == 3);
+    }  // teardown
  };
 
 

@@ -35,11 +35,9 @@
 		F38646422D01101E001F5275 /* ship.h in Sources */ = {isa = PBXBuildFile; fileRef = F38646192D01101D001F5275 /* ship.h */; };
 		F38646432D01101E001F5275 /* entity.h in Sources */ = {isa = PBXBuildFile; fileRef = F386461A2D01101D001F5275 /* entity.h */; };
 		F38646442D01101E001F5275 /* crewDragon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F386461B2D01101D001F5275 /* crewDragon.cpp */; };
-		F38646452D01101E001F5275 /* testOribital.h in Sources */ = {isa = PBXBuildFile; fileRef = F386461C2D01101D001F5275 /* testOribital.h */; };
 		F38646462D01101E001F5275 /* hubble.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F386461D2D01101D001F5275 /* hubble.cpp */; };
 		F38646472D01101E001F5275 /* orbital.h in Sources */ = {isa = PBXBuildFile; fileRef = F386461E2D01101D001F5275 /* orbital.h */; };
 		F38646482D01101E001F5275 /* keyPress.h in Sources */ = {isa = PBXBuildFile; fileRef = F386461F2D01101D001F5275 /* keyPress.h */; };
-		F38646492D01101E001F5275 /* test.h in Sources */ = {isa = PBXBuildFile; fileRef = F38646202D01101D001F5275 /* test.h */; };
 		F386464A2D01101E001F5275 /* velocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38646212D01101D001F5275 /* velocity.cpp */; };
 		F386464B2D01101E001F5275 /* velocity.h in Sources */ = {isa = PBXBuildFile; fileRef = F38646222D01101D001F5275 /* velocity.h */; };
 		F386464C2D01101E001F5275 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38646232D01101D001F5275 /* ship.cpp */; };
@@ -49,10 +47,8 @@
 		F38646502D01101E001F5275 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38646272D01101D001F5275 /* game.cpp */; };
 		F38646512D01101E001F5275 /* sputnik.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38646282D01101D001F5275 /* sputnik.cpp */; };
 		F38646522D01101E001F5275 /* GPS.h in Sources */ = {isa = PBXBuildFile; fileRef = F38646292D01101D001F5275 /* GPS.h */; };
-		F38646532D01101E001F5275 /* uiDraw.h in Sources */ = {isa = PBXBuildFile; fileRef = F386462A2D01101D001F5275 /* uiDraw.h */; };
 		F38646542D01101E001F5275 /* testVelocity.h in Sources */ = {isa = PBXBuildFile; fileRef = F386462B2D01101E001F5275 /* testVelocity.h */; };
 		F38646552D01101E001F5275 /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F386462C2D01101E001F5275 /* angle.cpp */; };
-		F38646562D01101E001F5275 /* testGPS.h in Sources */ = {isa = PBXBuildFile; fileRef = F386462E2D01101E001F5275 /* testGPS.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,15 +69,12 @@
 		C11C7EA325780B2100EA4B2E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C11C7EA625780B5C00EA4B2E /* Lab07.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lab07.cpp; sourceTree = "<group>"; };
 		C11C7EA725780B5C00EA4B2E /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
-		C11C7EA825780B5C00EA4B2E /* uiInteract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiInteract.h; sourceTree = "<group>"; };
 		C11C7EA925780B5E00EA4B2E /* uiInteract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiInteract.cpp; sourceTree = "<group>"; };
-		C11C7EAC25780B6000EA4B2E /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		C11C7EAD25780B6000EA4B2E /* uiDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiDraw.cpp; sourceTree = "<group>"; };
 		C11C7EAF25780B6500EA4B2E /* testPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testPosition.h; sourceTree = "<group>"; };
 		C11C7EB025780B6500EA4B2E /* uiDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uiDraw.h; sourceTree = "<group>"; };
 		C179C6C027E375AF00E3E514 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
 		C179C6C227E375D600E3E514 /* position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = position.h; sourceTree = "<group>"; };
-		C1FC37B62C221C36000A76B0 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
 		F38646062D01101C001F5275 /* testSatellite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testSatellite.h; sourceTree = "<group>"; };
 		F38646072D01101C001F5275 /* sputnik.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sputnik.h; sourceTree = "<group>"; };
 		F38646082D01101C001F5275 /* hubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubble.h; sourceTree = "<group>"; };
@@ -94,7 +87,6 @@
 		F386460F2D01101C001F5275 /* GPS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GPS.cpp; sourceTree = "<group>"; };
 		F38646102D01101C001F5275 /* testAcceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAcceleration.h; sourceTree = "<group>"; };
 		F38646112D01101C001F5275 /* uiInteract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = uiInteract.h; sourceTree = "<group>"; };
-		F38646122D01101C001F5275 /* uiDraw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = uiDraw.cpp; sourceTree = "<group>"; };
 		F38646132D01101C001F5275 /* unitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unitTest.h; sourceTree = "<group>"; };
 		F38646142D01101C001F5275 /* orbital.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = orbital.cpp; sourceTree = "<group>"; };
 		F38646152D01101C001F5275 /* game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
@@ -104,7 +96,6 @@
 		F38646192D01101D001F5275 /* ship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ship.h; sourceTree = "<group>"; };
 		F386461A2D01101D001F5275 /* entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entity.h; sourceTree = "<group>"; };
 		F386461B2D01101D001F5275 /* crewDragon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = crewDragon.cpp; sourceTree = "<group>"; };
-		F386461C2D01101D001F5275 /* testOribital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testOribital.h; sourceTree = "<group>"; };
 		F386461D2D01101D001F5275 /* hubble.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hubble.cpp; sourceTree = "<group>"; };
 		F386461E2D01101D001F5275 /* orbital.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = orbital.h; sourceTree = "<group>"; };
 		F386461F2D01101D001F5275 /* keyPress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keyPress.h; sourceTree = "<group>"; };
@@ -118,11 +109,8 @@
 		F38646272D01101D001F5275 /* game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		F38646282D01101D001F5275 /* sputnik.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sputnik.cpp; sourceTree = "<group>"; };
 		F38646292D01101D001F5275 /* GPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPS.h; sourceTree = "<group>"; };
-		F386462A2D01101D001F5275 /* uiDraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = uiDraw.h; sourceTree = "<group>"; };
 		F386462B2D01101E001F5275 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
 		F386462C2D01101E001F5275 /* angle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = angle.cpp; sourceTree = "<group>"; };
-		F386462D2D01101E001F5275 /* uiInteract.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = uiInteract.cpp; sourceTree = "<group>"; };
-		F386462E2D01101E001F5275 /* testGPS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testGPS.h; sourceTree = "<group>"; };
 		F386462F2D01101E001F5275 /* position.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +130,6 @@
 		C11C7E8D2578098A00EA4B2E = {
 			isa = PBXGroup;
 			children = (
-				C1FC37B62C221C36000A76B0 /* unitTest.h */,
 				F386460D2D01101C001F5275 /* acceleration.cpp */,
 				F38646242D01101D001F5275 /* acceleration.h */,
 				F386462C2D01101E001F5275 /* angle.cpp */,
@@ -152,6 +139,7 @@
 				F386460A2D01101C001F5275 /* crewDragon.h */,
 				F386460B2D01101C001F5275 /* entity.cpp */,
 				F386461A2D01101D001F5275 /* entity.h */,
+				C11C7EA125780B2000EA4B2E /* Frameworks */,
 				F38646272D01101D001F5275 /* game.cpp */,
 				F38646152D01101C001F5275 /* game.h */,
 				F386460F2D01101C001F5275 /* GPS.cpp */,
@@ -159,44 +147,36 @@
 				F386461D2D01101D001F5275 /* hubble.cpp */,
 				F38646082D01101C001F5275 /* hubble.h */,
 				F386461F2D01101D001F5275 /* keyPress.h */,
+				C11C7EA625780B5C00EA4B2E /* Lab07.cpp */,
 				F38646142D01101C001F5275 /* orbital.cpp */,
 				F386461E2D01101D001F5275 /* orbital.h */,
 				F386462F2D01101E001F5275 /* position.cpp */,
+				C179C6C027E375AF00E3E514 /* position.cpp */,
+				C179C6C227E375D600E3E514 /* position.h */,
+				C11C7E972578098A00EA4B2E /* Products */,
 				F38646232D01101D001F5275 /* ship.cpp */,
 				F38646192D01101D001F5275 /* ship.h */,
 				F38646282D01101D001F5275 /* sputnik.cpp */,
 				F38646072D01101C001F5275 /* sputnik.h */,
 				F38646262D01101D001F5275 /* starlink.cpp */,
 				F38646162D01101D001F5275 /* starlink.h */,
+				C11C7EA725780B5C00EA4B2E /* test.cpp */,
 				F38646202D01101D001F5275 /* test.h */,
 				F38646102D01101C001F5275 /* testAcceleration.h */,
 				F386460C2D01101C001F5275 /* testAngle.h */,
 				F38646182D01101D001F5275 /* testEntity.h */,
-				F386462E2D01101E001F5275 /* testGPS.h */,
 				F38646172D01101D001F5275 /* testOrbital.h */,
-				F386461C2D01101D001F5275 /* testOribital.h */,
+				C11C7EAF25780B6500EA4B2E /* testPosition.h */,
 				F38646062D01101C001F5275 /* testSatellite.h */,
 				F386460E2D01101C001F5275 /* testShip.h */,
 				F386462B2D01101E001F5275 /* testVelocity.h */,
-				F38646122D01101C001F5275 /* uiDraw.cpp */,
-				F386462A2D01101D001F5275 /* uiDraw.h */,
-				F386462D2D01101E001F5275 /* uiInteract.cpp */,
+				C11C7EAD25780B6000EA4B2E /* uiDraw.cpp */,
+				C11C7EB025780B6500EA4B2E /* uiDraw.h */,
+				C11C7EA925780B5E00EA4B2E /* uiInteract.cpp */,
 				F38646112D01101C001F5275 /* uiInteract.h */,
 				F38646132D01101C001F5275 /* unitTest.h */,
 				F38646212D01101D001F5275 /* velocity.cpp */,
 				F38646222D01101D001F5275 /* velocity.h */,
-				C179C6C227E375D600E3E514 /* position.h */,
-				C179C6C027E375AF00E3E514 /* position.cpp */,
-				C11C7EA625780B5C00EA4B2E /* Lab07.cpp */,
-				C11C7EA725780B5C00EA4B2E /* test.cpp */,
-				C11C7EAC25780B6000EA4B2E /* test.h */,
-				C11C7EAF25780B6500EA4B2E /* testPosition.h */,
-				C11C7EAD25780B6000EA4B2E /* uiDraw.cpp */,
-				C11C7EB025780B6500EA4B2E /* uiDraw.h */,
-				C11C7EA925780B5E00EA4B2E /* uiInteract.cpp */,
-				C11C7EA825780B5C00EA4B2E /* uiInteract.h */,
-				C11C7E972578098A00EA4B2E /* Products */,
-				C11C7EA125780B2000EA4B2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,11 +275,9 @@
 				F38646422D01101E001F5275 /* ship.h in Sources */,
 				F38646432D01101E001F5275 /* entity.h in Sources */,
 				F38646442D01101E001F5275 /* crewDragon.cpp in Sources */,
-				F38646452D01101E001F5275 /* testOribital.h in Sources */,
 				F38646462D01101E001F5275 /* hubble.cpp in Sources */,
 				F38646472D01101E001F5275 /* orbital.h in Sources */,
 				F38646482D01101E001F5275 /* keyPress.h in Sources */,
-				F38646492D01101E001F5275 /* test.h in Sources */,
 				F386464A2D01101E001F5275 /* velocity.cpp in Sources */,
 				F386464B2D01101E001F5275 /* velocity.h in Sources */,
 				F386464C2D01101E001F5275 /* ship.cpp in Sources */,
@@ -309,11 +287,9 @@
 				F38646502D01101E001F5275 /* game.cpp in Sources */,
 				F38646512D01101E001F5275 /* sputnik.cpp in Sources */,
 				F38646522D01101E001F5275 /* GPS.h in Sources */,
-				F38646532D01101E001F5275 /* uiDraw.h in Sources */,
 				F38646542D01101E001F5275 /* testVelocity.h in Sources */,
 				F38646552D01101E001F5275 /* angle.cpp in Sources */,
 				C11C7EB325780B6500EA4B2E /* uiInteract.cpp in Sources */,
-				F38646562D01101E001F5275 /* testGPS.h in Sources */,
 				C179C6C127E375AF00E3E514 /* position.cpp in Sources */,
 				C11C7EB125780B6500EA4B2E /* Lab07.cpp in Sources */,
 				C11C7EB225780B6500EA4B2E /* test.cpp in Sources */,
