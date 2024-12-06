@@ -153,8 +153,9 @@ void Orbital::destroy(list<Orbital*>& orbitals)
 list<Orbital*> Orbital::getFragments() const
 {
    list<Orbital*> fragments;
-   
-   double randomStartAngle = random(0.0, 360.0);
+   double randomStartAngle = 0.0;
+   if (useRandom)
+      randomStartAngle = random(0.0, 360.0);
 
    for (int i = 0; i < fragmentCount; i++)
    {

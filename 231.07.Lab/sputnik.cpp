@@ -21,9 +21,9 @@ Sputnik::Sputnik() :
 /*******************************************************************************
 * SPUTNIK :: CONSTRUCTOR
 *******************************************************************************/
-Sputnik::Sputnik(Position* initialPos, int fragmentCount, double radius,
+Sputnik::Sputnik(Position* initialPos,
    Velocity* initialVelocity, Angle* initialAngle) :
-   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
+   Orbital(initialPos, 4, 4.0, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
 * SPUTNIK :: GET GPS PARTS
@@ -31,7 +31,7 @@ Sputnik::Sputnik(Position* initialPos, int fragmentCount, double radius,
 *******************************************************************************/
 list<Orbital*> Sputnik::getParts() const
 {
-   list<Orbital*> emptyList; // This is just a placeholder for next labs
+   list<Orbital*> emptyList;
    return emptyList;
 }
 

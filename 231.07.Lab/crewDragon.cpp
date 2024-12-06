@@ -20,9 +20,9 @@ CrewDragon::CrewDragon() :
 /*******************************************************************************
 * GREW DRAGON :: CONSTRUCTOR
 *******************************************************************************/
-CrewDragon::CrewDragon(Position* initialPos, int fragmentCount, double radius,
+CrewDragon::CrewDragon(Position* initialPos,
    Velocity* initialVelocity, Angle* initialAngle) :
-   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
+   Orbital(initialPos, 0, 7.0, initialVelocity, initialAngle) {}
 
 /*******************************************************************************
 * GREW DRAGON :: GET GPS PARTS
@@ -30,8 +30,38 @@ CrewDragon::CrewDragon(Position* initialPos, int fragmentCount, double radius,
 *******************************************************************************/
 list<Orbital*> CrewDragon::getParts() const
 {
-   list<Orbital*> emptyList; // This is just a placeholder for next labs
-   return emptyList;
+   list<Orbital*> crewDragonParts;
+
+   Angle* angles [3];
+   Position* positions [3];
+   Velocity* velocities [3];
+
+   double randomStartAngle = 0.0;
+   if (useRandom)
+      randomStartAngle = random(0.0, 360.0);
+
+   for (int i = 0; i < 3; i++)
+   {
+      angles[i] = new Angle(randomStartAngle +
+                                (360/3 * i));
+      
+      positions[i] = new Position(*this->pos);
+      positions[i]->addPixelsX(4 * cos(angles[i]->getRadians()));
+      positions[i]->addPixelsY(4 * sin(angles[i]->getRadians()));
+      
+      velocities[i] = new Velocity(*this->vel);
+      double partSpeed = random(5000, 9000);
+      Acceleration partAcceleration(*angles[i], partSpeed);
+      velocities[i]->add(partAcceleration, TIME_PER_FRAME);
+   }
+   
+   crewDragonParts.push_back(new CrewDragonLeft(positions[0], velocities[0],
+                                  angles[0]));
+   crewDragonParts.push_back(new CrewDragonCenter(positions[1], velocities[1],
+                                  angles[1]));
+   crewDragonParts.push_back(new CrewDragonRight(positions[2], velocities[2],
+                                  angles[2]));
+   return crewDragonParts;
 }
 
 /*******************************************************************************

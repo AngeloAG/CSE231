@@ -188,6 +188,7 @@
          initialVelocity,
          initialAngle);
       gps->hasCrashed = false;
+      gps->useRandom = false;
 
       list<Orbital*> parts;
        
@@ -195,73 +196,66 @@
       parts = gps->getParts();
 
       // verify
-      double distance1 = sqrt((parts.front()->pos->x/
-                               Position::metersFromPixels-
-                           gps->pos->getPixelsX()) *
-                           
-                              (parts.front()->pos->x/
-                            Position::metersFromPixels -
-                               gps->pos->getPixelsX()) +
-                           
-                              (parts.front()->pos->y/
-                            Position::metersFromPixels -
-                               gps->pos->getPixelsX()) *
-                           
-                              (parts.front()->pos->y/
-                            Position::metersFromPixels -
-                               gps->pos->getPixelsX()));
-       
-       
-      double distance2 = sqrt((std::next(parts.front())->pos->x/
-                               Position::metersFromPixels-
-                               gps->pos->getPixelsX()) *
-                              
-                          (std::next(parts.front())->pos->x/
-                           Position::metersFromPixels -
-                           gps->pos->getPixelsX()) +
-                          
-                          (std::next(parts.front())->pos->y/
-                           Position::metersFromPixels -
-                           gps->pos->getPixelsY()) *
-                              
-                          (std::next(parts.front())->pos->y/
-                           Position::metersFromPixels -
-                           gps->pos->getPixelsY()));
-//       double distance2 = sqrt((parts.back()->pos->x/
-//                                Position::metersFromPixels-
-//                                gps->pos->getPixelsX()) *
-//                               
-//                           (parts.back()->pos->x/
+//      double distance1 = sqrt((parts.front()->pos->x/
+//                               Position::metersFromPixels-
+//                           gps->pos->getPixelsX()) *
+//                           
+//                              (parts.front()->pos->x/
 //                            Position::metersFromPixels -
-//                            gps->pos->getPixelsX()) +
-//                               
-//                           (parts.back()->pos->y/
+//                               gps->pos->getPixelsX()) +
+//                           
+//                              (parts.front()->pos->y/
 //                            Position::metersFromPixels -
-//                            gps->pos->getPixelsX()) *
-//                               
-//                           (parts.back()->pos->y/
+//                               gps->pos->getPixelsX()) *
+//                           
+//                              (parts.front()->pos->y/
 //                            Position::metersFromPixels -
-//                            gps->pos->getPixelsX()));
+//                               gps->pos->getPixelsX()));
 //       
+//       
+//      double distance2 = sqrt((std::next(parts.front())->pos->x/
+//                               Position::metersFromPixels-
+//                               gps->pos->getPixelsX()) *
+//                              
+//                          (std::next(parts.front())->pos->x/
+//                           Position::metersFromPixels -
+//                           gps->pos->getPixelsX()) +
+//                          
+//                          (std::next(parts.front())->pos->y/
+//                           Position::metersFromPixels -
+//                           gps->pos->getPixelsY()) *
+//                              
+//                          (std::next(parts.front())->pos->y/
+//                           Position::metersFromPixels -
+//                           gps->pos->getPixelsY()));
+//       
+//      double distance3 = sqrt((parts.back()->pos->x/
+//                               Position::metersFromPixels-
+//                               gps->pos->getPixelsX()) *
+//                              
+//                          (parts.back()->pos->x/
+//                           Position::metersFromPixels -
+//                           gps->pos->getPixelsX()) +
+//                              
+//                          (parts.back()->pos->y/
+//                           Position::metersFromPixels -
+//                           gps->pos->getPixelsX()) *
+//                              
+//                          (parts.back()->pos->y/
+//                           Position::metersFromPixels -
+//                           gps->pos->getPixelsX()));
+//      assertEquals(distance1, 4);
+//      assertEquals(distance2, 4);
+//      assertEquals(distance3, 4);
+       auto it = parts.begin();
+       std::advance(it, 1);
        
-      double distance3 = sqrt((parts.back()->pos->x/
-                               Position::metersFromPixels-
-                               gps->pos->getPixelsX()) *
-                              
-                          (parts.back()->pos->x/
-                           Position::metersFromPixels -
-                           gps->pos->getPixelsX()) +
-                              
-                          (parts.back()->pos->y/
-                           Position::metersFromPixels -
-                           gps->pos->getPixelsX()) *
-                              
-                          (parts.back()->pos->y/
-                           Position::metersFromPixels -
-                           gps->pos->getPixelsX()));
-      assertEquals(distance1, 4);
-      assertEquals(distance2, 4);
-      assertEquals(distance3, 4);
+      assertEquals(parts.front()->pos->x, 160.0);
+      assertEquals(parts.front()->pos->y, 0.0);
+      assertEquals((*it)->pos->x, -80.0);
+      assertEquals((*it)->pos->y, 138.56406);
+      assertEquals(parts.back()->pos->x, -80.0);
+      assertEquals(parts.back()->pos->y, -138.56406);
       assertUnit(parts.size() == 3);
     }  // teardown
  };
@@ -277,6 +271,7 @@ public:
    void run()
    {
       defaultConstructor_hubble();
+      getPartsHubble();
 
       
       report("Hubble");
@@ -309,6 +304,47 @@ private:
       assertEquals(hubble.fragmentCount, 0);
       assertEquals(hubble.radius, 10.0);
    }
+   
+   /*********************************************
+   * name:    GET PARTS Hubble
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  4 Hubble Parts
+   *********************************************/
+   void getPartsHubble()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Hubble* hubble = new Hubble(initialPosition,
+        initialVelocity,
+        initialAngle);
+      hubble->hasCrashed = false;
+      hubble->useRandom = false;
+
+      list<Orbital*> parts;
+
+      // exercise
+      parts = hubble->getParts();
+
+      // verify
+      auto it = parts.begin();
+      std::advance(it, 1);
+
+      assertEquals(parts.front()->pos->x, 160.0);
+      assertEquals(parts.front()->pos->y, 0.0);
+      
+      assertEquals((*it)->pos->x, 0.0);
+      assertEquals((*it)->pos->y, 160.0);
+      
+      std::advance(it, 1);
+      assertEquals((*it)->pos->x, -160.0);
+      assertEquals((*it)->pos->y, 0.0);
+      
+      assertEquals(parts.back()->pos->x, 0.0);
+      assertEquals(parts.back()->pos->y, -160.0);
+      assertUnit(parts.size() == 4);
+   }  // teardown
 };
 
 
@@ -366,6 +402,7 @@ public:
    void run()
    {
       defaultConstructor_CrewDragon();
+      getPartsCrewDragon();
 
       
       report("CrewDragon");
@@ -398,11 +435,48 @@ private:
       assertEquals(crewdragon.fragmentCount, 0);
       assertEquals(crewdragon.radius, 7.0);
    }
+   
+   /*********************************************
+   * name:    GET PARTS CrewDragon
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  3 Crew Dragon Parts
+   *********************************************/
+   void getPartsCrewDragon()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      CrewDragon* crewDragon = new CrewDragon(initialPosition,
+        initialVelocity,
+        initialAngle);
+      crewDragon->hasCrashed = false;
+      crewDragon->useRandom = false;
+
+      list<Orbital*> parts;
+
+      // exercise
+      parts = crewDragon->getParts();
+
+      // verify
+      auto it = parts.begin();
+      std::advance(it, 1);
+
+      assertEquals(parts.front()->pos->x, 160.0);
+      assertEquals(parts.front()->pos->y, 0.0);
+      assertEquals((*it)->pos->x, -80.0);
+      assertEquals((*it)->pos->y, 138.56406);
+      assertEquals(parts.back()->pos->x, -80.0);
+      assertEquals(parts.back()->pos->y, -138.56406);
+      assertUnit(parts.size() == 3);
+   }  // teardown
 };
 
+
+
 /*********************************************
-* TEST HUBBLE
-* Unit tests for hubble
+* TEST STARLINIK
+* Unit tests for STARLINK
 *********************************************/
 class TestStarlink : public UnitTest
 {
@@ -410,6 +484,7 @@ public:
    void run()
    {
       defaultConstructor_Starlink();
+      getPartsStarlink();
 
       
       report("Starlink");
@@ -442,5 +517,41 @@ private:
       assertEquals(starlink.fragmentCount, 2);
       assertEquals(starlink.radius, 6.0);
    }
+   
+   
+   /*********************************************
+   * name:    GET PARTS Starlink
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  2 Starlink Parts
+   *********************************************/
+   void getPartsStarlink()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Starlink* starlink = new Starlink(initialPosition,
+        initialVelocity,
+        initialAngle);
+      starlink->hasCrashed = false;
+      starlink->useRandom = false;
+
+      list<Orbital*> parts;
+
+      // exercise
+      parts = starlink->getParts();
+
+      // verify
+      auto it = parts.begin();
+      std::advance(it, 1);
+
+      assertEquals(parts.front()->pos->x, 160.0);
+      assertEquals(parts.front()->pos->y, 0.0);
+      
+      assertEquals((*it)->pos->x, -160.0);
+      assertEquals((*it)->pos->y, 0.0);
+      
+      assertUnit(parts.size() == 2);
+   }  // teardown
 };
 

@@ -22,7 +22,7 @@ class Sputnik : public Orbital
 {
 public:
    Sputnik();
-   Sputnik(Position* initialPos, int fragmentCount, double radius,
+   Sputnik(Position* initialPos,
       Velocity* initialVelocity, Angle* initialAngle);
    ~Sputnik() { }
 

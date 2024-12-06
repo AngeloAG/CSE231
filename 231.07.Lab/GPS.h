@@ -45,7 +45,7 @@ public:
    GPSCenter(int gpsId);
    GPSCenter(Position* initialPos,
       Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 7, initialVelocity, initialAngle){}
+   Orbital(initialPos, 3, 7.0, initialVelocity, initialAngle){}
    ~GPSCenter() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
@@ -66,7 +66,7 @@ public:
    GPSRight(int gpsId);
    GPSRight(Position* initialPos,
       Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 8, initialVelocity, initialAngle){}
+   Orbital(initialPos, 3, 8.0, initialVelocity, initialAngle){}
    ~GPSRight() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
@@ -86,7 +86,7 @@ public:
    GPSLeft(int gpsId);
    GPSLeft(Position* initialPos,
       Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 8, initialVelocity, initialAngle){}
+   Orbital(initialPos, 3, 8.0, initialVelocity, initialAngle){}
    ~GPSLeft() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}

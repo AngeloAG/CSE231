@@ -63,7 +63,7 @@ public:
       
       getFragments_1();
       getFragments_0();
-      getFragments_3();
+      getFragments_4();
       report("Orbital");
    }
 
@@ -1045,6 +1045,7 @@ private:
         initialVelocity,
         initialAngle);
      orbital->hasCrashed = false;
+     orbital->useRandom = false;
 
      list<Orbital*> fragments;
       
@@ -1052,15 +1053,18 @@ private:
      fragments = orbital->getFragments();
 
      // verify
-    double distance = sqrt((fragments.front()->pos->x/Position::metersFromPixels-
-                           orbital->pos->getPixelsX()) *
-                          (fragments.front()->pos->x/Position::metersFromPixels -
-                           orbital->pos->getPixelsX()) +
-                          (fragments.front()->pos->y/Position::metersFromPixels -
-                           orbital->pos->getPixelsX()) *
-                          (fragments.front()->pos->y/Position::metersFromPixels -
-                           orbital->pos->getPixelsX()));
-     assertEquals(distance, 4);
+//    double distance = sqrt((fragments.front()->pos->x/Position::metersFromPixels-
+//                           orbital->pos->getPixelsX()) *
+//                          (fragments.front()->pos->x/Position::metersFromPixels -
+//                           orbital->pos->getPixelsX()) +
+//                          (fragments.front()->pos->y/Position::metersFromPixels -
+//                           orbital->pos->getPixelsX()) *
+//                          (fragments.front()->pos->y/Position::metersFromPixels -
+//                           orbital->pos->getPixelsX()));
+//     assertEquals(distance, 4);
+//      
+     assertEquals(fragments.front()->pos->x, 160.0);
+     assertEquals(fragments.front()->pos->y, 0.0);
      assertUnit(fragments.size() == 1);
    }  // teardown
 
@@ -1079,6 +1083,7 @@ private:
         initialVelocity,
         initialAngle);
      orbital->hasCrashed = false;
+     orbital->useRandom = false;
 
      list<Orbital*> fragments;
       
@@ -1090,20 +1095,22 @@ private:
    }  // teardown
    
    /*********************************************
-   * name:    GET FRAGMENTS 3
+   * name:    GET FRAGMENTS 4
    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
-   * output:  fragments has 3
+   * output:  fragments has 4
    *********************************************/
-   void getFragments_3()
+   void getFragments_4()
    {
      // setup
      StubPosition00* initialPosition = new StubPosition00();
      DummyVelocity* initialVelocity = new DummyVelocity();
      DummyAngle* initialAngle = new DummyAngle();
-     StubOrbital_ThreeFragment* orbital = new StubOrbital_ThreeFragment(initialPosition,
+      StubOrbital_FourFragment* orbital = new StubOrbital_FourFragment(
+        initialPosition,
         initialVelocity,
         initialAngle);
      orbital->hasCrashed = false;
+     orbital->useRandom = false;
 
      list<Orbital*> fragments;
       
@@ -1111,60 +1118,269 @@ private:
      fragments = orbital->getFragments();
 
      // verify
-     double distance1 = sqrt((fragments.front()->pos->x/
-                              Position::metersFromPixels-
-                          orbital->pos->getPixelsX()) *
-                          
-                             (fragments.front()->pos->x/
-                           Position::metersFromPixels -
-                          orbital->pos->getPixelsX()) +
-                          
-                             (fragments.front()->pos->y/
-                           Position::metersFromPixels -
-                          orbital->pos->getPixelsX()) *
-                          
-                             (fragments.front()->pos->y/
-                           Position::metersFromPixels -
-                          orbital->pos->getPixelsX()));
+//     double distance1 = sqrt((fragments.front()->pos->x/
+//                              Position::metersFromPixels-
+//                          orbital->pos->getPixelsX()) *
+//                          
+//                             (fragments.front()->pos->x/
+//                           Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()) +
+//                          
+//                             (fragments.front()->pos->y/
+//                           Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()) *
+//                          
+//                             (fragments.front()->pos->y/
+//                           Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()));
+//      
+//      
+//     double distance2 = sqrt((std::next(fragments.front())->pos->x/
+//                              Position::metersFromPixels-
+//                          orbital->pos->getPixelsX()) *
+//                             
+//                         (std::next(fragments.front())->pos->x/
+//                          Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()) +
+//                         
+//                         (std::next(fragments.front())->pos->y/
+//                          Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()) *
+//                             
+//                         (std::next(fragments.front())->pos->y/
+//                          Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()));
+//      
+//      
+//     double distance3 = sqrt((fragments.back()->pos->x/
+//                              Position::metersFromPixels-
+//                          orbital->pos->getPixelsX()) *
+//                             
+//                         (fragments.back()->pos->x/
+//                          Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()) +
+//                             
+//                         (fragments.back()->pos->y/
+//                          Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()) *
+//                             
+//                         (fragments.back()->pos->y/
+//                          Position::metersFromPixels -
+//                          orbital->pos->getPixelsX()));
+//     assertEquals(distance1, 4);
+//     assertEquals(distance2, 4);
+//     assertEquals(distance3, 4);
+     auto it = fragments.begin();
+     std::advance(it, 1);
+     assertEquals(fragments.front()->pos->x, 160.0);
+     assertEquals(fragments.front()->pos->y, 0.0);
+     assertEquals((*it)->pos->x, 0.0);
+     assertEquals((*it)->pos->y, 160.0);
       
-      
-     double distance2 = sqrt((std::next(fragments.front())->pos->x/
-                              Position::metersFromPixels-
-                          orbital->pos->getPixelsX()) *
-                             
-                         (std::next(fragments.front())->pos->x/
-                          Position::metersFromPixels -
-                          orbital->pos->getPixelsX()) +
-                         
-                         (std::next(fragments.front())->pos->y/
-                          Position::metersFromPixels -
-                          orbital->pos->getPixelsX()) *
-                             
-                         (std::next(fragments.front())->pos->y/
-                          Position::metersFromPixels -
-                          orbital->pos->getPixelsX()));
-      
-      
-     double distance3 = sqrt((fragments.back()->pos->x/
-                              Position::metersFromPixels-
-                          orbital->pos->getPixelsX()) *
-                             
-                         (fragments.back()->pos->x/
-                          Position::metersFromPixels -
-                          orbital->pos->getPixelsX()) +
-                             
-                         (fragments.back()->pos->y/
-                          Position::metersFromPixels -
-                          orbital->pos->getPixelsX()) *
-                             
-                         (fragments.back()->pos->y/
-                          Position::metersFromPixels -
-                          orbital->pos->getPixelsX()));
-     assertEquals(distance1, 4);
-     assertEquals(distance2, 4);
-     assertEquals(distance3, 4);
-     assertUnit(fragments.size() == 3);
+     std::advance(it, 1);
+     assertEquals((*it)->pos->x, -160.0);
+     assertEquals((*it)->pos->y, 0.0);
+     assertEquals(fragments.back()->pos->x, 0.0);
+     assertEquals(fragments.back()->pos->y, -160.0);
+     assertUnit(fragments.size() == 4);
    }  // teardown
    
    
+};
+
+
+
+
+/*********************************************
+* TEST Bullet
+* Unit tests for bullet
+*********************************************/
+class TestBullet : public UnitTest
+{
+public:
+   void run()
+   {
+      updateBullet_beforeExpiration();
+      updateBullet_duringExpiration();
+      updateBullet_afterExpiration();
+      
+      report("Bullet");
+   }
+private:
+   
+   /*********************************************
+   * name:    Update Bullet before expiration
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0) lifespan: 0
+   * output: hasCrashed = false
+   *********************************************/
+   void updateBullet_beforeExpiration()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Bullet* bullet = new Bullet(initialPosition,
+        initialVelocity,
+        initialAngle);
+      bullet->hasCrashed = false;
+      bullet->lifespan = 0;
+
+      // exercise
+      bullet->update();
+      
+      // verify
+      assertEquals(bullet->lifespan, 1);
+      assertEquals(bullet->hasCrashed, false);
+   }  // teardown
+   
+   /*********************************************
+   * name:    Update Bullet during expiration
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0) lifespan: 70
+   * output: hasCrashed = true
+   *********************************************/
+   void updateBullet_duringExpiration()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Bullet* bullet = new Bullet(initialPosition,
+        initialVelocity,
+        initialAngle);
+      bullet->hasCrashed = false;
+      bullet->lifespan = 70;
+
+      // exercise
+      bullet->update();
+      
+      // verify
+      assertEquals(bullet->lifespan, 71);
+      assertEquals(bullet->hasCrashed, true);
+   }  // teardown
+   
+   /*********************************************
+   * name:    Update Bullet after expiration
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0) lifespan: 7100
+   * output: hasCrashed = true
+   *********************************************/
+   void updateBullet_afterExpiration()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Bullet* bullet = new Bullet(initialPosition,
+        initialVelocity,
+        initialAngle);
+      bullet->hasCrashed = false;
+      bullet->lifespan = 7100;
+
+      // exercise
+      bullet->update();
+      
+      // verify
+      assertEquals(bullet->lifespan, 7101);
+      assertEquals(bullet->hasCrashed, true);
+   }  // teardown
+};
+
+
+
+
+
+
+
+
+
+/*********************************************
+* TEST Fragment
+* Unit tests for Bullet
+*********************************************/
+class TestFragment : public UnitTest
+{
+public:
+   void run()
+   {
+      updateFragment_beforeExpiration();
+      updateFragment_duringExpiration();
+      updateFragment_afterExpiration();
+      
+      report("Fragment");
+   }
+private:
+   
+   /*********************************************
+   * name:    Update Fragment before expiration
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0) lifespan: 0
+   * output: hasCrashed = false
+   *********************************************/
+   void updateFragment_beforeExpiration()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Fragment* fragment = new Fragment(initialPosition,
+        initialVelocity,
+        initialAngle);
+      fragment->hasCrashed = false;
+      fragment->lifespan = 0;
+
+      // exercise
+      fragment->update();
+      
+      // verify
+      assertEquals(fragment->lifespan, 1);
+      assertEquals(fragment->hasCrashed, false);
+   }  // teardown
+   
+   /*********************************************
+   * name:    Update Fragment during expiration
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0) lifespan: 70
+   * output: hasCrashed = true
+   *********************************************/
+   void updateFragment_duringExpiration()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Fragment* fragment = new Fragment(initialPosition,
+        initialVelocity,
+        initialAngle);
+      fragment->hasCrashed = false;
+      fragment->lifespan = 80;
+
+      // exercise
+      fragment->update();
+      
+      // verify
+      assertEquals(fragment->lifespan, 81);
+      assertEquals(fragment->hasCrashed, true);
+   }  // teardown
+   
+   /*********************************************
+   * name:    Update Fragment after expiration
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0) lifespan: 7100
+   * output: hasCrashed = true
+   *********************************************/
+   void updateFragment_afterExpiration()
+   {
+     // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Fragment* fragment = new Fragment(initialPosition,
+        initialVelocity,
+        initialAngle);
+      fragment->hasCrashed = false;
+      fragment->lifespan = 7100;
+
+      // exercise
+      fragment->update();
+      
+      // verify
+      assertEquals(fragment->lifespan, 7101);
+      assertEquals(fragment->hasCrashed, true);
+   }  // teardown
 };

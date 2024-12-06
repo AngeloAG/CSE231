@@ -48,4 +48,6 @@ void testRunner()
    TestStarlink().run();
    TestSputnik().run();
    TestCrewDragon().run();
+   TestBullet().run();
+   TestFragment().run();
 }

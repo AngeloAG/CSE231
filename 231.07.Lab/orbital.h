@@ -25,6 +25,8 @@ class TestHubble;
 class TestSputnik;
 class TestStarlink;
 class TestCrewDragon;
+class TestBullet;
+class TestFragment;
 
 /*********************************************
 * Orbital
@@ -39,6 +41,8 @@ class Orbital : public Entity
    friend TestSputnik;
    friend TestStarlink;
    friend TestCrewDragon;
+   friend TestBullet;
+   friend TestFragment;
    
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
@@ -59,12 +63,12 @@ public:
 protected:
    Angle* angle; // For stubs
    Velocity* vel;
+   bool useRandom = true;
+   bool hasCrashed;
 
 private:
    double radius;
    int fragmentCount;
-   bool hasCrashed;
-   bool useRandom;
 
    Acceleration getGravityAcceleration() const;
    double getCurrentHeight() const;
@@ -162,6 +166,96 @@ public:
    }
 };
 
+
+
+
+
+
+
+
+
+
+
+/*********************************************
+* Fragment
+* pieces that break off from other satellites
+*********************************************/
+class Fragment: public Orbital
+{
+   friend TestFragment;
+private:
+   int lifespan;
+   
+public:
+   Fragment(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 0, 2.0,
+         initialVelocity, initialAngle), lifespan(0){  }
+      
+   virtual list<Orbital*> getParts() const
+   {
+      return list<Orbital*> ();
+   }
+   
+   virtual void draw(ogstream &ogstream) const 
+   {
+      ogstream.drawFragment(*this->pos, this->angle->getRadians());
+   }
+   
+   
+   virtual void update()
+   {
+      lifespan ++;
+      Orbital::update();
+      if (lifespan >=  80)
+         hasCrashed = true;
+   }
+   
+};
+
+/*********************************************
+* StubOrbital_ThreeFragmentThreeParts
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_ThreeFragmentThreeParts : public Orbital
+{
+public:
+   StubOrbital_ThreeFragmentThreeParts(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 3, 2,
+         initialVelocity, initialAngle) {  }
+
+   
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> threeOrbitals;
+      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
+      return threeOrbitals;
+   }
+};
+
+/*********************************************
+* StubOrbital_ThreeFragmentZeroParts
+* A stub class to test the orbital.
+*********************************************/
+class StubOrbital_ThreeFragmentZeroParts : public Orbital
+{
+public:
+   StubOrbital_ThreeFragmentZeroParts(Position* initialPos,
+      Velocity* initialVelocity, Angle* initialAngle) :
+      Orbital(initialPos, 3, 2,
+         initialVelocity, initialAngle) {  }
+
+   
+   virtual list<Orbital*> getParts() const
+   {
+      list<Orbital*> noOrbitals;
+      return noOrbitals;
+   }
+};
+
 /*********************************************
 * StubOrbital_OneFragment
 * A stub class to test the orbital.
@@ -206,12 +300,12 @@ public:
 * StubOrbital_ThreeFragment
 * A stub class to test the orbital.
 *********************************************/
-class StubOrbital_ThreeFragment : public Orbital
+class StubOrbital_FourFragment : public Orbital
 {
 public:
-   StubOrbital_ThreeFragment(Position* initialPos,
+   StubOrbital_FourFragment(Position* initialPos,
       Velocity* initialVelocity, Angle* initialAngle) :
-      Orbital(initialPos, 3, 2,
+      Orbital(initialPos, 4, 2,
          initialVelocity, initialAngle) {  }
 
    virtual list<Orbital*> getParts() const
@@ -222,59 +316,42 @@ public:
    }
 };
 
-class Fragment: public Orbital
+
+
+
+
+
+
+/*********************************************
+* Bullet
+* Bullets that are fired from the ship
+*********************************************/
+class Bullet: public Orbital
 {
+   friend TestBullet;
+private:
+   int lifespan;
 public:
-   Fragment(Position* initialPos,
+   Bullet(Position* initialPos,
       Velocity* initialVelocity, Angle* initialAngle) :
-      Orbital(initialPos, 0, 2,
-         initialVelocity, initialAngle) {  }
+      Orbital(initialPos, 0, 1.0,
+         initialVelocity, initialAngle), lifespan(0) {  }
       
    virtual list<Orbital*> getParts() const
    {
-      list<Orbital*> singleOrbital;
-      return singleOrbital;
+      return list<Orbital*> ();
    }
    
-   virtual void draw(ogstream &ogstream) const 
+   virtual void draw(ogstream &ogstream) const
    {
-      ogstream.drawFragment(*this->pos, this->angle->getRadians());
+      ogstream.drawProjectile(*this->pos);
    }
    
-};
-
-
-class StubOrbital_ThreeFragmentThreeParts : public Orbital
-{
-public:
-   StubOrbital_ThreeFragmentThreeParts(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle) :
-      Orbital(initialPos, 3, 2,
-         initialVelocity, initialAngle) {  }
-
-   
-   virtual list<Orbital*> getParts() const
+   virtual void update() 
    {
-      list<Orbital*> threeOrbitals;
-      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
-      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
-      threeOrbitals.push_back(new DummyOrbital(new DummyPosition(), 0, 0, new DummyVelocity(), new DummyAngle()));
-      return threeOrbitals;
-   }
-};
-
-class StubOrbital_ThreeFragmentZeroParts : public Orbital
-{
-public:
-   StubOrbital_ThreeFragmentZeroParts(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle) :
-      Orbital(initialPos, 3, 2,
-         initialVelocity, initialAngle) {  }
-
-   
-   virtual list<Orbital*> getParts() const
-   {
-      list<Orbital*> noOrbitals;
-      return noOrbitals;
+      lifespan ++;
+      Orbital::update();
+      if (lifespan >=  70)
+         hasCrashed = true;
    }
 };

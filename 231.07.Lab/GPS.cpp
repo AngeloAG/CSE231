@@ -61,7 +61,7 @@ GPS::GPS(int gpsId) :
 *******************************************************************************/
 GPS::GPS(Position* initialPos,
    Velocity* initialVelocity, Angle* initialAngle): 
-     Orbital(initialPos, 2, 12, initialVelocity, initialAngle){}
+     Orbital(initialPos, 2, 12.0, initialVelocity, initialAngle){}
 
 /*******************************************************************************
 * GPS :: GET GPS PARTS
@@ -75,8 +75,10 @@ list<Orbital*> GPS::getParts() const
    Position* positions [3];
    Velocity* velocities [3];
 
-   double randomStartAngle = random(0.0, 360.0);
-   
+   double randomStartAngle = 0.0;
+   if (useRandom)
+      randomStartAngle = random(0.0, 360.0);
+
    for (int i = 0; i < 3; i++)
    {
       angles[i] = new Angle(randomStartAngle +
