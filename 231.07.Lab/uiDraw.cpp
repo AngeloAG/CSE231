@@ -900,6 +900,30 @@ void ogstream::drawStar(const Position& point, unsigned char phase)
    glEnd();
 }
 
+void ogstream::drawCircle(const Position& center, double radius, int segments)
+{
+   // Start drawing a polygon
+   glBegin(GL_TRIANGLE_FAN);
+
+   // Set the color for the circle (you can change this as needed)
+   glColor3f(0.0f /* red */, 0.5f /* green */, 1.0f /* blue */);
+
+   // Draw the center of the circle
+   glVertex2f(center.getPixelsX(), center.getPixelsY());
+
+   // Draw the edges of the circle
+   for (int i = 0; i <= segments; ++i)
+   {
+      float angle = 2.0f * M_PI * i / segments; // Compute angle for this segment
+      float x = center.getPixelsX() + radius * cosf(angle);
+      float y = center.getPixelsY() + radius * sinf(angle);
+      glVertex2f(x, y);
+   }
+
+   // Complete drawing
+   glEnd();
+}
+
 /******************************************************************
  * DUMMY
  ****************************************************************/

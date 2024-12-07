@@ -20,6 +20,7 @@
 #include <algorithm> // used for min() and max() (specifically required by Visual Studio)
 using std::min;
 using std::max;
+class TestGame;
 
 #define GL_SILENCE_DEPRECATION
 
@@ -30,6 +31,7 @@ using std::max;
  ********************************************/
 class Interface
 {
+   friend TestGame;
 public:
    Interface() {}
 

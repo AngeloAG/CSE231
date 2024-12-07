@@ -29,6 +29,7 @@ using std::list;
 
 class Orbital;
 class Ship;
+class TestGame;
 
 /*********************************************
 * Game
@@ -36,13 +37,14 @@ class Ship;
 *********************************************/
 class Game
 {
-
+   friend TestGame;
 public:
    Game(Position* ptUpperRight);
    ~Game()
    {
        for (auto orbital : orbitals)
            delete orbital;
+       delete ship;
        
        orbitals.clear();
    }

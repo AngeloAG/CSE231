@@ -60,14 +60,14 @@ void Game::update()
 
     ship->detectCollisions(orbitals);
 
-    for (auto it = orbitals.begin(); it != orbitals.end(); )
+    for (auto it = orbitals.begin(); it != orbitals.end();)
     {
        if ((*it)->crashed())
        {
           // Use a temporary variable to hold the current orbital
           Orbital* orbital = *it;
 
-          // Advance the iterator before modifying the list
+          // erase the iterator and get a new one to the next item before modifying the list
           it = orbitals.erase(it);
 
           // Call the destroy method (this adds/removes elements safely)
@@ -114,16 +114,32 @@ void Game::input(const Interface* pUI)
     {
         ship->input(RIGHT);
     }
-    if (pUI->isSpace())
+    if (pUI->isSpace()) /* Fixed by doing && !ship->crashed(), but want to keep the easter egg*/
     {
-       Position* position = new Position(ship->getPos());
-       Velocity* velocity = new Velocity(ship->getVelocity().getDX(), ship->getVelocity().getDY());
-       double speed = random(500, 900);
-       Acceleration acceleration(ship->getAngle(), speed);
-       position->add(acceleration, *velocity, TIME_PER_FRAME);
-       velocity->add(acceleration, TIME_PER_FRAME);
-       Angle* angle = new Angle(ship->getAngle());
-       orbitals.push_back(new Bullet(position, velocity, angle));
-        //ship->input(SPACE);
+       createBullet();
     }
+}
+
+/*******************************************************************************
+* GAME :: CREATE BULLET
+*  Adds a bullet to the game.
+*******************************************************************************/
+void Game::createBullet()
+{
+   // Create the position, velocity, and angle of the bullet
+   Position* position = new Position(ship->getPos());
+   Velocity* velocity = new Velocity(ship->getVelocity().getDX(), 
+                                     ship->getVelocity().getDY());
+   
+   double speed = random(500, 900);
+   Acceleration acceleration(ship->getAngle(), speed);
+   
+   // Move the bullet away from the ship so it doesn't collide on creation
+   position->add(acceleration, *velocity, TIME_PER_FRAME);
+   velocity->add(acceleration, TIME_PER_FRAME);
+
+   Angle* angle = new Angle(ship->getAngle());
+
+   // Add the bullet to the orbitals list
+   orbitals.push_back(new Bullet(position, velocity, angle));
 }

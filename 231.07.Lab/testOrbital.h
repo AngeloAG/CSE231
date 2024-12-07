@@ -792,9 +792,9 @@ private:
    /*********************************************
     * name:    DETECT COLLISION NO TOUCHING HORIZONTAL
     * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
-    *          radius1 1000.0, fragmentCount1 0
+    *          radius1 10.0, fragmentCount1 0
     *          Pos2(6378000.0, 0.0), Vel2(0.0, 0.0), Angle2(0.0),
-    *          radius2 1000.0, fragmentCount2 0
+    *          radius2 10.0, fragmentCount2 0
     * output:  orbital1 hasCrashed = false; orbital2 hasCrashed = false;
     *********************************************/
    void detectCollision_NoTouchingHorizontal()
@@ -803,7 +803,7 @@ private:
       StubPosition00* initialPosition1 = new StubPosition00();
       DummyVelocity* initialVelocity1 = new DummyVelocity();
       DummyAngle* initialAngle1 = new DummyAngle();
-      double radius1 = 1000.0;
+      double radius1 = 10.0;
       int fragmentCount1 = 0;
       DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
          initialVelocity1, initialAngle1);
@@ -812,7 +812,7 @@ private:
       StubPositionX6378000Y0* initialPosition2 = new StubPositionX6378000Y0();
       DummyVelocity* initialVelocity2 = new DummyVelocity();
       DummyAngle* initialAngle2 = new DummyAngle();
-      double radius2 = 1000.0;
+      double radius2 = 10.0;
       int fragmentCount2 = 0;
       DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
          initialVelocity2, initialAngle2);
@@ -1046,6 +1046,7 @@ private:
         initialAngle);
      orbital->hasCrashed = false;
      orbital->useRandom = false;
+     orbital->radius = 0;
 
      list<Orbital*> fragments;
       
@@ -1084,6 +1085,7 @@ private:
         initialAngle);
      orbital->hasCrashed = false;
      orbital->useRandom = false;
+     orbital->radius = 0;
 
      list<Orbital*> fragments;
       
@@ -1111,6 +1113,7 @@ private:
         initialAngle);
      orbital->hasCrashed = false;
      orbital->useRandom = false;
+     orbital->radius = 0;
 
      list<Orbital*> fragments;
       
@@ -1118,58 +1121,6 @@ private:
      fragments = orbital->getFragments();
 
      // verify
-//     double distance1 = sqrt((fragments.front()->pos->x/
-//                              Position::metersFromPixels-
-//                          orbital->pos->getPixelsX()) *
-//                          
-//                             (fragments.front()->pos->x/
-//                           Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()) +
-//                          
-//                             (fragments.front()->pos->y/
-//                           Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()) *
-//                          
-//                             (fragments.front()->pos->y/
-//                           Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()));
-//      
-//      
-//     double distance2 = sqrt((std::next(fragments.front())->pos->x/
-//                              Position::metersFromPixels-
-//                          orbital->pos->getPixelsX()) *
-//                             
-//                         (std::next(fragments.front())->pos->x/
-//                          Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()) +
-//                         
-//                         (std::next(fragments.front())->pos->y/
-//                          Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()) *
-//                             
-//                         (std::next(fragments.front())->pos->y/
-//                          Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()));
-//      
-//      
-//     double distance3 = sqrt((fragments.back()->pos->x/
-//                              Position::metersFromPixels-
-//                          orbital->pos->getPixelsX()) *
-//                             
-//                         (fragments.back()->pos->x/
-//                          Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()) +
-//                             
-//                         (fragments.back()->pos->y/
-//                          Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()) *
-//                             
-//                         (fragments.back()->pos->y/
-//                          Position::metersFromPixels -
-//                          orbital->pos->getPixelsX()));
-//     assertEquals(distance1, 4);
-//     assertEquals(distance2, 4);
-//     assertEquals(distance3, 4);
      auto it = fragments.begin();
      std::advance(it, 1);
      assertEquals(fragments.front()->pos->x, 160.0);
@@ -1184,8 +1135,6 @@ private:
      assertEquals(fragments.back()->pos->y, -160.0);
      assertUnit(fragments.size() == 4);
    }  // teardown
-   
-   
 };
 
 

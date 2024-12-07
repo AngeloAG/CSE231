@@ -26,6 +26,7 @@ class TestHubble;
 class TestSputnik;
 class TestStarlink;
 class TestCrewDragon;
+class TestGame;
 
 /************************************
  * ANGLE
@@ -43,6 +44,7 @@ public:
    friend TestSputnik;
    friend TestStarlink;
    friend TestCrewDragon;
+   friend TestGame;
    // Constructors
    //Default constructor 
    Angle() : radians(0.0) { }

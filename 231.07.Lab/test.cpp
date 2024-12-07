@@ -15,6 +15,7 @@
 #include "testEntity.h"
 #include "testOrbital.h"
 #include "testShip.h"
+#include "testGame.h"
 #include "testSatellite.h"
 
 #ifdef _WIN32
@@ -50,4 +51,5 @@ void testRunner()
    TestCrewDragon().run();
    TestBullet().run();
    TestFragment().run();
+   TestGame().run();
 }

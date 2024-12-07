@@ -17,6 +17,7 @@
 
 class Orbital;
 class TestShip;
+class TestGame;
 
 /*********************************************
 * SHIP
@@ -25,7 +26,7 @@ class TestShip;
 class Ship : public Orbital
 {
    friend TestShip;
-   
+   friend TestGame;
 public:
    Ship();
    Ship(Position* initialPos, int fragmentCount, double radius,

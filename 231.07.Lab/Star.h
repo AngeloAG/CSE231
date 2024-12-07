@@ -19,7 +19,7 @@ class Star : Entity
 {
 public:
     Star() : Entity(new Position()), phase(0) {             }
-    virtual ~Star() { delete pos; } // Prevent memory leaks
+    virtual ~Star() { }
 
     virtual void draw(ogstream& ogstream) const
     { 

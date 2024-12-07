@@ -49,7 +49,8 @@ public:
    ~GPSCenter() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual void draw(ogstream& ogstream) const 
+   {
       ogstream.drawGPSCenter(*this->pos, this->angle->getRadians());
    };
 };
@@ -70,7 +71,8 @@ public:
    ~GPSRight() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual void draw(ogstream& ogstream) const 
+   {
       ogstream.drawGPSRight(*this->pos, this->angle->getRadians());
    };
 };
@@ -90,7 +92,8 @@ public:
    ~GPSLeft() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual void draw(ogstream& ogstream) const 
+   {
       ogstream.drawGPSLeft(*this->pos, this->angle->getRadians());
    };
 };

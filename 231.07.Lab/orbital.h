@@ -27,6 +27,7 @@ class TestStarlink;
 class TestCrewDragon;
 class TestBullet;
 class TestFragment;
+class TestGame;
 
 /*********************************************
 * Orbital
@@ -43,17 +44,18 @@ class Orbital : public Entity
    friend TestCrewDragon;
    friend TestBullet;
    friend TestFragment;
-   
+   friend TestGame;
+
 public:
    Orbital(Position* initialPos, int fragmentCount, double radius, 
            Velocity* initialVelocity, Angle* initialAngle);
    ~Orbital()                    { delete angle; delete vel; } // Prevent memory leaks
-   double getRadius()      const { return radius;        }
+   double getRadius()      const { return radius * 128000.0; } /* 128km equals 1 pixel */
    int  getFragmentCount() const { return fragmentCount; }
    bool crashed()          const { return hasCrashed;    }
 
    void move(const Acceleration& accel, double time);
-   void detectCollisions(const list<Orbital*>& orbitals);
+   virtual void detectCollisions(const list<Orbital*>& orbitals);
 
    virtual void destroy(list<Orbital*>& orbitals);
    virtual list<Orbital*> getParts() const = 0;
@@ -65,9 +67,9 @@ protected:
    Velocity* vel;
    bool useRandom = true;
    bool hasCrashed;
+   double radius;
 
 private:
-   double radius;
    int fragmentCount;
 
    Acceleration getGravityAcceleration() const;

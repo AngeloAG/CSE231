@@ -85,11 +85,11 @@ list<Orbital*> GPS::getParts() const
                                 (360/3 * i));
       
       positions[i] = new Position(*this->pos);
-      positions[i]->addPixelsX(4 * cos(angles[i]->getRadians()));
-      positions[i]->addPixelsY(4 * sin(angles[i]->getRadians()));
+      positions[i]->addPixelsX((4 + this->radius) * cos(angles[i]->getRadians()));
+      positions[i]->addPixelsY((4 + this->radius) * sin(angles[i]->getRadians()));
       
       velocities[i] = new Velocity(*this->vel);
-      double partSpeed = random(5000, 9000);
+      double partSpeed = random(50, 90);
       Acceleration partAcceleration(*angles[i], partSpeed);
       velocities[i]->add(partAcceleration, TIME_PER_FRAME);
    }

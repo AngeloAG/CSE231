@@ -18,9 +18,9 @@
 class Earth : public Orbital
 {
 public:
-    Earth() : Orbital(new Position(), 0, 2.0, new Velocity(),
+    Earth() : Orbital(new Position(), 0, 49.82, new Velocity(),
                       new Angle()) {                         }
-    virtual ~Earth() { delete pos; } // Prevent memory leaks
+    virtual ~Earth() { } 
 
     virtual list<Orbital*> getParts() const { return list<Orbital*>(); }
 
@@ -34,7 +34,8 @@ public:
 
     virtual void destroy(list<Orbital*>& orbitals)                {             }
 
-    virtual void draw(ogstream& ogstream) const { ogstream.drawEarth(*this->pos,
-                                                  this->angle->getRadians());   
+    virtual void draw(ogstream& ogstream) const 
+    { 
+       ogstream.drawEarth(*this->pos, this->angle->getRadians());
     }
 };

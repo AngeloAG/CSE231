@@ -77,6 +77,8 @@ public:
 
    virtual void drawStar(const Position& point, unsigned char phase);
 
+   virtual void drawCircle(const Position& center, double radius, int segments = 36);
+
 protected:
    Position pt;
 };

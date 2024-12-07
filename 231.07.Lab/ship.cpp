@@ -35,7 +35,7 @@ Ship::Ship(Position* initialPos, int fragmentCount, double radius,
 *******************************************************************************/
 list<Orbital*> Ship::getParts() const
 {
-   list<Orbital*> emptyList; // This is just a placeholder for next labs
+   list<Orbital*> emptyList;
    return emptyList;
 }
 
