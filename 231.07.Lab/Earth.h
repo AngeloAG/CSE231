@@ -18,7 +18,7 @@
 class Earth : public Orbital
 {
 public:
-    Earth() : Orbital(new Position(), 0, 2.0/*6378000.0*/, new Velocity(),
+    Earth() : Orbital(new Position(), 0, 2.0, new Velocity(),
                       new Angle()) {                         }
     virtual ~Earth() { delete pos; } // Prevent memory leaks
 
@@ -30,8 +30,11 @@ public:
             (TIME_DIALATION / SECONDS_PER_DAY));
     }
 
-    virtual void detectCollisions(const list<Orbital*>& orbitals) {        }
+    virtual void detectCollisions(const list<Orbital*>& orbitals) {             }
+
+    virtual void destroy(list<Orbital*>& orbitals)                {             }
 
     virtual void draw(ogstream& ogstream) const { ogstream.drawEarth(*this->pos,
-                                                  this->angle->getRadians());   }
+                                                  this->angle->getRadians());   
+    }
 };

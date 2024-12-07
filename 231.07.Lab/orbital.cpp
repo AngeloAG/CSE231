@@ -105,17 +105,10 @@ void Orbital::detectCollisions(const std::list<Orbital*>& orbitals)
    {
       if (this != orbital) // Make sure we are not comparing to ourselves
       {
-         double distanceBetween = sqrt(((orbital->pos->getMetersX()   -
-                                         this->   pos->getMetersX())  *
-                                        (orbital->pos->getMetersX()   -
-                                         this->   pos->getMetersX())) +
-                                       ((orbital->pos->getMetersY()   -
-                                         this->   pos->getMetersY())  *
-                                        (orbital->pos->getMetersY()   -
-                                         this->pos->getMetersY())));
+         double distanceBetween = computeDistance(*this->pos, orbital->getPos());
 
-         double sumOfRadii = this->getRadius() + orbital->getRadius();
-         if (distanceBetween <= sumOfRadii * 40)
+         double sumOfRadii = (this->getRadius() * 40000.0) + (orbital->getRadius() * 40000.0);
+         if (distanceBetween <= sumOfRadii )
          {
             this->hasCrashed = true;
          }
@@ -166,7 +159,7 @@ list<Orbital*> Orbital::getFragments() const
       fragmentPosition->addPixelsY(4 * sin(fragmentAngle->getRadians()));
       
       Velocity* fragmentVelocity = new Velocity(*this->vel);
-      double fragmentSpeed = random(5000, 9000);
+      double fragmentSpeed = random(500, 900);
       Acceleration fragmentAcceleration(*fragmentAngle, fragmentSpeed);
       fragmentVelocity->add(fragmentAcceleration, TIME_PER_FRAME);
       

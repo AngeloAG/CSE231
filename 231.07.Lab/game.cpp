@@ -51,15 +51,32 @@ void Game::update()
 
     ship->update();
 
-    for (auto orbital : orbitals)
-        orbital->detectCollisions(orbitals);
-
+    list<Orbital*> shipList = {ship};
     for (auto orbital : orbitals)
     {
-        if (orbital->crashed())
-        {
-            orbital->destroy(orbitals);
-        }
+       orbital->detectCollisions(orbitals);
+       orbital->detectCollisions(shipList);
+    }
+
+    ship->detectCollisions(orbitals);
+
+    for (auto it = orbitals.begin(); it != orbitals.end(); )
+    {
+       if ((*it)->crashed())
+       {
+          // Use a temporary variable to hold the current orbital
+          Orbital* orbital = *it;
+
+          // Advance the iterator before modifying the list
+          it = orbitals.erase(it);
+
+          // Call the destroy method (this adds/removes elements safely)
+          orbital->destroy(orbitals);
+       }
+       else
+       {
+          ++it; // Move to the next element if no crash
+       }
     }
 }
 
@@ -74,8 +91,9 @@ void Game::draw(ogstream& og) const
 
     for (auto orbital : orbitals)
         orbital->draw(og);
-
-    ship->draw(og);
+    
+    if(!ship->crashed())
+       ship->draw(og);
 }
 
 /*******************************************************************************
@@ -98,6 +116,14 @@ void Game::input(const Interface* pUI)
     }
     if (pUI->isSpace())
     {
-        ship->input(SPACE);
+       Position* position = new Position(ship->getPos());
+       Velocity* velocity = new Velocity(ship->getVelocity().getDX(), ship->getVelocity().getDY());
+       double speed = random(500, 900);
+       Acceleration acceleration(ship->getAngle(), speed);
+       position->add(acceleration, *velocity, TIME_PER_FRAME);
+       velocity->add(acceleration, TIME_PER_FRAME);
+       Angle* angle = new Angle(ship->getAngle());
+       orbitals.push_back(new Bullet(position, velocity, angle));
+        //ship->input(SPACE);
     }
 }

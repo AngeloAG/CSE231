@@ -36,6 +36,8 @@ public:
    virtual void draw(ogstream& ogstream) const;
    void input(KeyPress pressed);
    void update() override;
+   const Velocity& getVelocity() const { return *this->vel; }
+   const Angle& getAngle() const { return *this->angle; }
 private:
 
    void thrust();

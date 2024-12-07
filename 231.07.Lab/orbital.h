@@ -54,8 +54,8 @@ public:
 
    void move(const Acceleration& accel, double time);
    void detectCollisions(const list<Orbital*>& orbitals);
-   void destroy(list<Orbital*>& orbitals);
 
+   virtual void destroy(list<Orbital*>& orbitals);
    virtual list<Orbital*> getParts() const = 0;
    virtual void draw(ogstream& ogstream) const {}
    virtual void update();
