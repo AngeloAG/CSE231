@@ -50,7 +50,7 @@ list<Orbital*> Hubble::getParts() const
       positions[i]->addPixelsX((4 + this->radius) * cos(angles[i]->getRadians()));
       positions[i]->addPixelsY((4 + this->radius) * sin(angles[i]->getRadians()));
       
-      velocities[i] = new Velocity(*this->vel);
+      velocities[i] = new Velocity(this->vel->getDX(), this->vel->getDY());
       double partSpeed = random(50, 90);
       Acceleration partAcceleration(*angles[i], partSpeed);
       velocities[i]->add(partAcceleration, TIME_PER_FRAME);
