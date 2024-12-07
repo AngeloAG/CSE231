@@ -13,6 +13,17 @@
 
 #include "constants.h"
 #include "entity.h"
+#include "GPS.h"
+#include "sputnik.h"
+#include "starlink.h"
+#include "ship.h"
+#include "hubble.h"
+#include "crewDragon.h"
+#include "star.h"
+#include "earth.h"
+#include "keyPress.h"
+#include "uiInteract.h"
+
 #include <list>
 using std::list;
 
@@ -27,15 +38,22 @@ class Game
 {
 
 public:
-   Game();
-   ~Game() { } // Prevent memory leaks
-  /* void update();
-   void draw() const;*/
+   Game(Position* ptUpperRight);
+   ~Game()
+   {
+       for (auto orbital : orbitals)
+           delete orbital;
+       
+       orbitals.clear();
+   }
+   void update();
+   void draw(ogstream& og) const;
+   void input(const Interface* pUI);
 
 private:
-   //list<Orbital*> orbitals;
-   //Entity stars[NUMBER_OF_STARS];
-   //Ship* ship;
+   list<Orbital*> orbitals;
+   Star stars[NUMBER_OF_STARS];
+   Ship* ship;
 
-   /*void createBullet();*/
+   void createBullet();
 };

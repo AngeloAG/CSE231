@@ -166,16 +166,6 @@ public:
    }
 };
 
-
-
-
-
-
-
-
-
-
-
 /*********************************************
 * Fragment
 * pieces that break off from other satellites
@@ -188,9 +178,9 @@ private:
    
 public:
    Fragment(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle) :
-      Orbital(initialPos, 0, 2.0,
-         initialVelocity, initialAngle), lifespan(0){  }
+            Velocity* initialVelocity, Angle* initialAngle) :
+            Orbital(initialPos, 0, 2.0,
+            initialVelocity, initialAngle), lifespan(0) {  }
       
    virtual list<Orbital*> getParts() const
    {

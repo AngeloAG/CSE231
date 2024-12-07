@@ -13,14 +13,11 @@
 
 #define _USE_MATH_DEFINES
 
-#include <cassert>      // for ASSERT
 #include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "position.h"   // for POINT
-#include <cmath>        // for M_PI
 #include "orbital.h"    // for ORBITALS
 #include "constants.h"
-#include <vector>
 #include "test.h"
 #include "gps.h"
 #include "hubble.h"
@@ -28,8 +25,13 @@
 #include "starlink.h"
 #include "crewDragon.h"
 #include "ship.h"
+#include "game.h"
+
+#include <cassert>      // for ASSERT
+#include <cmath>        // for M_PI
+#include <vector>
 #include <iostream>
-#include <list>  // for LIST
+#include <list>         // for LIST
 
 using namespace std;
 
@@ -40,48 +42,11 @@ using namespace std;
 class Demo
 {
 public:
-   Demo(Position ptUpperRight) :
-      ptUpperRight(ptUpperRight), angleEarth(0.0)
-   {
-      for (int i = 1; i < 7; i++)
-      {
-         gpsCount.push_back(new GPS(i));
-      }
+    Demo(Position ptUpperRight) : ptUpperRight(ptUpperRight), game(&ptUpperRight) { }
+    ~Demo() { }
 
-      hubble = new Hubble();
-      sputnik = new Sputnik();
-      starlink = new Starlink();
-      crewDragon = new CrewDragon();
-      ship = new Ship();
-
-      // EARTH
-      angleEarth = 0.0;
-
-      for (int i = 0; i < NUMBER_OF_STARS; i++) {
-         ptStar[i].setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-         ptStar[i].setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-         phaseStar[i] = i;
-      }
-   }
-   ~Demo()
-   {
-      for (auto gps : gpsCount)
-         delete gps;
-
-      delete hubble; delete sputnik; delete starlink;
-      delete crewDragon; delete ship;
-   }
-   Orbital* hubble;
-   Orbital* sputnik;
-   Orbital* starlink;
-   Orbital* crewDragon;
-   Ship* ship;
-   Position ptStar[NUMBER_OF_STARS];
-   Position ptUpperRight;
-
-   unsigned char phaseStar[NUMBER_OF_STARS];
-   double angleEarth;
-   list <Orbital*>gpsCount;
+    Game game;
+    Position ptUpperRight;
 };
 
 /*************************************
@@ -96,76 +61,12 @@ void callBack(const Interface* pUI, void* p)
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
    Demo* pDemo = (Demo*)p;
-
-   //
-   // perform all the game logic
-   //
-
-      //
-   // Input
-   //
-   if (pUI->isDown())
-   {
-      pDemo->ship->input(DOWN);
-   }
-   if (pUI->isLeft())
-   {
-      pDemo->ship->input(LEFT);
-   }
-   if (pUI->isRight())
-   {
-      pDemo->ship->input(RIGHT);
-   }
-   if (pUI->isSpace())
-   {
-      pDemo->ship->input(SPACE);
-   }
-
-   //
-   // draw everything
-   //
-
    Position pt;
    ogstream gout(pt);
 
-   // draw a single star
-   for (int i = 0; i < NUMBER_OF_STARS; i++) {
-      gout.drawStar(pDemo->ptStar[i], pDemo->phaseStar[i]);
-      pDemo->phaseStar[i]++;
-   }
-
-   // draw satellites
-   for (auto gps : pDemo->gpsCount)
-   {
-      gps->draw(gout);
-   }
-   pDemo->hubble->draw(gout);
-   pDemo->sputnik->draw(gout);
-   pDemo->starlink->draw(gout);
-   pDemo->crewDragon->draw(gout);
-   pDemo->ship->draw(gout);
-
-   // draw parts
-
-   // draw the earth
-   pt.setMeters(0.0, 0.0);
-   gout.drawEarth(pt, pDemo->angleEarth);
-
-   // rotate the earth
-   pDemo->angleEarth += -(2.0 * M_PI / FRAME_RATE) *
-         (TIME_DIALATION / SECONDS_PER_DAY);
-
-   // Update everything
-   for (auto gps : pDemo->gpsCount)
-   {
-      gps->update();
-   }
-
-   pDemo->hubble->update();
-   pDemo->sputnik->update();
-   pDemo->starlink->update();
-   pDemo->crewDragon->update();
-   pDemo->ship->update();
+   pDemo->game.update();
+   pDemo->game.input(pUI);
+   pDemo->game.draw(gout);
 }
 
 double Position::metersFromPixels = 40.0;

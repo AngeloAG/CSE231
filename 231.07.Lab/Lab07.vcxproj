@@ -162,6 +162,7 @@
     <ClInclude Include="angle.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="crewDragon.h" />
+    <ClInclude Include="Earth.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="GPS.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="position.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="sputnik.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="starlink.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />

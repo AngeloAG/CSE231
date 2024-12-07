@@ -115,7 +115,7 @@ void Orbital::detectCollisions(const std::list<Orbital*>& orbitals)
                                          this->pos->getMetersY())));
 
          double sumOfRadii = this->getRadius() + orbital->getRadius();
-         if (distanceBetween <= sumOfRadii)
+         if (distanceBetween <= sumOfRadii * 40)
          {
             this->hasCrashed = true;
          }
