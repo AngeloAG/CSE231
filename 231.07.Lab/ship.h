@@ -30,20 +30,19 @@ class Ship : public Orbital
 public:
    Ship();
    Ship(Position* initialPos, int fragmentCount, double radius,
-      Velocity* initialVelocity, Angle* initialAngle);
+        Velocity* initialVelocity, Angle* initialAngle);
    ~Ship() { }
 
-   virtual list<Orbital*> getParts()    const;
+   virtual list<Orbital*> getParts()     const;
    virtual void draw(ogstream& ogstream) const;
    void input(KeyPress pressed);
    void update() override;
-   const Velocity& getVelocity() const { return *this->vel; }
-   const Angle& getAngle() const { return *this->angle; }
+   const Velocity& getVelocity() const { return *this->vel;   }
+   const Angle& getAngle()       const { return *this->angle; }
 private:
 
    void thrust();
    void turnLeft()  { angle->add(-0.1); }
    void turnRight() { angle->add(0.1);  }
    bool isThrust;
-
 };

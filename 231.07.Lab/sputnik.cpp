@@ -15,15 +15,16 @@
 * Sputnik :: DEFAULT CONSTRUCTOR
 *******************************************************************************/
 Sputnik::Sputnik() :
-   Orbital(new Position(STARTING_HEIGHT_SPUTNIK_X, STARTING_HEIGHT_SPUTNIK_Y), 4, 4.0,
-      new Velocity(2050.0, 2684.68), new Angle()) {}
+   Orbital(new Position(STARTING_HEIGHT_SPUTNIK_X, STARTING_HEIGHT_SPUTNIK_Y),
+           4, 4.0, new Velocity(2050.0, 2684.68), new Angle()) {}
 
 /*******************************************************************************
 * SPUTNIK :: CONSTRUCTOR
 *******************************************************************************/
-Sputnik::Sputnik(Position* initialPos,
-   Velocity* initialVelocity, Angle* initialAngle) :
-   Orbital(initialPos, 4, 4.0, initialVelocity, initialAngle) {}
+Sputnik::Sputnik(Position* initialPos, Velocity* initialVelocity,
+                 Angle* initialAngle) : Orbital(initialPos, 4, 4.0,
+                                                initialVelocity,
+                                                initialAngle) {    }
 
 /*******************************************************************************
 * SPUTNIK :: GET GPS PARTS

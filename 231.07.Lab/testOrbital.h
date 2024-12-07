@@ -91,11 +91,12 @@ private:
       initialVelocity->dy = 8.8;
       Angle* initialAngle = new Angle();
       initialAngle->radians = 0.0;
-      double radius = 10.0;
+      double radius     = 10.0;
       int fragmentCount = 5;
 
       // exercise
-      DummyOrbital orbital(initialPosition, fragmentCount, radius, initialVelocity, initialAngle);
+      DummyOrbital orbital(initialPosition, fragmentCount, radius,
+                           initialVelocity, initialAngle);
 
       // verify
       assertEquals(orbital.pos->x, 11.1);
@@ -124,9 +125,9 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -148,9 +149,9 @@ private:
    {
       // setup
       StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyVelocity* initialVelocity          = new DummyVelocity();
+      DummyAngle* initialAngle                = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -172,9 +173,9 @@ private:
    {
       // setup
       StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyVelocity* initialVelocity          = new DummyVelocity();
+      DummyAngle* initialAngle                = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -196,9 +197,9 @@ private:
    {
       // setup
       StubPositionX6378010Y0* initialPosition = new StubPositionX6378010Y0();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyVelocity* initialVelocity          = new DummyVelocity();
+      DummyAngle* initialAngle                = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -220,9 +221,9 @@ private:
    {
       // setup
       StubPositionX0Y6378010* initialPosition = new StubPositionX0Y6378010();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyVelocity* initialVelocity          = new DummyVelocity();
+      DummyAngle* initialAngle                = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -243,10 +244,11 @@ private:
    void getCurrentHeight_inSpaceXY()
    {
       // setup
-      StubPositionX6378010Y6378010* initialPosition = new StubPositionX6378010Y6378010();
+      StubPositionX6378010Y6378010* initialPosition =
+                                       new StubPositionX6378010Y6378010();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyAngle* initialAngle       = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -268,9 +270,9 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -293,8 +295,8 @@ private:
       // setup
       StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyAngle* initialAngle       = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -316,10 +318,10 @@ private:
    {
       // setup
       StubPositionX0YMINUS6378000* initialPosition =
-                                   new StubPositionX0YMINUS6378000();
+                                       new StubPositionX0YMINUS6378000();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyAngle* initialAngle       = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -342,8 +344,8 @@ private:
       // setup
       StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyAngle* initialAngle       = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -365,9 +367,9 @@ private:
    {
       // setup
       StubPositionXMINUS6378000Y0* initialPosition =
-                                   new StubPositionXMINUS6378000Y0();
+                                       new StubPositionXMINUS6378000Y0();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
+      DummyAngle* initialAngle       = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -391,8 +393,8 @@ private:
       // setup
       StubPositionX6378000Y0* initialPosition = new StubPositionX6378000Y0();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyAngle* initialAngle       = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -418,8 +420,8 @@ private:
       // setup
       StubPositionX0Y6378000* initialPosition = new StubPositionX0Y6378000();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      DummyAngle* initialAngle       = new DummyAngle();
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
@@ -444,9 +446,9 @@ private:
    {
       // setup
       StubPositionX6378010Y6378010* initialPosition =
-                                    new StubPositionX6378010Y6378010();
+                                       new StubPositionX6378010Y6378010();
       DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
+      DummyAngle* initialAngle       = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
@@ -527,11 +529,10 @@ private:
       initialVelocity->dx = 0.0;
       initialVelocity->dy = 0.0;
       DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
-
       Acceleration acc;
       acc.ddx = 2.0;
       acc.ddy = 0.0;
@@ -566,11 +567,10 @@ private:
       initialVelocity->dx = 0.0;
       initialVelocity->dy = 0.0;
       DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
-
       Acceleration acc;
       acc.ddx = 0.0;
       acc.ddy = 2.0;
@@ -605,11 +605,10 @@ private:
       initialVelocity->dx = 0.0;
       initialVelocity->dy = 0.0;
       DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
-
       Acceleration acc;
       acc.ddx = 2.0;
       acc.ddy = 2.0;
@@ -644,11 +643,10 @@ private:
       initialVelocity->dx = 0.0;
       initialVelocity->dy = 0.0;
       DummyAngle* initialAngle = new DummyAngle();
-      double radius = 10.0;
+      double radius     = 10.0;
       int fragmentCount = 0;
       DummyOrbital orbital(initialPosition, fragmentCount, radius,
                            initialVelocity, initialAngle);
-
       Acceleration acc;
       acc.ddx = 0.0;
       acc.ddy = 0.0;
@@ -678,21 +676,23 @@ private:
    {
       // setup
       StubPosition00* initialPosition1 = new StubPosition00();
-      DummyVelocity* initialVelocity1 = new DummyVelocity();
-      DummyAngle* initialAngle1 = new DummyAngle();
+      DummyVelocity* initialVelocity1  = new DummyVelocity();
+      DummyAngle* initialAngle1        = new DummyAngle();
       double radius1 = 3189000.0;
       int fragmentCount1 = 0;
-      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
-         initialVelocity1, initialAngle1);
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1,
+                                                radius1, initialVelocity1,
+                                                initialAngle1);
       orbital1->hasCrashed = false;
 
       StubPositionX6378000Y0* initialPosition2 = new StubPositionX6378000Y0();
       DummyVelocity* initialVelocity2 = new DummyVelocity();
-      DummyAngle* initialAngle2 = new DummyAngle();
+      DummyAngle* initialAngle2       = new DummyAngle();
       double radius2 = 3189000.0;
       int fragmentCount2 = 0;
-      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
-         initialVelocity2, initialAngle2);
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2,
+                                                radius2, initialVelocity2,
+                                                initialAngle2);
       orbital2->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -719,21 +719,23 @@ private:
    {
       // setup
       StubPosition00* initialPosition1 = new StubPosition00();
-      DummyVelocity* initialVelocity1 = new DummyVelocity();
-      DummyAngle* initialAngle1 = new DummyAngle();
+      DummyVelocity* initialVelocity1  = new DummyVelocity();
+      DummyAngle* initialAngle1        = new DummyAngle();
       double radius1 = 3189000.0;
       int fragmentCount1 = 0;
-      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
-         initialVelocity1, initialAngle1);
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1,
+                                                radius1, initialVelocity1,
+                                                initialAngle1);
       orbital1->hasCrashed = false;
 
       StubPositionX0Y6378000* initialPosition2 = new StubPositionX0Y6378000();
-      DummyVelocity* initialVelocity2 = new DummyVelocity();
-      DummyAngle* initialAngle2 = new DummyAngle();
+      DummyVelocity* initialVelocity2          = new DummyVelocity();
+      DummyAngle* initialAngle2                = new DummyAngle();
       double radius2 = 3189000.0;
       int fragmentCount2 = 0;
-      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
-         initialVelocity2, initialAngle2);
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2,
+                                                radius2, initialVelocity2,
+                                                initialAngle2);
       orbital2->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -760,21 +762,24 @@ private:
    {
       // setup
       StubPosition00* initialPosition1 = new StubPosition00();
-      DummyVelocity* initialVelocity1 = new DummyVelocity();
-      DummyAngle* initialAngle1 = new DummyAngle();
-      double radius1 = 4509935.0;
+      DummyVelocity* initialVelocity1  = new DummyVelocity();
+      DummyAngle* initialAngle1        = new DummyAngle();
+      double radius1     = 4509935.0;
       int fragmentCount1 = 0;
-      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
-         initialVelocity1, initialAngle1);
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1,
+                                                radius1, initialVelocity1,
+                                                initialAngle1);
       orbital1->hasCrashed = false;
 
-      StubPositionX6378010Y6378010* initialPosition2 = new StubPositionX6378010Y6378010();
+      StubPositionX6378010Y6378010* initialPosition2 =
+                                        new StubPositionX6378010Y6378010();
       DummyVelocity* initialVelocity2 = new DummyVelocity();
-      DummyAngle* initialAngle2 = new DummyAngle();
+      DummyAngle* initialAngle2       = new DummyAngle();
       double radius2 = 4509935.0;
       int fragmentCount2 = 0;
-      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
-         initialVelocity2, initialAngle2);
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2,
+                                                radius2, initialVelocity2,
+                                                initialAngle2);
       orbital2->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -801,21 +806,23 @@ private:
    {
       // setup
       StubPosition00* initialPosition1 = new StubPosition00();
-      DummyVelocity* initialVelocity1 = new DummyVelocity();
-      DummyAngle* initialAngle1 = new DummyAngle();
+      DummyVelocity* initialVelocity1  = new DummyVelocity();
+      DummyAngle* initialAngle1        = new DummyAngle();
       double radius1 = 10.0;
       int fragmentCount1 = 0;
-      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
-         initialVelocity1, initialAngle1);
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1,
+                                                radius1, initialVelocity1,
+                                                initialAngle1);
       orbital1->hasCrashed = false;
 
       StubPositionX6378000Y0* initialPosition2 = new StubPositionX6378000Y0();
-      DummyVelocity* initialVelocity2 = new DummyVelocity();
-      DummyAngle* initialAngle2 = new DummyAngle();
+      DummyVelocity* initialVelocity2          = new DummyVelocity();
+      DummyAngle* initialAngle2                = new DummyAngle();
       double radius2 = 10.0;
       int fragmentCount2 = 0;
-      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
-         initialVelocity2, initialAngle2);
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2,
+                                                radius2, initialVelocity2,
+                                                initialAngle2);
       orbital2->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -842,21 +849,23 @@ private:
    {
       // setup
       StubPosition00* initialPosition1 = new StubPosition00();
-      DummyVelocity* initialVelocity1 = new DummyVelocity();
-      DummyAngle* initialAngle1 = new DummyAngle();
+      DummyVelocity* initialVelocity1  = new DummyVelocity();
+      DummyAngle* initialAngle1        = new DummyAngle();
       double radius1 = 10.0;
       int fragmentCount1 = 0;
-      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1, radius1,
-         initialVelocity1, initialAngle1);
+      DummyOrbital* orbital1 = new DummyOrbital(initialPosition1, fragmentCount1,
+                                                radius1, initialVelocity1,
+                                                initialAngle1);
       orbital1->hasCrashed = false;
 
       StubPosition00* initialPosition2 = new StubPosition00();
-      DummyVelocity* initialVelocity2 = new DummyVelocity();
-      DummyAngle* initialAngle2 = new DummyAngle();
+      DummyVelocity* initialVelocity2  = new DummyVelocity();
+      DummyAngle* initialAngle2        = new DummyAngle();
       double radius2 = 10.0;
       int fragmentCount2 = 0;
-      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2, radius2,
-         initialVelocity2, initialAngle2);
+      DummyOrbital* orbital2 = new DummyOrbital(initialPosition2, fragmentCount2,
+                                                radius2, initialVelocity2,
+                                                initialAngle2);
       orbital2->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -904,7 +913,7 @@ private:
       assertUnit(orbitals.size() == 1);
    }  // teardown
 
-       /*********************************************
+    /*********************************************
     * name:    DESTORY NONE
     * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
     *          radius1 10.0, fragmentCount1 0
@@ -914,15 +923,15 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       StubOrbital_NoParts* orbital = new StubOrbital_NoParts(initialPosition,
-         fragmentCount,
-         radius,
-         initialVelocity,
-         initialAngle);
+                                                             fragmentCount,
+                                                             radius,
+                                                             initialVelocity,
+                                                             initialAngle);
       orbital->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -936,7 +945,7 @@ private:
       assertUnit(orbitals.size() == 0);
    }  // teardown
 
-       /*********************************************
+    /*********************************************
     * name:    DESTORY MANY
     * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
     *          radius1 10.0, fragmentCount1 0
@@ -946,15 +955,15 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
       double radius = 10.0;
       int fragmentCount = 0;
       StubOrbital_ThreeParts* orbital = new StubOrbital_ThreeParts(initialPosition,
-         fragmentCount,
-         radius,
-         initialVelocity,
-         initialAngle);
+                                                                   fragmentCount,
+                                                                   radius,
+                                                                   initialVelocity,
+                                                                   initialAngle);
       orbital->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -969,7 +978,7 @@ private:
       assertUnit(orbitals.size() == 3);
    }  // teardown
    
-      /*********************************************
+   /*********************************************
    * name:    DESTORY MANY Parts and Fragments
    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
    *          radius1 10.0, fragmentCount1 3
@@ -979,12 +988,11 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
       StubOrbital_ThreeFragmentThreeParts* orbital =
-      new StubOrbital_ThreeFragmentThreeParts(initialPosition,
-         initialVelocity,
-         initialAngle);
+        new StubOrbital_ThreeFragmentThreeParts(initialPosition, initialVelocity,
+                                                initialAngle);
       orbital->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -999,8 +1007,7 @@ private:
       assertUnit(orbitals.size() == 6);
    }  // teardown
    
-   
-      /*********************************************
+   /*********************************************
    * name:    DESTORY MANY  Fragments No Parts
    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0),
    *          radius1 10.0, fragmentCount1 3
@@ -1010,12 +1017,11 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
       StubOrbital_ThreeFragmentZeroParts* orbital =
-      new StubOrbital_ThreeFragmentZeroParts(initialPosition,
-         initialVelocity,
-         initialAngle);
+        new StubOrbital_ThreeFragmentZeroParts(initialPosition, initialVelocity,
+                                               initialAngle);
       orbital->hasCrashed = false;
 
       list<Orbital*> orbitals;
@@ -1038,12 +1044,13 @@ private:
    void getFragments_1()
    {
      // setup
-     StubPosition00* initialPosition = new StubPosition00();
-     DummyVelocity* initialVelocity = new DummyVelocity();
-     DummyAngle* initialAngle = new DummyAngle();
-     StubOrbital_OneFragment* orbital = new StubOrbital_OneFragment(initialPosition,
-        initialVelocity,
-        initialAngle);
+     StubPosition00* initialPosition  = new StubPosition00();
+     DummyVelocity* initialVelocity   = new DummyVelocity();
+     DummyAngle* initialAngle         = new DummyAngle();
+     StubOrbital_OneFragment* orbital = new StubOrbital_OneFragment(
+                                                    initialPosition,
+                                                    initialVelocity,
+                                                    initialAngle);
      orbital->hasCrashed = false;
      orbital->useRandom = false;
      orbital->radius = 0;
@@ -1053,20 +1060,10 @@ private:
      // exercise
      fragments = orbital->getFragments();
 
-     // verify
-//    double distance = sqrt((fragments.front()->pos->x/Position::metersFromPixels-
-//                           orbital->pos->getPixelsX()) *
-//                          (fragments.front()->pos->x/Position::metersFromPixels -
-//                           orbital->pos->getPixelsX()) +
-//                          (fragments.front()->pos->y/Position::metersFromPixels -
-//                           orbital->pos->getPixelsX()) *
-//                          (fragments.front()->pos->y/Position::metersFromPixels -
-//                           orbital->pos->getPixelsX()));
-//     assertEquals(distance, 4);
-//      
+     // verifY
      assertEquals(fragments.front()->pos->x, 160.0);
      assertEquals(fragments.front()->pos->y, 0.0);
-     assertUnit(fragments.size() == 1);
+     assertUnit  (fragments.size() == 1);
    }  // teardown
 
    /*********************************************
@@ -1077,12 +1074,13 @@ private:
    void getFragments_0()
    {
      // setup
-     StubPosition00* initialPosition = new StubPosition00();
-     DummyVelocity* initialVelocity = new DummyVelocity();
-     DummyAngle* initialAngle = new DummyAngle();
-     StubOrbital_ZeroFragment* orbital = new StubOrbital_ZeroFragment(initialPosition,
-        initialVelocity,
-        initialAngle);
+     StubPosition00* initialPosition   = new StubPosition00();
+     DummyVelocity* initialVelocity    = new DummyVelocity();
+     DummyAngle* initialAngle          = new DummyAngle();
+     StubOrbital_ZeroFragment* orbital = new StubOrbital_ZeroFragment(
+                                                      initialPosition,
+                                                      initialVelocity,
+                                                      initialAngle);
      orbital->hasCrashed = false;
      orbital->useRandom = false;
      orbital->radius = 0;
@@ -1104,13 +1102,13 @@ private:
    void getFragments_4()
    {
      // setup
-     StubPosition00* initialPosition = new StubPosition00();
-     DummyVelocity* initialVelocity = new DummyVelocity();
-     DummyAngle* initialAngle = new DummyAngle();
+     StubPosition00* initialPosition    = new StubPosition00();
+     DummyVelocity* initialVelocity     = new DummyVelocity();
+     DummyAngle* initialAngle           = new DummyAngle();
       StubOrbital_FourFragment* orbital = new StubOrbital_FourFragment(
-        initialPosition,
-        initialVelocity,
-        initialAngle);
+                                                       initialPosition,
+                                                       initialVelocity,
+                                                       initialAngle);
      orbital->hasCrashed = false;
      orbital->useRandom = false;
      orbital->radius = 0;
@@ -1136,9 +1134,6 @@ private:
      assertUnit(fragments.size() == 4);
    }  // teardown
 };
-
-
-
 
 /*********************************************
 * TEST Bullet
@@ -1166,13 +1161,11 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Bullet* bullet = new Bullet(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Bullet* bullet = new Bullet(initialPosition, initialVelocity, initialAngle);
       bullet->hasCrashed = false;
-      bullet->lifespan = 0;
+      bullet->lifespan   = 0;
 
       // exercise
       bullet->update();
@@ -1191,13 +1184,11 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Bullet* bullet = new Bullet(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Bullet* bullet = new Bullet(initialPosition, initialVelocity, initialAngle);
       bullet->hasCrashed = false;
-      bullet->lifespan = 70;
+      bullet->lifespan   = 70;
 
       // exercise
       bullet->update();
@@ -1216,13 +1207,11 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Bullet* bullet = new Bullet(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Bullet* bullet = new Bullet(initialPosition, initialVelocity, initialAngle);
       bullet->hasCrashed = false;
-      bullet->lifespan = 7100;
+      bullet->lifespan   = 7100;
 
       // exercise
       bullet->update();
@@ -1232,9 +1221,6 @@ private:
       assertEquals(bullet->hasCrashed, true);
    }  // teardown
 };
-
-
-
 
 
 
@@ -1267,13 +1253,11 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Fragment* fragment = new Fragment(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Fragment* fragment = new Fragment(initialPosition, initialVelocity, initialAngle);
       fragment->hasCrashed = false;
-      fragment->lifespan = 0;
+      fragment->lifespan   = 0;
 
       // exercise
       fragment->update();
@@ -1292,11 +1276,9 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Fragment* fragment = new Fragment(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Fragment* fragment = new Fragment(initialPosition, initialVelocity, initialAngle);
       fragment->hasCrashed = false;
       fragment->lifespan = 80;
 
@@ -1317,13 +1299,11 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Fragment* fragment = new Fragment(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Fragment* fragment = new Fragment(initialPosition, initialVelocity, initialAngle);
       fragment->hasCrashed = false;
-      fragment->lifespan = 7100;
+      fragment->lifespan   = 7100;
 
       // exercise
       fragment->update();

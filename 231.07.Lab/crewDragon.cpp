@@ -13,16 +13,16 @@
 /*******************************************************************************
 * CrewDragon :: DEFAULT CONSTRUCTOR
 *******************************************************************************/
-CrewDragon::CrewDragon() :
-   Orbital(new Position(0.0, STARTING_HEIGHT_CREWDRAGON), 0, 7.0,
-      new Velocity(-7900.0, 0.0), new Angle()) {}
+CrewDragon::CrewDragon() : Orbital(new Position(0.0, STARTING_HEIGHT_CREWDRAGON),
+                                   0, 7.0, new Velocity(-7900.0, 0.0), new Angle()) { }
 
 /*******************************************************************************
 * GREW DRAGON :: CONSTRUCTOR
 *******************************************************************************/
-CrewDragon::CrewDragon(Position* initialPos,
-   Velocity* initialVelocity, Angle* initialAngle) :
-   Orbital(initialPos, 0, 7.0, initialVelocity, initialAngle) {}
+CrewDragon::CrewDragon(Position* initialPos, Velocity* initialVelocity,
+                       Angle* initialAngle) : Orbital(initialPos, 0, 7.0,
+                                                      initialVelocity,
+                                                      initialAngle) {    }
 
 /*******************************************************************************
 * GREW DRAGON :: GET GPS PARTS

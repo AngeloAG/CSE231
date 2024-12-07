@@ -23,11 +23,11 @@ class CrewDragon : public Orbital
 {
 public:
    CrewDragon(); 
-   CrewDragon(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle);
+   CrewDragon(Position* initialPos, Velocity* initialVelocity,
+              Angle* initialAngle);
    ~CrewDragon() { }
 
-   virtual list<Orbital*> getParts()    const;
+   virtual list<Orbital*> getParts()     const;
    virtual void draw(ogstream& ogstream) const;
 };
 
@@ -39,18 +39,19 @@ class CrewDragonCenter : public Orbital
 {
 public:
    CrewDragonCenter();
-   CrewDragonCenter(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 4, 6.0, initialVelocity, initialAngle){}
+   CrewDragonCenter(Position* initialPos, Velocity* initialVelocity,
+                    Angle* initialAngle) : Orbital(initialPos, 4, 6.0,
+                                                   initialVelocity,
+                                                   initialAngle) {    }
 
    ~CrewDragonCenter() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual list<Orbital*> getParts()     const { return list<Orbital*> (); }
+   virtual void draw(ogstream& ogstream) const
+   {
       ogstream.drawCrewDragonCenter(*this->pos, this->angle->getRadians());
    };
 };
-
 
 /*********************************************
 * CREW DRAGON Left
@@ -60,14 +61,16 @@ class CrewDragonLeft : public Orbital
 {
 public:
    CrewDragonLeft();
-   CrewDragonLeft(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 2, 6.0, initialVelocity, initialAngle){}
+   CrewDragonLeft(Position* initialPos, Velocity* initialVelocity,
+                  Angle* initialAngle) : Orbital(initialPos, 2, 6.0,
+                                                 initialVelocity,
+                                                 initialAngle) {    }
 
    ~CrewDragonLeft() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual list<Orbital*> getParts()     const { return list<Orbital*> (); }
+   virtual void draw(ogstream& ogstream) const
+   {
       ogstream.drawCrewDragonLeft(*this->pos, this->angle->getRadians());
    };
 };
@@ -80,14 +83,16 @@ class CrewDragonRight : public Orbital
 {
 public:
    CrewDragonRight();
-   CrewDragonRight(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 2, 6.0, initialVelocity, initialAngle){}
+   CrewDragonRight(Position* initialPos, Velocity* initialVelocity,
+                   Angle* initialAngle) : Orbital(initialPos, 2, 6.0,
+                                                  initialVelocity,
+                                                  initialAngle) {    }
 
    ~CrewDragonRight() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual list<Orbital*> getParts()     const { return list<Orbital*> (); }
+   virtual void draw(ogstream& ogstream) const
+   {
       ogstream.drawCrewDragonRight(*this->pos, this->angle->getRadians());
    };
 };

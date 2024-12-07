@@ -11,13 +11,11 @@
 
 #include "GPS.h"
 
-
 /*******************************************************************************
 * GPS :: DEFAULT CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(int gpsId) :
-   Orbital(new Position(), 2, 12.0,
-      new Velocity(), new Angle())
+GPS::GPS(int gpsId) : Orbital(new Position(), 2, 12.0,
+                              new Velocity(), new Angle())
 {
    switch (gpsId)
    {
@@ -59,9 +57,8 @@ GPS::GPS(int gpsId) :
 /*******************************************************************************
 * GPS :: CONSTRUCTOR
 *******************************************************************************/
-GPS::GPS(Position* initialPos,
-   Velocity* initialVelocity, Angle* initialAngle): 
-     Orbital(initialPos, 2, 12.0, initialVelocity, initialAngle){}
+GPS::GPS(Position* initialPos, Velocity* initialVelocity, Angle* initialAngle) : 
+         Orbital(initialPos, 2, 12.0, initialVelocity, initialAngle) {         }
 
 /*******************************************************************************
 * GPS :: GET GPS PARTS
@@ -94,12 +91,10 @@ list<Orbital*> GPS::getParts() const
       velocities[i]->add(partAcceleration, TIME_PER_FRAME);
    }
    
-   gpsParts.push_back(new GPSLeft(positions[0], velocities[0],
-                                  angles[0]));
-   gpsParts.push_back(new GPSCenter(positions[1], velocities[1],
-                                  angles[1]));
-   gpsParts.push_back(new GPSRight(positions[2], velocities[2],
-                                  angles[2]));
+   gpsParts.push_back(new GPSLeft  (positions[0], velocities[0], angles[0]));
+   gpsParts.push_back(new GPSCenter(positions[1], velocities[1], angles[1]));
+   gpsParts.push_back(new GPSRight (positions[2], velocities[2], angles[2]));
+
    return gpsParts;
 }
 

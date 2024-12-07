@@ -42,7 +42,8 @@ using namespace std;
 class Demo
 {
 public:
-    Demo(Position ptUpperRight) : ptUpperRight(ptUpperRight), game(&ptUpperRight) { }
+    Demo(Position ptUpperRight) : ptUpperRight(ptUpperRight),
+                                  game(&ptUpperRight) {      }
     ~Demo() { }
 
     Game game;

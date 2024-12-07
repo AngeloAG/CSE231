@@ -25,11 +25,10 @@ class GPS : public Orbital
    friend TestGPS;
 public:
    GPS(int gpsId);
-   GPS(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle);
+   GPS(Position* initialPos, Velocity* initialVelocity, Angle* initialAngle);
    ~GPS() { }
 
-   virtual list<Orbital*> getParts()    const;
+   virtual list<Orbital*> getParts()     const;
    virtual void draw(ogstream& ogstream) const;
 };
 
@@ -43,9 +42,10 @@ class GPSCenter : public Orbital
    friend TestGPS;
 public:
    GPSCenter(int gpsId);
-   GPSCenter(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 7.0, initialVelocity, initialAngle){}
+   GPSCenter(Position* initialPos, Velocity* initialVelocity,
+             Angle* initialAngle) : Orbital(initialPos, 3, 7.0,
+                                            initialVelocity,
+                                            initialAngle) {    }
    ~GPSCenter() { }
 
    virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
@@ -65,12 +65,13 @@ class GPSRight : public Orbital
    friend TestGPS;
 public:
    GPSRight(int gpsId);
-   GPSRight(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 8.0, initialVelocity, initialAngle){}
+   GPSRight(Position* initialPos, Velocity* initialVelocity,
+            Angle* initialAngle) : Orbital(initialPos, 3, 8.0,
+                                           initialVelocity,
+                                           initialAngle) {    }
    ~GPSRight() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
+   virtual list<Orbital*> getParts()     const{ return list<Orbital*> (); }
    virtual void draw(ogstream& ogstream) const 
    {
       ogstream.drawGPSRight(*this->pos, this->angle->getRadians());
@@ -86,12 +87,13 @@ class GPSLeft : public Orbital
    friend TestGPS;
 public:
    GPSLeft(int gpsId);
-   GPSLeft(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 8.0, initialVelocity, initialAngle){}
+   GPSLeft(Position* initialPos, Velocity* initialVelocity,
+           Angle* initialAngle) : Orbital(initialPos, 3, 8.0,
+                                          initialVelocity,
+                                          initialAngle) {    }
    ~GPSLeft() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
+   virtual list<Orbital*> getParts()     const{ return list<Orbital*> (); }
    virtual void draw(ogstream& ogstream) const 
    {
       ogstream.drawGPSLeft(*this->pos, this->angle->getRadians());

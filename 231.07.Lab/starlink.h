@@ -23,14 +23,13 @@ class Starlink : public Orbital
 {
 public:
    Starlink();
-   Starlink(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle);
+   Starlink(Position* initialPos, Velocity* initialVelocity,
+            Angle* initialAngle);
    ~Starlink() { }
 
-   virtual list<Orbital*> getParts()    const;
+   virtual list<Orbital*> getParts()     const;
    virtual void draw(ogstream& ogstream) const;
 };
-
 
 /*********************************************
 * STARLINKBODY
@@ -40,14 +39,15 @@ class StarlinkBody : public Orbital
 {
 public:
    StarlinkBody();
-   StarlinkBody(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 2.0, initialVelocity, initialAngle){}
-
+   StarlinkBody(Position* initialPos, Velocity* initialVelocity,
+                Angle* initialAngle) : Orbital(initialPos, 3, 2.0,
+                                               initialVelocity,
+                                               initialAngle) {    }
    ~StarlinkBody() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual list<Orbital*> getParts()     const { return list<Orbital*> (); }
+   virtual void draw(ogstream& ogstream) const
+   {
       ogstream.drawStarlinkBody(*this->pos, this->angle->getRadians());
    };
 };
@@ -60,14 +60,15 @@ class StarlinkArray : public Orbital
 {
 public:
    StarlinkArray();
-   StarlinkArray(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle):
-   Orbital(initialPos, 3, 4.0, initialVelocity, initialAngle){}
-
+   StarlinkArray(Position* initialPos, Velocity* initialVelocity,
+                 Angle* initialAngle) : Orbital(initialPos, 3, 4.0,
+                                                initialVelocity,
+                                                initialAngle) {    }
    ~StarlinkArray() { }
 
-   virtual list<Orbital*> getParts() const{ return list<Orbital*> ();}
-   virtual void draw(ogstream& ogstream) const {
+   virtual list<Orbital*> getParts()     const { return list<Orbital*> (); }
+   virtual void draw(ogstream& ogstream) const
+   {
       ogstream.drawStarlinkArray(*this->pos, this->angle->getRadians());
    };
 };

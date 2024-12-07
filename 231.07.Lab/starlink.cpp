@@ -15,14 +15,15 @@
 *******************************************************************************/
 Starlink::Starlink() :
    Orbital(new Position(0.0, STARTING_HEIGHT_STARLINK), 2, 6.0,
-      new Velocity(5800.0, 0.0), new Angle()) {}
+           new Velocity(5800.0, 0.0), new Angle()) {           }
 
 /*******************************************************************************
 * STARLINK :: CONSTRUCTOR
 *******************************************************************************/
-Starlink::Starlink(Position* initialPos,
-   Velocity* initialVelocity, Angle* initialAngle) :
-   Orbital(initialPos, 2, 6.0, initialVelocity, initialAngle) {}
+Starlink::Starlink(Position* initialPos, Velocity* initialVelocity,
+                   Angle* initialAngle) : Orbital(initialPos, 2, 6.0,
+                                                  initialVelocity,
+                                                  initialAngle) {    }
 
 /*******************************************************************************
 * STARLINK :: GET STARLINK PARTS

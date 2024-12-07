@@ -6,7 +6,7 @@
  *    Angelo Arellano Gaona
  *    Connor Hopkins
  * Summary:
- *    Base class for all things
+ *    Base class for all things.
  ************************************************************************/
 
 #pragma once
@@ -27,9 +27,9 @@ public:
     Entity(Position* pos): pos(pos) {                       }
     virtual ~Entity()               { delete pos;           }
 
-    virtual void draw(ogstream& ogstream) const {                 }
-    const Position& getPos() const { return *pos;                 }
-    void setPos(Position* rhs)     { delete pos; this->pos = rhs; }
+    virtual void draw(ogstream& ogstream) const {                              }
+    const Position& getPos()              const { return *pos;                 }
+    void setPos(Position* rhs)                  { delete pos; this->pos = rhs; }
 
 protected:
    Position* pos;   // For stubs

@@ -18,7 +18,6 @@
 #include "starlink.h"
 #include "GPS.h"
 
-
   /*********************************************
   * TEST GPS
   * Unit tests for GPS
@@ -172,7 +171,6 @@
        assertEquals(gps.radius, 12.0);
     }
     
-    
     /*********************************************
     * name:    GET PARTS GPS
     * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
@@ -182,14 +180,12 @@
     {
        // setup
        StubPosition00* initialPosition = new StubPosition00();
-       DummyVelocity* initialVelocity = new DummyVelocity();
-       DummyAngle* initialAngle = new DummyAngle();
-       GPS* gps = new GPS(initialPosition,
-                          initialVelocity,
-                          initialAngle);
+       DummyVelocity* initialVelocity  = new DummyVelocity();
+       DummyAngle* initialAngle        = new DummyAngle();
+       GPS* gps = new GPS(initialPosition, initialVelocity, initialAngle);
        gps->hasCrashed = false;
-       gps->useRandom = false;
-       gps->radius = 0;
+       gps->useRandom  = false;
+       gps->radius     = 0;
        
        list<Orbital*> parts;
         
@@ -209,7 +205,6 @@
        assertUnit(parts.size() == 3);
     }  // teardown
  };
-
 
 /*********************************************
 * TEST HUBBLE
@@ -264,14 +259,12 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Hubble* hubble = new Hubble(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Hubble* hubble = new Hubble(initialPosition, initialVelocity, initialAngle);
       hubble->hasCrashed = false;
-      hubble->useRandom = false;
-      hubble->radius = 0;
+      hubble->useRandom  = false;
+      hubble->radius     = 0;
 
       list<Orbital*> parts;
 
@@ -298,7 +291,6 @@ private:
    }  // teardown
 };
 
-
 /*********************************************
 * TEST Sputnik
 * Unit tests for sputnik
@@ -310,7 +302,6 @@ public:
    {
       defaultConstructor_sputnik();
 
-      
       report("Sputnik");
    }
    
@@ -355,7 +346,6 @@ public:
       defaultConstructor_CrewDragon();
       getPartsCrewDragon();
 
-      
       report("CrewDragon");
    }
    
@@ -396,14 +386,13 @@ private:
    {
       // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      CrewDragon* crewDragon = new CrewDragon(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      CrewDragon* crewDragon = new CrewDragon(initialPosition, initialVelocity,
+                                              initialAngle);
       crewDragon->hasCrashed = false;
-      crewDragon->useRandom = false;
-      crewDragon->radius = 0;
+      crewDragon->useRandom  = false;
+      crewDragon->radius     = 0;
 
       list<Orbital*> parts;
 
@@ -424,8 +413,6 @@ private:
    }  // teardown
 };
 
-
-
 /*********************************************
 * TEST STARLINIK
 * Unit tests for STARLINK
@@ -438,7 +425,6 @@ public:
       defaultConstructor_Starlink();
       getPartsStarlink();
 
-      
       report("Starlink");
    }
    
@@ -470,7 +456,6 @@ private:
       assertEquals(starlink.radius, 6.0);
    }
    
-   
    /*********************************************
    * name:    GET PARTS Starlink
    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
@@ -480,14 +465,13 @@ private:
    {
      // setup
       StubPosition00* initialPosition = new StubPosition00();
-      DummyVelocity* initialVelocity = new DummyVelocity();
-      DummyAngle* initialAngle = new DummyAngle();
-      Starlink* starlink = new Starlink(initialPosition,
-        initialVelocity,
-        initialAngle);
+      DummyVelocity* initialVelocity  = new DummyVelocity();
+      DummyAngle* initialAngle        = new DummyAngle();
+      Starlink* starlink = new Starlink(initialPosition, initialVelocity,
+                                        initialAngle);
       starlink->hasCrashed = false;
-      starlink->useRandom = false;
-      starlink->radius = 0;
+      starlink->useRandom  = false;
+      starlink->radius     = 0;
 
       list<Orbital*> parts;
 

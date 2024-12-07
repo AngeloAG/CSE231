@@ -9,6 +9,7 @@
  *    Everything we need to know about a direction
  ************************************************************************/
 
+
 #pragma once
 
 #define _USE_MATH_DEFINES
@@ -27,6 +28,7 @@ class TestSputnik;
 class TestStarlink;
 class TestCrewDragon;
 class TestGame;
+
 
 /************************************
  * ANGLE
@@ -170,7 +172,10 @@ public:
     * input:   delta (the radians to add).
     * output:  Nothing.
     *********************************************/
-   Angle& add(double delta) { setRadians(radians + delta); return *this; }
+   Angle& add(double delta)
+   {
+       setRadians(radians + delta); return *this;
+   }
 
 private:
    /*********************************************

@@ -22,10 +22,9 @@ class Sputnik : public Orbital
 {
 public:
    Sputnik();
-   Sputnik(Position* initialPos,
-      Velocity* initialVelocity, Angle* initialAngle);
+   Sputnik(Position* initialPos, Velocity* initialVelocity, Angle* initialAngle);
    ~Sputnik() { }
 
-   virtual list<Orbital*> getParts()    const;
+   virtual list<Orbital*> getParts()     const;
    virtual void draw(ogstream& ogstream) const;
 };

@@ -11,16 +11,17 @@
 
 #include "orbital.h"
 #include "acceleration.h"
-// #include "fragment.h"
+
 #include <cmath>     // for SQRT() and ATAN2()
 
  /*******************************************************************************
  * ORBITAL :: CONSTRUCTOR
  *******************************************************************************/
 Orbital::Orbital(Position* initialPos, int fragmentCount, double radius, 
-   Velocity* initialVelocity, Angle* initialAngle): 
-     Entity(initialPos), vel(initialVelocity), radius(radius), 
-     fragmentCount(fragmentCount), hasCrashed(false), angle(initialAngle) {}
+                 Velocity* initialVelocity, Angle* initialAngle) : 
+                 Entity(initialPos), vel(initialVelocity), radius(radius), 
+                 fragmentCount(fragmentCount), hasCrashed(false),
+                 angle(initialAngle) {                                   }
 
 /*******************************************************************************
 * ORBITAL :: GET CURRENT HEIGHT
@@ -29,8 +30,8 @@ Orbital::Orbital(Position* initialPos, int fragmentCount, double radius,
 double Orbital::getCurrentHeight() const
 {
    return sqrt((this->pos->getMetersX() * this->pos->getMetersX()) +
-		  (this->pos->getMetersY() * this->pos->getMetersY()))     -
-		  EARTH_RADIUS;
+          (this->pos->getMetersY() * this->pos->getMetersY()))     -
+          EARTH_RADIUS;
 }
 
 /*******************************************************************************
@@ -73,10 +74,6 @@ Acceleration Orbital::getGravityAcceleration() const
 *******************************************************************************/
 void Orbital::update()
 {
-   // rotate a little the orbital
-   // this->angle.add(-(2.0 * M_PI / FRAME_RATE) *
-                    // (TIME_DIALATION / SECONDS_PER_DAY));
-
    // Get the acceleration due to gravity
    Acceleration gravityAcceleration = getGravityAcceleration();
 
@@ -129,14 +126,10 @@ void Orbital::destroy(list<Orbital*>& orbitals)
    list<Orbital*> parts = this->getParts();
 
    for (auto part : parts)
-   {
       orbitals.push_back(part);
-   }
    
    for (auto fragment : fragments)
-   {
       orbitals.push_back(fragment);
-   }
 }
 
 /*******************************************************************************
@@ -155,8 +148,10 @@ list<Orbital*> Orbital::getFragments() const
       Angle* fragmentAngle = new Angle(randomStartAngle +
                                        (360/fragmentCount * i));
       Position* fragmentPosition = new Position(*this->pos);
-      fragmentPosition->addPixelsX((4 + this->radius) * cos(fragmentAngle->getRadians()));
-      fragmentPosition->addPixelsY((4 + this->radius) * sin(fragmentAngle->getRadians()));
+      fragmentPosition->addPixelsX((4 + this->radius) *
+                        cos(fragmentAngle->getRadians()));
+      fragmentPosition->addPixelsY((4 + this->radius) *
+                        sin(fragmentAngle->getRadians()));
       
       Velocity* fragmentVelocity = new Velocity(*this->vel);
       double fragmentSpeed = random(50, 90);

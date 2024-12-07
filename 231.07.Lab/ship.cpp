@@ -26,8 +26,9 @@ Ship::Ship() :
 * SHIP :: CONSTRUCTOR
 *******************************************************************************/
 Ship::Ship(Position* initialPos, int fragmentCount, double radius,
-   Velocity* initialVelocity, Angle* initialAngle) : isThrust(false),
-   Orbital(initialPos, fragmentCount, radius, initialVelocity, initialAngle) {}
+           Velocity* initialVelocity, Angle* initialAngle) : isThrust(false),
+           Orbital(initialPos, fragmentCount, radius, initialVelocity,
+                   initialAngle) { }
 
 /*******************************************************************************
 * SHIP :: GET SHIP PARTS

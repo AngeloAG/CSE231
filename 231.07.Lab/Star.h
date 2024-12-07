@@ -25,10 +25,10 @@ public:
     { 
         ogstream.drawStar(*this->pos, phase);
     }
-    const Position& getPos()              const { return *pos; }
-    void setPos(Position* rhs) { delete pos; this->pos = rhs;  }
-    void setPhase(unsigned char phase) { this->phase = phase;  }
-    void incrementPhase()              { this->phase++;        }
+    const Position& getPos()     const { return *pos;                 }
+    void setPos(Position* rhs)         { delete pos; this->pos = rhs; }
+    void setPhase(unsigned char phase) { this->phase = phase;         }
+    void incrementPhase()              { this->phase++;               }
 
 private:
     unsigned char phase;

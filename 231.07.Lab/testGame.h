@@ -80,10 +80,10 @@ private:
       ptUpperRight.setPixelsX(1000.0);
       ptUpperRight.setPixelsY(1000.0);
       Game game(&ptUpperRight);
-      Interface* pUI = new Interface();
-      pUI->isLeftPress = 1;
+      Interface* pUI    = new Interface();
+      pUI->isLeftPress  = 1;
       pUI->isRightPress = 0;
-      pUI->isDownPress = 0;
+      pUI->isDownPress  = 0;
       pUI->isSpacePress = 0;
 
       // exercise
@@ -108,10 +108,10 @@ private:
       ptUpperRight.setPixelsX(1000.0);
       ptUpperRight.setPixelsY(1000.0);
       Game game(&ptUpperRight);
-      Interface* pUI = new Interface();
-      pUI->isLeftPress = 0;
+      Interface* pUI    = new Interface();
+      pUI->isLeftPress  = 0;
       pUI->isRightPress = 1;
-      pUI->isDownPress = 0;
+      pUI->isDownPress  = 0;
       pUI->isSpacePress = 0;
 
       // exercise
@@ -136,10 +136,10 @@ private:
       ptUpperRight.setPixelsX(1000.0);
       ptUpperRight.setPixelsY(1000.0);
       Game game(&ptUpperRight);
-      Interface* pUI = new Interface();
-      pUI->isLeftPress = 0;
+      Interface* pUI    = new Interface();
+      pUI->isLeftPress  = 0;
       pUI->isRightPress = 0;
-      pUI->isDownPress = 1;
+      pUI->isDownPress  = 1;
       pUI->isSpacePress = 0;
 
       // exercise
@@ -164,10 +164,10 @@ private:
       ptUpperRight.setPixelsX(1000.0);
       ptUpperRight.setPixelsY(1000.0);
       Game game(&ptUpperRight);
-      Interface* pUI = new Interface();
-      pUI->isLeftPress = 0;
+      Interface* pUI    = new Interface();
+      pUI->isLeftPress  = 0;
       pUI->isRightPress = 0;
-      pUI->isDownPress = 0;
+      pUI->isDownPress  = 0;
       pUI->isSpacePress = 1;
 
       // exercise

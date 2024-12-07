@@ -14,7 +14,6 @@
 #include "unitTest.h"
 #include "ship.h"
 
-
 /*********************************************
 * TEST SHIP
 * Unit tests for ship
@@ -57,8 +56,8 @@ private:
       StubAngleUp* initialAngle = new StubAngleUp();
       double radius = 10.0;
       int fragmentCount = 0;
-      Ship ship(initialPosition, fragmentCount, radius,
-                           initialVelocity, initialAngle);
+      Ship ship(initialPosition, fragmentCount, radius, initialVelocity,
+                initialAngle);
       ship.isThrust = false;
 
       // exercise
@@ -88,8 +87,8 @@ private:
       StubAngleRight* initialAngle = new StubAngleRight();
       double radius = 10.0;
       int fragmentCount = 0;
-      Ship ship(initialPosition, fragmentCount, radius,
-         initialVelocity, initialAngle);
+      Ship ship(initialPosition, fragmentCount, radius, initialVelocity,
+                initialAngle);
       ship.isThrust = false;
 
       // exercise
@@ -119,8 +118,8 @@ private:
       StubAngleDiagonalUpRight* initialAngle = new StubAngleDiagonalUpRight();
       double radius = 10.0;
       int fragmentCount = 0;
-      Ship ship(initialPosition, fragmentCount, radius,
-         initialVelocity, initialAngle);
+      Ship ship(initialPosition, fragmentCount, radius, initialVelocity,
+                initialAngle);
       ship.isThrust = false;
 
       // exercise
@@ -150,8 +149,8 @@ private:
       StubAngleDiagonalUpRight* initialAngle = new StubAngleDiagonalUpRight();
       double radius = 10.0;
       int fragmentCount = 0;
-      Ship ship(initialPosition, fragmentCount, radius,
-         initialVelocity, initialAngle);
+      Ship ship(initialPosition, fragmentCount, radius, initialVelocity,
+                initialAngle);
       ship.isThrust = false;
 
       // exercise
@@ -177,10 +176,10 @@ private:
       double radius     = 10.0;
       int fragmentCount = 0;
       DummyVelocity* initialVelocity = new DummyVelocity();
-      Angle* initialAngle = new Angle();
+      Angle* initialAngle   = new Angle();
       initialAngle->radians = 1.0;
-      Ship ship(initialPosition, fragmentCount, radius,
-                initialVelocity, initialAngle);
+      Ship ship(initialPosition, fragmentCount, radius, initialVelocity,
+                initialAngle);
 
       // Exercise
       ship.turnLeft();
@@ -203,10 +202,10 @@ private:
       double radius = 10.0;
       int fragmentCount = 0;
       DummyVelocity* initialVelocity = new DummyVelocity();
-      Angle* initialAngle = new Angle();
+      Angle* initialAngle   = new Angle();
       initialAngle->radians = 1.0;
-      Ship ship(initialPosition, fragmentCount, radius,
-         initialVelocity, initialAngle);
+      Ship ship(initialPosition, fragmentCount, radius, initialVelocity,
+                initialAngle);
 
       // Exercise
       ship.turnRight();

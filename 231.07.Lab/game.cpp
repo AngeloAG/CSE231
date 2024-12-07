@@ -64,18 +64,17 @@ void Game::update()
     {
        if ((*it)->crashed())
        {
-          // Use a temporary variable to hold the current orbital
           Orbital* orbital = *it;
 
-          // erase the iterator and get a new one to the next item before modifying the list
+          // erase the iterator and get a new one to the next item
+          // before modifying the list
           it = orbitals.erase(it);
 
-          // Call the destroy method (this adds/removes elements safely)
           orbital->destroy(orbitals);
        }
        else
        {
-          ++it; // Move to the next element if no crash
+          ++it; // No crash, move along
        }
     }
 }

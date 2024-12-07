@@ -14,19 +14,18 @@
 /*******************************************************************************
 * Hubble :: DEFAULT CONSTRUCTOR
 *******************************************************************************/
-Hubble::Hubble() : 
-   Orbital(new Position(0.0, STARTING_HEIGHT_HUBBLE), 0, 10.0, 
-      new Velocity(3100.0, 0.0), new Angle()) {}
+Hubble::Hubble() : Orbital(new Position(0.0, STARTING_HEIGHT_HUBBLE), 0, 10.0, 
+                           new Velocity(3100.0, 0.0), new Angle()) {         }
 
 /*******************************************************************************
 * Hubble :: CONSTRUCTOR
 *******************************************************************************/
-Hubble::Hubble(Position* initialPos,
-   Velocity* initialVelocity, Angle* initialAngle) :
-   Orbital(initialPos, 0, 10.0, initialVelocity, initialAngle) {}
+Hubble::Hubble(Position* initialPos, Velocity* initialVelocity,
+               Angle* initialAngle) : Orbital(initialPos, 0, 10.0, initialVelocity,
+                                              initialAngle) {                     }
 
 /*******************************************************************************
-* Hubble :: GET Hubble PARTS
+* Hubble :: GET PARTS
 *     Returns the parts the Hubble breaks into
 *******************************************************************************/
 list<Orbital*> Hubble::getParts() const

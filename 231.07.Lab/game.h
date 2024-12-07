@@ -44,10 +44,12 @@ public:
    {
        for (auto orbital : orbitals)
            delete orbital;
+
        delete ship;
        
        orbitals.clear();
    }
+
    void update();
    void draw(ogstream& og) const;
    void input(const Interface* pUI);
