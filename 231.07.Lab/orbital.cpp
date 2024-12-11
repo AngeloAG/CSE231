@@ -149,12 +149,12 @@ list<Orbital*> Orbital::getFragments() const
                                        (360/fragmentCount * i));
       Position* fragmentPosition = new Position(*this->pos);
       fragmentPosition->addPixelsX((4 + this->radius) *
-                        cos(fragmentAngle->getRadians()));
-      fragmentPosition->addPixelsY((4 + this->radius) *
                         sin(fragmentAngle->getRadians()));
+      fragmentPosition->addPixelsY((4 + this->radius) *
+                        cos(fragmentAngle->getRadians()));
       
       Velocity* fragmentVelocity = new Velocity(this->vel->getDX(), this->vel->getDY());
-      double fragmentSpeed = random(50, 90);
+      double fragmentSpeed = random(50.0, 90.0);
       Acceleration fragmentAcceleration(*fragmentAngle, fragmentSpeed);
       fragmentVelocity->add(fragmentAcceleration, TIME_PER_FRAME);
       

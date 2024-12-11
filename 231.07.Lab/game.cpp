@@ -129,15 +129,19 @@ void Game::createBullet()
    Position* position = new Position(ship->getPos());
    Velocity* velocity = new Velocity(ship->getVelocity().getDX(), 
                                      ship->getVelocity().getDY());
+   Angle* angle = new Angle(ship->getAngle());
+
+   //Add 4 pixels so that the ship doesn't crash into it at first
+   position->addMetersX((ship->getRadius() ) * sin(angle->getRadians()));
+   position->addMetersY((ship->getRadius()) * cos(angle->getRadians()));
    
-   double speed = random(500, 900);
+   //Add the bullets speed but divide it by the frames per second
+   double speed = 9000.0 / TIME_PER_FRAME;
    Acceleration acceleration(ship->getAngle(), speed);
    
    // Move the bullet away from the ship so it doesn't collide on creation
    position->add(acceleration, *velocity, TIME_PER_FRAME);
    velocity->add(acceleration, TIME_PER_FRAME);
-
-   Angle* angle = new Angle(ship->getAngle());
 
    // Add the bullet to the orbitals list
    orbitals.push_back(new Bullet(position, velocity, angle));

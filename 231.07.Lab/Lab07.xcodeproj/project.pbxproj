@@ -49,6 +49,7 @@
 		F38646522D01101E001F5275 /* GPS.h in Sources */ = {isa = PBXBuildFile; fileRef = F38646292D01101D001F5275 /* GPS.h */; };
 		F38646542D01101E001F5275 /* testVelocity.h in Sources */ = {isa = PBXBuildFile; fileRef = F386462B2D01101E001F5275 /* testVelocity.h */; };
 		F38646552D01101E001F5275 /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F386462C2D01101E001F5275 /* angle.cpp */; };
+		F3B028A62D092C89004343CC /* testGame.h in Sources */ = {isa = PBXBuildFile; fileRef = F3B028A52D092C89004343CC /* testGame.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +113,7 @@
 		F386462B2D01101E001F5275 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
 		F386462C2D01101E001F5275 /* angle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = angle.cpp; sourceTree = "<group>"; };
 		F386462F2D01101E001F5275 /* position.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
+		F3B028A52D092C89004343CC /* testGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testGame.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		C11C7E8D2578098A00EA4B2E = {
 			isa = PBXGroup;
 			children = (
+				F3B028A52D092C89004343CC /* testGame.h */,
 				F386460D2D01101C001F5275 /* acceleration.cpp */,
 				F38646242D01101D001F5275 /* acceleration.h */,
 				F386462C2D01101E001F5275 /* angle.cpp */,
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B028A62D092C89004343CC /* testGame.h in Sources */,
 				F38646302D01101E001F5275 /* testSatellite.h in Sources */,
 				F38646312D01101E001F5275 /* sputnik.h in Sources */,
 				F38646322D01101E001F5275 /* hubble.h in Sources */,

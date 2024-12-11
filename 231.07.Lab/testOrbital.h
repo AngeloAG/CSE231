@@ -1061,8 +1061,8 @@ private:
      fragments = orbital->getFragments();
 
      // verifY
-     assertEquals(fragments.front()->pos->x, 160.0);
-     assertEquals(fragments.front()->pos->y, 0.0);
+      assertEquals(fragments.front()->pos->x, 0.0);
+     assertEquals(fragments.front()->pos->y, 160.0);
      assertUnit  (fragments.size() == 1);
    }  // teardown
 
@@ -1121,16 +1121,16 @@ private:
      // verify
      auto it = fragments.begin();
      std::advance(it, 1);
-     assertEquals(fragments.front()->pos->x, 160.0);
-     assertEquals(fragments.front()->pos->y, 0.0);
-     assertEquals((*it)->pos->x, 0.0);
-     assertEquals((*it)->pos->y, 160.0);
+      assertEquals(fragments.front()->pos->x, 0.0);
+     assertEquals(fragments.front()->pos->y, 160.0);
+      assertEquals((*it)->pos->x, 160.0);
+     assertEquals((*it)->pos->y, 0.0);
       
      std::advance(it, 1);
-     assertEquals((*it)->pos->x, -160.0);
-     assertEquals((*it)->pos->y, 0.0);
-     assertEquals(fragments.back()->pos->x, 0.0);
-     assertEquals(fragments.back()->pos->y, -160.0);
+      assertEquals((*it)->pos->x, 0.0);
+     assertEquals((*it)->pos->y, -160.0);
+      assertEquals(fragments.back()->pos->x, -160.0);
+     assertEquals(fragments.back()->pos->y, 0.0);
      assertUnit(fragments.size() == 4);
    }  // teardown
 };

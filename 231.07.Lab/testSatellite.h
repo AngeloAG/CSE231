@@ -196,12 +196,12 @@
        auto it = parts.begin();
        std::advance(it, 1);
         
-       assertEquals(parts.front()->pos->x, 160.0);
-       assertEquals(parts.front()->pos->y, 0.0);
-       assertEquals((*it)->pos->x, -80.0);
-       assertEquals((*it)->pos->y, 138.56406);
-       assertEquals(parts.back()->pos->x, -80.0);
-       assertEquals(parts.back()->pos->y, -138.56406);
+       assertEquals(parts.front()->pos->x, 0.0);
+       assertEquals(parts.front()->pos->y, 160.0);
+       assertEquals((*it)->pos->x, 138.56406);
+       assertEquals((*it)->pos->y, -80.0);
+       assertEquals(parts.back()->pos->x, -138.56406);
+       assertEquals(parts.back()->pos->y, -80.0);
        assertUnit(parts.size() == 3);
     }  // teardown
  };
@@ -275,18 +275,18 @@ private:
       auto it = parts.begin();
       std::advance(it, 1);
 
-      assertEquals(parts.front()->pos->x, 160.0);
-      assertEquals(parts.front()->pos->y, 0.0);
+      assertEquals(parts.front()->pos->x, 0.0);
+      assertEquals(parts.front()->pos->y, 160.0);
       
-      assertEquals((*it)->pos->x, 0.0);
-      assertEquals((*it)->pos->y, 160.0);
-      
-      std::advance(it, 1);
-      assertEquals((*it)->pos->x, -160.0);
+      assertEquals((*it)->pos->x, 160.0);
       assertEquals((*it)->pos->y, 0.0);
-      
-      assertEquals(parts.back()->pos->x, 0.0);
-      assertEquals(parts.back()->pos->y, -160.0);
+
+      std::advance(it, 1);
+      assertEquals((*it)->pos->x, 0.0);
+      assertEquals((*it)->pos->y, -160.0);
+
+      assertEquals(parts.back()->pos->x, -160.0);
+      assertEquals(parts.back()->pos->y, 0.0);
       assertUnit(parts.size() == 4);
    }  // teardown
 };
@@ -403,12 +403,12 @@ private:
       auto it = parts.begin();
       std::advance(it, 1);
 
-      assertEquals(parts.front()->pos->x, 160.0);
-      assertEquals(parts.front()->pos->y, 0.0);
-      assertEquals((*it)->pos->x, -80.0);
-      assertEquals((*it)->pos->y, 138.56406);
-      assertEquals(parts.back()->pos->x, -80.0);
-      assertEquals(parts.back()->pos->y, -138.56406);
+      assertEquals(parts.front()->pos->x, 0.0);
+      assertEquals(parts.front()->pos->y, 160.0);
+      assertEquals((*it)->pos->x, 138.56406);
+      assertEquals((*it)->pos->y, -80.0);
+      assertEquals(parts.back()->pos->x, -138.56406);
+      assertEquals(parts.back()->pos->y, -80.0);
       assertUnit(parts.size() == 3);
    }  // teardown
 };
@@ -482,11 +482,11 @@ private:
       auto it = parts.begin();
       std::advance(it, 1);
 
-      assertEquals(parts.front()->pos->x, 160.0);
-      assertEquals(parts.front()->pos->y, 0.0);
+      assertEquals(parts.front()->pos->x, 0.0);
+      assertEquals(parts.front()->pos->y, 160.0);
       
-      assertEquals((*it)->pos->x, -160.0);
-      assertEquals((*it)->pos->y, 0.0);
+      assertEquals((*it)->pos->x, 0.0);
+      assertEquals((*it)->pos->y, -160.0);
       
       assertUnit(parts.size() == 2);
    }  // teardown
