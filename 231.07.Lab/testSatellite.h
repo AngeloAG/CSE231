@@ -35,6 +35,10 @@
        defaultConstructor_gps6();
 
        getPartsGPS();
+       destroy_GPS();
+       destroy_GPS_Left();
+       destroy_GPS_Right();
+       destroy_GPS_Center();
        report("GPS");
     }
 
@@ -204,6 +208,131 @@
        assertEquals(parts.back()->pos->y, -80.0);
        assertUnit(parts.size() == 3);
     }  // teardown
+
+    /*********************************************
+    * name:    DESTROY GPS
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  3 GPS Parts and 2 fragments
+    *********************************************/
+    void destroy_GPS()
+    {
+       // setup
+       StubPosition00* initialPosition = new StubPosition00();
+       DummyVelocity* initialVelocity = new DummyVelocity();
+       DummyAngle* initialAngle = new DummyAngle();
+       GPS* gps = new GPS(initialPosition, initialVelocity, initialAngle);
+       gps->hasCrashed = false;
+       gps->useRandom = false;
+       gps->radius = 0;
+       Fragment   fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+       GPSLeft     gpsLeftToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+       GPSRight   gpsRightToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+       GPSCenter gpsCenterToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+       list<Orbital*> fragmentsAndParts;
+
+       // exercise
+       gps->destroy(fragmentsAndParts);
+
+       // verify
+       auto it = fragmentsAndParts.begin();
+       assertUnit(typeid(*(*it++)) == typeid(gpsLeftToCompare));
+       assertUnit(typeid(*(*it++)) == typeid(gpsCenterToCompare));
+       assertUnit(typeid(*(*it++)) == typeid(gpsRightToCompare));
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it)) == typeid(fragmentToCompare));
+       assertUnit(fragmentsAndParts.size() == 5);
+    }  // teardown
+
+    /*********************************************
+    * name:    DESTROY GPS_Left
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 3 fragments
+    *********************************************/
+    void destroy_GPS_Left()
+    {
+       // setup
+       StubPosition00* initialPosition = new StubPosition00();
+       DummyVelocity* initialVelocity = new DummyVelocity();
+       DummyAngle* initialAngle = new DummyAngle();
+       GPSLeft* gpsLeft = new GPSLeft(initialPosition, initialVelocity, initialAngle);
+       gpsLeft->hasCrashed = false;
+       gpsLeft->useRandom = false;
+       gpsLeft->radius = 0;
+       Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+       list<Orbital*> fragments;
+
+       // exercise
+       gpsLeft->destroy(fragments);
+
+       // verify
+       auto it = fragments.begin();
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+       assertUnit(fragments.size() == 3);
+    }  // teardown
+
+    /*********************************************
+    * name:    DESTROY GPS_Right
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 3 fragments
+    *********************************************/
+    void destroy_GPS_Right()
+    {
+       // setup
+       StubPosition00* initialPosition = new StubPosition00();
+       DummyVelocity* initialVelocity = new DummyVelocity();
+       DummyAngle* initialAngle = new DummyAngle();
+       GPSRight* gpsRight = new GPSRight(initialPosition, initialVelocity, initialAngle);
+       gpsRight->hasCrashed = false;
+       gpsRight->useRandom = false;
+       gpsRight->radius = 0;
+       Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+       list<Orbital*> fragments;
+
+       // exercise
+       gpsRight->destroy(fragments);
+
+       // verify
+       auto it = fragments.begin();
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+       assertUnit(fragments.size() == 3);
+    }  // teardown
+
+    /*********************************************
+    * name:    DESTROY GPS_Center
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 3 fragments
+    *********************************************/
+    void destroy_GPS_Center()
+    {
+       // setup
+       StubPosition00* initialPosition = new StubPosition00();
+       DummyVelocity* initialVelocity = new DummyVelocity();
+       DummyAngle* initialAngle = new DummyAngle();
+       GPSCenter* gpsCenter = new GPSCenter(initialPosition, initialVelocity, initialAngle);
+       gpsCenter->hasCrashed = false;
+       gpsCenter->useRandom = false;
+       gpsCenter->radius = 0;
+       Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+       list<Orbital*> fragments;
+
+       // exercise
+       gpsCenter->destroy(fragments);
+
+       // verify
+       auto it = fragments.begin();
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+       assertUnit(typeid(*(*it)) == typeid(fragmentToCompare));
+       assertUnit(fragments.size() == 3);
+    }  // teardown
  };
 
 /*********************************************
@@ -217,7 +346,11 @@ public:
    {
       defaultConstructor_hubble();
       getPartsHubble();
-
+      destroy_Hubble();
+      destroy_Hubble_Left();
+      destroy_Hubble_Right();
+      destroy_Hubble_Computer();
+      destroy_Hubble_Telescope();
       
       report("Hubble");
    }
@@ -289,6 +422,157 @@ private:
       assertEquals(parts.back()->pos->y, 0.0);
       assertUnit(parts.size() == 4);
    }  // teardown
+
+    /*********************************************
+    * name:    DESTROY Hubble
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  4 Hubble Parts and 0 fragments
+    *********************************************/
+   void destroy_Hubble()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Hubble* hubble = new Hubble(initialPosition, initialVelocity, initialAngle);
+      hubble->hasCrashed = false;
+      hubble->useRandom = false;
+      hubble->radius = 0;
+      HubbleLeft      hubbleLeftToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      HubbleComputer  hubbleComputerToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      HubbleTelescope hubbleTelescopeToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      HubbleRight     hubbleRightToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> parts;
+
+      // exercise
+      hubble->destroy(parts);
+
+      // verify
+      auto it = parts.begin();
+      assertUnit(typeid(*(*it++)) == typeid(hubbleLeftToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(hubbleComputerToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(hubbleTelescopeToCompare));
+      assertUnit(typeid(*(*it)) == typeid(hubbleRightToCompare));
+      assertUnit(parts.size() == 4);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Hubble_Left
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 2 fragments
+    *********************************************/
+   void destroy_Hubble_Left()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      HubbleLeft* hubbleLeft = new HubbleLeft(initialPosition, initialVelocity, initialAngle);
+      hubbleLeft->hasCrashed = false;
+      hubbleLeft->useRandom = false;
+      hubbleLeft->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      hubbleLeft->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it)) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 2);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Hubble_Right
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 2 fragments
+    *********************************************/
+   void destroy_Hubble_Right()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      HubbleRight* hubbleRight = new HubbleRight(initialPosition, initialVelocity, initialAngle);
+      hubbleRight->hasCrashed = false;
+      hubbleRight->useRandom = false;
+      hubbleRight->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      hubbleRight->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it)) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 2);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Hubble_Computer
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 2 fragments
+    *********************************************/
+   void destroy_Hubble_Computer()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      HubbleComputer* hubbleComputer = new HubbleComputer(initialPosition, initialVelocity, initialAngle);
+      hubbleComputer->hasCrashed = false;
+      hubbleComputer->useRandom = false;
+      hubbleComputer->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      hubbleComputer->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it)) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 2);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Hubble_Telescope
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 3 fragments
+    *********************************************/
+   void destroy_Hubble_Telescope()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      HubbleTelescope* hubbleTelescope = new HubbleTelescope(initialPosition, initialVelocity, initialAngle);
+      hubbleTelescope->hasCrashed = false;
+      hubbleTelescope->useRandom = false;
+      hubbleTelescope->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      hubbleTelescope->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it)) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 3);
+   }  // teardown
 };
 
 /*********************************************
@@ -301,6 +585,7 @@ public:
    void run()
    {
       defaultConstructor_sputnik();
+      destroy_Sputnik();
 
       report("Sputnik");
    }
@@ -332,11 +617,42 @@ private:
       assertEquals(sputnik.fragmentCount, 4);
       assertEquals(sputnik.radius, 4.0);
    }
+
+   /*********************************************
+    * name:    DESTROY Sputnik
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 Hubble Parts and 4 fragments
+    *********************************************/
+   void destroy_Sputnik()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Sputnik* sputnik = new Sputnik(initialPosition, initialVelocity, initialAngle);
+      sputnik->hasCrashed = false;
+      sputnik->useRandom = false;
+      sputnik->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> parts;
+
+      // exercise
+      sputnik->destroy(parts);
+
+      // verify
+      auto it = parts.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));;
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));;
+      assertUnit(parts.size() == 4);
+   }  // teardown
 };
 
 /*********************************************
-* TEST HUBBLE
-* Unit tests for hubble
+* TEST Crew Dragon
+* Unit tests for Crew Dragon
 *********************************************/
 class TestCrewDragon : public UnitTest
 {
@@ -346,6 +662,11 @@ public:
       defaultConstructor_CrewDragon();
       getPartsCrewDragon();
 
+
+      destroy_CrewDragon();
+      destroy_CrewDragon_Left();
+      destroy_CrewDragon_Right();
+      destroy_CrewDragon_Center();
       report("CrewDragon");
    }
    
@@ -373,7 +694,7 @@ private:
       assertEquals(crewdragon.vel->dx, -7900.0);
       assertEquals(crewdragon.vel->dy, 0.0);
       assertEquals(crewdragon.angle->radians, 0.0);
-      assertEquals(crewdragon.fragmentCount, 0);
+      assertEquals(crewdragon.fragmentCount, 2);
       assertEquals(crewdragon.radius, 7.0);
    }
    
@@ -411,6 +732,130 @@ private:
       assertEquals(parts.back()->pos->y, -80.0);
       assertUnit(parts.size() == 3);
    }  // teardown
+
+   /*********************************************
+   * name:    DESTROY Crew Dragon
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  3 Hubble Parts and 2 fragments
+   *********************************************/
+   void destroy_CrewDragon()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      CrewDragon* crewDragon = new CrewDragon(initialPosition, initialVelocity, initialAngle);
+      crewDragon->hasCrashed = false;
+      crewDragon->useRandom = false;
+      crewDragon->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      CrewDragonLeft   crewDragonLeftToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      CrewDragonCenter crewDragonCenterToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      CrewDragonRight  crewDragonRightToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> parts;
+
+      // exercise
+      crewDragon->destroy(parts);
+
+      // verify
+      auto it = parts.begin();
+      assertUnit(typeid(*(*it++)) == typeid(crewDragonLeftToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(crewDragonCenterToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(crewDragonRightToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(parts.size() == 5);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY CrewDragon_Left
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 2 fragments
+    *********************************************/
+   void destroy_CrewDragon_Left()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      CrewDragonLeft* crewDragonLeft = new CrewDragonLeft(initialPosition, initialVelocity, initialAngle);
+      crewDragonLeft->hasCrashed = false;
+      crewDragonLeft->useRandom = false;
+      crewDragonLeft->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      crewDragonLeft->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 2);
+   }  // teardown
+
+   /*********************************************
+   * name:    DESTROY CrewDragon_Right
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  0 GPS Parts and 2 fragments
+   *********************************************/
+   void destroy_CrewDragon_Right()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      CrewDragonRight* crewDragonRight = new CrewDragonRight(initialPosition, initialVelocity, initialAngle);
+      crewDragonRight->hasCrashed = false;
+      crewDragonRight->useRandom = false;
+      crewDragonRight->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      crewDragonRight->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 2);
+   }  // teardown
+
+   /*********************************************
+   * name:    DESTROY CrewDragon_Center
+   * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+   * output:  0 GPS Parts and 4 fragments
+   *********************************************/
+   void destroy_CrewDragon_Center()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      CrewDragonCenter* crewDragonCenter = new CrewDragonCenter(initialPosition, initialVelocity, initialAngle);
+      crewDragonCenter->hasCrashed = false;
+      crewDragonCenter->useRandom = false;
+      crewDragonCenter->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      crewDragonCenter->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 4);
+   }  // teardown
 };
 
 /*********************************************
@@ -425,6 +870,9 @@ public:
       defaultConstructor_Starlink();
       getPartsStarlink();
 
+      destroy_Starlink();
+      destroy_Starlink_Body();
+      destroy_Starlink_Array();
       report("Starlink");
    }
    
@@ -489,6 +937,99 @@ private:
       assertEquals((*it)->pos->y, -160.0);
       
       assertUnit(parts.size() == 2);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Starlink
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  2 GPS Parts and 2 fragments
+    *********************************************/
+   void destroy_Starlink()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      Starlink* starlink = new Starlink(initialPosition, initialVelocity, initialAngle);
+      starlink->hasCrashed = false;
+      starlink->useRandom = false;
+      starlink->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      StarlinkArray starlinkArrayToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+      StarlinkBody starlinkBodyToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragmentsAndParts;
+
+      // exercise
+      starlink->destroy(fragmentsAndParts);
+
+      // verify
+      auto it = fragmentsAndParts.begin();
+      assertUnit(typeid(*(*it++)) == typeid(starlinkBodyToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(starlinkArrayToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(fragmentsAndParts.size() == 4);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Starlink Body
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 3 fragments
+    *********************************************/
+   void destroy_Starlink_Body()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      StarlinkBody* starlinkBody = new StarlinkBody(initialPosition, initialVelocity, initialAngle);
+      starlinkBody->hasCrashed = false;
+      starlinkBody->useRandom = false;
+      starlinkBody->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      starlinkBody->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 3);
+   }  // teardown
+
+   /*********************************************
+    * name:    DESTROY Starlink Array
+    * input:   Pos1(0.0, 0.0), Vel1(0.0, 0.0), Angle1(0.0)
+    * output:  0 GPS Parts and 3 fragments
+    *********************************************/
+   void destroy_Starlink_Array()
+   {
+      // setup
+      StubPosition00* initialPosition = new StubPosition00();
+      DummyVelocity* initialVelocity = new DummyVelocity();
+      DummyAngle* initialAngle = new DummyAngle();
+      StarlinkArray* starlinkArray = new StarlinkArray(initialPosition, initialVelocity, initialAngle);
+      starlinkArray->hasCrashed = false;
+      starlinkArray->useRandom = false;
+      starlinkArray->radius = 0;
+      Fragment fragmentToCompare(new StubPosition00(), new DummyVelocity(), new DummyAngle());
+
+      list<Orbital*> fragments;
+
+      // exercise
+      starlinkArray->destroy(fragments);
+
+      // verify
+      auto it = fragments.begin();
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it++)) == typeid(fragmentToCompare));
+      assertUnit(typeid(*(*it  )) == typeid(fragmentToCompare));
+      assertUnit(fragments.size() == 3);
    }  // teardown
 };
 
